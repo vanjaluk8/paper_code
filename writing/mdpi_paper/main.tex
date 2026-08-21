@@ -1,0 +1,158 @@
+% =============================================================================
+%  Decentralised Adapter-Based LLM Systems — A Systematic Literature Review
+%  MDPI AI journal — submission draft
+% =============================================================================
+
+\documentclass[ai,systematicreview,submit,pdftex,oneauthor]{Definitions/mdpi}
+
+%=================================================================
+% MDPI internal commands — do not modify
+\firstpage{1}
+\makeatletter
+\setcounter{page}{\@firstpage}
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2026}
+\copyrightyear{2026}
+\datereceived{ }
+\daterevised{ }
+\dateaccepted{ }
+\datepublished{ }
+
+\usepackage{rotating}
+%=================================================================
+% Author ORCID
+\newcommand{\orcidauthorA}{0009-0009-8142-6890}
+
+%=================================================================
+% Title (sentence case for journal submission)
+\Title{Decentralised Adapter-Based LLM Inference: A Systematic Literature
+Review---Mapping the Research Gap at the Intersection of PEFT, P2P Systems,
+and Multi-Task Serving}
+
+% Authors
+\Author{Vanja Luk $^{1,}$*\orcidA{}}
+
+\AuthorNames{Vanja Luk}
+
+% Affiliation
+\address{%
+$^{1}$ \quad Faculty of Informatics and Digital Technologies, University of
+Rijeka, 51000 Rijeka, Croatia; vluk@uniri.hr}
+
+\corres{Correspondence: vluk@uniri.hr}
+
+%=================================================================
+% Abstract — single paragraph, no blank lines, max ~200 words
+\abstract{Multi-task large language model inference on resource-constrained
+hardware faces a fundamental tension: full fine-tuning is prohibitively
+expensive, yet existing parameter-efficient serving systems all assume
+centralised orchestration. This systematic literature review investigates
+whether a peer-to-peer (P2P) research direction is theoretically grounded and
+practically motivated: can lightweight, task-specific adapters be discovered,
+retrieved, composed, and served across autonomous nodes each hosting a shared
+frozen backbone without any central coordinator? Following PRISMA 2020 and
+Wohlin et al.\ snowballing guidelines, the review surveys 123 papers across
+five clusters: parameter-efficient fine-tuning, adapter composition, LLM
+inference serving, mixture-of-experts routing, and P2P and federated learning.
+The central finding is that, to the best of the author's knowledge, no
+existing system simultaneously addresses a frozen shared backbone,
+adapter-level exchange, P2P topology, decentralised discovery, multi-task
+fusion, and the absence of a central coordinator. The literature is partitioned
+into four gap quadrants---conceptual, algorithmic, systems, and empirical---each
+identifying open research questions that the reviewed literature has not yet
+addressed in an integrated manner.}
+
+% Keywords — semicolon-separated, 3–10 terms
+\keyword{parameter-efficient fine-tuning; adapters; peer-to-peer systems;
+federated learning; mixture-of-experts; multi-task serving; systematic
+literature review; LoRA; decentralised inference}
+
+%=================================================================
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+%=================================================================
+% Main sections
+%=================================================================
+\input{sections/01_introduction}
+\input{sections/02_background}
+\input{sections/03_methodology}
+\input{sections/04_peft}
+\input{sections/05_adapter_composition}
+\input{sections/06_inference_systems}
+\input{sections/07_moe_routing}
+\input{sections/08_p2p_federated}
+\input{sections/09_synthesis_gap}
+\input{sections/11_conclusion}
+
+%=================================================================
+% Bibliography
+%=================================================================
+% \bibliographystyle is already set by mdpi.cls (numbered style, line 405)
+% -- do NOT issue it again here, or the .aux gets duplicate \bibstyle and
+%    BibTeX fails with "Illegal, another \bibstyle command".
+\bibliography{bibliography}
+
+%=================================================================
+% Appendices
+%=================================================================
+\appendixtitles{yes}
+\appendixstart
+\appendix
+\input{sections/12_appendix}
+
+%=================================================================
+% MDPI end-matter
+%=================================================================
+\authorcontributions{The author declares sole responsibility for all aspects
+of this work: conceptualisation, methodology, literature search and screening,
+data extraction, analysis, writing, and reviewing.}
+
+\funding{This research received no external funding.}
+
+\institutionalreview{Not applicable.}
+
+\informedconsent{Not applicable.}
+
+\dataavailability{No new data were created. The systematic review protocol
+and extracted data tables are available from the author upon reasonable
+request.}
+
+% PRISMA 2020 checklist provided as Supplementary Material (see note below)
+\supplementary{The following supporting information can be downloaded at:
+https://www.mdpi.com/article/10.3390/ai/xxxx/s1: the completed PRISMA 2020
+27-item checklist for this systematic review.}
+
+\conflictsofinterest{The author declares no conflicts of interest.}
+
+\abbreviations{Abbreviations}{
+The following abbreviations are used in this manuscript:\\
+\noindent
+\begin{tabular}{@{}ll}
+PEFT  & Parameter-Efficient Fine-Tuning \\
+LoRA  & Low-Rank Adaptation \\
+P2P   & Peer-to-Peer \\
+DHT   & Distributed Hash Table \\
+MoE   & Mixture-of-Experts \\
+FL    & Federated Learning \\
+PRISMA & Preferred Reporting Items for Systematic Reviews and Meta-Analyses \\
+SLR   & Systematic Literature Review \\
+RQ    & Research Question \\
+SQ    & Sub-Question \\
+NLP   & Natural Language Processing \\
+LLM   & Large Language Model \\
+HBM   & High-Bandwidth Memory \\
+API   & Application Programming Interface \\
+FFN   & Feed-Forward Network \\
+MHA   & Multi-Head Attention \\
+SVD   & Singular Value Decomposition \\
+IID   & Independent and Identically Distributed \\
+DP    & Differential Privacy \\
+\end{tabular}
+}
+
+\end{document}

@@ -1,0 +1,191 @@
+UNCITED PAPERS — EXPLANATION LOG
+=================================
+Generated: 2026-05-29
+
+Papers in bibliography.bib that are NOT cited in any thesis section file.
+Each entry explains why the paper was not cited.
+
+Total bib entries: 136
+Unique citation keys used in sections: ~114
+Uncited entries: 27
+
+---
+
+AbdullahLlama2025
+  Title: Evolution of Meta's Llama Models and Parameter-Efficient Fine-Tuning of LLMs
+  Reason: Survey article covering ground already comprehensively addressed by Han2024 (PEFT survey,
+  TMLR) and DingNature2023 (delta tuning survey, Nature). The Llama-specific framing adds no
+  incremental content relevant to the adapter composition or P2P thesis direction.
+
+BaiFedHetero2024
+  Title: Federated Fine-Tuning of LLMs under Heterogeneous Tasks and Client Resources
+  Reason: Content subsumed by ChoHeteroLoRA2024 and WangFLoRA2024, which are the canonical
+  references for federated LoRA under heterogeneous client resources in Section 7. Both cover
+  the heterogeneous rank assignment and heterogeneous device problem more thoroughly.
+
+BaziotisMultilingual2022
+  Title: Multilingual Machine Translation with Hyper-Adapters
+  Reason: Cross-lingual adapter composition is covered by PfeifferMADX2020 (MAD-X) and
+  AnsellMADG2021 (MAD-G), which are the established references for this direction. The
+  multilingual MT framing is tangential to the NL-to-SQL P2P serving focus of the thesis.
+
+ByunFedRank2024
+  Title: Towards Federated Low-Rank Adaptation of Language Models with Rank Heterogeneity
+  Reason: Directly overlaps with WangFLoRA2024 (FLoRA) and ChoHeteroLoRA2024, both of which
+  address rank heterogeneity in federated LoRA and are cited in Section 7. Citing all three
+  would be redundant without meaningfully differentiating the contributions.
+
+CacciaMultiHead2022
+  Title: Multi-Head Adapter Routing for Cross-Task Generalization
+  Reason: Relevant to adapter routing, but its multi-head composition approach is covered
+  at the conceptual level by the MixLoRA (LiMixLoRA2024) and MOELoRA (LiuMOELoRA2023)
+  discussions in Section 8, which represent more recent and more comprehensive treatments
+  of the head-level routing problem.
+
+ErmisMemory2022
+  Title: Memory Efficient Continual Learning with Transformers
+  Reason: Addresses continual learning with adapter modules, a direction tangential to the
+  P2P adapter exchange focus of this thesis. The continual learning problem (avoiding
+  catastrophic forgetting across sequential tasks) differs from the distributed adapter
+  discovery and composition problem addressed here.
+
+FlinkLoRASwitch2025
+  Title: FedLoRASwitch — Efficient Federated Learning via LoRA Expert Hotswapping and Routing
+  Reason: Subsumed by the broader coverage of federated LoRA systems in Section 7, which
+  already cites more established references for LoRA-based FL routing (ZhaoFedMCP2024,
+  BianFedALT2025, SinghalFedEx2025). The expert-hotswapping framing does not add a distinct
+  contribution relevant to the P2P discovery or composition gaps.
+
+FriedmanSingleDataset2021
+  Title: Single-dataset Experts for Multi-dataset Question Answering
+  Reason: Studies per-dataset adapter specialisation in a centralised multi-task setting.
+  The paper's findings about single-dataset expert quality are subsumed by the broader
+  adapter composition literature (LoraHub, AdapterFusion) and do not contribute to
+  the P2P or federated dimensions of the thesis.
+
+Gabrielsson2024
+  Title: Compress then Serve: Serving Thousands of LoRA Adapters with Little Memory
+  Reason: Addresses LoRA compression for serving (quantisation + pruning of adapter
+  weights). This direction is covered contextually in Section 6 via CaraServe
+  (Li2024CaraServe) and EdgeLoRA (Shen2025EdgeLoRA), which are the canonical references
+  for rank-aware and resource-constrained adapter serving.
+
+GaoDLoRA2024
+  Title: DLoRA — Distributed Parameter-Efficient Fine-Tuning Solution for LLMs
+  Reason: Distributes LoRA fine-tuning across multiple GPUs within a single physical
+  node (multi-GPU, single-machine). This does not address the across-node P2P scenario
+  and is tangential to the inter-peer adapter exchange focus of the thesis. The paper
+  is discussed in notes but omitted from the text due to the single-node constraint.
+
+GuptaSymbiosis2025
+  Title: Symbiosis — Multi-Adapter Inference and Fine-Tuning
+  Reason: Addresses co-scheduling of multi-adapter inference and fine-tuning on a single
+  GPU cluster. Subsumed by the serving section (Section 6) which already covers
+  multi-adapter serving via WuRock2025, Sheng2024, and Li2024CaraServe. The fine-tuning
+  co-location aspect is not relevant to the P2P serving thesis.
+
+Iliakopoulou2024
+  Title: Chameleon — Adaptive Caching and Scheduling for Many-Adapter LLM Inference
+  Reason: Proposes adapter clustering by similarity for intelligent cache eviction.
+  Subsumed by NiPredictive2025 and the broader caching discussion in Section 6. The
+  adapter similarity concept is independently covered in the thesis via capability
+  embeddings (★R1), making separate citation redundant.
+
+Jaiswal2025
+  Title: (multi-tenant serving paper — MuxTune / similar)
+  Reason: Multi-tenant LLM serving paper subsumed by more widely cited references
+  in Section 6 (Sheng2024, Li2024CaraServe, WuRock2025). The specific optimisation
+  technique does not introduce concepts beyond those already covered.
+
+KimClientCustomized2024
+  Title: Client-Customized Adaptation for Parameter-Efficient Federated Learning
+  Reason: Addresses personalised federated adapter training with client-specific
+  modifications. Subsumed by CaiFedAdapter2023 (FedAdapter, two-level decomposition)
+  and YanFeDeRA2024 (FeDeRA, personalised adaptation), both cited in Section 7.
+
+KuangFederatedScope2023
+  Title: FederatedScope-LLM — A Comprehensive Package for Fine-Tuning LLMs in FL
+  Reason: Framework/tooling paper for federated PEFT. The system design is covered
+  contextually in the federated PEFT discussion (Section 7); the framework itself
+  is not a primary research contribution and citing it would add no analytical value.
+
+LinFedNLP2022
+  Title: FedNLP — Benchmarking Federated Learning Methods for NLP Tasks
+  Reason: Benchmark paper for federated NLP. While valuable as a reference benchmark,
+  the thesis's federated PEFT discussion focuses on adapter-specific aggregation methods
+  rather than evaluation benchmarks. The FedNLP benchmark is not used in the thesis PoC.
+
+LiuBeyond2023
+  Title: Beyond Fine-Tuning — Efficient Fed-Tuning for Mobile/Web Users
+  Reason: Addresses efficient federated fine-tuning for mobile and web clients, subsumed
+  by the broader federation section (Section 7) which covers the mobile/heterogeneous
+  device challenge via WangGlobecom2024 and GaoINFOCOM2025.
+
+LuSEA2026
+  Title: SEA — Hierarchically Searching Efficient Adapters for Pre-Trained Models
+  Reason: Proposes automated adapter architecture search within a single model. This
+  direction (neural architecture search for PEFT) is tangential to the composition and
+  P2P exchange focus of the thesis. No relevant gap or contribution is motivated by
+  this paper.
+
+Mahabadi2021
+  Title: Parameter-Efficient Multi-task Fine-Tuning via Shared Hypernetworks
+  Reason: This is a distinct entry from MahabadiCompacter2021 (Compacter) covering
+  shared hypernetwork generation for multi-task adapters. The hypernetwork composition
+  direction is covered via MahabadiCompacter2021 and ZhangHyperPELT2022 in Section 5.
+  Citing both Mahabadi entries would be redundant.
+
+SuiFedED2020
+  Title: FedED — Federated Learning via Ensemble Distillation for Medical Relation Extraction
+  Reason: Published in 2020 (pre-2021 year cutoff for snowballed records). Entered
+  via the pre-validated corpus. The medical federated learning content is covered by
+  more recent DP-FedLoRA papers (XuDPFedLoRA2025) that explicitly address clinical NLP.
+
+WuFedBiOT2024
+  Title: FedBiOT — LLM Local Fine-Tuning in Federated Learning without Full Model
+  Reason: The PDF was inaccessible during the review phase (PDF rendering failure noted
+  in federated-PEFT notes README). The content could not be verified, and citing
+  unread material would violate the thesis's quality assessment standards.
+
+WuFedSurvey2025
+  Title: A Survey on Federated Fine-Tuning of Large Language Models
+  Reason: Comprehensive survey of FL+LLM fine-tuning. Its content is subsumed by the
+  primary paper synthesis in Section 7, which cites individual papers directly rather
+  than relying on a survey. YangFedLoraSurvey2025 covers the same landscape from a
+  LoRA-specific angle; citing both surveys would be redundant.
+
+Xue2026
+  Title: MuxTune — Efficient Multi-Task LLM Fine-Tuning via Spatial-Temporal Backbone Multiplexing
+  Reason: Addresses multi-tenant multi-task fine-tuning (not inference) in a centralised
+  datacenter setting. Section 6 focuses on inference serving; multi-tenant training
+  is out of scope. Subsumed by the Punica/S-LoRA discussion.
+
+YangFedLoraSurvey2025
+  Title: Federated Low-Rank Adaptation for Foundation Models: A Survey (IJCAI 2025)
+  Reason: Survey paper covering the federated LoRA landscape. Its content is directly
+  subsumed by the individual paper synthesis in Section 7, which cites primary papers
+  rather than surveys. Citing a survey alongside the primary papers it surveys would
+  add no analytical depth.
+
+ZhangHMI2025
+  Title: HMI — Hierarchical Knowledge Management for Efficient Multi-Tenant Inference
+  Reason: Addresses multi-tenant inference with hierarchical KV-cache and adapter
+  management. Covered contextually by WuRock2025 and NiPredictive2025 in Section 6,
+  which are the canonical references for large-scale multi-tenant adapter management.
+
+ZhangITIF2023
+  Title: ITIF — Integrated Transformers Inference Framework for Multiple Tenants on GPU
+  Reason: Early multi-tenant GPU inference framework, predating the LoRA-specific
+  serving systems. Subsumed by Chen2023Punica and Sheng2024, which are the canonical
+  references for multi-tenant LoRA inference and more comprehensively cover the
+  technical problem.
+
+ZhaoPrototype2023
+  Title: Prototype-based HyperAdapter for Sample-Efficient Multi-Task Tuning
+  Reason: Proposes prototype-conditioned hypernetwork adapter generation for multi-task
+  learning. The hypernetwork adapter generation direction is covered by MahabadiCompacter2021
+  (Compacter) and ZhangHyperPELT2022 (HyperPELT) in Section 5. The prototype conditioning
+  mechanism is not directly relevant to the P2P discovery or composition gaps.
+
+---
+END OF UNCITED PAPERS LOG

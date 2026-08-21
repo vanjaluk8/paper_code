@@ -1,0 +1,471 @@
+% =============================================================================
+%  Appendix A — Undermind Group Search Prompts
+% =============================================================================
+
+\section{Undermind Group Search Prompts}
+\label{app:undermind}
+
+The following six prompts were submitted verbatim to Undermind (undermind.ai) to
+retrieve candidate papers for Groups G1--G6 of the pre-validated corpus described in
+Section~\ref{sec:methodology:corpora}. Undermind was used exclusively for candidate
+\textit{retrieval}; all inclusion and exclusion decisions were made by the author
+through manual assessment of each returned record. The prompts are reproduced here
+in their entirety for transparency and reproducibility.
+
+% -----------------------------------------------------------------------
+\subsection*{Group 1 — Advanced Adapter Architectures \& PEFT Methods}
+\label{app:undermind:g1}
+
+\begin{quote}\small
+I am researching parameter-efficient fine-tuning (PEFT) methods for large language
+models, building on the foundational work of Houlsby et al.\ (2019) on bottleneck
+adapters and Hu et al.\ (2022) on LoRA (Low-Rank Adaptation). I am looking for
+papers that extend, improve, or propose alternatives to these methods, including but
+not limited to: QLoRA (quantized LoRA), DoRA, IA\textsuperscript{3}, prefix tuning,
+prompt tuning, BitFit, sparse adapters, hypernetwork-based adapters (HyperFormer),
+adapter pruning, rank-adaptive LoRA, VeRA, and methods that combine adapters with
+quantization or knowledge distillation. I am specifically interested in works that
+analyze the expressiveness, rank selection, or composability of low-rank and bottleneck
+adapter modules in transformer architectures (encoder-only, decoder-only, and
+encoder-decoder). Please retrieve the most cited and most recent SOTA papers in this
+space, including survey papers beyond Han et al.\ (2024, TMLR).
+\end{quote}
+
+% -----------------------------------------------------------------------
+\subsection*{Group 2 — Multi-Task Learning \& Adapter Composition}
+\label{app:undermind:g2}
+
+\begin{quote}\small
+I am researching multi-task learning with adapter modules and task composition
+techniques for transformer-based language models, building on AdapterFusion (Pfeiffer
+et al., 2021, EACL) and AdapterHub (Pfeiffer et al., 2020, EMNLP). I want to find
+papers on: non-destructive composition of multiple task-specific adapters, adapter
+stacking and fusion strategies, hypernetwork-based multi-task adapter generation
+(e.g., HyperFormer, HyperFormer++), multi-task adapter routing, knowledge transfer
+between adapters, continual learning with adapters, task arithmetic and model merging
+(e.g., TIES-merging, DARE), and zero-shot or few-shot generalization via adapter
+composition. I am also interested in works comparing centralized multi-task
+fine-tuning with modular adapter-based multi-task approaches. Please retrieve the
+most relevant and highly cited SOTA papers, including recent 2023--2025 works.
+\end{quote}
+
+% -----------------------------------------------------------------------
+\subsection*{Group 3 — P2P Networks \& Decentralised Systems for ML}
+\label{app:undermind:g3}
+
+\begin{quote}\small
+I am researching peer-to-peer (P2P) and decentralized distributed systems applied to
+machine learning and deep learning, building on: Petals (Borzunov et al., 2022/2023,
+ACL/NeurIPS) for collaborative LLM inference, \v{S}ajina et al.\ (2024, Future
+Generation Computer Systems) on multi-task P2P learning with encoder-only
+transformers, and \v{S}ajina (2021, University of Rijeka doctoral thesis) on
+peer-to-peer deep learning. I am looking for papers on: decentralized model training
+and inference over P2P overlays, gossip-based and DHT-based protocols for model or
+parameter sharing, capability-aware peer discovery in ML networks, decentralized
+federated learning without a central server, split inference across heterogeneous edge
+nodes, bandwidth-aware and latency-aware distributed inference, and decentralized
+model marketplaces. Please also include foundational P2P systems papers (Chord,
+Kademlia, BitTorrent) that are relevant to designing distributed ML systems. Retrieve
+the most relevant SOTA papers from 2018--2025.
+\end{quote}
+
+% -----------------------------------------------------------------------
+\subsection*{Group 4 — Efficient Inference \& Multi-Adapter Serving}
+\label{app:undermind:g4}
+
+\begin{quote}\small
+I am researching efficient inference systems for large language models with a focus
+on serving multiple adapters (LoRA or bottleneck) simultaneously over a single frozen
+base model, building on S-LoRA (Sheng et al., 2024, MLSys) and Petals (Borzunov
+et al., 2023). I want to find papers on: multi-tenant LLM serving with adapter
+multiplexing, dynamic adapter loading and swapping at inference time, memory-efficient
+batching strategies for adapter inference (e.g., unified paging, continuous batching),
+KV cache management under adapter heterogeneity, model serving on constrained hardware
+(edge devices, commodity GPUs), speculative decoding with adapters, pipeline
+parallelism for adapter-augmented models, and systems like vLLM, Punica, AlpaServe,
+FlexGen, and EdgeServe. I am also interested in work on adapter caching, prefetching
+strategies, and latency-accuracy tradeoffs in multi-adapter inference. Please retrieve
+the most relevant and most cited SOTA papers from 2020--2025, prioritizing MLSys,
+OSDI, EuroSys, SOSP, and NSDI venues.
+\end{quote}
+
+% -----------------------------------------------------------------------
+\subsection*{Group 5 — Routing \& Mixture-of-Experts}
+\label{app:undermind:g5}
+
+\begin{quote}\small
+I am researching routing mechanisms and Mixture-of-Experts (MoE) architectures
+applied to transformer models, with a focus on their connection to adapter-based and
+modular multi-task learning. My starting point includes AdapterFusion (Pfeiffer et
+al., 2021) and S-LoRA (Sheng et al., 2024). I want to find papers on: sparse MoE
+routing in transformers (Switch Transformer, GShard, GLaM, Mixtral), expert choice
+routing and load balancing strategies (Zhou et al., 2022), soft routing and
+differentiable gating mechanisms, Mixture-of-Adapters (MoA) and MoE applied
+specifically to PEFT/LoRA modules (e.g., MoLoRA, MixLoRA, Adapter-X by Li et al.\
+2024), task-conditioned adapter routing, learned routing without task identity, and
+routing in decentralized or federated settings. I am also interested in theoretical
+analyses of routing stability, collapse, and capacity. Please retrieve the most
+relevant SOTA papers from 2020--2025, including both NLP and systems-focused works.
+\end{quote}
+
+% -----------------------------------------------------------------------
+\subsection*{Group 6 — Federated Learning \& Privacy-Preserving Adaptation}
+\label{app:undermind:g6}
+
+\begin{quote}\small
+I am researching federated learning with a focus on privacy-preserving fine-tuning and
+adapter-based personalization for transformer models. I am looking for papers that
+connect to the proposed research on decentralized adapter systems. Starting from the general
+federated learning literature (FedAvg by McMahan et al., 2017; FedProx by Li et al.,
+2020), I want papers on: federated fine-tuning of large language models using LoRA or
+adapter modules (e.g., FedPEFT, FedAdapter), personalized federated learning with
+heterogeneous local models (pFedMMA, per-FedAvg), non-IID data distributions and
+their effect on adapter convergence, differential privacy in federated adapter
+training, cross-silo vs.\ cross-device federated learning for NLP, medical and
+clinical federated learning benchmarks (FLamby, MIMIC), communication-efficient
+federated learning with sparse or compressed updates, and split learning with adapter
+modules. Please retrieve the most relevant and most cited SOTA papers from 2017--2025,
+prioritizing works that explicitly address heterogeneous data or privacy constraints in
+adapter or PEFT contexts.
+\end{quote}
+
+% =============================================================================
+%  Appendix B — Manual Database Search Queries
+% =============================================================================
+
+\section{Manual Database Search Queries}
+\label{app:db_queries}
+
+Scopus (Elsevier) and Web of Science (Clarivate) were queried manually as part of the
+snowballing and enrichment stages described in Section~\ref{sec:methodology:snowballing}.
+Ten advanced search queries were executed on each platform. In Scopus, results were
+filtered to journal articles and conference proceedings (\texttt{SRCTYPE("j" OR "p")}).
+In WoS, Topic-field (\texttt{TS=}) queries were used with equivalent year filters.
+The WoS Starter API was subsequently used in a \textit{post-hoc enrichment role} only
+--- to append WoS accession numbers and citation counts to already-retrieved records ---
+and was not a source of new candidates. All raw result sets from both platforms are
+archived in the project repository (\texttt{exports/scopus/} and \texttt{exports/wos/}),
+available at the public GitHub repository shared with this submission.
+
+% -----------------------------------------------------------------------
+\subsection*{Scopus Advanced Search Queries}
+\label{app:db_queries:scopus}
+
+\paragraph{Q1 — Core Adapter-Based NLP.}
+\begin{verbatim}
+TITLE-ABS-KEY(("adapter" OR "adapters" OR "LoRA" OR "low-rank")
+AND ("parameter-efficient" OR "PEFT" OR "parameter efficient")
+AND ("NLP" OR "natural language processing" OR "transformer"))
+AND SRCTYPE("j" OR "p")
+AND PUBYEAR > 2018
+\end{verbatim}
+
+\paragraph{Q2 — Multi-Task Learning with Transformers.}
+\begin{verbatim}
+TITLE-ABS-KEY((("adapter*" OR "LoRA" OR "parameter-efficient fine-tuning")
+AND ("multi-task" OR "multitask" OR "multi-adapter")
+AND ("inference" OR "serving" OR "deployment" OR "edge")))
+AND SRCTYPE(j OR p)
+AND PUBYEAR > 2020
+AND NOT TITLE-ABS-KEY(("medical" OR "healthcare" OR "clinical"
+    OR "sentiment" OR "recommendation"))
+\end{verbatim}
+
+\paragraph{Q3 — Peer-to-Peer \& Distributed NLP.}
+\begin{verbatim}
+TITLE-ABS-KEY(("peer-to-peer" OR "P2P" OR "decentralized" OR "federated")
+AND ("learning" OR "training" OR "inference")
+AND ("NLP" OR "natural language" OR "machine learning" OR "deep learning"))
+AND SRCTYPE("j" OR "p")
+AND PUBYEAR > 2017
+\end{verbatim}
+
+\paragraph{Q4 — Adapter Fusion \& Dynamic Routing.}
+\begin{verbatim}
+TITLE-ABS-KEY(("adapter" OR "adapters")
+AND ("fusion" OR "routing" OR "dynamic" OR "mixture-of-experts"
+    OR "MoE" OR "gating"))
+AND SRCTYPE("j" OR "p")
+AND PUBYEAR > 2020
+\end{verbatim}
+
+\paragraph{Q5 — Parameter-Efficient Multi-Task Transformers.}
+\begin{verbatim}
+TITLE-ABS-KEY(("parameter-efficient" OR "PEFT" OR "efficient adaptation")
+AND ("multi-task" OR "multitask")
+AND ("transformer" OR "pre-trained models"))
+AND SRCTYPE("j" OR "p")
+AND PUBYEAR > 2019
+\end{verbatim}
+
+\paragraph{Q6 — Modular Inference \& Task Switching.}
+\begin{verbatim}
+TITLE-ABS-KEY(("modular" OR "modularity")
+AND ("inference" OR "inference time")
+AND ("adapter" OR "task-specific" OR "lightweight modules"))
+AND SRCTYPE("j" OR "p")
+AND PUBYEAR > 2018
+\end{verbatim}
+
+\paragraph{Q7 — Agent-Based Collaborative Learning.}
+\begin{verbatim}
+TITLE-ABS-KEY(("agent" OR "agents" OR "node" OR "nodes")
+AND ("collaborative" OR "collaboration" OR "decentralized")
+AND ("deep learning" OR "neural network" OR "model training"))
+AND SRCTYPE("j" OR "p")
+AND PUBYEAR > 2017
+\end{verbatim}
+
+\paragraph{Q8 — NL-to-SQL with Adapters.}
+\begin{verbatim}
+TITLE-ABS-KEY(("NL-to-SQL" OR "semantic parsing"
+    OR "natural language to SQL")
+AND ("adapter" OR "fine-tun*" OR "parameter-efficient" OR "efficient"))
+AND SRCTYPE("j" OR "p")
+AND PUBYEAR > 2019
+\end{verbatim}
+
+\paragraph{Q9 — Sequence Labelling \& Token Classification with PEFT.}
+\begin{verbatim}
+TITLE-ABS-KEY(("token classification" OR "NER"
+    OR "named entity recognition" OR "sequence labeling")
+AND ("adapter" OR "LoRA" OR "parameter-efficient" OR "PEFT"))
+AND SRCTYPE("j" OR "p")
+AND PUBYEAR > 2019
+\end{verbatim}
+
+\paragraph{Q10 — Frozen Base Model Paradigm.}
+\begin{verbatim}
+TITLE-ABS-KEY(("frozen" OR "freeze" OR "frozen base")
+AND ("adapter" OR "efficient" OR "modular")
+AND ("transfer learning" OR "fine-tun*"))
+AND SRCTYPE("j" OR "p")
+AND PUBYEAR > 2018
+\end{verbatim}
+
+% -----------------------------------------------------------------------
+\subsection*{Web of Science Advanced Search Queries}
+\label{app:db_queries:wos}
+
+\paragraph{Q1 — Core Adapter-Based NLP.}
+\begin{verbatim}
+TS=(("adapter" OR "adapters" OR "LoRA" OR "low-rank")
+AND ("parameter-efficient" OR "PEFT" OR "parameter efficient")
+AND ("NLP" OR "natural language processing" OR "transformer"))
+AND PY >= 2018
+\end{verbatim}
+
+\paragraph{Q2 — Multi-Task Adapter Inference.}
+\begin{verbatim}
+TS=((("adapter*" OR "LoRA" OR "PEFT")
+AND ("multi-task" OR "multitask")
+AND ("inference" OR "serving" OR "edge" OR "distributed")))
+AND PY >= 2021
+AND NOT TS=(("medical" OR "healthcare" OR "sentiment"))
+\end{verbatim}
+
+\paragraph{Q3 — Peer-to-Peer Distributed Learning.}
+\begin{verbatim}
+TS=(("peer-to-peer" OR "P2P" OR "decentralized" OR "federated")
+AND ("learning" OR "training" OR "inference")
+AND ("NLP" OR "natural language" OR "machine learning"
+    OR "neural network"))
+AND PY >= 2017
+\end{verbatim}
+
+\paragraph{Q4 — Adapter Fusion \& Routing Mechanisms.}
+\begin{verbatim}
+TS=(("adapter" OR "adapters")
+AND ("fusion" OR "dynamic routing" OR "mixture-of-experts"
+    OR "MoE" OR "gating"))
+AND PY >= 2020
+\end{verbatim}
+
+\paragraph{Q5 — Modular Deep Learning.}
+\begin{verbatim}
+TS=(("modular" OR "modularity")
+AND ("neural" OR "transformer" OR "deep learning")
+AND ("inference" OR "task-specific" OR "lightweight"))
+AND PY >= 2018
+\end{verbatim}
+
+\paragraph{Q6 — Agent-Based Collaborative ML.}
+\begin{verbatim}
+TS=(("agent" OR "agents" OR "distributed node*")
+AND ("collaborative" OR "collaboration" OR "decentralized"
+    OR "gossip")
+AND ("deep learning" OR "machine learning"))
+AND PY >= 2017
+\end{verbatim}
+
+\paragraph{Q7 — Memory-Efficient Multi-Task NLP.}
+\begin{verbatim}
+TS=(("multi-task" OR "multitask")
+AND ("memory-efficient" OR "memory efficient"
+    OR "parameter-efficient" OR "computational efficient")
+AND ("NLP" OR "natural language" OR "transformer"))
+AND PY >= 2018
+\end{verbatim}
+
+\paragraph{Q8 — Transfer Learning with Task Adaptation.}
+\begin{verbatim}
+TS=(("transfer learning" OR "fine-tun*")
+AND ("adapter" OR "parameter-efficient" OR "LoRA")
+AND ("NLP" OR "text" OR "language"))
+AND PY >= 2019
+\end{verbatim}
+
+\paragraph{Q9 — Sequence Task Learning.}
+\begin{verbatim}
+TS=(("token classification" OR "NER" OR "named entity"
+    OR "sequence labeling")
+AND ("adapter" OR "fine-tun*" OR "efficient" OR "modular"))
+AND PY >= 2019
+\end{verbatim}
+
+\paragraph{Q10 — Distributed Inference.}
+\begin{verbatim}
+TS=(("distributed" OR "decentralized")
+AND ("inference" OR "inference time")
+AND ("efficient" OR "modular" OR "lightweight"))
+AND PY >= 2018
+\end{verbatim}
+
+% =============================================================================
+%  Appendix C — Search Execution Log
+% =============================================================================
+
+\section{Search Execution Log}
+\label{app:search_log}
+
+This appendix provides a chronological account of every search activity performed
+during corpus construction, together with record counts at each stage. The purpose
+is to allow full reproduction or audit of the PRISMA flow by the reader or supervisor.
+All output files referenced below are committed to the project repository under
+\texttt{slr\_engine/snowballing/snowball\_output/}.
+
+% -----------------------------------------------------------------------
+\subsection*{C.1 — Search Timeline}
+\label{app:search_log:timeline}
+
+
+\begin{table}[H]
+\centering
+\small
+\caption{Chronological search log with input and output record counts.}
+\label{tab:search_log}
+\begin{tabularx}{\textwidth}{@{}
+  l
+  X
+  >{\raggedright}p{2.2cm}
+  >{\raggedright\arraybackslash}p{3.8cm}
+@{}}
+\toprule
+\textbf{Date} & \textbf{Activity} & \textbf{In} & \textbf{Out} \\
+\midrule
+2026-04-21 & Semantic Scholar API snowball on G0 seeds (backward + forward) &
+  9 seeds & 1\,150 raw \\
+2026-04-21 & Within-snowball deduplication (DOI + SS paper ID) &
+  1\,150 & 972 \\
+2026-04-21 & Title screening (Layer~1: year; Layer~2: keyword; Layer~3: LLM triage) &
+  972 & 162 INCL, 791 EXCL, 19 UNCERT \\
+2026-04-21 & Merge snowball INCLUDE with 352-paper pre-validated corpus (G0--G6);
+  cross-deduplication & 514 & 502 \\
+$\approx$2026-04-22 & Semantic Scholar / OpenAlex enrichment + topical-relevance filter &
+  502 & 464 kept; 32 depri.; 6 excl. \\
+$\approx$2026-04-28 & Abstract-level review (AI-assisted, human decision) &
+  464 & 214 KEEP; 338 SKIP \\
+2026-05-02  & Fulltext review queue compiled (KEEP + borderline DEFER) &
+  214 KEEP & 387 queued \\
+2026-05-08  & Forward citation snowball: Scopus (citing G0) &
+  106 raw & 74 title-screened in \\
+2026-05-08  & Forward citation snowball: Web of Science (citing G0) &
+  20 raw  & 14 title-screened in \\
+2026-05-08  & Forward snowball records added to abstract review (G\_SNOW\_F group) &
+  88 added & 12 KEEP; 76 SKIP \\
+2026-05-11  & DOI-based venue validation: Scopus (\texttt{M3\_scopus\_venue}) &
+  172 DOIs & 172 matched \\
+2026-05-11  & DOI-based venue validation: Web of Science (\texttt{M4\_wos\_venue}) &
+  125 DOIs & 125 matched \\
+2026-05-12  & Full-text reading, quality assessment, and final curation &
+  387 queued & 123 final \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% -----------------------------------------------------------------------
+\subsection*{C.2 — Automated Citation Snowballing}
+\label{app:search_log:snowball}
+
+Citation snowballing was executed programmatically on \textbf{2026-04-21} via the
+Semantic Scholar Academic Graph API, supplemented by Scopus and ACL Anthology engines,
+following the procedure of \citet{Wohlin2014}. The eight G0 seed papers were submitted
+for both backward (reference list) and forward (citing papers) retrieval. Raw API
+responses yielded \textbf{1,150 candidate records}; after deduplication by DOI and
+Semantic Scholar paper identifier, \textbf{972 unique records} entered title screening.
+Screening decisions are logged in \texttt{log\_screening\_2026-04-21.json}; per-seed
+retrieval counts are in \texttt{log\_retrieval\_2026-04-21.json}.
+
+% -----------------------------------------------------------------------
+\subsection*{C.3 — Forward Citation Snowballing (Scopus and WoS)}
+\label{app:search_log:forward}
+
+On \textbf{2026-05-08}, a supplementary forward snowball was conducted by manually
+querying the Scopus and Web of Science interfaces for papers citing any of the G0 seed
+papers. This step retrieved \textbf{106 records from Scopus}
+(\texttt{MANUAL\_FORWARD\_SCOPUS\_0805.csv}) and \textbf{20 records from WoS}
+(\texttt{M1\_forward\_wos\_2026-05-08.txt}). After manual title screening, \textbf{88
+records} (74 Scopus + 14 WoS) passed the relevance threshold and were appended to the
+abstract review pool under the source group \texttt{G\_SNOW\_F}. These 88 records
+bypassed the automated enrichment filter and entered the review directly. Of the 88,
+\textbf{12 were assigned KEEP} and 76 were SKIP at abstract review.
+
+% -----------------------------------------------------------------------
+\subsection*{C.4 — Manual Database Cross-Validation}
+\label{app:search_log:crossval}
+
+To verify completeness, the ten WoS and ten Scopus advanced queries documented in
+Appendix~B were also executed manually against the live database interfaces.
+\textbf{Scopus} returned \textbf{172 records}
+(\texttt{11\_MANUAL\_SCOPUS\_export\_1105.csv}); \textbf{Web of Science} returned
+\textbf{125 records} (\texttt{11\_MANUAL\_WOS\_export\_1105.txt}).
+
+Cross-referencing the 125 WoS records against the existing merged corpus revealed that
+all candidates were already present via the Semantic Scholar and Scopus retrieval
+pipeline; \textbf{zero new candidates} were identified from the WoS manual search.
+This outcome is consistent with the known indexing overlap between WoS and Scopus for
+the PEFT, NLP systems, and distributed ML literature: Scopus coverage is broader for
+conference proceedings from ACL, NeurIPS, ICML, and MLSys venues, which dominate this
+review's citation landscape. The WoS manual search therefore served as a \textit{coverage
+cross-check} rather than a source of new records, confirming that the Scopus-dominated
+retrieval pipeline achieved comprehensive coverage of the target literature.
+
+% -----------------------------------------------------------------------
+\subsection*{C.5 — DOI-Based Venue Verification}
+\label{app:search_log:doi}
+
+Following full-text reading, the DOIs of candidate papers were submitted in batch to
+Scopus and WoS to retrieve authoritative venue, publication year, and citation-count
+metadata. The Scopus batch returned \textbf{172 records}
+(\texttt{M3\_scopus\_venue\_validation\_2026-05-11.csv}); the WoS batch returned
+\textbf{125 records} (\texttt{M4\_wos\_venue\_validation\_2026-05-11.txt}). These
+files served exclusively as metadata enrichment sources: they appended WoS accession
+numbers and confirmed Scopus EIDs to records already in the reading pool, and were not
+used to introduce new candidates.
+
+% -----------------------------------------------------------------------
+\subsection*{C.6 — Manual PDF and Venue Check}
+\label{app:search_log:pdf}
+
+A subset of candidate papers had been initially downloaded from the arXiv preprint
+server. As a final quality step, each arXiv download was manually checked against
+Google Scholar, Semantic Scholar, and the ACL Anthology to determine whether a
+peer-reviewed published version existed. Where a published venue was identified and
+the PDF was publicly accessible, the preprint was replaced with the official published
+version and the venue metadata was updated accordingly. After this step,
+\textbf{18 papers} in the final 123-paper reading list retained an arXiv source
+(\texttt{source = ARXIV} in \texttt{13\_final\_reading\_list\_2026-05-12.csv}),
+either because no published version was found or because the accepted manuscript was
+not separately accessible. A further \textbf{4 records} have no source annotation,
+reflecting papers added from curated references whose primary retrieval provenance was
+not logged in the pipeline output files.

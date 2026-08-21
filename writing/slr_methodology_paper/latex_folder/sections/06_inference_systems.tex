@@ -1,0 +1,179 @@
+\section{Adapter-Aware Inference Systems}
+\label{sec:inference_systems}
+
+The following section examines how existing systems manage the challenge of
+serving multiple task-specific adapters efficiently over a shared frozen
+backbone. The literature reviewed here operates exclusively within a single
+administrative domain; its relevance to the research direction of this SLR
+lies in the serving and memory management primitives it establishes, and in
+the centralisation assumptions it makes that a decentralised system would
+need to overcome.
+
+\subsection{The Multi-Tenant Serving Challenge}
+\label{sec:inference_systems:intro}
+
+Deploying large language models in production requires serving many concurrent users
+efficiently. When each user or task is associated with a distinct PEFT adapter, the
+serving system must manage a \textit{population} of adapters alongside a single shared
+frozen backbone, a problem qualitatively different from single-model serving.
+Naively loading a new adapter for each request is prohibitively expensive: a modern
+GPU holds only a handful of large model weights in high-bandwidth memory (HBM) at once,
+and per-request adapter swaps incur memory transfer latency that dominates over the
+inference computation itself for short requests. The multi-tenant adapter serving
+literature addresses this challenge through techniques including unified memory
+management, batching of heterogeneous-adapter requests, CPU--GPU compute overlap, and
+tiered storage hierarchies.
+
+The foundations of efficient LLM serving were established before the adapter era.
+\citet{YuOrca2022} introduced iteration-level scheduling with selective batching, which dynamically
+combines active requests into GPU batches at each generation step, eliminating the
+padding waste of static batching and achieving up to 36.9$\times$ throughput improvement
+for single-model generation. \citet{KwonPagedAttention2023} introduced PagedAttention,
+which manages the KV-cache using a paged virtual memory abstraction, eliminating
+fragmentation and enabling memory-efficient sharing of cached KV states across requests.
+PagedAttention achieves 2--4$\times$ higher throughput compared to FasterTransformer and
+Orca at equivalent latency targets.
+These system primitives underpin most of the adapter-aware serving systems reviewed below.
+
+\subsection{GPU-Resident Multi-Tenant LoRA Serving}
+\label{sec:inference_systems:punica}
+
+\citet{Chen2023Punica} introduced Punica, the first system explicitly designed for
+multi-tenant LoRA serving on a single GPU. The key contribution is a custom CUDA kernel
+(SGMV, Segmented Gather Matrix-Vector) that concatenates LoRA computations for requests with different adapters into
+a single GPU operation, decoupling LoRA compute from the base model forward pass.
+Because LoRA adapters are defined as rank-$r$ matrix products with $r \ll d$, the
+additional per-adapter compute is small enough to be amortised across a batch of
+simultaneously active adapters. Punica achieved 12$\times$ higher throughput compared to state-of-the-art LLM serving
+systems with only 2ms additional latency per token, establishing the technical
+feasibility of multi-tenant LoRA serving on shared GPU infrastructure.
+
+The central limitation of Punica is that all adapters must fit simultaneously in GPU HBM.
+For a system serving thousands of tasks, this constraint is immediately prohibitive:
+adapter libraries for large-scale deployments require orders of magnitude more memory
+than any single GPU can accommodate.
+
+\citet{Sheng2024} addressed the GPU capacity constraint with S-LoRA, a system that
+stores adapter weights in a unified CPU--GPU memory pool and dynamically pages adapter
+weights between CPU and GPU memory as requests arrive and depart. S-LoRA introduced
+two key mechanisms: \textit{Unified Paging}, which maintains a unified memory pool that co-manages both adapter weights of
+heterogeneous ranks and KV cache tensors with varying sequence lengths, enabling
+fine-grained paged allocation for both simultaneously, and a \textit{stateless scheduler} that selects which adapters to
+prefetch into GPU memory based on request queue depth and adapter popularity. S-LoRA
+scales to serve over 2,000 distinct LoRA adapters concurrently on a single A100 GPU
+with near-zero switching overhead, achieving 1.5--4$\times$ higher throughput than
+adapter-unaware baselines at the same GPU utilisation, depending on workload
+characteristics \citep{Sheng2024}.
+
+S-LoRA's centralised scheduling policy and unified memory management architecture support
+thousands of concurrent adapters but rely on a single administrative domain: all GPUs,
+CPU memory, and the adapter catalogue are controlled by one provider. This centralisation
+is fundamentally incompatible with P2P infrastructure, where adapter discovery involves
+a distributed lookup, and where adapter weights may be spread across autonomous peer
+nodes with internet-scale latency. This limitation identifies the need for DHT-based
+discovery and a P2P exchange framework.
+
+Among centralised serving systems, S-LoRA's architecture is the closest structural analogue to what a decentralised setting would require. A conceptual parallel exists between its Unified Paging hierarchy (GPU HBM - CPU DRAM) and a P2P setting where the secondary tier would be remote peer storage rather than local CPU memory. Whether this analogy holds under real network latency — where bandwidth is variable and prefetching decisions must account for peer churn — is an open question that S-LoRA's design does not address.
+
+\subsection{CPU-Assisted and Rank-Aware Serving}
+\label{sec:inference_systems:cpu}
+
+\citet{Li2024CaraServe} proposed CaraServe, which augments S-LoRA by offloading LoRA
+computations to CPU cores rather than merely using the CPU as slow memory. Because LoRA
+adapter matrices are small (a rank-4 adapter for a hidden dimension 4096 occupies only
+$2 \times 4 \times 4096 \times 4 \approx 256$~KB per layer), their matrix products can
+be computed efficiently on CPU while the GPU processes the base model forward pass.
+CaraServe early-starts adapter prefilling on CPU while adapter weights are concurrently
+transferred to GPU, switching to GPU execution once loading completes, improving
+average request serving latency by up to 1.4$\times$ and achieving up to 99\% SLO
+attainment. The rank-aware placement policy: high-rank adapters remain on GPU,
+low-rank adapters are computed on CPU, provides a template for hardware-aware adapter
+placement in heterogeneous P2P nodes, where different peers may have different compute
+capabilities.
+
+\citet{LiToppings2025} proposed Toppings, a system that identifies that under continuous
+batching, loading a newly requested adapter to GPU interrupts the ongoing decoding of all
+inflight queries. Toppings resolves this via a pipeline loading scheme that simultaneously
+coordinates CPU prefilling, GPU transfer, and ongoing decoding, improving average request
+latency by up to 1.7$\times$ and achieving 99\% SLO attainment.
+
+\subsection{Serverless and Tiered Storage Serving}
+\label{sec:inference_systems:serverless}
+
+Moving beyond in-process memory management, several systems extended the storage
+hierarchy to include SSD and object storage. \citet{ChenFlashServe2025} proposed
+FlashServe, a serverless LLM inference framework that tiers adapter weights across GPU
+HBM, CPU DRAM, and NVMe SSD, using a predictive prefetching policy trained on
+historical request patterns to minimise cache miss latency. \citet{FuServerlessLLM2024}
+addressed cold-start latency in serverless LLM deployments, introducing fast model
+checkpoint loading from distributed storage that achieves sub-second model initialisation.
+Both systems demonstrate the feasibility of on-demand adapter loading from persistent
+storage under real serving latency budgets.
+
+\citet{NiPredictive2025} introduced a predictive adapter prefetching system that models
+request arrival patterns using time-series forecasting to decide which adapters to
+preload into GPU memory ahead of their expected use, further reducing cache miss
+penalties under skewed request distributions.
+
+\subsection{Edge Deployment and Constrained Hardware}
+\label{sec:inference_systems:edge}
+
+A growing body of work addresses adapter serving on resource-constrained edge hardware.
+\citet{Shen2025EdgeLoRA} proposed EdgeLoRA, a multi-tenant LoRA serving system for edge
+devices (Jetson, Raspberry Pi) that combines adapter compression (quantisation and
+structured pruning) with dynamic time-sharing of GPU memory across multiple tenant
+adapters. EdgeLoRA achieves up to 70\% memory savings compared to uncompressed loading
+while maintaining within-2\% accuracy on representative NLP tasks.
+
+\citet{CaiEdgeLLM2024} introduced a collaborative edge--cloud LLM inference framework
+in which edge devices handle lightweight adapter-augmented forward passes for latency-
+sensitive requests while offloading full-model computation to cloud servers for
+accuracy-critical queries. \citet{ZhangEdgeShard2025} extended edge deployment to
+pipeline-parallel sharding: the transformer layers are distributed across a chain of
+edge devices, each holding a subset of layers and their associated adapters.
+
+\subsection{Distributed and Collaborative Inference}
+\label{sec:inference_systems:distributed}
+
+\citet{Borzunov2023} introduced Petals, a collaborative inference system for large
+language models in which geographically distributed volunteers contribute GPU
+resources to host contiguous subsets (shards) of transformer layers, with possible overlap for redundancy. Users run the
+embedding and final projection layers locally and route activations through the
+volunteer network for mid-stack processing. Petals demonstrated that sub-cloud hardware
+can collectively serve models that no single participant could host, achieving
+throughput sufficient for interactive generation despite commodity network latencies.
+Petals is the closest prior work to the P2P inference direction examined in this review,
+but it does not incorporate per-task adapter modules: all participating nodes serve
+identical backbone layers without task specialisation.
+
+\citet{HuDistributed2022} addressed the bandwidth cost of split inference, proposing
+adapter-based bottleneck compression for split-computing architectures in which only
+a compressed representation is transmitted between device tiers rather than the full
+intermediate activation tensor.
+
+\subsection{Advanced Multi-Adapter Orchestration}
+\label{sec:inference_systems:advanced}
+
+Several recent systems have addressed further aspects of large-scale adapter serving.
+\citet{WuRock2025} proposed Rock, a multi-adapter serving system for multimodal LLMs
+that coordinates thousands of domain-specific adapters across a GPU cluster using a
+centralised orchestration layer. \citet{ZhuCannikin2025} introduced Cannikin, which
+eliminates straggler effects in multi-LoRA batched inference by decoupling the prefill
+and decode phases and routing them to separate GPU resources. \citet{Shi2025AuLoRA}
+proposed AuLoRA, which extends unified paging to fine-grained layer-level adapter
+loading, enabling sub-adapter granularity in memory management.
+
+Across these systems, a consistent architectural pattern emerges: the adapter weight is
+treated as the atom of resource management, and system optimisations operate at the
+granularity of individual adapter loading, computation, and eviction events. This
+design principle transfers directly to a P2P exchange architecture, where the adapter is also
+the atom of network transfer, storage, and composition.
+
+\subsection{Positioning against the Decentralised Setting}
+\label{sec:inference_systems:gap}
+
+The existing serving literature addresses the multi-tenant inference problem with considerable technical depth — but it leaves one fundamental question unanswered: where does the adapter catalogue come from, and who controls it? Every system reviewed in this chapter inherits its adapter collection from a centralised upstream process that is never designed, only assumed.
+Translating this model to a P2P setting exposes four open problems for which the serving literature provides no tools: how to discover which peers hold relevant adapters without a central registry; how to establish trust in adapters from unknown, autonomous peers — and whether such trust is meaningful at all; how to fetch adapters under real network latency conditions where bandwidth is not guaranteed; and how to incentivise peers to contribute compute and storage without central governance.
+
+The Unified Paging concept introduced by S-LoRA is, in principle, transferable to a P2P setting — remote peer storage replaces CPU DRAM as the secondary memory tier. But that transfer only becomes meaningful once the four open problems above have been resolved.
+These four open problems define the systems-level gap analysed in Section~\ref{sec:synthesis_gap}.

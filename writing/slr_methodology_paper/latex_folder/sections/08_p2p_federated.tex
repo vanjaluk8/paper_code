@@ -1,0 +1,235 @@
+\section{Peer-to-Peer and Federated Adapter Learning}
+\label{sec:p2p_federated}
+
+This chapter examines the decentralised systems literature that provides the
+algorithmic and infrastructure foundations relevant to the research direction
+identified in this review. It covers federated learning, gossip-based
+distributed training, and P2P inference systems, asking in each case what
+these bodies of work contribute toward and what they leave open with respect
+to adapter-level decentralised serving.
+
+\subsection{Introduction}
+\label{sec:p2p_federated:intro}
+
+The serving and routing systems reviewed in
+Sections~\ref{sec:inference_systems} and \ref{sec:moe_routing} assume a single
+administrative domain or a pre-registered expert pool. This section examines
+the complementary literature on \textit{decentralised}
+learning and inference: federated learning (FL), gossip-based distributed training,
+and peer-to-peer (P2P) machine learning systems. Together, these bodies of work provide
+the distributed systems and algorithmic foundations required to extend adapter serving
+beyond a single cluster to a network of autonomous, potentially heterogeneous nodes.
+
+\subsection{Federated Learning Foundations}
+\label{sec:p2p_federated:fl_foundations}
+
+\citet{McMahan2017} introduced Federated Averaging (FedAvg), the foundational algorithm
+for learning from decentralised data without moving raw data to a central server. In
+FedAvg, a central server distributes the current global model to a subset of participating
+clients; each client performs several steps of local stochastic gradient descent on its
+private data; the resulting local model updates are communicated back to the server and
+averaged to produce the next global model. By exchanging model weights rather than raw
+gradients or data, FedAvg reduces communication cost by one to two orders of magnitude
+compared to synchronous distributed SGD, while preserving data locality.
+
+The primary challenge for FedAvg in heterogeneous deployments is the \textit{non-IID}
+problem: when client data distributions diverge, client updates point in contradictory
+directions, and naive averaging degrades towards a global model that performs poorly
+on any individual client's distribution. \citet{Li2020FedProx} proposed FedProx, which
+adds a proximal regularisation term to the client objective:
+
+\begin{equation}
+\min_{w_k} \; h_k(w_k) + \frac{\mu}{2} \|w_k - w\|^2
+\label{eq:fedprox}
+\end{equation}
+
+where $h_k$ is client $k$'s local loss, $w$ is the current global model, and $\mu > 0$
+controls the strength of the pull towards the global model. The proximal term bounds
+local drift under data heterogeneity, enabling convergence even when clients complete
+different numbers of local update steps (partial work). FedProx consistently outperforms
+FedAvg on non-IID benchmarks by 1--5 percentage points in test accuracy and is the
+reference baseline for heterogeneity-tolerant federated optimisation \citep{Li2020FedProx}.
+
+\subsection{Gossip Learning and Decentralised FL}
+\label{sec:p2p_federated:gossip}
+
+FedProx improves on FedAvg but retains two limitations: (i)~it assumes all participating nodes use 
+a uniform model architecture (homogeneous model assumption); and (ii)~the central server remains 
+a single point of failure even though client updates are more stable under heterogeneity. 
+The first limitation is particularly relevant to the decentralised setting examined in this review, 
+since a P2P exchange architecture would allow heterogeneous adapter ranks and architectures, a peer with a bottleneck adapter and one with a LoRA adapter could exchange capabilities without homogenising. 
+The second limitation motivates the fully decentralised protocols discussed in the gap analysis (Section~\ref{sec:synthesis_gap}).
+
+The centralised FL server in FedAvg and FedProx represents a single point of failure and
+a coordination bottleneck. The gossip learning literature removes this dependency by
+having peers communicate directly with randomly selected neighbours. In gossip learning,
+each node periodically samples a peer, exchanges model parameters with that peer, and
+averages the received parameters with its own local model \citep{OrmandyGossip2013}.
+
+\citet{HegeduisGossip2019} demonstrated that gossip learning matches or outperforms
+FL quality in simulation while eliminating the central aggregator. Convergence is
+faster than FL per communication round due to the direct peer-to-peer exchange,
+and the approach scales to large peer populations without
+requiring any central infrastructure. Adaptive peer selection: preferring neighbours
+with high estimated bandwidth or diverse data distributions improves convergence
+speed in heterogeneous networks.
+
+Fully decentralised FL without a server was formalised by \citet{VanhaesebrouckDCL2017},
+who analysed the convergence of gossip-based averaging for convex objectives, and by
+\citet{JiangCollab2017}, who proposed collaborative deep learning over a peer network
+with fixed communication topology. These works established that fully decentralised
+model averaging converges to the same stationary points as centralised FL under mild
+conditions on graph connectivity, providing the theoretical foundation for applying
+gossip-style aggregation to adapter weight matrices.
+
+\subsection{P2P Systems for Deep Learning}
+\label{sec:p2p_federated:p2p_dl}
+
+Beyond gossip learning, the P2P machine learning literature has addressed coordination
+of training and inference across nodes without any fixed topology or central authority.
+\citet{BellavistaDL2021} provided a systematic review of decentralised deep learning
+approaches on resource-constrained devices, classifying systems by communication
+topology (ring, mesh, gossip), aggregation strategy, and fault tolerance. \citet{WinkP2PFL2021}
+proposed a fully P2P federated learning system without any central server, demonstrating
+competitive accuracy on image classification tasks under peer churn. \citet{YeDecentralizedFL2022}
+extended decentralised FL to unreliable network conditions, introducing
+\textit{asynchronous} gossip aggregation that maintains convergence under irregular
+peer availability.
+
+\citet{Savazzi2020} addressed bandwidth-heterogeneous wireless P2P networks, proposing
+energy-aware model aggregation policies that adapt the communication pattern to link
+quality.
+
+\subsection{P2P Transformer Inference and the MT-EF Architecture}
+\label{sec:p2p_federated:p2p_transformer}
+
+The most directly relevant P2P works for this review operate at the transformer level.
+\citet{Sajina2021} described the first system for multi-task P2P learning with
+transformer-based models, proposing an architecture in which peers collaboratively
+train and serve task-specific modules over a shared encoder backbone. \citet{Sajina2024}
+extended this framework in a peer-to-peer multi-task environment for transformer NLP
+using encoder-only models, demonstrating that multi-task performance can be maintained
+while distributing task-specific computation across independent network nodes. The
+\citet{SajinaP2PConnection2024} survey catalogued autonomous connection establishment
+methods for P2P deep learning networks, identifying the lack of adapter-level discovery
+protocols as an open research gap.
+
+\citet{Borzunov2023} introduced Petals, which applies P2P principles to LLM inference
+at the layer level: volunteer nodes each host a subset of transformer layers, and
+inference requests are routed through the volunteer network by passing activations
+from node to node. Petals demonstrated that collaborative inference of BLOOM-176B-scale
+models is feasible using commodity hardware, with practical throughput sufficient for
+interactive use despite internet-scale latency. Critically, Petals does not incorporate
+per-task adapter modules: all nodes serve identical shared backbone layers without task
+specialisation, leaving the adapter dimension of P2P inference unexplored.
+
+\subsection{Federated PEFT: Integrating Adapters with Federated Learning}
+\label{sec:p2p_federated:fed_peft}
+
+The observation that PEFT adapters are dramatically smaller than full model weights
+makes them well-suited units for federated communication: exchanging only the adapter
+matrices reduces per-round communication by 90--99\% compared to exchanging full model
+gradients or weights \citep{ZhangFedPETuning2023}. This insight motivated a substantial
+body of work on federated PEFT, which applies FL algorithms to the training and
+aggregation of adapter modules across distributed clients.
+
+\paragraph{Federated adapter aggregation.}
+\citet{ZhangFedPETuning2023} conducted the first systematic study of federated PEFT
+(FedPETuning), evaluating LoRA, prefix tuning, and bottleneck adapters integrated with
+FedAvg across non-IID partitions of text classification benchmarks. Adapters and LoRA
+consistently outperformed prefix tuning under federated conditions, and adapter-only
+exchange achieved over 90\% communication savings at within-5\% accuracy degradation
+relative to centralised PEFT. \citet{TrautmannAgg2024} studied the aggregation of LoRA
+adapters with heterogeneous ranks, demonstrating that rank-aligned averaging maintains
+near-centralised performance. \citet{SinghalFedEx2025} proposed FedEx-LoRA, an exact
+aggregation method for federated LoRA that eliminates the approximation error in
+standard FedAvg averaging of low-rank factors by aggregating the full product
+$\Delta W = BA$ rather than the individual factor matrices.
+
+\paragraph{Heterogeneous client resources.}
+A recurring challenge in federated PEFT is that clients differ in compute capacity,
+memory, and available bandwidth. \citet{WangFLoRA2024} proposed FLoRA, which maintains
+a global LoRA of maximum rank on the server and allows each client to fine-tune a
+truncated LoRA matrix of its resource-determined rank; rank-alignment padding enables
+FedAvg aggregation across heterogeneous ranks. \citet{ChoHeteroLoRA2024} introduced a
+heterogeneous LoRA assignment policy that allocates higher ranks to clients with larger
+data or compute budgets, improving the global model quality under device heterogeneity.
+\citet{WangGlobecom2024} addressed the wireless channel constraints of federated
+LoRA over mobile networks, showing that bandwidth-aware rank selection reduces
+communication delay without degrading convergence. \citet{GaoINFOCOM2025} proposed
+adaptive quantization of federated LoRA weights for heterogeneous devices, enabling
+clients with limited hardware to participate in aggregation by transmitting compressed
+adapter updates.
+
+\paragraph{Privacy and differential privacy.}
+\citet{LiuDP2023} introduced differential privacy mechanisms for federated adapter
+training, adding calibrated Gaussian noise to adapter updates before transmission to
+provide formal $(\epsilon, \delta)$-DP guarantees per round. \citet{SunImprovingLoRA2024}
+analysed the privacy--utility tradeoff for federated LoRA, demonstrating that low-rank
+adapters require smaller noise magnitude than full gradients to achieve the same
+privacy budget, due to their reduced dimensionality. \citet{XuDPFedLoRA2025} proposed
+DP-FedLoRA, an end-to-end framework combining per-sample gradient clipping with
+low-rank adapter exchange, achieving formal DP guarantees with competitive accuracy
+on clinical NLP benchmarks.
+
+\paragraph{Privacy-preserving split learning.}
+\citet{LinSplitLoRA2024} combined split learning with LoRA fine-tuning: the transformer
+stack is partitioned between the client (bottom layers) and the server (top layers), with
+only the split-point activation tensor transmitted. LoRA adapters are trained on the
+server-side layers, and only the adapter matrices are returned to the client after
+training. This approach reduces client-side compute and communication while preserving
+data privacy, at the cost of requiring a semi-trusted server. \citet{ZhangPrivacySplit2023}
+extended split learning to privacy-sensitive NLP with adapter-based bottleneck compression,
+reducing the mutual information between transmitted activations and raw input data.
+
+\paragraph{Personalisation and selective aggregation.}
+\citet{CaiFedAdapter2023} proposed FedAdapter, combining adapter-based personalisation
+with FL: a shared backbone adapter is trained globally, while a thin personalisation
+head adapter is trained locally on each client's private data. This two-level
+decomposition enables global task knowledge to be shared without homogenising
+client-specific behaviour. \citet{GuoSelective2025} introduced selective aggregation,
+in which only adapter components with high cross-client agreement are included in the
+global average, filtering out idiosyncratic updates that arise from client-specific
+data artefacts. \citet{YanFeDeRA2024} proposed FeDeRA, which performs efficient
+federated adaptation by restricting updates to the singular vectors of pre-trained
+weight matrices with largest variance, further reducing the dimension of the exchanged
+adapter.
+
+\paragraph{Advanced federated adapter protocols.}
+\citet{BianFedALT2025} proposed FedALT, which adapts the local training schedule
+adaptively to the current round's data distribution signal, improving convergence
+under time-varying non-IID conditions. \citet{Babakniya2023} introduced SLoRA,
+a federated variant of LoRA that initialises adapter matrices via SVD of the
+accumulated gradient to align the initial low-rank subspace with the true gradient
+direction, accelerating federated convergence. \citet{ZhaoFedMCP2024} proposed
+FedMCP, which adds model-contrastive personalisation to federated adapter training,
+pulling the client adapter towards the global model while pushing it away from
+representations of other clients' data distributions to sharpen personalisation.
+\citet{LiuAdaptive2024} and \citet{KooBai2025} addressed federated PEFT under
+heterogeneous task distributions, where different clients fine-tune for entirely
+different downstream tasks, demonstrating that global adapter aggregation remains
+beneficial as a pretraining signal even when tasks are non-overlapping.
+
+\subsection{DHT-Based Infrastructure for P2P Adapter Discovery}
+\label{sec:p2p_federated:dht}
+
+All of the federated systems reviewed above rely on a central aggregation server for
+adapter collection and redistribution. The P2P literature provides infrastructure
+primitives for performing this coordination without a central node. \citet{MaymounkovKademlia2002}
+introduced the Kademlia distributed hash table (DHT), which provides $O(\log N)$
+lookup of key-value pairs across a network of $N$ nodes using a XOR-distance metric.
+Kademlia has been deployed at scale in BitTorrent and other P2P systems, and its
+correctness and resistance to churn are well understood.
+Recent work on decentralized LoRA, such as Dec-LoRA by \citet{Ghiasvand2025}, demonstrates that parameter-efficient LLM fine‑tuning can be performed without a central server over decentralized communication topologies, motivating similar designs for adapter-based systems.
+
+The Kademlia DHT is a candidate infrastructure for adapter-level discovery. In principle, adapter descriptors could be indexed as key-value entries in a DHT, allowing peers to locate adapters without a central registry. Whether task capability descriptors are sufficiently structured for DHT-based retrieval — and how such an index would perform under realistic churn — are open questions that the existing P2P literature has not examined.
+
+\subsection{Summary of Gaps}
+\label{sec:p2p_federated:gap}
+
+Federated PEFT contributes three properties that are directly relevant to a fully decentralised adapter-based inference setting: it reduces communication overhead to the adapter level, which in practice yields bandwidth savings of up to 90\%; it provides formal guarantees of data privacy and isolation; and it tolerates heterogeneous client resources. These are substantial contributions. Yet federated PEFT carries one limitation that is insurmountable in a P2P adapter serving context: the central server remains the sole coordination point for aggregation, distribution, and synchronisation of adapters across participants.
+
+P2P distributed learning addresses precisely that limitation. By combining DHT-based lookup for locating information, gossip-based propagation for disseminating it, and convergence guarantees under peer churn, P2P systems provide the infrastructure for removing the central server entirely. What P2P systems lack, however, is adapter semantics — there are no task-specific modules, no capability matching, and no composition logic anywhere in this literature.
+This is not a failure of either field. Each body of work is capable of complementing the other's blind spots — federated PEFT solves what P2P ignores, and P2P solves what federated PEFT cannot relinquish. What is missing is a bridging layer between these two bodies of work — one that would enable adapter discovery across the network, retrieval from whichever peer currently holds a relevant module, local composition, and serving of the adapted result, all without a single point of control. No such bridging layer has been identified in the reviewed literature.
+
+This missing intersection constitutes the central gap identified in this review, analysed in detail in Section~\ref{sec:synthesis_gap}.

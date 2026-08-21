@@ -1,0 +1,94 @@
+% ----- TEMPLATE PREAMBLE (taj dio ide uvijek C/P) ----- %
+\documentclass[a4paper,12pt]{article} % No Language here; use babel instead
+
+% --- Encoding & language ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}           % For English; adjust if needed
+
+% --- Page layout ---
+\usepackage{geometry}
+\geometry{
+  a4paper,
+  margin=2.5cm
+}
+
+% --- Fonts & symbols ---
+\usepackage{textcomp}                 % Additional text symbols
+\usepackage{amsmath}                  % Math formulas
+
+% --- Graphics & floats ---
+\usepackage{graphicx}                 % Images
+\usepackage{float}
+\usepackage{array}
+\usepackage{booktabs}                 % Better tables
+
+% --- Captions & subfigures ---
+\usepackage[font=small]{caption}
+\usepackage{subcaption}
+\captionsetup[figure]{name=\textbf{Figure}}
+
+% --- Colors ---
+\usepackage{xcolor}                    % Supersedes color
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+% --- Spacing & paragraphs ---
+\usepackage{setspace}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+% --- Section numbering ---
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}.}
+\renewcommand{\thesubsubsection}{\thesubsection\arabic{subsubsection}.}
+
+% --- Bibliography (natbib) ---
+
+% \usepackage[round,authoryear]{natbib} % Numeric, sorted citations
+\usepackage[square,sort,comma,numbers]{natbib}
+\bibliographystyle{plainnat}
+
+% --- Listings (code) ---
+\usepackage{listings}
+\lstloadlanguages{bash}
+\renewcommand{\lstlistingname}{\textbf{Code snippets}}
+\lstset{
+  frame=tblr,
+  language=Bash,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+% --- Appendix ---
+\usepackage[toc,page]{appendix}
+\renewcommand{\appendixname}{Appendix}
+
+% --- TOC and references ---
+\usepackage[nottoc]{tocbibind}        % Include bibliography in TOC[web:54]
+\newcommand{\fullref}[1]{\ref{#1}~\nameref{#1}}
+
+% --- PDF metadata / XMP (if you still need it) ---
+\usepackage{xmpincl}
+
+% --- Hyperlinks (load near the end) ---
+\usepackage[
+  colorlinks=true,      % colour the text, not boxes
+  linkcolor=black,       % section, figure, etc. links
+  citecolor=green,       % citation links
+  urlcolor=blue         % URL links
+]{hyperref}
+
+% ----- END TEMPLATE PREAMBLE ----- %

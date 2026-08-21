@@ -1,0 +1,171 @@
+\section{Proof-of-Concept Design}
+\label{sec:poc}
+
+\subsection{Overview}
+\label{sec:poc:overview}
+
+This section presents the design of a proof-of-concept (PoC) experiment that validates
+the core technical claims of contributions $\star$A1, $\star$S1, $\star$S2, and
+$\star$M1. The PoC is designed as a forward-looking experimental blueprint: it specifies
+the setup, protocol, benchmark, and evaluation metrics required to empirically test
+whether the proposed P2P adapter marketplace framework can deliver multi-task NLP
+inference at quality competitive with centralised AdapterFusion and at latency
+compatible with interactive use.
+
+The chosen benchmark task is \textbf{NL-to-SQL} on a partitioned clinical corpus
+derived from the MIMIC-IV clinical database\cite{Johnson2023}. NL-to-SQL was selected for three reasons:
+(i)~it is a well-defined compositional task with clear success metrics (execution
+accuracy); (ii)~clinical subdomains (diagnoses, medications, procedures, notes) provide
+a natural source of non-IID data heterogeneity; (iii)~the medical domain motivates
+the privacy-preserving properties of P2P adapter exchange, since no peer needs to
+expose raw patient records; and (iv)~the intersection of decentralised adapter serving and clinical NLP is entirely absent from the reviewed literature, making MIMIC-IV the most direct empirical test of the system's practical relevance in a privacy-sensitive domain. The database's natural eight-subdomain partition aligns directly with the N=8 peer configuration, ensuring that data heterogeneity emerges organically from the clinical structure of the corpus..
+
+\subsection{Experimental Setup}
+\label{sec:poc:setup}
+
+\paragraph{Network configuration.}
+The PoC network consists of $N = 8$ peer nodes. This number was chosen because 
+MIMIC-IV~\citep{Johnson2023} partitions naturally into eight non-overlapping 
+subdomains across three clinical tiers, each representing a structurally and 
+contextually distinct data collection context: Core (Demographics, Admissions), 
+Hospital (Laboratory, Diagnoses \& Procedures, Medications, Microbiology), and 
+ICU (Bedside Observations, Inputs \& Outputs). Each subdomain represents a 
+genuinely different clinical context, ensuring that the non-IID condition between 
+peers arises from authentic distributional differences rather than artificially 
+imposed data splits.
+
+Each peer independently fine-tunes a LoRA adapter with rank $r = 8$. This rank 
+was selected for three reasons. First, FedPETuning~\citep{ZhangFedPETuning2023} 
+and FLoRA~\citep{WangFLoRA2024} --- the two most directly comparable federated 
+PEFT baselines in the reviewed corpus --- both use $r = 8$ as their default rank, 
+enabling direct comparison of results. Second, rank~8 produces an adapter of 
+approximately 3~MB at T5-base scale, which fits comfortably within the transfer 
+budget on a 100~Mbps link. 
+
+The choice of 100~Mbps as the reference link speed is 
+deliberate: P2P networks do not operate uniformly at gigabit speeds, and 100~Mbps 
+more faithfully represents the heterogeneous real-world conditions the system is 
+designed for. 
+
+Third, variance analyses in the federated LoRA literature suggest that lower ranks produce more stable updates under noise perturbation~\citep{XuDPFedLoRA2025}, offering a measure of robustness should 
+differential privacy mechanisms be incorporated in future extensions; those results 
+were obtained on decoder-only architectures and may not transfer directly to 
+encoder-decoder models. It should be noted that $r = 8$ is not the only defensible 
+choice; the experiment is designed to accommodate rank as a secondary variable in 
+future ablation studies.
+
+Adapter metadata is propagated via gossip with a round interval of 60~seconds. 
+This interval is not theoretically derived but follows the conventional starting 
+point used in the gossip learning literature~\citep{HegeduisGossip2019}. It 
+represents a practical trade-off between metadata freshness and network overhead. 
+The 60-second baseline will be treated as the default configuration, and 
+sensitivity to this parameter is part of what the gossip convergence metric is 
+designed to measure.
+
+
+\paragraph{DHT adapter registry.}
+Each peer registers its trained adapter in a Kademlia 
+DHT~\citep{MaymounkovKademlia2002}. The DHT key for each adapter is a compact 
+capability descriptor computed from the adapter's weight spectra 
+(contribution~$\star$R1): the top-$d$ singular values of each LoRA $\Delta W = BA$ 
+matrix are concatenated and projected to a fixed-dimension embedding vector, where 
+$d$ is a tunable projection hyperparameter set to 16 in the baseline configuration. 
+Peers with similar training data produce similar capability embeddings. Retrieval 
+proceeds in two steps: the capability embedding is hashed to a DHT key, locating 
+the holder peer via Kademlia XOR-metric routing; similarity-based ranking over 
+the retrieved embeddings then selects the top-$k$ most relevant adapters using 
+approximate nearest-neighbour comparison.
+
+\paragraph{Gossip propagation.}
+Adapter metadata (capability embedding, peer address, adapter hash, training date) is
+propagated via a gossip protocol (contribution~$\star$S2). Each peer executes one gossip
+round per 60 seconds, selecting a random peer from its local routing table and exchanging
+its full metadata list. After 5--10 gossip rounds, each peer's metadata table is
+expected to contain entries from all other peers in the network.
+
+\subsection{Multi-Task Query Serving}
+\label{sec:poc:serving}
+
+When a peer receives a multi-domain NL-to-SQL query (e.g., a question spanning both
+the medication and diagnosis subdomains), it executes the following protocol:
+
+\begin{enumerate}
+  \item \textbf{Query embedding.} The query is embedded using the frozen backbone's
+    encoder to produce a query representation $q \in \mathbb{R}^{d}$.
+\item \textbf{Adapter retrieval.} The query representation is compared against the
+    capability embeddings in the local metadata table. The top-$k$ most similar adapters
+    are identified ($k = 2$ in the baseline PoC). Two adapters is the minimum 
+    configuration that exercises the fusion mechanism; the effect of increasing $k$ 
+    to 3 or 4 is treated as a secondary variable in the evaluation protocol.
+\item \textbf{Adapter fetching.} If the relevant adapter(s) are not in the local
+    cache, the requesting peer fetches them from the holder peers via direct HTTP
+    transfer. The adapter payload is an 8~MB file (two $r \times d$ matrices per 
+    layer); transfer time on a 100~Mbps LAN is approximately 0.64~ms per adapter 
+    (theoretical estimate based on adapter size and link speed; actual latency 
+    will be measured during the experiment).
+\item \textbf{Decentralised fusion.} Given $k$ fetched adapters, the requesting peer
+    estimates AdapterFusion attention weights using the probe-set approximation of
+    contribution~$\star$M1: a set of 50 representative NL-to-SQL examples is used to
+    compute per-adapter hidden state activations, and the fusion weights are estimated
+    as the argmax of a local cross-validation sweep over candidate weight vectors. 
+    The probe set size of 50 is a practical compromise between the statistical 
+    reliability of the fusion weight estimate and the latency overhead added to 
+    each serving request; it is not theoretically derived, and sensitivity to 
+    this parameter is part of the evaluation protocol.
+  \item \textbf{Inference.} The frozen backbone is run with the composed adapter,
+    producing the SQL output.
+\end{enumerate}
+
+\subsection{Evaluation Protocol}
+\label{sec:poc:evaluation}
+
+The PoC will be evaluated on the following metrics:
+
+\begin{itemize}
+\item \textbf{Execution accuracy}: fraction of generated SQL queries that execute
+    correctly and return the expected result set on the MIMIC-IV test split. A 
+    degradation of no more than 5 percentage points relative to centralised 
+    AdapterFusion is the acceptance threshold for the decentralised system, 
+    consistent with the within-5\% tolerance reported for federated PEFT 
+    methods in the reviewed literature~\citep{ZhangFedPETuning2023}.
+  \item \textbf{End-to-end latency}: wall-clock time from query receipt to SQL output,
+    decomposed into discovery, fetch, fusion estimation, and inference components.
+  \item \textbf{Reuse quality vs. distribution distance}: execution accuracy as a
+    function of the Jensen--Shannon divergence between the requesting peer's query
+    distribution and the contributing peer's training distribution, providing an
+    empirical test of the $\star$T1 reuse bounds.
+  \item \textbf{Gossip convergence}: time for all peers to discover all adapters in
+    the network, measured as the number of gossip rounds until each peer's metadata
+    table is complete.
+\end{itemize}
+
+Each metric will be reported as a mean and standard deviation across five 
+independent experimental runs with different random peer assignment seeds. 
+A difference in execution accuracy is considered meaningful if it exceeds 
+one standard deviation across runs.
+
+\subsection{Baselines}
+\label{sec:poc:baselines}
+
+These three baselines are designed to isolate distinct components of the 
+system's contribution: centralised AdapterFusion isolates the cost of 
+removing the central server; the best single adapter isolates the benefit 
+of fusion over single-adapter composition; and the no-adapter baseline 
+establishes the task-agnostic lower bound against which any adapter-based 
+improvement is measured.
+
+The PoC results will be compared against three baselines:
+\begin{enumerate}
+  \item \textbf{Centralised AdapterFusion} \citep{Pfeiffer2021fusion}: all adapters
+    are aggregated to a central server, which trains a fusion module with access to
+    all training sets and serves fused inference directly.
+  \item \textbf{Best single adapter}: the adapter trained on the most similar subdomain
+    to the query, selected by capability embedding similarity.
+  \item \textbf{No adapter}: inference with the frozen backbone only, representing
+    the task-agnostic lower bound.
+\end{enumerate}
+
+The central hypothesis is that decentralised AdapterFusion ($\star$M1) achieves
+execution accuracy within 5 percentage points of centralised AdapterFusion while
+maintaining P2P operation without any server, and significantly outperforms the
+best-single-adapter baseline on cross-domain queries.

@@ -1,0 +1,185 @@
+% =============================================================================
+%  SECTIONS RECOMMENDED FOR REWRITING — BY THE AUTHOR IN CROATIAN
+%  These texts show the strongest "translation-speak" patterns.
+%  Rewrite them in Croatian (your original language), then re-translate
+%  to English with an AI tool or editor.
+% =============================================================================
+
+%%% ======================================================================= %%%
+%%%   SECTION 4 (04 peft.tex) — Survey taxonomy and landscape paragraph      %%%
+%%% ======================================================================= %%%
+%
+% ORIGINAL (lines 225-228):
+%
+% The PEFT taxonomy is not merely an academic classification exercise.
+% In the context of a P2P adapter marketplace, it becomes a concrete
+% design foundation with real engineering consequences. LoRA is the
+% natural choice for transmission efficiency — its parameter delta is
+% the smallest of any reviewed method, and its compact matrix
+% representation is the most practical to move across an unpredictable
+% P2P network with variable bandwidth and latency. Bottleneck adapters,
+% on the other hand, present the stronger case for composability — their
+% modularity is precisely the property that composition architectures
+% such as AdapterFusion exploit, and it is not easily replicated by
+% reparameterisation methods.
+%
+% These two advantages point in opposite directions, and it is not
+% possible to fully optimise for both simultaneously. The choice between
+% them is therefore a tradeoff that the proposed system must navigate
+% explicitly — not a conclusion that the literature resolves cleanly.
+% The proof-of-concept design follows the direction of LoRA as the
+% default adapter format, primarily because of its prevalence in the
+% reviewed literature, its demonstrated adaptability across model scales,
+% and its influence on the federated and serving systems that form the
+% closest prior work. But the composability argument for bottleneck
+% adapters does not disappear — it is set aside for pragmatic reasons,
+% and remains an open design question for future iterations of the
+% system.
+%
+% WHY REWRITE: This paragraph alternates perfectly balanced "on one hand
+% ... on the other hand" constructions that are characteristic of AI
+% summarisation — too balanced, no commitment. A human author writing
+% from the Croatian original would naturally take a position more
+% directly.
+%
+% === WHAT I WOULD SAY IN CROATIAN (example) ===
+% U ovom radu koristim LoRA kao primarni adapter format za POC, ali ne
+% zato što je LoRA objektivno bolja od bottleneck adapters za ovaj
+% slučaj. Praktični razlozi su presudili: većina pregledane literature
+% koristi LoRA, skalabilna je, a najveći utjecaj na kasnije sustave je
+% upravo kroz LoRA. Bottleneck adapters nisu lošiji — oni su jednako dobri,
+% samo nisu praktični za ovaj setup. Ovo je svjestan trade-off, ne
+% akademska neodlučnost.
+%%% ======================================================================= %%%
+
+\subsection{Survey Taxonomy and Positioning}
+\label{sec:peft:positioning_reframe}
+
+[Rewrite from Croatian here → replace the original paragraph 04_peft.tex ll.225-228]
+
+
+%%% ======================================================================= %%%
+%%%   SECTION 5 (05 adapter composition.tex) — positioning paragraph       %%%
+%%% ======================================================================= %%%
+%
+% ORIGINAL (lines 179-186):
+%
+% The composition methods reviewed in this chapter presuppose that a
+% collection of adapters already exists in a single, centralised  182
+% location. Composition and adapter discovery are often treated as
+% separate concerns, but in a P2P network they are tightly coupled — a
+% peer cannot compose what it has not yet found. The obstacle is not
+% whether composition works technically; LoraHub and LoraRetriever
+% demonstrate that it does. The real obstacle is that the substrate on
+% which these methods depend does not exist in P2P environments.
+% No mechanism currently exists for constructing a compact
+% description of an adapter's capabilities without access to its
+% original training data — a gap that directly motivates contributions
+% $\star$R1 and $\star$R2. No mechanism exists for routing a query
+% toward capable adapters in the absence of a central index or
+% directory — the gap that motivates $\star$A1. And even if all of
+% these pieces were in place, the existing composition methods remain
+% blind to the realities of distributed network operation: peer churn,
+% variable latency, and bandwidth constraints. Addressing this
+% infrastructure layer is the motivation behind $\star$S1 and $\star$S2.
+%
+% WHY REWRITE: Overly patterned "No mechanism exists... no mechanism
+% exists... and even if all of these pieces were in place..." is
+% formulaic. A Croatian original would likely lead with the main
+% claim and use simpler coordination, less parallelism.
+%
+% === WHAT I WOULD SAY IN CROATIAN (example) ===
+% Metode prikazane u ovoj sekciji sve pretpostavljaju centralizirani
+% setup gdje su adapteri već prikupljeni na jednom mjestu. U
+% peer-to-peer kontekstu problem nije to što te metode ne rade — rade,
+% LoraHub i LoraRetriever to dokazuju. Problem je u tome što u P2P
+% okruženju ne postoji ta centralna kolekcija adaptera koju bi te
+% metode mogle koristiti. Zato su potrebni novi mehanizmi: adapters
+% capabilities representation ($\star$R1), behavioural fingerprints
+% ($\star$R2), DHT discovery ($\star$A1), i P2P infrastruktura
+% ($\star$S1, $\star$S2).
+%%% ======================================================================= %%%
+
+\subsection{Implications for Decentralised Deployment}
+\label{sec:composition:implications_reframe}
+
+[Rewrite from Croatian here → replace the original paragraph 05_adapter_composition.tex ll.179-186]
+
+
+%%% ======================================================================= %%%
+%%%   SECTION 6 (06 inference systems.tex) — multi-tenant gap paragraph     %%%
+%%% ======================================================================= %%%
+%
+% ORIGINAL (lines 175-176):
+%
+% The existing serving literature addresses the multi-tenant inference
+% problem with considerable technical depth — but it leaves one
+% fundamental question unanswered: where does the adapter catalogue
+% come from, and who controls it? Every system reviewed in this
+% chapter inherits its adapter collection from a centralised upstream
+% process that is never designed, only assumed.
+%
+% WHY REWRITE: The "where does the catalogue come from" question is a
+% good insight, but the framing ("never designed, only assumed") reads
+% as AI-generated rhetorical closure. The Croatian original need only
+% state: "ovi sustavi pretpostavljaju da adapteri negdje postoje i da
+% je njihov katalog centraliziran. Problem je u tome što u P2P
+% izostaje svaki centralni izvor adaptera — i nijedan sustav o tome
+% ni ne raspravlja."
+%%% ======================================================================= %%%
+
+\subsection{Gap: Missing Source of Adapters}
+\label{sec:inference:gap_reframe}
+
+[Rewrite from Croatian here → replace original paragraph 06_inference_systems.tex ll.175-176]
+
+
+%%% ======================================================================= %%%
+%%%   SECTION 7 (07 p2p federated.tex) — subsection ll.221-226             %%%
+%%% ======================================================================= %%%
+%
+% ORIGINAL (lines 221-226):
+%
+% Federated PEFT contributes three properties that are directly
+% relevant to the target architecture: it reduces communication
+% overhead to the adapter level, which in practice yields bandwidth
+% savings of up to 90\%; it provides formal guarantees of data
+% privacy and isolation; and it tolerates heterogeneous client
+% resources. These are substantial contributions. Yet federated PEFT
+% carries one limitation that is insurmountable in a P2P adapter
+% serving context: the central server remains the sole coordination
+% point for aggregation, distribution, and synchronisation of adapters
+% across participants.
+%
+% P2P distributed learning addresses precisely that limitation. By
+% combining DHT-based lookup for locating information, gossip-based
+% propagation for disseminating it, and convergence guarantees under
+% peer churn, P2P systems provide the infrastructure for removing
+% the central server entirely. What P2P systems lack, however, is
+% adapter semantics — there are no task-specific modules, no
+% capability matching, and no composition logic anywhere in this
+% literature.
+%
+% This is not a failure of either field. Each body of work is
+% capable of complementing the other's blind spots — federated PEFT
+% solves what P2P ignores, and P2P solves what federated PEFT cannot
+% relinquish. What is missing is a concrete protocol that bridges the
+% two: one that can discover a useful adapter across the network,
+% retrieve it from whichever peer currently holds it, perform local
+% composition, and serve the inference result — all without any
+% single point of control or a single source of truth.
+%
+% WHY REWRITE: The "This is not a failure... Each body... capable of
+% complementing..." conclusion is structurally very AI-like in
+% its hedging balance. This is your key argument — it would be
+% stronger stated directly: "Ni jedan ni drugi pristup nije u krivu
+% — oba su potrebna, ali razdvojena. Federated PEFT rješava ono što
+% P2P ne pokriva, i obrnuto. Ono što nedostaje je konkretni protokol
+% koji spaja ta dva svijeta."
+%%% ======================================================================= %%%
+
+\subsection{Bridging Gap: Federated vs P2P}
+\label{sec:p2p:gap_reframe}
+
+[Rewrite from Croatian here → replace the corresponding part of 08_p2p_federated.tex (P2P/federated section; formerly 07_p2p_federated.tex)]
+

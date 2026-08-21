@@ -1,0 +1,32 @@
+\begin{abstract}
+\noindent
+Multi-task large language model inference on resource-constrained hardware
+faces a fundamental tension: full fine-tuning is prohibitively expensive, yet
+existing parameter-efficient serving systems all assume centralised
+orchestration: a single datacenter, scheduler, or repository.
+
+This systematic literature review investigates whether a peer-to-peer (P2P)
+research direction is theoretically grounded and practically motivated: can
+lightweight, task-specific adapters be discovered, retrieved, composed, and
+served across autonomous nodes (each hosting a shared frozen backbone) without
+any central coordinator? To establish the evidence base, the review follows
+PRISMA 2020 and Wohlin (2014) snowballing, surveying 123 papers across five
+clusters: PEFT, adapter composition, LLM inference serving, MoE routing, and
+P2P and federated learning.
+
+The central finding is that, to the best of the author's knowledge no existing 
+system simultaneously addresses a frozen shared backbone, adapter-level exchange, 
+P2P topology, decentralised discovery, multi-task fusion, and the absence of a 
+central coordinator. The combination of these requirements represents a promising 
+but unexplored research direction. The literature is partitioned into four gap 
+quadrants: conceptual, algorithmic, systems, and empirical, each identifying 
+open research questions that the reviewed literature has not yet addressed 
+in an integrated manner.
+\end{abstract}
+
+\noindent\textbf{Keywords:} parameter-efficient fine-tuning; low-rank adaptation; adapter composition; 
+peer-to-peer systems; decentralised inference; distributed hash table; multi-task learning; 
+large language model serving; federated learning; mixture of experts; decentralised adapter exchange; 
+capability embeddings; non-IID distribution
+
+\newpage

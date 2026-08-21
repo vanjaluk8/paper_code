@@ -1,0 +1,867 @@
+% =============================================================================
+%  §3  Research Methodology — Systematic Literature Review
+%
+%  Governing frameworks (read these before writing each paragraph):
+%    - Xiao & Watson (2019) — 3-phase, 8-step SLR process
+%        Phase 1 Planning:   Step 1 Formulate the problem
+%                            Step 2 Develop and validate the protocol
+%        Phase 2 Conducting: Step 3 Search the literature
+%                            Step 4 Screen for inclusion
+%                            Step 5 Assess quality
+%                            Step 6 Extract data
+%                            Step 7 Analyse and synthesise
+%        Phase 3 Reporting:  Step 8 Report findings
+%    - Wohlin (2014)        — Snowballing: start set → backward → forward
+%                             → author contact → data extraction
+%    - Page et al. (2021)   — PRISMA 2020 flow and reporting checklist
+%    - Kitchenham & Charters (2007) — protocol structure and quality criteria
+%
+%  WRITING RULES:
+%    - Every subsection maps to one or more of the 8 steps above.
+%      % REQUIRED BY comments tell you which step and what it demands.
+%    - Write your OWN prose for each paragraph.  The bullet hints under
+%      each %% WRITE: comment tell you exactly what content must appear.
+%    - \TODO{...} = a number or phrase to insert after the pipeline runs.
+%    - Do NOT remove any subsection or table — they are all required by
+%      the frameworks.  You may add subparagraphs but not delete structure.
+% =============================================================================
+
+% Helper command — remove before submission:
+\newcommand{\TODO}[1]{\textbf{[TODO: #1]}}
+
+\section{Research Methodology}
+\label{sec:methodology}
+
+% =============================================================================
+\subsection{Review Type and Governing Framework}
+\label{sec:methodology:framework}
+% =============================================================================
+
+% REQUIRED BY: Xiao & Watson (2019) Step 1 — Formulate the problem
+%              Xiao & Watson (2019) Step 2 — Develop and validate the protocol
+%              Kitchenham & Charters (2007) — SLR definition and pre-specification
+%              Page et al. (2021) — PRISMA Methods: describe protocol
+
+%% WRITE ¶1 — SLR definition and PRISMA framework (~3–4 sentences):
+%   • Name the methodology: Systematic Literature Review.
+%   • Give the standard definition (pre-planned, comprehensive, reproducible).
+%   • State which reporting standard governs the review (PRISMA 2020).
+%   • Name the four PRISMA stages: Identification, Screening, Eligibility,
+%     Inclusion.
+%   • Cite: \citep{XiaoWatson2019, KitchenhamCharters2007, Page2021}
+
+\bigskip\noindent\textit{[¶1 — SLR definition and PRISMA framework]}
+% ↑ Delete this line and write your paragraph here.
+
+%% WRITE ¶2 — Research question using PICOC decomposition (~3–5 sentences):
+%   REQUIRED BY: Xiao & Watson (2019) Step 1 — research question must be
+%                stated explicitly; PICO/PICOC decomposition recommended.
+%   • State the research question in full (blockquote format is conventional):
+%       "What methods have been proposed for decentralised, adapter-based
+%        multi-task inference over a shared frozen transformer backbone,
+%        and what are the open research gaps?"
+%   • Decompose it using PICOC (Population / Intervention / Comparison /
+%     Outcome / Context):
+%       P — large language models deployed in distributed / P2P environments
+%       I — parameter-efficient fine-tuning (PEFT) and adapter modules
+%       C — centralised fine-tuning and monolithic serving baselines
+%       O — multi-task inference capability, serving efficiency, modularity
+%       C — peer-to-peer networks; resource-constrained inference
+%   • State the three intersecting fields the review synthesises:
+%     (i) PEFT / adapter architectures; (ii) distributed / P2P ML systems;
+%     (iii) multi-task LLM serving and inference.
+%   • Cite: \citep{XiaoWatson2019, KitchenhamCharters2007}
+
+\bigskip\noindent\textit{[¶2 — Research question and PICOC decomposition]}
+% ↑ Delete this line and write your paragraph here.
+
+\begin{quote}
+  \textit{What methods have been proposed for decentralised, adapter-based
+  multi-task inference over a shared frozen transformer backbone, and what
+  are the open research gaps?}
+\end{quote}
+
+%% WRITE ¶3 — Protocol pre-specification and audit trail (~2–3 sentences):
+%   REQUIRED BY: Xiao & Watson (2019) Step 2 — a protocol must be written
+%                BEFORE searching begins; any amendment must be logged.
+%                Kitchenham & Charters (2007) — criteria defined a priori.
+%   • State that the review protocol was defined prior to execution.
+%   • Name what the protocol documents: research question, I/E criteria,
+%     search strategy, screening procedure, enrichment pipeline, and
+%     data extraction schema.
+%   • Note where it is archived (repository) and how changes are tracked
+%     (SHA-256 checksums, version-controlled CSVs and JSON logs).
+%   • Cite: \citep{XiaoWatson2019, KitchenhamCharters2007}
+
+\bigskip\noindent\textit{[¶3 — Protocol pre-specification and audit trail]}
+% ↑ Delete this line and write your paragraph here.
+%
+% Footnote suggestion:
+%   \footnote{Protocol files: \texttt{SLR\_methodology\_outline.md},
+%             \texttt{app/screen.py}, \texttt{app/enrich\_and\_filter.py};
+%             SHA-256 checksums retained per intermediate output file.}
+
+
+% =============================================================================
+\subsection{Seed Paper Selection and Start Set Validation}
+\label{sec:methodology:seeds}
+% =============================================================================
+
+% REQUIRED BY: Wohlin (2014) §3.1 — Start Set construction and validation
+%              Wohlin (2014) Lesson: start set must cover multiple communities
+%              and be validated via full-paper reading before snowballing.
+%              Xiao & Watson (2019) Step 3 — justify why these sources.
+
+%% WRITE ¶4 — Start set selection criteria and characteristics (~4–6 sentences):
+%   • Introduce the start set (G0, 9 papers) as the snowballing anchor.
+%   • State the three selection criteria (Wohlin 2014 requires justifying
+%     each characteristic):
+%       (i)  Relevance to ≥ 2 of the 3 core themes
+%       (ii) Citation count ≥ 300 at time of selection
+%       (iii) Publication in a top-tier venue
+%   • Address Wohlin's 5 required characteristics of a good start set:
+%       – Community coverage: seeds span adapters, P2P systems, LLM serving
+%         (avoids isolated citation clusters)
+%       – Size: 9 papers appropriate to the breadth of a 3-theme review
+%       – Diversity: multiple publishers, years, and author groups
+%       – Synonym coverage: seeds use varied terminology (LoRA, adapters,
+%         PEFT, collaborative inference, multi-tenant serving)
+%       – Drawn from key terms in the research question
+%   • List the 9 seeds briefly (cite each):
+%     \citep{Houlsby2019, Hu2022, Pfeiffer2020hub, Pfeiffer2021fusion,
+%            Sajina2024, Borzunov2023, Han2024, Sheng2024}
+%   • Cite: \citep{Wohlin2014}
+
+\bigskip\noindent\textit{[¶4 — Start set selection criteria and Wohlin's 5 characteristics]}
+% ↑ Delete this line and write your paragraph here.
+
+%% WRITE ¶5 — Start set validation (~2–3 sentences):
+%   REQUIRED BY: Wohlin (2014) §3.1 — "the full paper should be examined
+%                before deciding to use it as a paper in the snowballing."
+%                Papers not validated cannot enter snowballing without risk
+%                of rollback.
+%   • State that each G0 seed was confirmed against the full inclusion criteria
+%     on the basis of full-text reading before being used as a snowball anchor.
+%   • Note that seeds lacking a resolvable API identifier (DOI or arXiv ID)
+%     were excluded from programmatic snowballing.
+%   • Cite: \citep{Wohlin2014}
+
+\bigskip\noindent\textit{[¶5 — Start set validation (full-text confirmation)]}
+% ↑ Delete this line and write your paragraph here.
+
+
+% =============================================================================
+\subsection{Pre-Validated Corpora (Groups G1--G6)}
+\label{sec:methodology:prevalidated}
+% =============================================================================
+
+% REQUIRED BY: Xiao & Watson (2019) Step 3 — document all sources searched,
+%              including venue-specific and hand-search sources.
+%              Wohlin (2014) — complementary manual searches of key journals
+%              and conferences are recommended.
+
+%% WRITE ¶6 — Purpose and construction of G1–G6 (~4–5 sentences):
+%   • Introduce the six pre-validated corpora as a complementary hand-search
+%     of leading publication venues (Wohlin 2014 recommends searching specific
+%     journals and conferences identified as relevant).
+%   • State the construction method: targeted manual curation via
+%     Undermind AI-assisted search against the same leading venues.
+%   • Explain why they bypass the automated year and domain filters:
+%     their relevance was established during curation (human-validated,
+%     topic-specific queries); re-assessing programmatically would be
+%     redundant.  The manual curation IS the quality gate.
+%   • Reference Table~\ref{tab:prevalidated}.
+%   • Cite: \citep{Wohlin2014, XiaoWatson2019}
+
+\bigskip\noindent\textit{[¶6 — Pre-validated corpora: purpose and construction]}
+% ↑ Delete this line and write your paragraph here.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Pre-validated corpora (Groups G1--G6) assembled by targeted
+           manual curation of leading publication venues.}
+  \label{tab:prevalidated}
+  \begin{tabular}{llr}
+    \toprule
+    \textbf{Group} & \textbf{Theme} & \textbf{\textit{n}} \\
+    \midrule
+    G1 & PEFT methods beyond adapters and LoRA                   &  62 \\
+    G2 & Adapter composition for multi-task NLP                  &  46 \\
+    G3 & Decentralised and P2P machine learning systems          & 112 \\
+    G4 & Adapter multiplexing for efficient LLM inference        &  64 \\
+    G5 & Routing and mixture-of-experts for modular PEFT         &  69 \\
+    G6 & Federated PEFT for transformer NLP                      &  91 \\
+    \midrule
+    \textbf{Total} & & \textbf{444} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+% =============================================================================
+\subsection{Citation Snowballing Procedure}
+\label{sec:methodology:snowballing}
+% =============================================================================
+
+% REQUIRED BY: Wohlin (2014) §3 — full backward + forward procedure
+%              Wohlin (2014) §3.2.1 — backward: 4-layer sequential screening
+%              Wohlin (2014) §3.2.2 — forward: same layered logic
+%              Wohlin (2014) §3.3  — author contact after saturation
+%              Wohlin (2014) §3.4  — data extraction after inclusion
+%              Xiao & Watson (2019) Step 3 — report search engines and date
+
+% -----------------------------------------------------------------------
+\subsubsection{Backward Snowballing}
+\label{sec:methodology:snowballing:backward}
+% -----------------------------------------------------------------------
+
+%% WRITE ¶7 — Backward snowballing procedure (~4–5 sentences):
+%   REQUIRED BY: Wohlin (2014) §3.2.1 — sequential 4-layer screening.
+%   • Describe the purpose: reference lists of G0 seeds examined to surface
+%     earlier work that influenced the seeds.
+%   • Describe the 4-layer sequential screening applied to each reference:
+%       Layer 1 — Basic exclusions directly from the reference list
+%                 (no retrieval): language, year, document type.
+%                 Exclude already-examined papers.
+%       Layer 2 — Title, publication venue, and in-text citation context
+%                 (information available within the citing paper, no
+%                 retrieval needed).  Assess where and how the candidate
+%                 is cited; a citation in a key related-work sentence
+%                 is a strong positive signal.
+%       Layer 3 — Abstract (retrieved if Layers 1–2 are inconclusive).
+%       Layer 4 — Full text (retrieved only if abstract is inconclusive;
+%                 required for a definitive inclusion decision).
+%   • State that only papers passing all applicable layers were flagged
+%     for inclusion.
+%   • Cite: \citep{Wohlin2014}
+
+\bigskip\noindent\textit{[¶7 — Backward snowballing: 4-layer sequential screening]}
+% ↑ Delete this line and write your paragraph here.
+
+% -----------------------------------------------------------------------
+\subsubsection{Forward Snowballing}
+\label{sec:methodology:snowballing:forward}
+% -----------------------------------------------------------------------
+
+%% WRITE ¶8 — Forward snowballing procedure (~3–4 sentences):
+%   REQUIRED BY: Wohlin (2014) §3.2.2 — forward via citation index.
+%   • Describe the purpose: identifying subsequent works that cite each G0
+%     seed, capturing more recent developments.
+%   • State the tool used: Semantic Scholar Academic Graph API
+%     \citep{SemanticScholar} (primary source for forward citations).
+%   • Describe the same 4-layer sequential screening (title/snippet →
+%     abstract → context of citation → full text) applied to each citing
+%     work, per Wohlin (2014).
+%   • Cite: \citep{Wohlin2014, SemanticScholar}
+
+\bigskip\noindent\textit{[¶8 — Forward snowballing: citation index and layered screening]}
+% ↑ Delete this line and write your paragraph here.
+
+% -----------------------------------------------------------------------
+\subsubsection{Search Engines, Supplementary Sources, and Search Date}
+\label{sec:methodology:snowballing:engines}
+% -----------------------------------------------------------------------
+
+%% WRITE ¶9 — Sources used and WoS role (~4–5 sentences):
+%   REQUIRED BY: Xiao & Watson (2019) Step 3 — list every database/source;
+%                report exact search date; no single database is sufficient.
+%                Wohlin (2014) — Semantic Scholar recommended for forward;
+%                complementary manual search of key venues recommended.
+%   • Name the primary snowball engine: Semantic Scholar Academic Graph API.
+%   • Name the supplementary engines: Scopus and ACL Anthology
+%     (capture venue-specific corpora not fully indexed by SS).
+%   • Clarify the WoS role: post-hoc enrichment only — appending WoS
+%     accession numbers and citation counts to already-retrieved records;
+%     NOT a source of new snowball candidates.
+%   • State the search execution date (from pipeline log):
+%     \TODO{insert date from \texttt{log\_retrieval\_*.json} field
+%     \texttt{timestamp\_utc}}.
+%   • Cite: \citep{SemanticScholar, XiaoWatson2019}
+
+\bigskip\noindent\textit{[¶9 — Search engines, WoS role, and search date]}
+% ↑ Delete this line and write your paragraph here.
+
+% -----------------------------------------------------------------------
+\subsubsection{Deduplication, Saturation Assessment, and Iteration Scope}
+\label{sec:methodology:snowballing:saturation}
+% -----------------------------------------------------------------------
+
+%% WRITE ¶10 — Deduplication and raw counts (~2–3 sentences):
+%   REQUIRED BY: Wohlin (2014) — duplicates removed before screening;
+%                report per-iteration counts.
+%                Page et al. (2021) PRISMA — records retrieved and
+%                duplicates removed must be reported.
+%   • State total raw records retrieved: 1,150.
+%   • State deduplication method: by DOI and Semantic Scholar paper ID.
+%   • State result: 41 unique new records (1,109 duplicates removed).
+%   • Cite: \citep{Wohlin2014, Page2021}
+
+\bigskip\noindent\textit{[¶10 — Deduplication: 1,150 raw → 41 unique new]}
+% ↑ Delete this line and write your paragraph here.
+
+%% WRITE ¶11 — Iteration scope and saturation (~3–4 sentences):
+%   REQUIRED BY: Wohlin (2014) — stopping criterion is "no new papers
+%                found in an iteration of both backward and forward";
+%                Lesson 7: inclusion frequency should decrease each
+%                iteration; Lesson 8: if not decreasing, search synonyms.
+%   HONEST LIMITATION TO STATE:
+%   • This review executed ONE wave of snowballing (not iterative
+%     to zero).
+%   • Justify: saturation was assessed MANUALLY rather than by iteration
+%     exhaustion — the high overlap between newly retrieved snowball
+%     candidates and the pre-validated G1–G6 corpora indicated that
+%     additional waves would yield diminishing returns (consistent with
+%     Wohlin's Lesson 7).
+%   • Acknowledge this as a limitation and that the G1–G6 corpora
+%     serve as a complementary safeguard against missed clusters
+%     (Wohlin 2014: start set should cover multiple communities).
+%   • Cite: \citep{Wohlin2014}
+%
+%   Per-iteration tracking table (fill in after pipeline run):
+
+\bigskip\noindent\textit{[¶11 — Iteration scope, saturation justification, and limitation]}
+% ↑ Delete this line and write your paragraph here.
+
+% Iteration tracking table — REQUIRED BY Wohlin (2014) for traceability
+\begin{table}[htbp]
+  \centering
+  \caption{Snowballing iteration summary (one wave executed).
+           ``Candidates examined'' excludes immediately duplicated records.}
+  \label{tab:iterations}
+  \begin{tabular}{lrrr}
+    \toprule
+    \textbf{Direction} & \textbf{Candidates examined} &
+    \textbf{Included} & \textbf{Cumulative included} \\
+    \midrule
+    Backward (Wave 1) & \TODO{$n$} & \TODO{$n$} & \TODO{$n$} \\
+    Forward  (Wave 1) & \TODO{$n$} & \TODO{$n$} & \TODO{$n$} \\
+    \midrule
+    \textbf{Total (after deduplication)} & \TODO{1{,}150} &
+    \textbf{41} & \textbf{41} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+%% NOTE on author contact (Wohlin 2014 §3.3):
+%   Wohlin recommends contacting the authors of included papers after the
+%   snowballing wave to surface grey literature, preprints, and papers in
+%   obscure venues.  If you conducted this step, add a paragraph here.
+%   If not, acknowledge it as a limitation in the limitations section.
+
+
+% =============================================================================
+\subsection{Inclusion and Exclusion Criteria}
+\label{sec:methodology:criteria}
+% =============================================================================
+
+% REQUIRED BY: Xiao & Watson (2019) Step 4 — I/E criteria must be
+%              pre-specified in the protocol; rationale for each stated.
+%              Kitchenham & Charters (2007) — criteria defined a priori.
+%              Page et al. (2021) — PRISMA §Methods: report eligibility criteria.
+
+%% WRITE ¶12 — Introduction to criteria (~2 sentences):
+%   • State that criteria were pre-specified in the protocol before
+%     searching began (Xiao & Watson Step 2 requirement).
+%   • State they were applied consistently across all screening stages.
+%   • Reference Table~\ref{tab:ie-criteria}.
+%   • Cite: \citep{XiaoWatson2019, KitchenhamCharters2007}
+
+\bigskip\noindent\textit{[¶12 — Introduction to pre-specified criteria]}
+% ↑ Delete this line and write your paragraph here.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Pre-specified inclusion and exclusion criteria (applied
+           consistently across all screening stages).}
+  \label{tab:ie-criteria}
+  \begin{tabular}{p{3.0cm}p{5.4cm}p{5.4cm}}
+    \toprule
+    \textbf{Criterion} & \textbf{Inclusion} & \textbf{Exclusion} \\
+    \midrule
+    Publication year
+      & $\geq 2021$ (snowballed records; pre-2021 foundational works
+        enter via G0--G6 manual curation)
+      & $< 2021$ \\[4pt]
+    Language
+      & English (implicit; source databases index predominantly
+        English-language works; no mechanical filter applied)
+      & Non-English works not surfaced by the APIs \\[4pt]
+    Document type
+      & Peer-reviewed conference paper, journal article, or arXiv
+        preprint with $\geq 1$ citation
+      & Blog posts, grey literature, software documentation, workshop
+        papers without formal proceedings \\[4pt]
+    Minimum topical relevance
+      & Addresses $\geq 1$ of: (a)~PEFT / adapters; (b)~distributed /
+        P2P / federated ML; (c)~multi-task LLM serving or inference
+      & Exclusively covers unrelated domains (CV, audio, RL) with no
+        NLP or systems angle \\[4pt]
+    Tier~1 priority
+      & Addresses all three themes jointly: PEFT + distributed/P2P +
+        LLM serving
+      & --- \\[4pt]
+    Abstract availability
+      & Abstract accessible via API or pre-validated corpus
+      & No accessible metadata and no resolvable DOI \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+%% WRITE ¶13 — Year cutoff rationale (~2–3 sentences):
+%   REQUIRED BY: Xiao & Watson (2019) — rationale for every criterion.
+%   • Explain why 2021 was chosen as the lower bound for snowballed records.
+%   • Key argument: LoRA \citep{Hu2022} and widespread large-scale
+%     transformer deployment mark the practical onset of the PEFT-at-scale
+%     era this thesis addresses.
+%   • Note that pre-2021 foundational works (e.g., \citealt{Houlsby2019})
+%     are included via the manually curated G0--G6 corpora which bypass the
+%     year filter.
+
+\bigskip\noindent\textit{[¶13 — Year cutoff rationale]}
+% ↑ Delete this line and write your paragraph here.
+
+
+% =============================================================================
+\subsection{Screening Procedure}
+\label{sec:methodology:screening}
+% =============================================================================
+
+% REQUIRED BY: Xiao & Watson (2019) Step 4 — three-stage sequential
+%              screening: title → abstract → full text; inter-rater
+%              reliability required.
+%              Wohlin (2014) §3.2 — same sequential logic within snowballing.
+%              Page et al. (2021) — PRISMA Screening stage flow.
+
+%% WRITE ¶14 — Overview of title screening (~2–3 sentences):
+%   • State total records entering the pipeline: 1,008
+%     (41 snowballed + 444 pre-validated + \TODO{any others}).
+%   • Describe the three-layer approach: sequential decision hierarchy
+%     following Wohlin (2014) and the coarse-to-fine sieve of
+%     Xiao & Watson (2019).
+%   • Reference Table~\ref{tab:screening}.
+%   • Cite: \citep{Wohlin2014, XiaoWatson2019}
+
+\bigskip\noindent\textit{[¶14 — Title screening overview and total records]}
+% ↑ Delete this line and write your paragraph here.
+
+% -----------------------------------------------------------------------
+\subsubsection{Layer~1 — Hard Exclusions}
+% -----------------------------------------------------------------------
+
+%% WRITE ¶15 — Hard exclusions (~2 sentences):
+%   • Records published before 2021 were excluded automatically.
+%   • No minimum citation threshold was applied (relevance, not popularity,
+%     drives inclusion at this stage — consistent with Wohlin 2014).
+
+\bigskip\noindent\textit{[¶15 — Layer 1: year-based hard exclusions]}
+% ↑ Delete this line and write your paragraph here.
+
+% -----------------------------------------------------------------------
+\subsubsection{Layer~2 — Keyword Scoring}
+% -----------------------------------------------------------------------
+
+%% WRITE ¶16 — Keyword term-set scoring (~3–4 sentences):
+%   • Titles scored against 4 term sets: PEFT/adapters, LLM/transformers,
+%     systems/serving, distributed/P2P/federated.
+%   • Decision rules:
+%       ≥ 2 term sets matched → INCLUDE
+%       Exactly 1 non-LLM term set → REVIEW queue
+%       LLM-only match → EXCLUDE
+%       0 matches → EXCLUDE
+%   • Note: exact case-insensitive substring matching, term-set version 1.0.
+%   • State reproducibility: term set documented in screening audit log.
+
+\bigskip\noindent\textit{[¶16 — Layer 2: keyword term-set scoring and decision rules]}
+% ↑ Delete this line and write your paragraph here.
+
+% -----------------------------------------------------------------------
+\subsubsection{Layer~3 — LLM Triage of the REVIEW Queue}
+% -----------------------------------------------------------------------
+
+%% WRITE ¶17 — LLM triage (~3–4 sentences):
+%   REQUIRED BY: Xiao & Watson (2019) — document tool/model identifiers;
+%                all decisions must be auditable.
+%   • 21 REVIEW-queue records submitted to Claude Haiku
+%     (\texttt{claude-haiku-4-5-20251001}; Anthropic) for title- and
+%     venue-level classification.
+%   • Model returned: INCLUDE, EXCLUDE, or UNCERTAIN.
+%   • UNCERTAIN records retained for manual inspection.
+%   • State: AI decisions logged per record alongside keyword scores in
+%     \texttt{log\_screening\_*.json} (SHA-256 of input file retained).
+
+\bigskip\noindent\textit{[¶17 — Layer 3: LLM triage of REVIEW queue]}
+% ↑ Delete this line and write your paragraph here.
+
+\paragraph{Screening outcomes.}
+
+% Fill in from log_screening_*.json after final pipeline run
+\begin{table}[htbp]
+  \centering
+  \caption{Title screening outcomes across all 1,008 records.}
+  \label{tab:screening}
+  \begin{tabular}{lr}
+    \toprule
+    \textbf{Decision} & \textbf{\textit{N}} \\
+    \midrule
+    \textsc{Include} (automatic, $\geq 2$ term sets) & 162 \\
+    \textsc{Review} (LLM triage queue)               &  21 \\
+    \quad $\hookrightarrow$ \textsc{Include} after LLM triage & \TODO{$n$} \\
+    \quad $\hookrightarrow$ \textsc{Exclude} after LLM triage & \TODO{$n$} \\
+    \quad $\hookrightarrow$ \textsc{Uncertain} (manual)       & \TODO{$n$} \\
+    \textsc{Exclude} (hard)                          & 825 \\
+    \midrule
+    \textbf{Total screened}                          & \textbf{1,008} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+%% WRITE ¶18 — Inter-rater reliability (~3–4 sentences):
+%   REQUIRED BY: Xiao & Watson (2019) Step 4 — TWO reviewers must screen
+%                independently; discrepancies resolved by discussion or
+%                a third party; Cohen's kappa should be reported.
+%   THIS IS A REQUIRED PARAGRAPH — do not omit it.
+%   Options (pick one and state it clearly):
+%   Option A — if a second reviewer participated:
+%       Describe the second reviewer, the sample screened independently,
+%       and the Cohen's kappa / percentage agreement achieved.
+%   Option B — single reviewer (most common in thesis work):
+%       Acknowledge explicitly that screening was performed by a single
+%       reviewer (a recognised limitation of the SLR).
+%       Describe the mitigations in place:
+%         (i)  The LLM triage in Layer 3 provides a documented,
+%              independent second perspective on the REVIEW queue.
+%         (ii) The pre-validated G1–G6 corpora, assembled through a
+%              separate search process, serve as a cross-validation
+%              mechanism for thematic coverage.
+%         (iii) Full decision audit logs enable post-hoc inter-rater
+%              checks on any subset of records.
+%   Cite: \citep{XiaoWatson2019, KitchenhamCharters2007}
+
+\bigskip\noindent\textit{[¶18 — Inter-rater reliability (REQUIRED — acknowledge or report)]}
+% ↑ Delete this line and write your paragraph here.
+
+
+% =============================================================================
+\subsection{Metadata Enrichment and Quality Assessment}
+\label{sec:methodology:enrichment}
+% =============================================================================
+
+% REQUIRED BY: Xiao & Watson (2019) Step 5 — quality assessment with a
+%              pre-specified instrument; results reported.
+%              Xiao & Watson (2019) Step 6 — data extraction form applied
+%              to each included study.
+%              Wohlin (2014) §3.4 — data extraction after inclusion.
+
+%% WRITE ¶19 — Enrichment pipeline (~4–5 sentences):
+%   • All records passing title screening enriched with abstracts and
+%     keyword metadata via two sources:
+%       1. Semantic Scholar batch API — abstracts and field-of-study
+%          categories for all records with a SS paper ID.
+%       2. OpenAlex — keyword topics for records still lacking metadata
+%          after the SS pass, via DOI lookup.
+%   • Per-row traceability: the \texttt{enrichment\_sources} column
+%     records which sources contributed data for each paper
+%     (values: \texttt{acl}, \texttt{semantic\_scholar}, \texttt{openalex}).
+%   • After enrichment, a domain-relevance filter removed off-topic records
+%     and deprioritised low-citation arXiv preprints lacking a Tier~1
+%     signal (moved to a separate audit file for potential rescue).
+%   • Cite: \citep{SemanticScholar, XiaoWatson2019}
+
+\bigskip\noindent\textit{[¶19 — Enrichment pipeline: SS + OpenAlex + traceability column]}
+% ↑ Delete this line and write your paragraph here.
+
+%% WRITE ¶20 — Quality assessment instrument (~3–4 sentences):
+%   REQUIRED BY: Xiao & Watson (2019) Step 5 — pre-specified quality
+%                assessment instrument; results reported; quality informs
+%                synthesis weighting.
+%   THIS IS A REQUIRED PARAGRAPH.
+%   • State that venue quality was assigned to each retained record using
+%     a four-level taxonomy (Table~\ref{tab:venue-quality}).
+%   • Describe the taxonomy:
+%       top_venue    — CORE A* / Scopus Q1 (ICML, ICLR, NeurIPS, ACL,
+%                      EMNLP, MLSys, Scopus Q1 journals)
+%       peer_reviewed — other peer-reviewed conference or journal
+%       preprint     — arXiv with no published venue
+%       unknown      — venue missing or unresolved
+%   • State how quality is used: top-tier peer-reviewed works are
+%     prioritised in synthesis; preprints are included where no published
+%     version exists (consistent with Tier 1 priority criterion).
+%   • Note the instrument was pre-specified in the protocol.
+%   • Cite: \citep{XiaoWatson2019}
+
+\bigskip\noindent\textit{[¶20 — Quality assessment: venue quality taxonomy]}
+% ↑ Delete this line and write your paragraph here.
+
+\paragraph{Tier classification.}
+
+%% WRITE ¶21 — Tier classification (~3–4 sentences):
+%   • Each retained record classified into one of three relevance tiers
+%     based on combined title, abstract, and keyword signal
+%     (Table~\ref{tab:tiers}).
+%   • Connect to Keshav (2007) three-pass model:
+%       Tier 1 → full reads
+%       Tier 2 → selective reads
+%       Tier 3 → abstract-level assessment
+%   • Cite: \citep{Keshav2007, XiaoWatson2019}
+
+\bigskip\noindent\textit{[¶21 — Tier classification and reading-priority rationale]}
+% ↑ Delete this line and write your paragraph here.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Relevance tier classification criteria and corpus distribution
+           after enrichment and filtering.}
+  \label{tab:tiers}
+  \begin{tabular}{clrr}
+    \toprule
+    \textbf{Tier} & \textbf{Criteria} & \textbf{\textit{n}} & \textbf{\%} \\
+    \midrule
+    1 & PEFT + distributed/P2P + LLM serving (all three) & 108 & 20.9 \\
+    2 & Two of the three core signals                    & 163 & 31.5 \\
+    3 & Foundational or tangential (one signal)          & 246 & 47.6 \\
+    \midrule
+    \textbf{Total} & & \textbf{517} & \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Venue quality distribution of the 517-paper retained corpus.}
+  \label{tab:venue-quality}
+  \begin{tabular}{lrr}
+    \toprule
+    \textbf{Venue quality} & \textbf{\textit{n}} & \textbf{\%} \\
+    \midrule
+    Top-tier venue (CORE A* / Scopus Q1)       &  66 & 12.8 \\
+    Peer-reviewed (other conference / journal)  & 209 & 40.4 \\
+    Preprint (arXiv, no published venue)        & 219 & 42.4 \\
+    Unknown / missing venue                     &  23 &  4.4 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+%% WRITE ¶22 — Data extraction form (~2–3 sentences):
+%   REQUIRED BY: Xiao & Watson (2019) Step 6 — a structured extraction
+%                form must be described; fields listed or made available.
+%   • State the fields extracted per record (the columns of the enriched
+%     CSV constitute the extraction schema):
+%       title, authors, year, venue, DOI, SS paper ID, abstract,
+%       keywords, enrichment_sources, venue_quality, tier, source_engine
+%   • Note that the schema was pre-specified in the protocol and applied
+%     uniformly via the automated enrichment pipeline.
+%   • Cite: \citep{XiaoWatson2019}
+
+\bigskip\noindent\textit{[¶22 — Data extraction form and fields]}
+% ↑ Delete this line and write your paragraph here.
+
+
+% =============================================================================
+\subsection{Abstract-Level Review}
+\label{sec:methodology:abstract-review}
+% =============================================================================
+
+% REQUIRED BY: Xiao & Watson (2019) Step 4 — abstract screening before
+%              full text; Step 5 — quality and relevance confirmed.
+%              Wohlin (2014) §3.2.3 — final inclusion based on full paper
+%              (abstract review here is the eligibility → inclusion step).
+%              Keshav (2007) — first-pass reading model.
+
+%% WRITE ¶23 — Abstract review purpose and process (~4–5 sentences):
+%   • State purpose: move from eligibility to inclusion (PRISMA stage 4).
+%   • Ground in Keshav (2007): first pass (title, abstract, headings,
+%     five Cs) decides whether a paper warrants further reading.
+%   • Describe the AI-advisory mechanism:
+%       Each abstract accompanied by a Claude Sonnet suggestion
+%       (\texttt{claude-sonnet-4-6}; Anthropic): one-sentence summary,
+%       one-sentence relevance note, KEEP / SKIP / DEFER recommendation.
+%   • CRITICAL: state clearly that the AI suggestion was STRICTLY ADVISORY;
+%     ALL final decisions were made by the human reviewer.
+%     (Required by Xiao & Watson: human oversight for validity.)
+%   • State the export step: KEEP + DEFER → Zotero via RIS format.
+%   • Cite: \citep{Keshav2007, XiaoWatson2019}
+
+\bigskip\noindent\textit{[¶23 — Abstract review: process, AI advisory role, human decision]}
+% ↑ Delete this line and write your paragraph here.
+
+% TODO: fill in final counts after abstract review session
+\begin{table}[htbp]
+  \centering
+  \caption{Abstract-level review outcomes (to be completed after
+           \texttt{python -m app.abstract\_review --llm}).}
+  \label{tab:abstract-review}
+  \begin{tabular}{lr}
+    \toprule
+    \textbf{Decision} & \textbf{\textit{N}} \\
+    \midrule
+    KEEP  (Zotero corpus for full-text reading) & \TODO{$n$} \\
+    SKIP  (excluded at abstract level)          & \TODO{$n$} \\
+    DEFER (closer inspection required)          & \TODO{$n$} \\
+    \midrule
+    \textbf{Total reviewed}                     & \textbf{517} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+%% WRITE ¶24 — Reproducibility of abstract review (~2 sentences):
+%   • Both the AI suggestion and the human decision are recorded per record
+%     in \texttt{08\_abstract\_reviewed\_<date>.csv}.
+%   • This supports inter-rater reproducibility checks on any subset of
+%     SKIP decisions (the AI column serves as a first-pass surrogate for
+%     a second reviewer — Xiao & Watson recommendation).
+%   • Cite: \citep{XiaoWatson2019, KitchenhamCharters2007}
+
+\bigskip\noindent\textit{[¶24 — Reproducibility of abstract review decisions]}
+% ↑ Delete this line and write your paragraph here.
+
+
+% =============================================================================
+\subsection{PRISMA Flow and Reproducibility}
+\label{sec:methodology:prisma}
+% =============================================================================
+
+% REQUIRED BY: Page et al. (2021)   — PRISMA 2020 flow diagram (mandatory)
+%              Xiao & Watson (2019) Step 8 — report with flow diagram;
+%              document search date, string, all decisions.
+%              Xiao & Watson: "process must be reported in sufficient detail
+%              to allow other researchers to follow the same steps and
+%              arrive at the same results."
+
+%% WRITE ¶25 — PRISMA flow summary (~3–4 sentences):
+%   • Reference Figure~\ref{fig:prisma} for the complete PRISMA 2020 flow.
+%   • Briefly narrate the four stages:
+%       Identification  — 1,150 raw records retrieved across backward
+%                         and forward snowballing.
+%       Screening       — after deduplication: 41 unique new snowballed
+%                         records + 444 pre-validated = 1,008 total;
+%                         825 excluded at title screen.
+%       Eligibility     — 517 records after enrichment and relevance filter.
+%       Inclusion       — \TODO{$n$} KEEP + DEFER after abstract review.
+%   • Cite: \citep{Page2021}
+
+\bigskip\noindent\textit{[¶25 — PRISMA flow narrative (Identification → Inclusion)]}
+% ↑ Delete this line and write your paragraph here.
+
+%% WRITE ¶26 — Reproducibility statement (~2–3 sentences):
+%   REQUIRED BY: Xiao & Watson (2019) — explicit reproducibility standard.
+%   • State that the pipeline, term-set versions, LLM model identifiers,
+%     SHA-256 checksums of all intermediate files, and per-seed retrieval
+%     logs are archived in the project repository.
+%   • State that full re-execution from any stage is possible.
+%   • Cite: \citep{Page2021, XiaoWatson2019}
+
+\bigskip\noindent\textit{[¶26 — Reproducibility and archival statement]}
+% ↑ Delete this line and write your paragraph here.
+
+% ---- PRISMA flow figure ----
+% Replace \fbox placeholder with \includegraphics once generated:
+%   python -m app.prisma --date <DATE>
+%   python main.py --visualise
+% Produces: slr_engine/assets/figures/fig_slr1_prisma_flow.png
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics[width=\textwidth]{slr_engine/assets/figures/fig_slr1_prisma_flow.png}
+  \fbox{\parbox{0.88\textwidth}{%
+    \centering\small
+    \textbf{PRISMA 2020 Flow Diagram}\\[8pt]
+    %
+    \textbf{Identification}\\
+    Records retrieved via backward snowballing: \TODO{$n$}\\
+    Records retrieved via forward snowballing: \TODO{$n$}\\
+    \textit{Total raw records: 1,150}\\[6pt]
+    $\downarrow$ Deduplication (DOI + SS paper ID)\\[6pt]
+    %
+    \textbf{Screening}\\
+    Unique new snowballed records: 41
+      \quad (duplicates removed: 1,109)\\
+    Pre-validated records (G0--G6): 444\\
+    \textit{Total records screened: 1,008}\\
+    Records excluded at title screen: 825\\[6pt]
+    $\downarrow$\\[6pt]
+    %
+    \textbf{Eligibility}\\
+    Records after enrichment \& relevance filter: 517\\
+    \quad of which Tier~1: 108 \quad Tier~2: 163 \quad Tier~3: 246\\
+    Records deprioritised (low-citation preprint): \TODO{$n$}\\
+    Records excluded (off-topic / malformed): \TODO{$n$}\\[6pt]
+    $\downarrow$\\[6pt]
+    %
+    \textbf{Inclusion}\\
+    KEEP (full-text reading): \TODO{$n$}\\
+    DEFER (closer inspection): \TODO{$n$}\\
+    SKIP (excluded at abstract): \TODO{$n$}\\
+    \textbf{Final corpus for full-text synthesis: \TODO{$n$}}
+  }}
+  \caption{PRISMA~2020 flow diagram.  Counts marked \TODO{\$n\$} are
+           filled upon completion of the abstract review stage by
+           re-running \texttt{python -m app.prisma} and
+           \texttt{python main.py --visualise}.}
+  \label{fig:prisma}
+\end{figure}
+
+
+% =============================================================================
+%  Bibliography entries referenced in this section
+%  (add to your main .bib file if not already present)
+% =============================================================================
+
+% @article{XiaoWatson2019,
+%   author  = {Xiao, Yu and Watson, Maria},
+%   title   = {Guidance on Conducting a Systematic Literature Review},
+%   journal = {Journal of Planning Education and Research},
+%   volume  = {39},
+%   number  = {1},
+%   pages   = {93--112},
+%   year    = {2019},
+%   doi     = {10.1177/0739456X17723971}
+% }
+%
+% @inproceedings{Wohlin2014,
+%   author    = {Wohlin, Claes},
+%   title     = {Guidelines for Snowballing in Systematic Literature Studies
+%                and a Replication in Software Engineering},
+%   booktitle = {Proceedings of the 18th International Conference on Evaluation
+%                and Assessment in Software Engineering (EASE~'14)},
+%   year      = {2014},
+%   doi       = {10.1145/2601248.2601268}
+% }
+%
+% @article{Page2021,
+%   author  = {Page, Matthew J. and others},
+%   title   = {{PRISMA} 2020 explanation and elaboration: updated guidance
+%              and exemplars for reporting systematic reviews},
+%   journal = {BMJ},
+%   volume  = {372},
+%   year    = {2021},
+%   doi     = {10.1136/bmj.n160}
+% }
+%
+% @techreport{KitchenhamCharters2007,
+%   author      = {Kitchenham, Barbara and Charters, Stuart},
+%   title       = {Guidelines for performing systematic literature reviews
+%                  in software engineering},
+%   institution = {Keele University},
+%   year        = {2007},
+%   number      = {EBSE-2007-01}
+% }
+%
+% @article{Keshav2007,
+%   author  = {Keshav, Srinivasan},
+%   title   = {How to read a paper},
+%   journal = {ACM SIGCOMM Computer Communication Review},
+%   volume  = {37},
+%   number  = {3},
+%   pages   = {83--84},
+%   year    = {2007}
+% }
+%
+% @misc{SemanticScholar,
+%   author       = {{Semantic Scholar}},
+%   title        = {Semantic Scholar Academic Graph {API}},
+%   howpublished = {\url{https://api.semanticscholar.org}},
+%   year         = {2024}
+% }
+%
+% -- Seed paper entries assumed already in .bib:
+%    Houlsby2019, Hu2022, Pfeiffer2020hub, Pfeiffer2021fusion,
+%    Sajina2024, Borzunov2023, Han2024, Sheng2024

@@ -1,0 +1,69 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Large language models (LLMs) pre-trained on vast corpora have become the dominant
+paradigm for natural language processing \citep{Vaswani2017, Devlin2019}. A single
+pre-trained transformer backbone can be adapted to dozens of downstream tasks through
+fine-tuning, and parameter-efficient fine-tuning (PEFT) methods have reduced the cost
+of this adaptation to a fraction of the original model size \citep{Houlsby2019, Hu2022}.
+The result is an ecosystem in which a single frozen backbone serves as a universal
+substrate, and small task-specific adapter modules provide the task-particular
+knowledge required for each application.
+
+This ecosystem creates an unprecedented opportunity for collaborative knowledge sharing.
+If adapters are small, self-contained, and additive to a shared frozen backbone, they
+are in principle \textit{transmissible}: a model trained by one party on a specialist
+task can be shared with another party who needs that capability, without revealing
+the underlying training data, and without requiring the receiving party to retrain the
+backbone from scratch. In a peer-to-peer (P2P) network of nodes sharing the same
+frozen backbone, adapters are, in principle, transmissible units of knowledge exchange. Each peer
+may contribute specialist adapters it has trained, and benefit from adapters
+contributed by others.
+
+\textbf{The research question} addressed by this review is: \textit{is a
+peer-to-peer research direction for adapter-based multi-task inference
+theoretically grounded and supported by the current state of the literature?}
+More specifically: given a network of autonomous nodes each holding a frozen
+transformer backbone and a local collection of task-specific adapters, does the
+existing literature provide the building blocks required for any node to
+discover, acquire, compose, and serve adapters from across the network for
+arbitrary multi-task NLP queries, without any central coordinator, and if
+not, what are the open gaps?
+Section~\ref{sec:methodology} operationalises this feasibility question into a literature-searchable form: \textit{what methods have been proposed 
+for decentralised, adapter-based multi-task inference over a shared frozen 
+transformer backbone, and what are the open research gaps?}
+
+This problem sits at the intersection of three active research fields:
+\begin{enumerate}
+  \item \textbf{PEFT and adapter architectures} (Section~\ref{sec:peft},
+    Section~\ref{sec:adapter_composition}): What are the structural properties of
+    adapter modules that make them suitable as knowledge exchange units?
+  \item \textbf{Efficient inference and routing} (Section~\ref{sec:inference_systems},
+    Section~\ref{sec:moe_routing}): How can a serving system select and compose the
+    right adapter for each request at minimal latency?
+  \item \textbf{Distributed systems and federated learning} (Section~\ref{sec:p2p_federated}):
+    What algorithms and protocols enable model parameter exchange without a central
+    server, and what are the convergence guarantees under heterogeneous data
+    distributions?
+\end{enumerate}
+
+The multi-tenant serving literature (S-LoRA \citep{Sheng2024}, Punica \citep{Chen2023Punica}, 
+CaraServe \citep{Li2024CaraServe}) assumes a single administrative domain. 
+The federated PEFT literature assumes a central server for adapter aggregation. 
+The P2P inference literature (Petals \citep{Borzunov2023}) distributes backbone 
+layers across nodes but does not address per-task adapter modules. The closest precedent is 
+\citet{Sajina2024}, which demonstrates that task-specific modules can be trained and served 
+across a P2P network of encoder-only transformers — but the modules are tied to a fixed peer 
+population, are not framed as PEFT/LoRA-style adapters, and are neither discoverable nor composable 
+by peers outside the original training group. Each of these bodies of work addresses part
+of the problem, but their intersection has not yet been addressed as an integrated whole.
+
+\subsection{Review Structure}
+\label{sec:introduction:structure}
+
+Section~\ref{sec:background} provides the technical background on transformer
+architectures, PEFT fundamentals, and P2P network primitives. Section~\ref{sec:methodology}
+describes the systematic literature review methodology. Sections~\ref{sec:peft}--\ref{sec:p2p_federated}
+review the five bodies of related work. Section~\ref{sec:synthesis_gap} synthesises the
+literature into a unified gap analysis and identifies open research directions.
+Section~\ref{sec:conclusion} concludes.

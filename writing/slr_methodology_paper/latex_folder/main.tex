@@ -1,0 +1,182 @@
+% =============================================================================
+%  Decentralised Adapter-Based LLM Systems
+%  A Systematic Literature Review
+%
+%  Author      : Vanja Luk
+%  Institution : University of Rijeka, Faculty of Informatics and Digital
+%                Technologies
+%  Framework   : PRISMA 2020 · Wohlin (2014) · Xiao & Watson (2019)
+%  Date        : May 2026
+% =============================================================================
+
+\documentclass[a4paper,12pt]{article}
+
+% --- Encoding & language ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% --- Page layout ---
+\usepackage{geometry}
+\geometry{
+  a4paper,
+  margin=2.5cm
+}
+
+% --- Fonts & symbols ---
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% --- Graphics & floats ---
+\usepackage{graphicx}
+\usepackage{svg}
+\graphicspath{{figures/}}
+\usepackage{float}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{rotating}
+% --- Captions & subfigures ---
+\usepackage[font=small]{caption}
+\usepackage{subcaption}
+\captionsetup[figure]{name=\textbf{Figure}}
+\captionsetup[table]{name=\textbf{Table}}
+
+% --- Colors ---
+\usepackage{xcolor}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+% --- Spacing & paragraphs ---
+\usepackage{setspace}
+\onehalfspacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+% --- Section numbering ---
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}.}
+\renewcommand{\thesubsubsection}{\thesubsection\arabic{subsubsection}.}
+
+% --- Tables ---
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{multirow}
+
+% --- Bibliography (natbib) ---
+\usepackage[square,sort,comma,numbers]{natbib}
+\bibliographystyle{plainnat}
+
+% --- Listings (code) ---
+\usepackage{listings}
+\lstloadlanguages{bash}
+\renewcommand{\lstlistingname}{\textbf{Code snippet}}
+\lstset{
+  frame=tblr,
+  language=Bash,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+% --- Appendix ---
+\usepackage[toc,page]{appendix}
+\renewcommand{\appendixname}{Appendix}
+
+% --- TOC and references ---
+\usepackage[nottoc]{tocbibind}
+
+% --- Hyperlinks (load last) ---
+\usepackage[
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=dkgreen,
+  urlcolor=blue,
+  pdftitle={Decentralised Adapter-Based LLM Systems: A Systematic Literature Review},
+  pdfauthor={Vanja Luk}
+]{hyperref}
+
+ \usepackage{pifont} 
+
+% =============================================================================
+%  Document begins
+% =============================================================================
+\begin{document}
+
+% --- Title page ---
+% --- Title page ---
+\begin{titlepage}
+  \centering
+  \vspace*{2cm}
+  {\Large\bfseries University of Rijeka\\
+   Faculty of Informatics and Digital Technologies\par}
+  \vspace{2cm}
+
+  
+
+  {\LARGE\bfseries Decentralised Adapter-Based LLM Inference: \\
+  A Systematic Literature Review\par}
+  \vspace{1.5cm}
+  {\large Mapping the Research Gap at the Intersection of \\ PEFT, P2P Systems, and Multi-Task Serving\par}
+  \vspace{2.5cm}
+  {\large Vanja Luk\par}
+  \vspace{0.3cm}
+  {\normalsize Doctoral Study Programme in Informatics\par}
+  \vspace{0.7cm}
+  {\normalsize
+    Topic: Scientific Research Methodology\\
+    Supervisor: prof. dr. sc.\ Sanda Martinčić-Ipšić\par}
+  \vspace{1cm}
+  {\normalsize June 2026\par}
+\end{titlepage}
+
+% --- Abstract ---
+\input{sections/00_abstract}
+
+\newpage
+\tableofcontents
+\newpage
+
+% --- Main sections ---
+\input{sections/01_introduction}
+\newpage
+\input{sections/02_background}
+\newpage
+\input{sections/03_methodology}
+\newpage
+\input{sections/04_peft}
+\newpage
+\input{sections/05_adapter_composition}
+\newpage
+\input{sections/06_inference_systems}
+\newpage
+\input{sections/07_moe_routing}
+\newpage
+\input{sections/08_p2p_federated}
+\newpage
+\input{sections/09_synthesis_gap}
+\newpage
+\input{sections/11_conclusion}
+
+% --- Bibliography ---
+\newpage
+\bibliography{bibliography}
+
+% --- Appendices ---
+\newpage
+\begin{appendices}
+\input{sections/12_appendix}
+\end{appendices}
+
+\end{document}

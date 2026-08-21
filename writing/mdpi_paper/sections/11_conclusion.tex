@@ -1,0 +1,117 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+This systematic literature review spans three intersecting fields
+that together motivate a novel research direction: parameter-efficient fine-tuning
+and adapter architectures (Sections~\ref{sec:peft}--\ref{sec:adapter_composition}),
+adapter-aware inference systems (Section~\ref{sec:inference_systems}), unified by
+mixture-of-experts routing as the selection mechanism (Section~\ref{sec:moe_routing}) and
+peer-to-peer and federated learning (Section~\ref{sec:p2p_federated}).
+The systematic review followed the PRISMA 2020 guidelines \cite{Page2021}, the
+eight-step process of Xiao and Watson~\cite{XiaoWatson2019}, and the snowballing procedure of
+Wohlin et al.~\cite{Wohlin2014}, yielding a final corpus of 123 papers assembled from nine seed
+papers and six thematic pre-validated groups.
+
+The following subsections summarise the main findings, characterise the review's contribution, and discuss threats to validity and limitations.
+
+\subsection{Summary of Findings}
+\label{sec:conclusion:summary}
+
+The review established four key findings:
+
+\begin{enumerate}
+  \item \textbf{Adapters are structurally suitable for P2P exchange.} LoRA and
+    bottleneck adapters are self-contained, small (2--10~MB for $r = 4$--$8$ at
+    GPT-2 scale), additive to a frozen backbone, and task-specific. These properties
+    make them natural transmission units in a P2P network. No reviewed work has operationalised this observation into a complete adapter exchange protocol.
+
+  \item \textbf{Adapter composition is technically feasible without joint training.}
+    LoraHub \cite{Huang2023}, Model Soups \cite{Wortsman2022}, and
+    LoraRetriever \cite{ZhaoLoraRetriever2024} all demonstrate that independently
+    trained adapters can be composed effectively using weight averaging or retrieval-based
+    combination, without access to any task's original training data. Composition quality
+    depends on the ability to match adapters to queries based on learned capability
+    representations.
+
+  \item \textbf{Federated PEFT confirms communication efficiency but requires
+    centralised aggregation.} The federated PEFT literature (23 papers) consistently
+    shows that adapter-only exchange reduces communication cost by 90--99\% compared
+    to full gradient exchange, and that non-IID performance degradation is bounded.
+    However, all reviewed systems require a central aggregation server, leaving fully
+    decentralised adapter aggregation as an open problem.
+
+  \item \textbf{P2P distributed ML has the protocol infrastructure but lacks adapter
+    semantics.} P2P systems (Petals, Šajina, gossip learning) demonstrate that
+    distributed model serving and parameter exchange without a central server are
+    technically feasible. None of these systems addresses per-task adapter modules,
+    adapter discovery, or multi-task adapter composition.
+\end{enumerate}
+
+\subsection{Research Gap Identification and Systematisation}
+\label{sec:conclusion:contributions}
+
+The primary contribution of this review is the identification and structured
+characterisation of a compound research gap at the intersection of three active
+fields: parameter-efficient fine-tuning, peer-to-peer and federated learning,
+and adapter-aware inference serving. The concept matrix (Table~\ref{tab:concept_matrix}) 
+shows that, to the best of the author's knowledge, no existing system simultaneously addresses all seven design dimensions of a fully decentralised
+adapter-based inference setting. The research gap map (Table~\ref{tab:gap_map})
+decomposes this compound gap into eight open research questions across four
+quadrants, each demanding a different type of research contribution.
+
+The systematisation of 123 papers across five thematic clusters, the identification of a theoretical gap concerning adapter reuse quality under non-IID distribution shift, and the identification of the missing
+intersection between DHT-based discovery, adapter capability representation,
+decentralised fusion, and P2P topology together constitute the analytical
+contribution of this review.
+From the literature that has been reviewed, no prior finding has examined this intersection; the present work establishes the evidence base and the open
+questions on which future empirical work can be grounded.
+
+\subsection{Threats to Validity}
+\label{sec:conclusion:threats}
+
+Several threats to the validity of this review are acknowledged.
+
+\textit{Construct validity.}
+The seven dimensions used in the concept matrix (Table~\ref{tab:concept_matrix}) were derived inductively from recurring architectural properties in the reviewed literature, not from an a priori theoretical framework. A different set of dimensions could yield a different gap profile. To mitigate this risk, the rationale for each dimension's inclusion and exclusion is documented in Section~\ref{sec:synthesis_gap:matrix}, and the binary scoring scheme was chosen to avoid introducing precision that the evidence cannot support.
+
+\textit{Internal validity.}
+The review was conducted by a single author, which introduces the risk of selection bias at every screening stage. To mitigate this, automated keyword scoring (Layer~2), structured term sets, and AI-assisted consistency checks were employed alongside manual review, and all per-record decisions are logged in audit files for reproducibility. The use of automated classifiers in the screening and abstract review stages may have introduced systematic bias; however, all automated outputs were advisory, and final decisions were made by the author. The year filter ($\geq$2021 for snowballed records) excluded potentially relevant earlier work, though this risk was mitigated by the inclusion of pre-2021 foundational papers through the pre-validated G0--G6 corpora. Additionally, the inclusion of arXiv preprints cited by at least one peer-reviewed work within the corpus was adopted as a pragmatic proxy for minimal peer scrutiny; no formal threshold has been established in the SLR methodology literature for this criterion, and a different threshold could alter the corpus composition.
+
+\textit{External validity.}
+The corpus is exclusively English-language and predominantly NLP-focused. Findings may not generalise to computer vision, multimodal, or speech-processing settings where adapter architectures are also increasingly used. The dominance of ACL, EMNLP, and NeurIPS venues in the corpus reflects the field's publication patterns but may underrepresent relevant systems work published in networking or distributed systems venues not covered by the seed papers.
+
+\textit{Conclusion validity.}
+One wave of citation snowballing was performed; saturation was assessed by overlap with the pre-validated corpora but was not formally measured using a stopping criterion such as diminishing marginal inclusion rate. The field is rapidly evolving: papers published after the search date (2026-04-21) may address gaps identified in this review. The gap analysis reflects the state of the literature at the time of the search and should be interpreted accordingly.
+
+\subsection{Limitations and Future Work}
+\label{sec:conclusion:limitations}
+
+This work has several limitations. All findings rest on collected 
+literature evidence and the author's own analytical validation and 
+identification of a theoretical foundation. The open research directions identified in this review remain at the conceptual and analytical level; no empirical work yet exists to validate the open question of bounding on adapter reuse quality or the feasibility of local fusion weight estimation in a P2P setting.
+
+Second, the reviewed corpus is exclusively English-language. The PRISMA 2020 
+review process covered only peer-reviewed works written in English. The 
+generalisability of adapter reuse to multilingual NLP environments is not 
+addressed. This is acknowledged as a scope limitation, though it reflects 
+the current state of the field: the overwhelming majority of relevant 
+research in this domain is published in English, and the existence of 
+significant work in other languages would represent an exception rather 
+than the norm.
+
+Third, the incentive and trust dimensions of a P2P adapter exchange remain
+unaddressed. How to motivate peers to contribute quality adapters is an 
+open problem. How to detect corrupted or unverified adapters remains 
+unresolved. Choosing between incentive design and trust mechanisms as the 
+primary focus for future investigation is itself a challenge, since both 
+dimensions are significant and complex. In the current technological 
+landscape, however, the security and trust dimension would take precedence driven by the increasing accessibility of this technology and the 
+growing potential for misuse. At the same time, resolving trust would 
+ease the incentive problem, since the two are closely coupled and each 
+influences the other.
+
+Future work should prioritise four directions emerging directly from the gap
+map. First, formal derivation of bounds on adapter reuse quality as a function 
+of distribution distance and adapter rank, building on the domain adaptation 
+framework of Ben-David et al.~\cite{BenDavid2010}. Second, empirical investigation of whether weight-space capability embeddings provide sufficient task-level signal for similarity-based retrieval across diverse adapter families.
+Third, whether gossip-based propagation can sustain adapter metadata consistency under realistic P2P churn and bandwidth constraints — an open question whose answer would determine whether the distributed systems infrastructure reviewed in Section~\ref{sec:p2p_federated} is sufficient for adapter-level coordination. Fourth, whether probe-based local estimation of fusion weights can approximate centralised AdapterFusion quality, and under what conditions on probe set size and adapter diversity the approximation degrades, a question that connects the composition literature (Section~\ref{sec:adapter_composition}) to the federated setting (Section~\ref{sec:p2p_federated}).

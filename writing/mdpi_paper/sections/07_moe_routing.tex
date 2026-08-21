@@ -1,0 +1,172 @@
+\section{Mixture-of-Experts and Adapter Routing}
+\label{sec:moe_routing}
+
+\noindent\textbf{SQ4:} \textit{Can routing mechanisms select the right adapter
+for a query without a fully enumerated, centrally known expert pool?} This
+section surveys MoE and adapter routing architectures, making the catalogue
+assumption explicit at each step; SQ4 is resolved in the centralised
+discussion in Section~\ref{sec:synthesis_gap:answers}.
+
+\subsection{Mixture-of-Experts as a Scaling Principle}
+\label{sec:moe_routing:foundations}
+
+Mixture-of-Experts (MoE) architectures \cite{ShazeerMoE2017} replace dense computation with \textit{conditional}
+computation: a routing function selects a subset of expert modules to activate for each
+input, allowing the total model capacity to grow without a proportional increase in
+inference cost. The MoE principle is directly relevant to adapter serving: if each
+PEFT adapter is treated as one expert, a routing mechanism can select the appropriate
+adapter for each incoming request without loading all adapters simultaneously, which is an
+efficiency property that scales to large adapter libraries.
+
+Fedus et al.~\cite{Fedus2022} introduced Switch Transformers, which replace the feedforward
+sub-layer in each transformer block with a sparse MoE layer whose \textit{router}
+assigns each token to exactly one expert (Top-1 routing). Top-1 routing eliminates the
+token-drop problem of earlier Top-$k$ schemes by introducing a configurable \textit{expert
+capacity factor} as a fraction of the per-expert buffer, reducing token dropping to near zero. Switch Transformers achieved
+a 7$\times$ pre-training speedup over dense T5 at equivalent parameter count, scaling
+to trillion-parameter sparse models. A load-balancing auxiliary loss prevents routing
+collapse in which a small subset of experts receives all tokens. However, Switch
+Transformers rely on a fixed set of known experts co-located in a single process; they do
+not address discovering new experts from remote peers or routing across a P2P network
+deploy. This gap is examined in the synthesis and gap analysis
+(Section~\ref{sec:synthesis_gap}).
+\begin{figure}[H]
+  \centering
+  % CREATE AN ORIGINAL FIGURE here (own drawing, no reproduction permission
+  % needed): a schematic of Top-1 expert routing. Drop your PDF into figures/
+  % and replace the \fbox placeholder below with \includegraphics.
+  \fbox{\parbox{0.7\textwidth}{\centering\vspace{1.8cm}
+    \textit{Figure: Switch Transformer Top-1 routing}\\[0.4em]
+    \small(create original figure here)\vspace{1.8cm}}}
+  \caption{Switch Transformer routing (own figure): a learned router assigns
+    each input token to exactly one expert (Top-1 routing) among a fixed,
+    co-located expert pool, achieving a 4$\times$ speedup over T5-XXL at
+    equivalent quality \cite{Fedus2022}.}
+  \label{fig:switch_transformer}
+\end{figure}
+
+
+Zhou et al.~\cite{Zhou2022} proposed Expert Choice routing, which inverts the routing perspective:
+rather than each token selecting its top expert, each expert selects its top-$k$ tokens
+from the batch. This guarantees perfect load balancing by construction and eliminates
+token overflow, at the cost of requiring global batch visibility at the router.
+Expert Choice consistently outperforms token-choice routing on downstream NLP benchmarks
+at matched capacity.
+
+Rajbhandari et al.~\cite{RajbhandariDeepSpeed2022} introduced DeepSpeed-MoE, an end-to-end training and
+inference framework for MoE models on heterogeneous hardware, addressing the engineering
+challenges of all-to-all communication required for expert dispatch across multiple GPUs.
+DeepSpeed-MoE demonstrated that MoE inference latency is dominated by expert dispatch
+communication, not computation, and proposed hierarchical expert placement strategies
+to minimise cross-node communication.
+
+\subsection{Towards Distributed and Crowdsourced MoE}
+\label{sec:moe_routing:distributed}
+
+The MoE literature has begun to address the challenge of distributing experts across
+geographically separated nodes rather than co-locating them within a single cluster.
+Ryabinin et al.~\cite{RyabininCrowdsourced2020} proposed a crowdsourced MoE architecture in which
+expert modules are hosted by volunteer participants over the internet, introducing
+the problems of peer churn, heterogeneous latency, and Byzantine expert behaviour.
+The authors demonstrated that crowdsourced MoE can serve useful inference despite
+dropout rates of up to 30\% of experts per batch, by over-provisioning the expert
+pool and routing around failed nodes.
+
+Zadouri et al.~\cite{ZadouriPushMoE2024} proposed pushing MoE to its practical limits through
+adaptive expert specialisation under communication constraints, demonstrating that
+MoE routing quality degrades gracefully when all-to-all communication is limited
+to $O(\log N)$ messages per batch --- a communication budget consistent with DHT-based
+lookup.
+
+While the MoE literature reviewed above operates within a single training or inference
+run, the Petals system of Borzunov et al.~\cite{Borzunov2023} demonstrated routing at the
+\textit{node level}: client requests are dispatched to whichever volunteer nodes
+hold the required transformer blocks, with a DHT-based routing table mapping block
+indices to peer addresses. This node-level routing is structurally analogous to
+adapter-level routing in a P2P exchange architecture, the DHT maps requested adapters to
+the peers that hold them, and the client fetches from the closest or fastest provider.
+
+\subsection{LoRA-Level MoE: Routing Among Adapter Experts}
+\label{sec:moe_routing:lora_moe}
+
+A rapidly growing body of work applies the MoE routing principle directly to PEFT
+adapters, treating each LoRA matrix or bottleneck adapter as one expert within a
+sparse routing framework. This shifts the routing granularity from the layer level
+(Switch Transformers) to the adapter level, and is directly applicable to the problem
+of selecting adapters from a library in a multi-task serving system.
+
+These methods differ primarily in routing granularity and gating mechanism.
+At the finest granularity, MOELoRA \cite{LiuMOELoRA2023} attaches separate LoRA experts
+per attention head and routes each token to its top-$k$ experts at the head level,
+allowing different subspaces of the key--value projection to specialise for different tasks.
+The remaining methods operate at the layer level but vary in how routing weights are
+computed: MixLoRA \cite{LiMixLoRA2024} uses continuous mixing weights produced by a
+differentiable gating function with contrastive regularisation to prevent expert collapse,
+while MiLoRA \cite{ZhangMiLoRA2024} uses Top-1 sparse gating with a diversity penalty
+that encourages each expert to capture a distinct region of the task distribution.
+MoELoRA \cite{LuoMoELoRA2024} and Mixture of LoRA Experts \cite{WuMixtureLoRA2024}
+independently demonstrated that routing among multiple LoRA experts within a single
+fine-tuning run outperforms standard LoRA and full fine-tuning on multi-task benchmarks,
+using different gating mechanisms to achieve this result.
+
+A common finding across all reviewed LoRA-MoE methods is that multi-expert routing
+consistently outperforms single LoRA at matched parameter count. Beyond raw accuracy,
+two specialised concerns have been addressed: LoRAMoE \cite{DouLoRAMoE2024} targets the
+world knowledge preservation problem in instruction-tuned models by routing
+world-knowledge queries to a subset of frozen LoRA experts, and MoLoRAs
+\cite{FengMoLoRAs2024} demonstrates that conditioning the gating function on both task
+identity and input embedding consistently outperforms input-only routing across
+domain-diverse benchmarks. MixLoRA's sparse top-$k$ routing is additionally noted as
+more stable than uniform averaging under small batch sizes, making it suitable for
+low-throughput deployment scenarios.
+
+\subsection{Mixture-of-Domain Adapters and Broader Routing Policies}
+\label{sec:moe_routing:domain}
+
+Beyond LoRA-specific architectures, a complementary line of work applies MoE-style
+routing to domain adapter modules. Diao et al.~\cite{DiaomMoDE2023} proposed Mixture-of-Domain
+Experts (MoDE), which maintains separate adapter modules per data domain and uses a
+soft gating network to interpolate domain-adapter outputs at inference time. MoDE
+enables a single model to serve multiple domains without per-domain loading, achieving
+accuracy within 1--2\% of per-domain fine-tuning.
+
+Wang et al.~\cite{WangAdaMix2022} proposed AdaMix, a general mixture-of-adaptations framework
+that routes between multiple heterogeneous PEFT modules (combining bottleneck adapters
+and LoRA matrices within the same layer) using a sparse learned gating network. AdaMix
+outperforms any single PEFT method on GLUE and SuperGLUE at matched parameter budgets,
+demonstrating that heterogeneous PEFT composition via routing is superior to any
+homogeneous single method.
+
+Muqeeth et al.~\cite{Muqeeth2024} investigated soft merging of task-specific adapter experts, showing
+that interpolating adapter weights according to input-conditioned routing weights
+outperforms both hard routing and uniform averaging, with a particularly strong
+advantage on distribution-shifted test sets.
+
+Liu et al.~\cite{LiuWhenMOE2024} provided a comprehensive analysis of when MoE routing benefits
+LLM fine-tuning, identifying task diversity and data heterogeneity as the primary
+drivers of MoE gain over single-adapter baselines, and routing collapse as the primary
+failure mode when task distribution is narrow.
+
+\subsection{Sparse Adapters and Efficient Routing}
+\label{sec:moe_routing:sparse}
+
+Li et al.~\cite{LiZhouSparser2025} proposed SMOA, a sparse mixture-of-adapters architecture that
+uses a cross-layer shared adapter pool and a global router to select a sparse subset of
+experts per layer, reducing active adapters by over 85\% while preserving task accuracy.
+The architecture introduces a global pool of adapters shared across layers, and a
+curriculum learning strategy that transitions adapters from per-layer specialisation to
+cross-layer generalisation. Routing is performed by a global router that selects the
+top-activated adapters per layer using a scoring function over all adapters in the
+pool, with the condition that at most $n_l$ adapters are active per layer. SMOA also
+incorporates expert-redundancy regularisation that steers adapters toward learning
+specialised residual knowledge complementary to the backbone, using the backbone's
+weight in the routing decision as a regulariser. However, the routing is designed for
+centralised multi-task settings with a known, fixed adapter pool; it does not address
+discovering new experts from remote peers or routing in a network where both the expert
+pool and routing decisions must be learned in a distributed manner.
+
+
+\noindent The routing findings of this chapter are consolidated, alongside the
+other four sub-questions, in the centralised discussion in
+Section~\ref{sec:synthesis_gap:answers}.
+
