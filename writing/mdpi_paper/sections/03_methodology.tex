@@ -35,12 +35,15 @@ by manual curation of leading venues (ACL, EMNLP, NeurIPS, ICML, MLSys);
 Table~\ref{tab:groups} summarises their scope and contribution. Forward and
 backward citation snowballing on G0 was executed via the Semantic Scholar API
 on 2026-04-21, supplemented by a Scopus/WoS forward pass on 2026-05-08.
-After deduplication, \textbf{972 unique records} entered title screening,
-which merged with the 352-paper pre-validated corpus (G0--G6) to a
+After deduplication, \textbf{972 unique records} entered title screening, of
+which \textbf{162} passed; these screened-in records were merged with the
+352-paper pre-validated corpus (G0--G6) to a
 \textbf{502}-record corpus. Enrichment and a topical-relevance/tier filter
-retained \textbf{464} records. Abstract review across two passes, supplemented
-by a forward-citation snowball pass, produced \textbf{552} abstract-reviewed
-records; full-text queue selection narrowed these to \textbf{387}, of which
+retained \textbf{464} records. Abstract review across two passes covered these
+464 records plus \textbf{88} records added by a supplementary forward-citation
+snowball pass (Scopus and WoS), yielding a combined abstract-review pool of
+\textbf{552}; full-text queue selection narrowed this pool to \textbf{387}, of
+which
 \textbf{190} underwent data extraction, and a manual Scopus/WoS top-up brought
 the extraction set to \textbf{224}. Full-text reading and quality assessment
 then reduced the corpus to \textbf{123 papers} (2002--2026); these correspond
@@ -143,12 +146,14 @@ G6 & Federated PEFT for transformer NLP      & 66  & 30  &
   \centering
   \includegraphics[width=\linewidth]{figures/fig_slr1_prisma_flow.pdf}
   \caption{PRISMA 2020 flow diagram. Records trace from \textbf{1,150} raw
-           snowball candidates through deduplication (\textbf{972}), merge with
-           the pre-validated corpus and title screening (\textbf{502}),
-           enrichment (\textbf{464}), abstract review (\textbf{552}), full-text
-           queue selection (\textbf{387}) and data extraction (\textbf{224})
-           to the \textbf{123}-paper final reading list (\textbf{121} distinct
-           papers).}
+           snowball candidates through deduplication (\textbf{972}), merge of
+           the \textbf{162} screened-in records with the pre-validated corpus
+           and title screening (\textbf{502}), enrichment (\textbf{464}), and
+           abstract review; the abstract-review pool (\textbf{552}) combines
+           the 464 enriched records with 88 forward-snowball additions. The
+           valid pool proceeds to full-text queue selection (\textbf{387}) and
+           data extraction (\textbf{224}), yielding the \textbf{123}-paper
+           final reading list (\textbf{121} distinct papers).}
   \label{fig:prisma}
 \end{figure}
 
@@ -161,7 +166,13 @@ PEFT papers predominantly evaluate on GLUE~\cite{WangGLUE2018},
 SuperGLUE~\cite{WangSuperGLUE2019}, and MMLU~\cite{HendrycksMMLU2021};
 serving papers rely on synthetic throughput benchmarks. No single benchmark
 spans all three pillars simultaneously---a fragmentation that is itself one
-of the empirical gaps identified in Section~\ref{sec:synthesis_gap}.
+of the empirical gaps identified in Section~\ref{sec:synthesis_gap}. The
+representative ``Score'' figures are transcribed from the results reported in
+the cited primary papers themselves (each row's cited reference is the source
+of its reported value); they are not machine-mined from the extraction table,
+whose quantitative benchmark columns are populated narratively rather than
+from a parsed benchmark field. The figures are intended as indicative evidence
+of evaluation practice and are not re-normalised or compared across papers.
 
 \begin{sidewaystable}[p]
 \centering
@@ -262,12 +273,19 @@ Because the review is a qualitative thematic synthesis of published
 methods--and--systems literature rather than a meta-analysis of participant-level
 interventions, the PRISMA 2020 risk-of-bias instruments for comparative studies do
 not apply directly. Following the practice of software-literature systematic
-reviews~\cite{XiaoWatson2019}, we instead appraise the \emph{quality of the
-evidence} carried by each of the 123 included records with a six-dimension rubric
-scored from the screening and extraction records (Table~\ref{tab:quality_rubric}).
-Every dimension is operationalised from an explicit, grounded pipeline field so
-that each score is reproducible from the associated CSV artifacts; no dimension is
-inferred or imputed.
+reviews~\cite{XiaoWatson2019}, we instead appraise the \emph{evidence quality of
+each of the 123 included records} with a six-dimension rubric scored from the
+screening and extraction records (Table~\ref{tab:quality_rubric}). We emphasise
+that this instrument measures the reporting completeness of each record and its
+relevance to this synthesis, not the intrinsic scientific merit of the underlying
+study: three dimensions are bibliographic or relevance proxies (Q1 venue prestige,
+Q2 record resolvability, Q6 thematic relevance), and a pilot application of the
+classic quality dimensions (code availability, result reproducibility, baseline
+adequacy, threats reporting) found them to be un-populated in the extraction data,
+so they are scoped out here and disclosed rather than estimated. Every retained
+dimension is nevertheless operationalised from an explicit, grounded pipeline field
+so that each score is reproducible from the associated CSV artifacts; no dimension
+is inferred or imputed.
 
 \begin{table}[htp]
 \centering

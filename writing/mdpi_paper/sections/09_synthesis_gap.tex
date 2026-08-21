@@ -119,7 +119,7 @@ The scoring uses a binary \checkmark/$\times$ scheme rather than a graded scale 
 \footnotesize
 \caption{Concept matrix: related systems against seven design dimensions of the target
          decentralised adapter-based system. \checkmark\ = addressed; (\checkmark) = partially;
-         $\times$ = not addressed.}
+         $\times$ = not addressed; $-$ = dimension not engaged by the system (not applicable).}
 \label{tab:concept_matrix}
 \setlength{\tabcolsep}{2pt}
 \begin{tabular}{p{3.8cm}*{7}{c}}
@@ -133,8 +133,8 @@ The scoring uses a binary \checkmark/$\times$ scheme rather than a graded scale 
 \rotatebox{70}{\textbf{Privacy/DP}} &
 \rotatebox{70}{\textbf{No central coord.}} \\
 \midrule
-Houlsby adapters \cite{Houlsby2019}        & \checkmark & $\times$    & $\times$    & $\times$    & $\times$    & $\times$    & \checkmark \\
-LoRA \cite{Hu2022}                          & \checkmark & $\times$    & $\times$    & $\times$    & $\times$    & $\times$    & \checkmark \\
+Houlsby adapters \cite{Houlsby2019}        & \checkmark & $\times$    & $\times$    & $\times$    & $\times$    & $\times$    & $-$ \\
+LoRA \cite{Hu2022}                          & \checkmark & $\times$    & $\times$    & $\times$    & $\times$    & $\times$    & $-$ \\
 AdapterHub \cite{Pfeiffer2020hub}           & \checkmark & \checkmark  & $\times$    & (\checkmark)& $\times$    & $\times$    & $\times$   \\
 AdapterFusion \cite{Pfeiffer2021fusion}     & \checkmark & (\checkmark)& $\times$    & $\times$    & \checkmark  & $\times$    & $\times$   \\
 LoraHub \cite{Huang2023}                    & \checkmark & \checkmark  & $\times$    & $\times$    & \checkmark  & $\times$    & (\checkmark)\\
@@ -160,7 +160,7 @@ empirical work.}
 \end{tabular}
 \end{table}
 
-The final row of Table~\ref{tab:concept_matrix} defines a combined reference profile that aggregates the dimensions addressed individually by different bodies of work. It does not represent a proposed system or architecture. No reviewed system addresses all seven dimensions simultaneously. The combination of these requirements represents a coherent but as yet unexplored research direction, and each unaddressed dimension identifies an open question that future work in this area would need to resolve.
+The final row of Table~\ref{tab:concept_matrix} defines a combined reference profile that aggregates the dimensions addressed individually by different bodies of work. It does not represent a proposed system or architecture. No reviewed system addresses all seven dimensions simultaneously. The combination of these requirements represents a coherent but as yet unexplored research direction, and each unaddressed dimension identifies an open question that future work in this area would need to resolve. Two clarifications on scoring. First, the marker $-$ denotes a dimension the system does not engage at all (for example, LoRA and the original adapters are single-model training methods that neither provide nor require coordination, so their ``no central coordinator'' cell is $-$ rather than \checkmark); only systems that make an explicit design commitment are marked \checkmark\ or $(\checkmark)$. Second, ``P2P topology'' and ``absence of a central coordinator'' are related but distinct commitments: the former describes how peers connect and exchange modules, the latter whether a coordinating server is required, and the two are deliberately kept separate because a system could in principle adopt a P2P topology while still depending on a central coordinator for orchestration.
 
 \subsection{Four-Quadrant Gap Classification}
 \label{sec:synthesis_gap:gaps}
