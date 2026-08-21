@@ -109,11 +109,13 @@ Per user: **split into two projects**: (1) snowballing **code** in one repo; (2)
 
 ## PHASE 4 — Final verification pass
 
-1. **Recompute entire funnel** from raw CSVs independently (Script 1.3 / validation script); confirm matches the 7 places.
-2. **Grep all stale values**: `622`, "Figure 1"→PRISMA, "123 papers vs 121 distinct", "eight … seed", `S8_final_reading_list`, `*to be filled*`.
-3. **Grep for placeholder text**: `create original figure here`, `to be filled`, `\fbox (create…`.
-4. **Similarity focus pass** on background/method boilerplate.
-5. Produce **`REVISION_LOG.md`** mapping each Phase 1–3 item → diff/commit, for the response-to-reviewers letter.
+1. **Funnel recompute from raw CSVs / cross-check the 7 places** — ✅ PASS. Verified **123/121** consistent in all 7 places (Abstract, §3.1, Table 1 total, Table A3/appendices, Fig 5 caption, PRISMA checklist, PRISMA summary); stage counts **1,150 → 972 → 502 → 464 → 552 → 387 → 224 → 123** consistent across §3.1 + Fig 5 + checklist 16a, matching `PRISMA_NUMBERS_VALIDATION.md`.
+2. **Stale-value grep** — ✅ PASS. No `622`, no stale `fig:prisma`-as-"Figure 1", no `eight…seed`, no `S8_final_reading_list`, no `*to be filled*`.
+3. **Placeholder-text grep** — ⚠ 6 `\fbox{(create original figure here)}` remain in `02_background/04_peft(×2)/05_adapter_composition/07_moe_routing/08_p2p_federated`. These ARE the deferred **Task 13/1.2 schematics** (user: "leave the schematics for later") — documented, not silently skipped. Fig-number stability confirmed: placeholders are still `figure` envs, so replacing boxes does not shift Figure 5 (PRISMA)/Figure 6 (quality) numbering; all prose refs are `\ref`-driven.
+4. **Similarity pass** — ✅ PASS. No substantive prose duplication across background/method/synthesis; flagged hits were LaTeX `\centering`/`\includegraphics`/placeholder-comment boilerplate (false positives). Shared concept figures reused intentionally with distinct captions.
+5. **`REVISION_LOG.md`** — ✅ maintained (rows 20–24 cover 2.5 + Phase 3; earlier rows cover Phase 1/2). Drives response-to-reviewers letter.
+
+⚠ **Open for finalisation:** Task 13/1.2 placeholder schematics (deferred), 1.6+D2 (repo URLs), 2.1+D3 (2nd reviewer decisions), 2.4+D4 (current citation counts), 3.5 URL substitution (D2).
 
 ---
 
