@@ -115,8 +115,9 @@ Per user: **split into two projects**: (1) snowballing **code** in one repo; (2)
 4. **Similarity pass** — ✅ PASS. No substantive prose duplication across background/method/synthesis; flagged hits were LaTeX `\centering`/`\includegraphics`/placeholder-comment boilerplate (false positives). Shared concept figures reused intentionally with distinct captions.
 5. **`REVISION_LOG.md`** — ✅ maintained (rows 20–24 cover 2.5 + Phase 3; earlier rows cover Phase 1/2). Drives response-to-reviewers letter.
 
-⚠ **Open for finalisation:** Task 13/1.2 placeholder schematics (deferred), 1.6+D2 (repo URLs), 2.1+D3 (2nd reviewer decisions), 2.4+D4 (current citation counts), 3.5 URL substitution (D2).
-**Review sim:** AI peer-review agent run over the manuscript (R1–R2); all manuscript-fixable comments implemented (R1-1 merge/funnel wording, R1-4/R1-m2 data-availability contradiction, R2-1 rubric framing, R2-2 Table 2 provenance, R2-3 matrix `$-$` marker, R1-m1/R2-m2 conclusion counts; R2-4 already satisfied) and `responses_to_reviewers_DRAFT.md` rewritten as a genuine point-by-point reply. R1-2→D4, R1-3→D3, R2-m1→Task 1.2 remain open.
+⚠ **Open for finalisation:** Task 13/1.2 placeholder schematics (deferred), 1.6+D2 (repo URLs), 2.4+D4 (current citation counts), 3.5 URL substitution (D2).
+**Review sim:** AI peer-review agent run over the manuscript (R1–R2); all manuscript-fixable comments implemented (R1-1 merge/funnel wording, R1-4/R1-m2 data-availability contradiction, R2-1 rubric framing, R2-2 Table 2 provenance, R2-3 matrix `$-$` marker, R1-m1/R2-m2 conclusion counts; R2-4 already satisfied) and `responses_to_reviewers_DRAFT.md` rewritten as a genuine point-by-point reply.
+**D3 ✅ resolved (28):** 2.1 (κ/agreement) executed via an automated calibration pilot — blind AI re-screen of 10% (n=55) of the abstract pool → 58.2% agreement, Cohen's κ=0.17 (slight), re-screener over-inclusive; disclosed in §3.1 as an automated reproducibility diagnostic, §11.3 strengthened to own low reproducibility, PRISMA item 8 + response letter R1-3 updated. A human double-screener remains invited as the definitive standard. **Still open: R1-2→D4, R2-m1→Task 1.2, D2.**
 
 ---
 

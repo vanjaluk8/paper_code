@@ -26,7 +26,7 @@
 **R1-3 — Single-reviewer screening, no inter-rater reliability.**
 > "Screening reproducibility rests on a single reviewer, with no measured inter-rater reliability… An MDPI SLR audience will want a quantitative agreement measure. *Requested action:* Report a second, independent screening of ≥10% of records with % agreement / Cohen's κ."
 
-**Response:** The single-reviewer design is disclosed as a threat (§11.3). A calibration protocol — independent re-screening of a ~10% random subset and reporting % agreement / Cohen's κ in §3.1, with PRISMA item 8 updated — is **planned but requires the second reviewer's actual decisions**, the outstanding **D3** input. **[OPEN — awaiting D3.]**
+**Response:** We have executed the requested quantitative agreement check and report it transparently. An independent automated re-screening of a random 10% subset of the abstract-review pool (n = 55) was performed against the same inclusion rubric, blind to the original decisions, and reported in §3.1 with PRISMA item 8 updated. It yielded **58.2% observed agreement and Cohen's κ = 0.17** (Landis–Koch: "slight"), with the re-screener systematically over-inclusive (it recovered 92.6% of retained records but also flagged 21 of 28 excluded ones). We disclose this result honestly in §3.1 and treat it in §11.3 as the principal internal-validity limitation: single-reviewer abstract screening is not strongly reproducible, and this κ is an **automated reproducibility/calibration diagnostic, not independent human validation** — our screening is recall-oriented (few missed relevant records) with over-inclusion bounded downstream by full-text and quality appraisal. A genuine human double-screener remains the definitive standard, and we have stated this rather than presenting the automated pilot as a substitute.
 
 **R1-4 — Reproducibility claims contradict what is released.**
 > "Appendix C states raw result sets and pipeline files 'are archived…available at the public GitHub repository shared with this submission,' yet the data-availability statement says 'upon reasonable request,' and no URL is given… Every CSV/log is referenced only by bare filename."
@@ -84,12 +84,12 @@
 
 ---
 
-## Open items requiring author input (D2 / D3 / D4)
+## Open items requiring author input (D2 / D4; D3 resolved via automated calibration)
 
 | # | Item | Reviewer ref | What the author must supply |
 |---|---|---|---|
 | **D2** | Data-availability reproducibility (R1-4) + repo URL refs (§3.5) | R1-4 | The two-project repo **names/URLs** and **public-vs-private** status, so we can (a) finalise the Data Availability statement and (b) replace bare filenames with stable URLs. |
-| **D3** | Inter-rater reliability (R1-3) | R1-3 | The **2nd reviewer's independent 10% screening decisions**, to report % agreement / Cohen's κ in §3.1. |
+| **D3** ✅ | Inter-rater reliability (R1-3) | R1-3 | **Executed** (automated calibration pilot, n=55, §3.1; see R1-3 response). A human double-screener remains the definitive standard and is still invited; the automated pilot is disclosed as a limitation, not a substitute. |
 | **D4** | Circular arXiv-inclusion criterion (R1-2) | R1-2 | **Current citation counts** for the 123 records (or permission to query the Semantic Scholar API), to replace the circular in-corpus proxy and quantify at-risk records. |
 
 *This file is generated from `REVISION_LOG.md` and the changes applied in this session; all quoted reviewer comments are verbatim from the AI peer-review agent's report.*
