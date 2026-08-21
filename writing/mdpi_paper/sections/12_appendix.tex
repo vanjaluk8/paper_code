@@ -163,6 +163,53 @@ Q1 venues; 189 (40.7\%) in other peer-reviewed conferences or journals; 91
 (19.6\%) were arXiv preprints without a published venue; and 18 (3.9\%) had
 unknown or missing venue metadata.
 
+Table~\ref{tab:extraction_codebook} documents the column schema of the data
+extraction table (`11\_data\_extraction\_2026-05-12.csv`, 224 rows) that feeds
+the funnel in Section~\ref{sec:methodology:search}. Coverage reports the number
+of the 224 rows carrying a non-null value. Three schema columns
+(`method\_name`, `datasets`, `metrics`) are uniformly empty in the archived
+export; the quantitative evaluation evidence they were intended to hold is
+instead captured narratively in `key\_finding`/`notes\_raw`, and the
+corresponding appraisal dimensions are handled in
+Section~\ref{sec:methodology:quality}.
+
+\begin{sidewaystable}[H]
+\centering
+\caption{Data-extraction codebook: column schema, meaning, allowed values, and
+coverage of the 224-row extraction table.}
+\label{tab:extraction_codebook}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lp{2.6cm}p{6.4cm}r}
+\toprule
+\textbf{Column} & \textbf{Meaning} & \textbf{Allowed / typical values} & \textbf{Coverage} \\
+\midrule
+\texttt{paper\_key} & Internal record key (arXiv ID, DOI, or Scopus hash) & arXiv id / DOI / 40-hex Scopus hash & 223/224 \\
+\texttt{arxiv\_id} & arXiv identifier, where applicable & \texttt{YYYY.NNNNN} & 81/224 \\
+\texttt{doi} & Digital Object Identifier & DOI string & 185/224 \\
+\texttt{title} & Article title & free text & 224/224 \\
+\texttt{authors} & Author list & semicolon-separated & 217/224 \\
+\texttt{year} & Publication year & 4-digit year & 223/224 \\
+\texttt{venue} & Publishing venue & venue name & 221/224 \\
+\texttt{citation\_count} & Citations at retrieval (from Crossref/SS) & non-negative integer & 205/224 \\
+\texttt{tier} & Reading-priority tier & \texttt{1}/\texttt{2}/\texttt{3} (see Table~\ref{tab:tiers}) & 190/224 \\
+\texttt{review\_source} & Whether the record proceeded from full-text or abstract second pass & \texttt{fulltext} / \texttt{abstract-2nd-pass} & 190/224 \\
+\texttt{corpus} & Relevance position & \texttt{core} / \texttt{background} & 190/224 \\
+\texttt{contribution\_type} & Inferred contribution category & one of 15 categories (per-table text) & 190/224 \\
+\texttt{method\_name} & (schema) named method — not populated in archive & free text & 0/224 \\
+\texttt{peft\_technique} & PEFT technique used & e.g.\ \texttt{LoRA}, \texttt{bottleneck adapter}, \texttt{prefix}, \texttt{generic-PEFT}, \texttt{none} & 190/224 \\
+\texttt{distribution\_mechanism} & How model/adapter state is shared & e.g.\ \texttt{federated}, \texttt{P2P/gossip}, \texttt{centralised server}, \texttt{DHT}, \texttt{none} & 190/224 \\
+\texttt{thesis\_sections} & Review sections citing the paper & \texttt{\S n.n} references & 190/224 \\
+\texttt{contribution\_codes} & Novel-contribution tag(s) & \texttt{\textstar A1/S1/R1/R2/T2/M2} combinations & 22/224 \\
+\texttt{datasets} & (schema) datasets used — not populated in archive & free text & 0/224 \\
+\texttt{metrics} & (schema) evaluation metrics — not populated in archive & free text & 0/224 \\
+\texttt{key\_finding} & One-line primary outcome / contribution summary & free text (max ~1--2 lines) & 190/224 \\
+\texttt{notes\_raw} & Full-text reading notes (methods, results, \texttt{\S} and \texttt{\textstar} tags) & free text & 190/224 \\
+\texttt{source} & Retrieval source & \texttt{SCOPUS} / \texttt{ARXIV} / \texttt{WOS} & 220/224 \\
+\bottomrule
+\end{tabular}
+\end{sidewaystable}
+
 \subsection*{A.6 Bibliometric Overview}
 
 The final corpus of 123 papers spans the period 2002--2026, with a marked
