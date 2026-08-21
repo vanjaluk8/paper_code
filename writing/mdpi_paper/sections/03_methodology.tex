@@ -49,6 +49,11 @@ method) are each recorded under both their arXiv and Scopus retrieval keys in
 the reading list.
 This funnel is summarised in Figure~\ref{fig:prisma} and traceable record-by-
 record through the unified pipeline file (Appendix~\ref{sec:appendix:corpus_pipeline}).
+Of the 123 included records, \textbf{105} (85.4\%) originate from the curated,
+pre-validated corpus groups G1--G6 (Table~\ref{tab:groups}), and the remaining
+\textbf{18} (14.6\%) were added by forward and backward citation snowballing
+around the G0 seed set (four directly-seeded anchor papers, ten forward and four
+backward snowball additions).
 
 \begin{table}[H]
 \centering
@@ -59,20 +64,19 @@ record through the unified pipeline file (Appendix~\ref{sec:appendix:corpus_pipe
 \textbf{Group} & \textbf{Theme} & \textbf{\textit{n} pre-val.} &
 \textbf{\textit{n} final} & \textbf{Section(s)} \\
 \midrule
-G0 & Foundational seeds (PEFT, P2P, serving) & 9   & 20  &
+G0 & Foundational seeds (PEFT, P2P, serving) & 9   & 18  &
 \ref{sec:peft}--\ref{sec:adapter_composition}, \ref{sec:inference_systems} \\
-G1 & PEFT methods beyond adapters and LoRA   & 59  & 12  & \ref{sec:peft} \\
-G2 & Adapter composition for multi-task NLP  & 37  & 15  &
+G1 & PEFT methods beyond adapters and LoRA   & 59  & 17  & \ref{sec:peft} \\
+G2 & Adapter composition for multi-task NLP  & 37  & 17  &
 \ref{sec:adapter_composition} \\
-G3 & Decentralised and P2P ML systems        & 95  & 11  &
+G3 & Decentralised and P2P ML systems        & 95  & 14  &
 \ref{sec:p2p_federated} \\
-G4 & Adapter multiplexing for LLM inference  & 51  & 12  &
+G4 & Adapter multiplexing for LLM inference  & 51  & 16  &
 \ref{sec:inference_systems} \\
-G5 & Routing and MoE for modular PEFT        & 35  & 9   &
+G5 & Routing and MoE for modular PEFT        & 35  & 11  &
 \ref{sec:moe_routing} \\
-G6 & Federated PEFT for transformer NLP      & 66  & 29  &
+G6 & Federated PEFT for transformer NLP      & 66  & 30  &
 \ref{sec:p2p_federated} \\
-Other & Manual additions (Scopus/WoS snowball) & --- & 15 & cross-cutting \\
 \midrule
 \textbf{Total} & & \textbf{352} & \textbf{123} & \\
 \bottomrule
