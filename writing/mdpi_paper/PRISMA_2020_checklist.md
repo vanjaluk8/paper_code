@@ -81,7 +81,7 @@ This checklist maps each of the 27 PRISMA 2020 items to the section, table, figu
 
 | Section | # | Checklist item | Where the item is reported |
 |---|---|---|---|
-| **Registration and protocol** | 24a | Provide registration information for the review, including register name and registration number, or state that the review was not registered. | Not registered (state this in the cover letter / supplementary). |
+| **Registration and protocol** | 24a | Provide registration information for the review, including register name and registration number, or state that the review was not registered. | **§3 Materials and Methods (`sec:methodology`)** — states the review was **not prospectively registered**, with justification (CS/AI SLRs not commonly eligible for clinical registries such as PROSPERO; no suitable AI-specific registry available at commencement). Not registered in any registry. |
 | | 24b | Indicate where the review protocol can be accessed, or state that a protocol was not prepared. | Protocol embedded in Methods (§3) and Appendix A; not separately registered. |
 | | 24c | Describe and explain any amendments to information provided at registration or in the protocol. | Not applicable (no registration). |
 | **Support** | 25 | Describe sources of financial or non-financial support for the review and the role of the funders or sponsors. | Funding/acknowledgement statement (see manuscript acknowledgment/funding field). |

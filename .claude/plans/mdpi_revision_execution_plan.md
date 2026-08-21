@@ -70,13 +70,13 @@ Per user: **split into two projects**: (1) snowballing **code** in one repo; (2)
 - [ ] Update checklist item 27 to name the two repos + stable refs.
 - [ ] **Blocking dependency on user:** exact repo names/URLs and the public-vs-private decision per repo.
 
-### 1.7 Back matter · Effort: S
-- [ ] Add `\acknowledgments{None.}` if MDPI `AI` template requires heading (check `mdpi.cls` / `main.tex` end-matter; confirm whether the class auto-emits it).
-- [ ] Confirm ORCID `0009-0009-8142-6890` correctly encoded (it is in `main.tex:\27` — verify it's not only decorative and renders as a link).
+### 1.7 Back matter · Effort: S · ✅ DONE
+- [x] Added `\acknowledgments{None.}` (class defines but does NOT auto-emit the heading; placed before `\conflictsofinterest` per mdpi.cls order). ⚠ Note: `Author Contributions` and `Funding` are also absent from back matter — out of this task's scope; flag for reviewer compliance check.
+- [x] ORCID confirmed correctly encoded: `\orcidauthorA{0009-0009-8142-6890}` (main.tex:27) + `\orcidA{}` (main.tex:39) → `\href{https://orcid.org/0009-0009-8142-6890}{\orcidicon}`. **Dep: `Definitions/logo-orcid.pdf` missing locally** → `\orcidicon` would fail to compile until restored from official MDPI template (icon asset; cannot fabricate).
 
-### 1.8 Protocol registration statement · Effort: S · Independent
-- [ ] Add one sentence at start of §3 Methods: not prospectively registered; justification (CS/AI SLRs not commonly PROSPERO-eligible) OR note OSF/protocols.io if applicable.
-- [ ] Update checklist item 24a/b to point to §3.
+### 1.8 Protocol registration statement · Effort: S · Independent · ✅ DONE
+- [x] Added sentence at start of §3 Methods: review not prospectively registered; CS/AI SLRs not commonly PROSPERO-eligible; no suitable AI-specific registry at commencement. (No OSF/protocols.io claim — no evidence.)
+- [x] Checklist item 24a updated → points to §3 (`sec:methodology`); 24b already pointed to §3/Appendix A (left); 24c remains "Not applicable (no registration)" (correct).
 
 ---
 
