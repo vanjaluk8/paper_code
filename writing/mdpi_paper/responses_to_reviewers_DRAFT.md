@@ -21,7 +21,7 @@
 **R1-2 — Circular arXiv-inclusion criterion.**
 > "Appendix A.3 admits the acceptance threshold for preprints is 'cited by at least one peer-reviewed work in the corpus'… This cannot validate inclusion independently and could systematically bias the corpus… *Requested action:* Replace the in-corpus citation proxy with a corpus-independent criterion… and quantify how many of the 18 arXiv-source records entered solely via the circular rule."
 
-**Response:** We acknowledge this limitation explicitly in §11.3 ("Threats to validity"), where it is flagged as a circularity in the arXiv-inclusion proxy. A corpus-independent replacement (external citation count via Semantic Scholar/Crossref, or a venue-quality threshold) and a quantification of the at-risk records are **planned but not yet applied** — they require current citation counts for the 123 records, which is the outstanding **D4** input. **[OPEN — awaiting D4.]**
+**Response:** We have removed the circular in-corpus proxy and replaced it with a corpus-independent, external one. Appendix A.3 now states that arXiv preprints without a peer-reviewed venue are retained on an **external Semantic Scholar citation count** (retrieved 2026-04-21) as a minimal proxy for peer scrutiny, explicitly independent of in-corpus citation linking. We quantify the at-risk records: **11 of 123 (8.9%)** are arXiv-only, with external citations spanning **2–318 (median 48)**; nine have ≥10 and four have ≥100. The residual limitation (no formally established threshold; recency of 2025–2026 preprints) is disclosed in §11.3. **[Closed.]**
 
 **R1-3 — Single-reviewer screening, no inter-rater reliability.**
 > "Screening reproducibility rests on a single reviewer, with no measured inter-rater reliability… An MDPI SLR audience will want a quantitative agreement measure. *Requested action:* Report a second, independent screening of ≥10% of records with % agreement / Cohen's κ."
@@ -84,12 +84,12 @@
 
 ---
 
-## Open items requiring author input (D2 / D4; D3 resolved via automated calibration)
+## Open items requiring author input (D2 only; D3 & D4 resolved)
 
 | # | Item | Reviewer ref | What the author must supply |
 |---|---|---|---|
 | **D2** | Data-availability reproducibility (R1-4) + repo URL refs (§3.5) | R1-4 | The two-project repo **names/URLs** and **public-vs-private** status, so we can (a) finalise the Data Availability statement and (b) replace bare filenames with stable URLs. |
 | **D3** ✅ | Inter-rater reliability (R1-3) | R1-3 | **Executed** (automated calibration pilot, n=55, §3.1; see R1-3 response). A human double-screener remains the definitive standard and is still invited; the automated pilot is disclosed as a limitation, not a substitute. |
-| **D4** | Circular arXiv-inclusion criterion (R1-2) | R1-2 | **Current citation counts** for the 123 records (or permission to query the Semantic Scholar API), to replace the circular in-corpus proxy and quantify at-risk records. |
+| **D4** ✅ | Circular arXiv-inclusion criterion (R1-2) | R1-2 | **Resolved**: existing external Semantic Scholar citation counts (retrieved 2026-04-21) were already populated for the 11 arXiv-only records; A.3 + §11.3 reframed to the external-citation basis (2–318, median 48), circular in-corpus wording removed. |
 
 *This file is generated from `REVISION_LOG.md` and the changes applied in this session; all quoted reviewer comments are verbatim from the AI peer-review agent's report.*
