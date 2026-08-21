@@ -34,9 +34,15 @@ records; full-text queue selection narrowed these to \textbf{387}, of which
 \textbf{190} underwent data extraction, and a manual Scopus/WoS top-up brought
 the extraction set to \textbf{224}. Full-text reading and quality assessment
 then reduced the corpus to \textbf{123 papers} (2002--2026); these correspond
-to \textbf{121 distinct papers}, because two foundational works (LoRA and the
-original adapter-based parameter-efficient transfer-learning method) are each
-recorded under both their arXiv and Scopus retrieval keys in the reading list.
+to \textbf{121 distinct papers}\footnote{The count of 123 includes 121 distinct
+papers because two foundational works are each recorded under two retrieval
+keys in the data files: LoRA (arXiv 2106.09685 and Scopus a8ca46\ldots) and the
+original adapter-based parameter-efficient transfer-learning method (arXiv
+1902.00751 and Scopus 29ddc1\ldots). The final reading list therefore contains
+123 rows corresponding to 121 unique studies.}, because two foundational works
+(LoRA and the original adapter-based parameter-efficient transfer-learning
+method) are each recorded under both their arXiv and Scopus retrieval keys in
+the reading list.
 This funnel is summarised in Figure~\ref{fig:prisma} and traceable record-by-
 record through the unified pipeline file (Appendix~\ref{sec:appendix:corpus_pipeline}).
 
