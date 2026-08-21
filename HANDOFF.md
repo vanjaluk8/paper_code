@@ -5,7 +5,7 @@
 > what is still pending, and how to finish the two manual steps.**
 >
 > **UPDATE (2026-08-21):** the repo has since been **split into two** fresh repos —
-> `slr-engine` (pipeline code; see sibling checkout) and this one, `slr-literature`
+> `slr_engine` (pipeline code; see sibling checkout) and this one, `papers_code`
 > (manuscripts, `papers_repo/`, PRISMA package). The manual steps below (force-push /
 > key rotation) now apply per-repo and the old combined history was **not** force-pushed.
 

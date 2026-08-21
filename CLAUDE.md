@@ -1,8 +1,8 @@
 # CLAUDE.md
 
-> **Two-repo split (2026-08-21):** this repo (`slr-literature`) holds the manuscripts,
+> **Two-repo split (2026-08-21):** this repo (`papers_code`) holds the manuscripts,
 > curated corpus (`papers_repo/`), and PRISMA package. The **`slr_engine/`** pipeline
-> code moved to the sibling **`slr-engine`** repository. Paths below that mention
+> code moved to the sibling **`slr_engine`** repository. Paths below that mention
 > `slr_engine/...` refer to that sibling checkout, not this repo.
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
