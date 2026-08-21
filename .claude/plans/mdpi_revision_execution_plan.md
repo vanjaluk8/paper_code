@@ -85,8 +85,8 @@ Per user: **split into two projects**: (1) snowballing **code** in one repo; (2)
 | Item | Effort | Notes |
 |---|---|---|
 | **2.1 Single-reviewer bias mitigation** | M | Add calibration: 10% random sample independently screened by 2nd reviewer → report % agreement / Cohen's κ in §3.1/Appendix A; reference in checklist item 8. **Needs the 2nd reviewer's actual decisions** (blocking data — ask user/supervisor). |
-| **2.2 G0 seed justification table** | S–M | Table of 9 G0 seeds (citations, venue, one-line justification) + explicit "does ≥300-cite threshold bias toward thesis narrative?" threat-to-validity paragraph. Counts from `G0_seed_papers.md` + `S1` meta. |
-| **2.3 Search-strategy provenance split** | S | Sentence quantifying final 123 by source (a) DB queries, (b) snowballing, (c) curated G1–G6. Derivable from `13…csv` columns (`review_source`/`corpus`). |
+| **2.2 G0 seed justification table** | S–M | ✅ DONE — added `tab:g0_seeds` (9 seeds, venue, one-line role; citation column omitted — 6/9 S1 counts NaN) + threat-to-validity para on ≥300-cite bias. |
+| **2.3 Search-strategy provenance split** | S | ✅ DONE — §3.1: 123 = **105 curated G1–G6 + 18 snowballing**; corrected Table 1 per-group counts to S6 seed_group truth (G0:18,G1:17,G2:17,G3:14,G4:16,G5:11,G6:30; dropped stale "Other:15"). ⚠ verify G0 remap. |
 | **2.4 Fix circular arXiv criterion** | S–M | Replace "arXiv cited by ≥1 work in corpus" (circular) with corpus-independent proxy — Semantic Scholar ≥N citations, or resubmission/official status. Document trade-off in A.3. **Needs current citation counts** via API (network) or a supplied snapshot. |
 | **2.5 Positioning vs existing surveys** | S | New short subsection (end of Intro or start §9) vs Han2024/Wang2024/Mao2024, MoE, FL/decentralised surveys — state the exact synthesis gap this review closes. |
 | **2.6 De-escalate overclaiming** | S | Grep §9/§10 for "no existing system / no prior work / novel / primary analytical contribution" → corpus-bounded phrasing. |
