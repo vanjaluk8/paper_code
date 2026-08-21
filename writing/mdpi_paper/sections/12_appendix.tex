@@ -36,9 +36,12 @@ Forward and backward citation snowballing was conducted on the G0 seeds
 following the procedure of Wohlin et al.~\cite{Wohlin2014}. Backward
 snowballing examined the reference lists of each seed; forward snowballing
 identified subsequent works citing the seeds. One wave of snowballing was
-executed; saturation was assessed by inspecting the overlap between newly
-retrieved candidates and the pre-validated G1--G6 corpora, with high overlap
-indicating diminishing marginal returns.
+executed; saturation was assessed qualitatively by inspecting the overlap
+between newly retrieved candidates and the pre-validated G1--G6 corpora, with
+high overlap suggesting diminishing marginal returns. This was not, however,
+formalised as a quantitative stopping criterion (e.g.\ a measured diminishing
+marginal inclusion rate); see the discussion of this limitation in
+Section~\ref{sec:conclusion:threats}.
 
 Snowballing was executed programmatically via the \textbf{Semantic Scholar
 Academic Graph API}~\cite{SemanticScholar2023}, supplemented by the Scopus
@@ -252,12 +255,19 @@ adapter-serving systems.
 \end{tabular}
 \end{table}
 
+For context on venue composition prior to the final quality-appraisal and
+full-text filtering stages, Figure~\ref{fig:venues} reports the venue
+distribution of the 464-paper \emph{enriched pool} (an earlier funnel stage,
+not the 123-paper final corpus discussed above).
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=1\linewidth]{figures/fig_slr5_venues.pdf}
-  \caption{Venue distribution of the 464-paper enriched corpus.
-           ACL/EMNLP comprises the largest venue category (25 papers),
-           followed by arXiv preprints (9), NeurIPS (8), and ICML/MLSys (7).}
+  \caption{Venue distribution of the 464-paper enriched pool (an intermediate
+           funnel stage prior to full-text review and quality appraisal;
+           \emph{not} the final 123-paper corpus). ACL/EMNLP comprises the
+           largest venue category (25 papers), followed by arXiv preprints
+           (9), NeurIPS (8), and ICML/MLSys (7).}
   \label{fig:venues}
 \end{figure}
 
@@ -471,8 +481,8 @@ In WoS, Topic-field (\texttt{TS=}) queries were used with equivalent year filter
 The WoS Starter API was subsequently used in a \textit{post-hoc enrichment role} only
 --- to append WoS accession numbers and citation counts to already-retrieved records ---
 and was not a source of new candidates. All raw result sets from both platforms are
-archived in the project repository (\texttt{exports/scopus/} and \texttt{exports/wos/});
-access is detailed in the Data Availability statement.
+archived alongside the \texttt{slr\_engine} repository (\texttt{exports/scopus/} and
+\texttt{exports/wos/}); access is detailed in the Data Availability statement.
 
 % -----------------------------------------------------------------------
 \subsection*{Scopus Advanced Search Queries}
@@ -668,8 +678,10 @@ AND PY >= 2018
 This appendix provides a chronological account of every search activity performed
 during corpus construction, together with record counts at each stage. The purpose
 is to allow full reproduction or audit of the PRISMA flow by the reader or supervisor.
-All output files referenced below are committed to the project repository under
-\texttt{snowballing/snowball\_output/}.
+The audited final deliverables referenced below are committed to the
+\texttt{slr\_engine} repository under
+\texttt{snowballing/snowball\_output/}; see the Data Availability statement
+for repository access.
 
 % -----------------------------------------------------------------------
 \subsection*{C.1 — Search Timeline}

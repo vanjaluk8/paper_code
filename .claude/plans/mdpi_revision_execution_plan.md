@@ -63,12 +63,12 @@ Order: **FIRST among content items** (everything else consumes this decision).
 - [x] Update checklist item 11 & 18 → point to §3.3 (`sec:methodology:quality`) + Fig. 6 (`fig:quality_bands`).
 - [x] **Data need:** confirmed `S6_enriched_reading_pool.csv` `venue_quality` covers all 123 (top_venue 63 / peer_reviewed 47 / preprint 11 / unknown 2); join via paper_key→arxiv/doi + title crosswalk, all 123 join. ✅
 
-### 1.6 Data Availability → two-project split (user's design) · Effort: M · User-driven
+### 1.6 Data Availability → two-project split (user's design) · Effort: M · User-driven · ✅ DONE
 Per user: **split into two projects**: (1) snowballing **code** in one repo; (2) clean **literature sources + materials** in another.
-- [ ] Decide repo locations/names with user (suggest: repo A = existing `litreview-peft-p2p-adapters` (code+engine); repo B = new, private, for `papers_repo/`, CSVs, PRISMA/figures sources, validation docs). Both **private/internal**, shared with reviewers — compliant with security policy (no public publish via my actions).
-- [ ] Rewrite `\dataavailability{…}` in `main.tex` from "available from the author upon reasonable request" → concrete, specific statement listing both repos (or "available at [private repo URL] shared with reviewers; public release/DOI deferred until after thesis examination" — concrete reason, not a generic clause).
-- [ ] Update checklist item 27 to name the two repos + stable refs.
-- [ ] **Blocking dependency on user:** exact repo names/URLs and the public-vs-private decision per repo.
+- [x] Repo split executed 2026-08-21 (see `SPLIT_NOTES.md`): `papers_code` (this repo — manuscripts, `papers_repo/`, PRISMA package) + `slr_engine` (sibling checkout — pipeline code). Both **private, local-only, no remote configured** — public-vs-private resolved as "private, local; public release deferred until after thesis examination."
+- [x] Rewrote `\dataavailability{…}` in `main.tex` — names both repos concretely, distinguishes version-controlled deliverables (`13_final_reading_list_2026-05-12.csv`, `PRISMA_summary_2026-04-21.md` in `slr_engine`) from regenerable local-only intermediates (`pipeline_unified.csv`, retrieval/screening logs, extraction spreadsheet — not fabricated as "available" since they aren't tracked in either repo), states private + deferred public release.
+- [x] Updated checklist item 27 to name the two repos + stable refs, same tracked/local distinction.
+- [x] D2 resolved (no remote URL exists yet — statement names repos, not URLs, per the plan's own fallback phrasing).
 
 ### 1.7 Back matter · Effort: S · ✅ DONE
 - [x] Added `\acknowledgments{None.}` (class defines but does NOT auto-emit the heading; placed before `\conflictsofinterest` per mdpi.cls order). ⚠ Note: `Author Contributions` and `Funding` are also absent from back matter — out of this task's scope; flag for reviewer compliance check.
@@ -102,7 +102,7 @@ Per user: **split into two projects**: (1) snowballing **code** in one repo; (2)
 | **3.2 Reference hygiene** | M | ✅ ASSESSED — no-change warranted. Queried arXiv API (journal_ref) for all 55 arXiv-DOI entries and Crossref (alternative-id filter) for the 9 arXiv-only `journal = {arXiv preprint}` entries. 46/55 already correctly cite their peer-reviewed venue (ICLR/ICML/NeurIPS/USENIX/…; DataCite arXiv DOI retained as canonical resolver for venue-without-Crossref-DOI). All 9 arXiv-only alternatives returned **0 Crossref alternative-id hits** → no Crossref-registered published version to upgrade to; replacing would risk wrong/fabricated DOIs. The 17 Phase-1 DataCite DOIs stay intact. ✅ |
 | **3.3 AI-tool disclosure** | S | ✅ DONE — §3 expanded to MDPI Statement on the Use of AI style: tools named (Undermind, Claude) with precise roles, plus explicit authorial-responsibility sentence ("verified all reported numbers against the underlying pipeline data files, and assumes full responsibility…"). References `app:undermind`. No tool versions stated (not recorded — avoided fabricating). |
 | **3.4 Table/figure cleanup** | S | ✅ ASSESSED — Fig 5 caption already PRISMA-standard (1,150→972→502→464→552→387→224→123/121, standard stage terms, matching validation doc). Table 2 (`tab:groups`) already compact (9-row group/theme/n-split/sections) — splitting per pillar not warranted. |
-| **3.5 Repository references** | S | ⚠ PARTIAL — all data filenames already anchored to stable repo path `snowballing/snowball_output/` (App. C.1). Converting to full `https://…URL` blocked on **D2** (repo names/URLs + public-vs-private). |
+| **3.5 Repository references** | S | ✅ DONE — data filenames anchored to stable path `snowballing/snowball_output/` (App. C.1), now explicitly attributed to the `slr_engine` repository post-split. No public URL exists (D2 resolved as private/local, no remote configured) — full `https://…` substitution stays N/A until a public release. |
 | **3.6 Terminology pass** | S | ✅ DONE — normalised prose `decentralized`(z)→`decentralised`(s) (fixed `08_p2p_federated.tex:238`; the remaining z-form occurrences in `12_appendix.tex` are verbatim Scopus/WoS query strings & quoted Undermind prompts — correctly left untouched). P2P defined on first use in Intro; distributed/decentralised used as distinct complementary terms. |
 
 ---
@@ -115,10 +115,11 @@ Per user: **split into two projects**: (1) snowballing **code** in one repo; (2)
 4. **Similarity pass** — ✅ PASS. No substantive prose duplication across background/method/synthesis; flagged hits were LaTeX `\centering`/`\includegraphics`/placeholder-comment boilerplate (false positives). Shared concept figures reused intentionally with distinct captions.
 5. **`REVISION_LOG.md`** — ✅ maintained (rows 20–24 cover 2.5 + Phase 3; earlier rows cover Phase 1/2). Drives response-to-reviewers letter.
 
-⚠ **Open for finalisation:** Task 13/1.2 placeholder schematics (deferred), 1.6+D2 (repo URLs), 2.4+D4 (current citation counts), 3.5 URL substitution (D2).
+⚠ **Open for finalisation:** Task 13/1.2 placeholder schematics (deferred); D1 (force-push + key rotation — manual, user).
+**D2 ✅ resolved (30):** two-repo split executed (`SPLIT_NOTES.md`); 1.6 data-availability statement + checklist item 27 rewritten to name `papers_code`/`slr_engine` concretely (private, local, public release deferred until after thesis examination); 3.5 repo-reference anchoring closed out.
 **Review sim:** AI peer-review agent run over the manuscript (R1–R2); all manuscript-fixable comments implemented (R1-1 merge/funnel wording, R1-4/R1-m2 data-availability contradiction, R2-1 rubric framing, R2-2 Table 2 provenance, R2-3 matrix `$-$` marker, R1-m1/R2-m2 conclusion counts; R2-4 already satisfied) and `responses_to_reviewers_DRAFT.md` rewritten as a genuine point-by-point reply.
 **D3 ✅ resolved (28):** 2.1 (κ/agreement) executed via an automated calibration pilot — blind AI re-screen of 10% (n=55) of the abstract pool → 58.2% agreement, Cohen's κ=0.17 (slight), re-screener over-inclusive; disclosed in §3.1 as an automated reproducibility diagnostic, §11.3 strengthened to own low reproducibility, PRISMA item 8 + response letter R1-3 updated. A human double-screener remains invited as the definitive standard.
-**D4 ✅ resolved (29):** 2.4 (R1-2 circular arXiv criterion) fixed using the pipeline's existing **external Semantic Scholar** citation counts (no fresh API call needed) — A.3 + §11.3 reframed to the external-citation basis (11 arXiv-only records, 2–318, median 48; 8.9% of 123), in-corpus circular wording removed; response-letter R1-2 + D4 row closed. **Still open: D2, R2-m1→Task 1.2 (deferred).**
+**D4 ✅ resolved (29):** 2.4 (R1-2 circular arXiv criterion) fixed using the pipeline's existing **external Semantic Scholar** citation counts (no fresh API call needed) — A.3 + §11.3 reframed to the external-citation basis (11 arXiv-only records, 2–318, median 48; 8.9% of 123), in-corpus circular wording removed; response-letter R1-2 + D4 row closed. **Still open: R2-m1→Task 1.2 (deferred), D1 (manual).**
 
 ---
 
@@ -127,7 +128,7 @@ Per user: **split into two projects**: (1) snowballing **code** in one repo; (2)
 | # | Dependency | Why |
 |---|---|---|
 | D1 | **Force-push + key rotation** (manual) | Repo hygiene, reviewers need updated root for 1.6 |
-| D2 | **Two-project repo names/URLs** + public-vs-private per repo | 1.6 wording |
+| D2 | ✅ Resolved 2026-08-21 — repos are `papers_code` + `slr_engine`, private/local, no remote URL | 1.6 wording |
 | D3 | **2nd reviewer's 10% calibration decisions** | 2.1 κ/agreement |
 | D4 | **Current citation counts** for 123 (or permission to hit Semantic Scholar API) | 2.4 external proxy |
 | D5 | Confirm `S6` venue_quality covers all 123 | 1.3 auto-scoring |

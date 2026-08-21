@@ -66,10 +66,13 @@ module, header excluded). Status: ✅ CSV/log-verified · 📌 stated figure
 | G6 | 66 | 66 | G6=66 | ✅ |
 | **Total** | **352** | 9+59+37+95+51+35+66 = **352** | Total 352 | ✅ |
 
-> `tab:groups` "n final" per-cell column (G0=20, G1=12, G2=15, G3=11, G4=12, G5=9,
-> G6=29, Other=15) **sums to 123** ✅ but is a **narrative synthesis-mapping** (each
+> `tab:groups` "n final" per-cell column (G0=18, G1=17, G2=17, G3=14, G4=16, G5=11,
+> G6=30; no "Other" row) **sums to 123** ✅ but is a **narrative synthesis-mapping** (each
 > paper counted under the chapter where it is discussed), not reproducible from a
 > single pipeline column. **Total 123 is CSV-authoritative; treat per-cell finals as 📌 stated.**
+> (Corrected 2026-08-21 from a stale earlier snapshot — G0=20/G1=12/G2=15/G3=11/G4=12/G5=9/
+> G6=29/Other=15 — to match the current `tab:groups` in `03_methodology.tex`, per S6
+> `seed_group` re-tagging; see `REVISION_LOG.md` row 16.)
 
 ---
 

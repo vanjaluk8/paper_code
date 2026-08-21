@@ -7,8 +7,11 @@ pre-trained transformer backbone can be adapted to dozens of downstream tasks th
 fine-tuning, and parameter-efficient fine-tuning (PEFT) methods have reduced the cost
 of this adaptation to a fraction of the original model size \cite{Houlsby2019, Hu2022}.
 The result is an ecosystem in which a single frozen backbone serves as a universal
-substrate, and small task-specific adapter modules provide the task-particular
-knowledge required for each application.
+substrate, and small task-specific adapter modules---lightweight,
+trainable parameter sets inserted into or alongside the frozen backbone to
+encode task-specific behaviour without modifying the backbone itself
+(formally defined in Section~\ref{sec:background:peft})---provide the
+task-particular knowledge required for each application.
 
 This ecosystem creates a substantial opportunity for collaborative knowledge sharing.
 

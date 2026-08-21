@@ -2,8 +2,10 @@
 \label{sec:methodology}
 
 This review follows the PRISMA 2020 reporting guidelines~\cite{Page2021}, the
-eight-step SLR process of Xiao and Watson~\cite{XiaoWatson2019}, and the
-citation-snowballing protocol of Wohlin et al.~\cite{Wohlin2014}. The review was
+eight-step SLR process of Xiao and Watson~\cite{XiaoWatson2019}, the
+citation-snowballing protocol of Wohlin et al.~\cite{Wohlin2014}, and general
+SLR guidance from Kitchenham and Charters~\cite{KitchenhamCharters2007} and
+Webster and Watson~\cite{Webster2002}. The review was
 not prospectively registered in a review protocol repository; systematic
 reviews of computer-science and AI systems literature are not commonly eligible
 for clinical registries such as PROSPERO, and no suitable AI-specific registry
@@ -66,7 +68,7 @@ original decisions. It yielded \textbf{58.2\%} observed agreement and
 \textbf{Cohen's $\kappa = 0.17$} (Landis--Koch: ``slight''). The disagreement
 was directional: the re-screener recovered $25/27$ (92.6\%) of the records the
 screeners retained but also flagged 21 of 28 excluded records, i.e.\ it was
-systematically over-inclusive relative to the human pass. We report this as an
+systematically over-inclusive relative to the human pass. This is reported as an
 automated reproducibility diagnostic rather than a human inter-rater measure:
 the re-screener shares priming with the review workflow, so the two passes are
 not genuinely independent. The result indicates that the screening protocol is
@@ -126,7 +128,7 @@ set is complemented by the independently curated G1--G6 groups, which were
 assembled from leading venues without reference to the seeds'
 conclusions~\cite{XiaoWatson2019} (Table~\ref{tab:groups}). Second, forward and
 backward citation snowballing and the Scopus/WoS forward pass expand the corpus
-beyond the seeds' immediate frame. We further note that, although the
+beyond the seeds' immediate frame. It is further noted that, although the
 $\geq$300-citation criterion was applied at seed selection, verified per-record
 citation counts are not uniformly retained in the reproducible corpus (the
 pre-validated snapshot stores counts for a minority of seeds); the threshold
@@ -292,16 +294,21 @@ Because the review is a qualitative thematic synthesis of published
 methods--and--systems literature rather than a meta-analysis of participant-level
 interventions, the PRISMA 2020 risk-of-bias instruments for comparative studies do
 not apply directly. Following the practice of software-literature systematic
-reviews~\cite{XiaoWatson2019}, we instead appraise the \emph{evidence quality of
-each of the 123 included records} with a six-dimension rubric scored from the
-screening and extraction records (Table~\ref{tab:quality_rubric}). We emphasise
-that this instrument measures the reporting completeness of each record and its
-relevance to this synthesis, not the intrinsic scientific merit of the underlying
-study: three dimensions are bibliographic or relevance proxies (Q1 venue prestige,
-Q2 record resolvability, Q6 thematic relevance), and a pilot application of the
-classic quality dimensions (code availability, result reproducibility, baseline
-adequacy, threats reporting) found them to be un-populated in the extraction data,
-so they are scoped out here and disclosed rather than estimated. Every retained
+reviews~\cite{XiaoWatson2019}, this review instead appraises the \emph{evidence
+quality of each of the 123 included records} with a six-dimension rubric scored
+from the screening and extraction records (Table~\ref{tab:quality_rubric}). It is
+emphasised that this instrument measures the reporting completeness of each record
+and its relevance to this synthesis, not the intrinsic scientific merit of the
+underlying study: three dimensions are bibliographic or relevance proxies (Q1
+venue prestige, Q2 record resolvability, Q6 thematic relevance), and a pilot
+application of the classic quality dimensions (code availability, result
+reproducibility, baseline adequacy, threats reporting) found them to be
+un-populated in the extraction data, so they are scoped out here and disclosed
+rather than estimated. The \texttt{contribution\_codes} field underlying the top
+tier of Q5 is itself sparsely populated (22 of 224 extraction rows, 9.8\%); records
+lacking a code default to the middle Q5 tier regardless of the underlying
+contribution's actual significance, and this should be read as a limitation of
+extraction coverage rather than a substantive quality signal. Every retained
 dimension is nevertheless operationalised from an explicit, grounded pipeline field
 so that each score is reproducible from the associated CSV artifacts; no dimension
 is inferred or imputed.
