@@ -88,9 +88,9 @@ Per user: **split into two projects**: (1) snowballing **code** in one repo; (2)
 | **2.2 G0 seed justification table** | S–M | ✅ DONE — added `tab:g0_seeds` (9 seeds, venue, one-line role; citation column omitted — 6/9 S1 counts NaN) + threat-to-validity para on ≥300-cite bias. |
 | **2.3 Search-strategy provenance split** | S | ✅ DONE — §3.1: 123 = **105 curated G1–G6 + 18 snowballing**; corrected Table 1 per-group counts to S6 seed_group truth (G0:18,G1:17,G2:17,G3:14,G4:16,G5:11,G6:30; dropped stale "Other:15"). ⚠ verify G0 remap. |
 | **2.4 Fix circular arXiv criterion** | S–M | Replace "arXiv cited by ≥1 work in corpus" (circular) with corpus-independent proxy — Semantic Scholar ≥N citations, or resubmission/official status. Document trade-off in A.3. **Needs current citation counts** via API (network) or a supplied snapshot. |
-| **2.5 Positioning vs existing surveys** | S | New short subsection (end of Intro or start §9) vs Han2024/Wang2024/Mao2024, MoE, FL/decentralised surveys — state the exact synthesis gap this review closes. |
+| **2.5 Positioning vs existing surveys** | S | ✅ DONE — Intro §1: added survey-positioning paragraph (before `Review Structure`) vs Han2024/WangAIReview2024 (PEFT), MaoLoraSurvey2024 (LoRA), YeDecentralizedFL2022/WinkP2PFL2021/SajinaP2PConnection2024 (FL/P2P substrate); states the exact synthesis gap ("adapter-level knowledge represented, discovered, exchanged in a decentralised multi-task P2P setting") and bounds it to the 123-paper corpus. |
 | **2.6 De-escalate overclaiming** | S | ✅ DONE — Intro/§9/§11 reworded to corpus-bounded ("substantial", "within the reviewed corpus", "none of the 123 reviewed systems"); grep clean. |
-| **2.7 Data-extraction codebook** | M | Table/appendix defining every column of `11_data_extraction_2026-05-12.csv` (columns confirmed: `contribution_type, method_name, peft_technique, distribution_mechanism, contribution_codes, datasets, metrics, key_finding`, etc.): meaning, allowed values, consistency check. |
+| **2.7 Data-extraction codebook** | M | ✅ DONE — App. A.5 `tab:extraction_codebook` (22 columns, meaning, allowed values, coverage; 0% cols disclosed). |
 
 ---
 

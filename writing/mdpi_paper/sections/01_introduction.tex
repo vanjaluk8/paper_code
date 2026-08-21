@@ -67,6 +67,21 @@ population, are not framed as PEFT/LoRA-style adapters, and are neither discover
 by peers outside the original training group. Each of these bodies of work addresses part
 of the problem, but their intersection has not yet been addressed as an integrated whole.
 
+Prior surveys that cover these areas do not close this gap either. Comprehensive reviews of
+parameter-efficient fine-tuning \cite{Han2024,WangAIReview2024} and of LoRA specifically
+\cite{MaoLoraSurvey2024} treat adapters as artefacts to be trained more efficiently within a
+single controlled environment; they do not frame an adapter as a transferable, exchangeable
+unit of capability in a decentralised system. Conversely, surveys and position papers on
+decentralised federated learning \cite{YeDecentralizedFL2022,WinkP2PFL2021} and on autonomous
+P2P connection establishment \cite{SajinaP2PConnection2024} address the network and protocol
+layer but remain agnostic to the semantics of the modules being exchanged. In short, the
+existing reviews either assume a monolithic, centrally administered model or a module-agnostic
+P2P substrate; none examines the two jointly. The specific synthesis gap this review closes is
+therefore the cross-cutting question of \emph{how adapter-level knowledge can be represented,
+discovered, and exchanged in a decentralised, multi-task P2P setting} --- a gap that no prior
+survey or review, within the 123-paper corpus examined in
+Section~\ref{sec:methodology}, addresses directly.
+
 \subsection{Review Structure}
 \label{sec:introduction:structure}
 
