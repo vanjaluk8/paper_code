@@ -1,11 +1,11 @@
 # PRISMA 2020 Checklist
 
-**Manuscript:** *Decentralized Adapter-Based LLM Systems: A Systematic Literature Review of Parameter-Efficient Fine-Tuning, Peer-to-Peer Systems, and Multi-Task Inference*
+**Manuscript:** *Decentralised Adapter-Based LLM Inference: A Systematic Literature Review—Mapping the Research Gap at the Intersection of PEFT, P2P Systems, and Multi-Task Serving*
 **Journal target:** MDPI — *AI*
 **Reporting guideline:** PRISMA 2020 (Page et al., 2021, *BMJ* 372:n71)
 **Completed:** 21.08.2026.
 
-This checklist maps each of the 27 PRISMA 2020 items to the section, table, figure, or appendix subsection of the manuscript where it is reported. All funnel counts follow the consolidated, reconciled pipeline file `pipeline_unified.csv` (622 records) and are traceable record-by-record (Appendix A, `sec:appendix:corpus_pipeline`).
+This checklist maps each of the 27 PRISMA 2020 items to the section, table, figure, or appendix subsection of the manuscript where it is reported. All funnel counts follow the **single authoritative funnel table in `PRISMA_NUMBERS_VALIDATION.md`** (the reconciled, CSV-verified master table) and are traceable record-by-record (Appendix A, `sec:appendix:corpus_pipeline`).
 
 ---
 
@@ -56,7 +56,7 @@ This checklist maps each of the 27 PRISMA 2020 items to the section, table, figu
 
 | Section | # | Checklist item | Where the item is reported |
 |---|---|---|---|
-| **Study selection** | 16a | Describe the results of the search and selection process, from the number of records identified in the search to the number of studies included in the review, ideally using a flow diagram. | **Figure 1 (PRISMA flow diagram, `fig:prisma`)** — 1,150 raw → 972 dedup → 502 merged → 464 enriched → 552 abstract-reviewed → 387 full-text queue → 224 extraction → 123 final (121 distinct). Table C.1; `PRISMA_summary_2026-04-21.md` |
+| **Study selection** | 16a | Describe the results of the search and selection process, from the number of records identified in the search to the number of studies included in the review, ideally using a flow diagram. | **Figure 5 (PRISMA flow diagram, `fig:prisma`)** — 1,150 raw → 972 dedup → 502 merged → 464 enriched → 552 abstract-reviewed → 387 full-text queue → 224 extraction → 123 final (121 distinct). Table C.1; `PRISMA_summary_2026-04-21.md` |
 | | 16b | Cite studies that might appear to have met the inclusion criteria, but which were excluded, and explain why they were excluded. | **Appendix A.4** (two-layer screening exclusion reasons: year 192, no-keyword 284, LLM-only 255 = 731); abstract-review SKIP 338 with reasons (Appendix A.7) |
 | **Study characteristics** | 17 | Cite each included study and present its characteristics. | Final reading list (123 papers) — see references/BiBTeX and `13_final_reading_list_2026-05-12.csv`; Appendix A.6 bibliometric overview |
 | **Risk of bias in studies** | 18 | Present assessments of risk of bias for each included study. | Not applicable — see Item 11; full-text quality/venue screening noted in §3.2 and Appendix A.5 |
@@ -94,7 +94,8 @@ This checklist maps each of the 27 PRISMA 2020 items to the section, table, figu
 
 | Stage | Count | Source |
 |---|---|---|
-| G0 seeds (submitted to API) | 9 (7) | `log_retrieval_2026-04-21.json`, §3.1 |
+| G0 seed papers in corpus | 9 | `S1_prevalidated_corpus.csv`, `G0_seed_papers.md`, §3.1 |
+| Seeds submitted to retrieval API | 7 (of 9) | `log_retrieval_2026-04-21.json` `_meta.n_seeds`, §3.1 |
 | Records retrieved (raw) | 1,150 | `log_retrieval` (450 backward + 700 forward examined) |
 | After dedup (unique) | 972 | `log_screening` (dup = 178) |
 | Merged (pre-validated G1–G6) | 502 | `S5_merged_corpus.csv` |

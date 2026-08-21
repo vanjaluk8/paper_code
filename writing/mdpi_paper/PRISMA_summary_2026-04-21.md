@@ -110,13 +110,24 @@ The 130 REVIEW-queue records (single non-LLM keyword match) were submitted to **
 | UNCERTAIN (manual inspection) | 19 |
 | **Total triaged** | **130** |
 
-## Stage 4 — Eligibility (Full-text Assessment)
+## Stage 4 — Eligibility (Full-text Assessment & Data Extraction)
+
+Records passing abstract review (214 KEEP + 173 DEFER = **387**) advanced to the full-text
+review queue. Full texts were sought and assessed for eligibility, then the eligible subset
+proceeded through data extraction.
 
 | Outcome | N |
 |---------|--:|
-| Eligible for full-text | *(auto-INCLUDE + manual triage promotions)* |
-| Excluded after full-text | *(to be filled)* |
-| **Included in review** | ***(to be filled)*** |
+| Full-text review queue (KEEP 214 + DEFER 173) | 387 |
+| PDF retrieved | 122 |
+| PDF not retrieved | 265 |
+| Preliminary data extraction | 190 |
+| Data extraction top-up (manual) | 224 |
+| **Included in review (final reading list)** | **123 (121 distinct papers)** |
+
+> **Distinct-paper note:** the 123 final records correspond to **121 distinct papers**:
+> two arXiv↔Scopus duplicate key-pairs (LoRA, arXiv 2106.09685 + Scopus a8ca… ; Houlsby,
+> arXiv 1902.00751 + Scopus 29ddc1…) each appear twice in the reading list.
 
 ## Stage 5 — Enrichment & Tier Classification
 
@@ -185,11 +196,18 @@ Each paper in the enriched reading list was reviewed at abstract level using an 
 | 3 | 85 | 148 | 0 | 0 |
 | ? | 12 | 76 | 0 | 0 |
 
+> **DEFER → SKIP cascade (reconciliation):** at the abstract-review *stage* the split was
+> **KEEP 214 / DEFER 173 / SKIP 165 = 552** (`08_abstract_reviewed_2026-05-02.csv`). The
+> 173 DEFER records were carried to the full-text queue (Stage 4, 387 = 214 + 173) but none
+> advanced to data extraction; all 173 subsequently resolved to **SKIP** in the final corpus,
+> giving the final view **KEEP 214 / SKIP 338** (338 = 165 + 173). The two views are consistent
+> (`PRISMA_NUMBERS_VALIDATION.md` §C).
+>
 > **Zotero import:** Run `python -m app.abstract_review --export-ris` to generate the RIS file.
 
 ## Stage 7 — Final Included Studies
 
-After all screening and abstract review stages, **123 papers** were confirmed for inclusion in the systematic review and assembled into the final reading list (`S8_final_reading_list.csv`).
+After all screening and abstract review stages, **123 papers** were confirmed for inclusion in the systematic review and assembled into the final reading list (`13_final_reading_list_2026-05-12.csv`). These correspond to **121 distinct papers** (two arXiv–Scopus duplicate key-pairs — see Stage 4 note).
 
 **By tier:**
 
