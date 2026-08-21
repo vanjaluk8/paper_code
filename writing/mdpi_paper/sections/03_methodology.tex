@@ -190,3 +190,74 @@ of the empirical gaps identified in Section~\ref{sec:synthesis_gap}.
   \end{tabular}
   }
 \end{sidewaystable}
+
+\subsection{Quality Assessment}
+\label{sec:methodology:quality}
+
+Because the review is a qualitative thematic synthesis of published
+methods--and--systems literature rather than a meta-analysis of participant-level
+interventions, the PRISMA 2020 risk-of-bias instruments for comparative studies do
+not apply directly. Following the practice of software-literature systematic
+reviews~\cite{XiaoWatson2019}, we instead appraise the \emph{quality of the
+evidence} carried by each of the 123 included records with a six-dimension rubric
+scored from the screening and extraction records (Table~\ref{tab:quality_rubric}).
+Every dimension is operationalised from an explicit, grounded pipeline field so
+that each score is reproducible from the associated CSV artifacts; no dimension is
+inferred or imputed.
+
+\begin{table}[htp]
+\centering
+\caption{Quality-appraisal rubric: each dimension is scored 0--2 from a grounded
+screening/extraction field, giving a total of 0--12 per record.}
+\label{tab:quality_rubric}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{p{0.20\textwidth} p{0.36\textwidth} c c c}
+\toprule
+\textbf{Dimension} & \textbf{Grounded source} & \textbf{0} & \textbf{1} & \textbf{2} \\
+\midrule
+Q1 Publication \& venue quality & Venue-quality tag (preprint /
+peer-reviewed / top venue) & preprint & peer-reviewed & top venue \\
+Q2 Record resolvability & Presence of a DOI and/or arXiv ID (union of the
+final list, enriched pool, and extraction table) & neither & one & both \\
+Q3 Methods specificity & Named PEFT technique in extraction +
+identifiable method in full-text notes & generic/absent technique & named
+technique & named method with specific PEFT technique \\
+Q4 Evaluation-claim specificity & Key finding / full-text notes & no claim &
+structural or qualitative claim & quantified or benchmarking claim \\
+Q5 Contribution clarity & Contribution type + contribution code(s) &
+neither & contribution type only & contribution type + \textstar~code(s) \\
+Q6 Synthesis relevance & Tier (1 = core PEFT+P2P+LLM, \dots, 3 =
+tangential) & tier 3 & tier 2 & tier 1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Applying the rubric to all 123 records yields a mean score of $7.17$ ($\mathrm{SD}
+=2.09$, median 7), with the distribution summarised in
+Figure~\ref{fig:quality_bands}: 18 records (14.6\%) fall in the high band
+(10--12), 57 (46.3\%) in the upper-mid band (7--9), 46 (37.4\%) in the lower-mid
+band (4--6), and 2 (1.6\%) in the low band (0--3). The full record-by-record
+scores are published as accompanying material. The low-scoring records are
+pre-PEFT-era distributed-optimisation works (e.g.\ decentralised and gossip
+cooperative learning) that are tangential to the modern adapter-based core; none
+of the findings reported in Sections~\ref{sec:peft} to~\ref{sec:synthesis_gap}
+rests on a low-scoring record alone.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.92\linewidth]{figures/fig_slr_quality_bands.pdf}
+\caption{Quality-appraisal score distribution across the 123 included records
+(0--12 rubric, six dimensions).}
+\label{fig:quality_bands}
+\end{figure}
+
+Three appraisal dimensions common in clinical or empirical benchmarking
+reviews---\emph{code/artifact availability}, \emph{baseline adequacy}, and
+\emph{explicit threats-to-validity reporting}---are deliberately \emph{not}
+scored. These require full-text inspection that is beyond the reproducible
+screening pipeline, and scoring them from the existing fields would impute rather
+than measure. They are instead reported narratively in the synthesis
+(Section~\ref{sec:synthesis_gap}) where relevant, and their absence is disclosed
+here as a limitation of the automated appraisal rather than as a claim of their
+satisfaction.

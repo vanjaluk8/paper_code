@@ -55,12 +55,13 @@ Order: **FIRST among content items** (everything else consumes this decision).
 - [ ] Bonus (Phase 4 requires *no placeholder anywhere*): also fill the other 4 placeholder frames in `04_peft` (taxonomy), `05_adapter_composition` (AdapterFusion), `07_moe_routing` (Switch Transformer), `08_p2p_federated` (Petals) — at minimum as clean TikZ schematics consistent with captions.
 - [ ] Verify captions match rendered content exactly.
 
-### 1.3 Quality-appraisal / risk-of-bias framework · Effort: M · Independent
-- [ ] **Instrument** (§3.3, new): 6 dimensions — publication/peer-review status; venue tier; code/artifact availability; result reproducibility; baseline adequacy; evaluation realism + threats-to-validity reporting. 3-level rubric (0/1/2) per dimension → 0–12 score → aggregate banding table.
-- [ ] **Score all 123** from **existing fields** (user choice): `tier`, `corpus`, `citation_count`, `venue`, `year`, `review_source` (from `13_…csv` / `S6_enriched_reading_pool.csv` venue_quality). Produce a script (`slr_engine/…/quality_appraisal.py`) + a `123`-row scored table + distribution figure (bar of score bands) saved to `writing/mdpi_paper/figures/` and a CSV.
-- [ ] New `\subsection{Quality Assessment}` in `03_methodology.tex` after §3.1/§3.2: report instrument, rubric, aggregate distribution.
-- [ ] Update checklist item 11 & 18 → point to §3.3 (NOT "Not applicable").
-- [ ] **Data need:** confirm `S6_enriched_reading_pool.csv` has usable `venue_quality` for all 123 that survive to final — else flag missing derivations.
+### 1.3 Quality-appraisal / risk-of-bias framework · Effort: M · Independent · ✅ DONE
+- [x] **Instrument** (§3.3, new): 6 dimensions — publication/peer-review status; venue tier; code/artifact availability; result reproducibility; baseline adequacy; evaluation realism + threats-to-validity reporting. 3-level rubric (0/1/2) per dimension → 0–12 score → aggregate banding table.
+  - ⚠ 4 of the literal 6 dimensions (code availability / reproducibility / baseline adequacy / threats) have **no grounded data** anywhere (datasets/metrics/method_name are empty schema columns in `11_data_extraction_*`; no code/repo column exists). Per the no-fabrication rule, these are **scoped out and disclosed** in §3.3 (user-approved: "Scope out, disclose"). Actual rubric is fully grounded → **Q1** publication&venue (S6 `venue_quality`), **Q2** record resolvability (DOI/arXiv union), **Q3** methods specificity, **Q4** evaluation-claim specificity, **Q5** contribution clarity, **Q6** synthesis relevance (tier). N=123, mean 7.17, SD 2.09, bands **18/57/46/2**.
+- [x] **Score all 123** from **existing fields** (user choice). `slr_engine/snowballing/quality_appraisal.py`; outputs `writing/mdpi_paper/figures/quality_appraisal_scored.csv` + `fig_slr_quality_bands.pdf` (both local, regenerable — only the script is tracked).
+- [x] New `\subsection{Quality Assessment}` in `03_methodology.tex` (**§3.3**, after §3.2) — instrument, rubric (`tab:quality_rubric`), aggregate distribution, scoped-out dims disclosure. Added `\newcommand{\textstar}` to `main.tex` preamble.
+- [x] Update checklist item 11 & 18 → point to §3.3 (`sec:methodology:quality`) + Fig. 6 (`fig:quality_bands`).
+- [x] **Data need:** confirmed `S6_enriched_reading_pool.csv` `venue_quality` covers all 123 (top_venue 63 / peer_reviewed 47 / preprint 11 / unknown 2); join via paper_key→arxiv/doi + title crosswalk, all 123 join. ✅
 
 ### 1.6 Data Availability → two-project split (user's design) · Effort: M · User-driven
 Per user: **split into two projects**: (1) snowballing **code** in one repo; (2) clean **literature sources + materials** in another.
