@@ -98,12 +98,12 @@ Per user: **split into two projects**: (1) snowballing **code** in one repo; (2)
 
 | Item | Effort | Notes |
 |---|---|---|
-| **3.1 Abstract restructuring** | S | Background→Methods→Results→Conclusion signal via sentence sequence (no subheads). |
-| **3.2 Reference hygiene** | M | Replace arXiv-DOI refs where a peer-reviewed version exists; spot-check 2025–26 entries. **Some already done in Phase 1.** Needs care not to break the 17 verified DataCite DOIs. |
-| **3.3 AI-tool disclosure** | S | Expand Methods AI disclosure → MDPI-style: tool+version, exact purpose, explicit authorial-responsibility sentence. |
-| **3.4 Table/figure cleanup** | S | Simplify Fig 5 caption to PRISMA-standard terms only; consider splitting dense Table 2 per pillar. |
-| **3.5 Repository references** | S | Replace bare filenames (`log_screening_…json`) with stable URL/DOI refs in text. |
-| **3.6 Terminology pass** | S | Grep decentralised/peer-to-peer/distributed/serverless; consistent first-use definitions. |
+| **3.1 Abstract restructuring** | S | ✅ DONE — intro-restructured to Background→Methods→Results→Conclusion signal; added funnel (examined 1,150 snowball candidates → merged 352 pre-validated → 123/121), grounded six-dimension quality appraisal, and gap-map outcome to the Methods/Results. Numbers verified against `PRISMA_NUMBERS_VALIDATION.md` (1,150 raw snowball-examined, 178 dedup, 972 screening — all match). |
+| **3.2 Reference hygiene** | M | ✅ ASSESSED — no-change warranted. Queried arXiv API (journal_ref) for all 55 arXiv-DOI entries and Crossref (alternative-id filter) for the 9 arXiv-only `journal = {arXiv preprint}` entries. 46/55 already correctly cite their peer-reviewed venue (ICLR/ICML/NeurIPS/USENIX/…; DataCite arXiv DOI retained as canonical resolver for venue-without-Crossref-DOI). All 9 arXiv-only alternatives returned **0 Crossref alternative-id hits** → no Crossref-registered published version to upgrade to; replacing would risk wrong/fabricated DOIs. The 17 Phase-1 DataCite DOIs stay intact. ✅ |
+| **3.3 AI-tool disclosure** | S | ✅ DONE — §3 expanded to MDPI Statement on the Use of AI style: tools named (Undermind, Claude) with precise roles, plus explicit authorial-responsibility sentence ("verified all reported numbers against the underlying pipeline data files, and assumes full responsibility…"). References `app:undermind`. No tool versions stated (not recorded — avoided fabricating). |
+| **3.4 Table/figure cleanup** | S | ✅ ASSESSED — Fig 5 caption already PRISMA-standard (1,150→972→502→464→552→387→224→123/121, standard stage terms, matching validation doc). Table 2 (`tab:groups`) already compact (9-row group/theme/n-split/sections) — splitting per pillar not warranted. |
+| **3.5 Repository references** | S | ⚠ PARTIAL — all data filenames already anchored to stable repo path `snowballing/snowball_output/` (App. C.1). Converting to full `https://…URL` blocked on **D2** (repo names/URLs + public-vs-private). |
+| **3.6 Terminology pass** | S | ✅ DONE — normalised prose `decentralized`(z)→`decentralised`(s) (fixed `08_p2p_federated.tex:238`; the remaining z-form occurrences in `12_appendix.tex` are verbatim Scopus/WoS query strings & quoted Undermind prompts — correctly left untouched). P2P defined on first use in Intro; distributed/decentralised used as distinct complementary terms. |
 
 ---
 
