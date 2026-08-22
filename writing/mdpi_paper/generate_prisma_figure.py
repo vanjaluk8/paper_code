@@ -7,7 +7,7 @@ small, self-contained reporting tool that produces the standard PRISMA 2020
 flow figure used as Figure~5 in `writing/mdpi_paper`. The centre chain is drawn
 exactly as the manuscript prose and caption describe it:
 
-    1,150 -> 972 -> 502 -> 464 -> 552 -> 387 -> 224 -> 123 (121 distinct)
+    1,150 -> 972 -> 502 -> 464 -> 552 -> 387 -> 224 -> 123 (120 distinct)
 
 Standard PRISMA 2020 exclusion-reason boxes are attached to every junction for
 which a validated count exists.
@@ -46,7 +46,7 @@ N_FULLTEXT   = "387"     # reports sought for retrieval (full-text queue)
 N_NORETR     = "265"     # reports not retrieved (no PDF); 122 yes / 265 no
 N_EXTRACT    = "224"     # reports assessed for eligibility (data extraction)
 N_FINAL      = "123"     # studies included in review
-N_DISTINCT   = "121"     # distinct papers
+N_DISTINCT   = "120"     # distinct papers
 
 # ---------------------------------------------------------------------------
 # Layout constants
@@ -96,7 +96,7 @@ STAGES = [
      "data extraction (190 auto + top-up)", N_EXTRACT, COL_MAIN),
     ("Included",
      "Studies included in review",
-     "121 distinct papers", "{0} ({1})".format(N_FINAL, N_DISTINCT),
+     "{0} distinct papers".format(N_DISTINCT), "{0} ({1})".format(N_FINAL, N_DISTINCT),
      "#d9ead8"),
 ]
 

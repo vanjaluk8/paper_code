@@ -56,7 +56,7 @@ This checklist maps each of the 27 PRISMA 2020 items to the section, table, figu
 
 | Section | # | Checklist item | Where the item is reported |
 |---|---|---|---|
-| **Study selection** | 16a | Describe the results of the search and selection process, from the number of records identified in the search to the number of studies included in the review, ideally using a flow diagram. | **Figure 5 (PRISMA flow diagram, `fig:prisma`)** — 1,150 raw → 972 dedup → 502 merged → 464 enriched → 552 abstract-reviewed → 387 full-text queue → 224 extraction → 123 final (121 distinct). Table C.1; `PRISMA_summary_2026-04-21.md` |
+| **Study selection** | 16a | Describe the results of the search and selection process, from the number of records identified in the search to the number of studies included in the review, ideally using a flow diagram. | **Figure 5 (PRISMA flow diagram, `fig:prisma`)** — 1,150 raw → 972 dedup → 502 merged → 464 enriched → 552 abstract-reviewed → 387 full-text queue → 224 extraction → 123 final (120 distinct). Table C.1; `PRISMA_summary_2026-04-21.md` |
 | | 16b | Cite studies that might appear to have met the inclusion criteria, but which were excluded, and explain why they were excluded. | **Appendix A.4** (two-layer screening exclusion reasons: year 192, no-keyword 284, LLM-only 255 = 731); abstract-review SKIP 338 with reasons (Appendix A.7) |
 | **Study characteristics** | 17 | Cite each included study and present its characteristics. | Final reading list (123 papers) — see references/BiBTeX and `13_final_reading_list_2026-05-12.csv`; Appendix A.6 bibliometric overview |
 | **Risk of bias in studies** | 18 | Present assessments of risk of bias for each included study. | **§3.3 Quality Assessment** (`sec:methodology:quality`) + **Fig. 6** (`fig:quality_bands`) — score distribution across all 123 records (mean 7.17/12; bands 18/57/46/2); full record-by-record scores in accompanying material (Fig. 6) |
@@ -103,7 +103,7 @@ This checklist maps each of the 27 PRISMA 2020 items to the section, table, figu
 | Abstract reviewed | 552 | `S7b_abstract_reviewed_final.csv` (KEEP 214 / SKIP 338) |
 | Full-text queue | 387 | `09_fulltext_review_queue_*.csv` |
 | Data extraction | 224 | `11_data_extraction_2026-05-12.csv` |
-| Final reading list | 123 (121 distinct) | `13_final_reading_list_2026-05-12.csv` (tiers 48/42/33) |
+| Final reading list | 123 (120 distinct) | `13_final_reading_list_2026-05-12.csv` (tiers 48/42/33) |
 
 ---
 

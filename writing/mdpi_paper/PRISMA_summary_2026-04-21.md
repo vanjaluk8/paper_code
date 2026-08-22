@@ -123,11 +123,14 @@ proceeded through data extraction.
 | PDF not retrieved | 265 |
 | Preliminary data extraction | 190 |
 | Data extraction top-up (manual) | 224 |
-| **Included in review (final reading list)** | **123 (121 distinct papers)** |
+| **Included in review (final reading list)** | **123 (120 distinct papers)** |
 
-> **Distinct-paper note:** the 123 final records correspond to **121 distinct papers**:
+> **Distinct-paper note:** the 123 final records correspond to **120 distinct papers**:
 > two arXiv↔Scopus duplicate key-pairs (LoRA, arXiv 2106.09685 + Scopus a8ca… ; Houlsby,
-> arXiv 1902.00751 + Scopus 29ddc1…) each appear twice in the reading list.
+> arXiv 1902.00751 + Scopus 29ddc1…) each appear twice in the reading list, and a third
+> work (CaraServe, arXiv 2401.11240) was retrieved twice — once as its arXiv preprint,
+> once as its USENIX ATC 2025 publication, renamed "Toppings" (ACM DOI
+> 10.5555/3768039.3768076) — for three duplicate key-pairs total.
 
 ## Stage 5 — Enrichment & Tier Classification
 
@@ -207,7 +210,7 @@ Each paper in the enriched reading list was reviewed at abstract level using an 
 
 ## Stage 7 — Final Included Studies
 
-After all screening and abstract review stages, **123 papers** were confirmed for inclusion in the systematic review and assembled into the final reading list (`13_final_reading_list_2026-05-12.csv`). These correspond to **121 distinct papers** (two arXiv–Scopus duplicate key-pairs — see Stage 4 note).
+After all screening and abstract review stages, **123 papers** were confirmed for inclusion in the systematic review and assembled into the final reading list (`13_final_reading_list_2026-05-12.csv`). These correspond to **120 distinct papers** (three duplicate key-pairs — see Stage 4 note).
 
 **By tier:**
 

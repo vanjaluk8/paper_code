@@ -8,7 +8,7 @@
 ## 0. Ground rules (bind every edit)
 
 1. **Numbers source of truth = pipeline CSVs** (`slr_engine/snowballing/snowball_output/`), computed with Python `csv`, header excluded. Narrative claims = manuscript. Never pick "which looks right."
-2. Headline inclusion unit = **121 distinct papers** (123 included records, 2 arXiv+Scopus duplicate key-pairs: LoRA `2106.09685`/`a8ca…`, Houlsby `1902.00751`/`29ddc1…`). Footnote the 123-vs-121 nuance in data files only. **Decided by user.**
+2. Headline inclusion unit = **120 distinct papers** (123 included records, 3 duplicate key-pairs: LoRA `2106.09685`/`a8ca…`, Houlsby `1902.00751`/`29ddc1…`, CaraServe `2401.11240`/USENIX-ATC-2025-as-"Toppings" `69d631b3…` — 3rd pair found 2026-08-22). Footnote the 123-vs-120 nuance in data files only. **Decided by user.**
 3. Every number appears in **7 places** (Abstract, §3.1, Table 1, Table A3, Fig 5, PRISMA checklist, PRISMA summary). Any edit = grep all 7 for the old value.
 4. **Never delete limitations** — reframe/strengthen. Use corpus-bounded phrasing ("within the reviewed corpus"), not absolute claims.
 5. No fabricated numbers/DOIs/citations. A missing input is a **blocking dependency**, listed as such, not guessed.
@@ -23,12 +23,12 @@
 
 ---
 
-### 1.5 Resolve 123 vs 121 — **decided: 121 distinct headline** · Effort: S
+### 1.5 Resolve 123 vs 121/120 — **decided: 120 distinct headline** · Effort: S · ✅ DONE
 Order: **FIRST among content items** (everything else consumes this decision).
-- [ ] Verify the 2 duplicate key-pairs in `13_final_reading_list_2026-05-12.csv` (confirm titles/DOIs).
-- [ ] `main.tex` abstract: "surveys **123 papers** across five clusters" → keep 123 as counts of reviewed records, add "…surveying **121 distinct papers** (see Table A3)". Ensure no numeric-only "123" that contradicts.
-- [ ] Grep `123` vs `121` across Abstract/§3.1/Table 1/Table A3/Fig 5/checklist/summary; add the footnote once (Appendix A3 / Table A3 caption).
-- **Result:** consistent "121 distinct / 123 records" story everywhere.
+- [x] Verified the 2 duplicate key-pairs in `13_final_reading_list_2026-05-12.csv` (titles/DOIs confirmed); a **3rd pair (CaraServe/Toppings) found 2026-08-22** — see REVISION_LOG row 33.
+- [x] `main.tex` abstract: surveys **123 papers**, "…yielding 123 included records (120 distinct papers)". No numeric-only "123" contradicts.
+- [x] Grepped `123` vs `121`/`120` across Abstract/§3.1/Table 1/Table A3/Fig 5/checklist/summary; footnote in §3.1 names all 3 pairs.
+- **Result:** consistent "120 distinct / 123 records" story everywhere.
 
 ### 1.1 Reconcile the PRISMA package · Effort: S–M · **Depends on 1.5 + 1.4**
 - [ ] `PRISMA_2020_checklist.md` (still stale):
