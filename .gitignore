@@ -1,3 +1,5 @@
+.claude
+
 # ── Python ────────────────────────────────────────────────────────────────
 __pycache__/
 *.py[cod]
@@ -35,3 +37,7 @@ venv/
 # The 13_final_reading_list CSV is an audited deliverable (tracked), but the
 # superseded S8_ prefixed version is a stale older-generation artifact:
 S8_final_reading_list.csv
+
+# ── Large local-only working directories (not needed on GitHub) ───────────
+writing/slr_methodology_paper/writing_materials
+writing/slr_methodology_paper/validation
