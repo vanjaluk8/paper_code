@@ -235,6 +235,11 @@ introduced the Kademlia distributed hash table (DHT), which provides $O(\log N)$
 lookup of key-value pairs across a network of $N$ nodes using a XOR-distance metric.
 Kademlia has been deployed at scale in BitTorrent and other P2P systems, and its
 correctness and resistance to churn are well understood.
+
+% [PROPOSED C1 - Vanja review before removing this marker]
+Chord~\cite{StoicaChord2001} and BitTorrent~\cite{CohenBitTorrent2003} are foundational P2P precedents that predate Kademlia: Chord established $O(\log N)$ consistent-hashing-based lookup, and BitTorrent demonstrated at internet scale that a tit-for-tat incentive scheme can sustain robust peer cooperation without central coordination.
+% [END PROPOSED C1]
+
 Recent work on decentralised LoRA, such as Dec-LoRA by Ghiasvand et al.~\cite{Ghiasvand2025}, demonstrates that parameter-efficient LLM fine‑tuning can be performed without a central server over decentralised communication topologies, motivating similar designs for adapter-based systems.
 
 \begin{figure}[H]

@@ -45,6 +45,13 @@ deploy. This gap is examined in the synthesis and gap analysis
   \label{fig:switch_transformer}
 \end{figure}
 
+% [PROPOSED C1 - Vanja review before removing this marker]
+Mixtral of Experts~\cite{JiangMixtral2024} demonstrates that sparse Top-2 MoE routing scales to a production, publicly released model, matching or exceeding the quality of larger dense models at a fraction of the active-parameter inference cost.
+% [END PROPOSED C1]
+
+% [PROPOSED C1 - Vanja review before removing this marker]
+GShard~\cite{LepikhinGShard2021} and GLaM~\cite{DuGLaM2022} are contemporary large-scale MoE systems that, like Switch Transformers, route among a fixed, co-located expert pool rather than discovering experts across a decentralised network.
+% [END PROPOSED C1]
 
 Zhou et al.~\cite{Zhou2022} proposed Expert Choice routing, which inverts the routing perspective:
 rather than each token selecting its top expert, each expert selects its top-$k$ tokens

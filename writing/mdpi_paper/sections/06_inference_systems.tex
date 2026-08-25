@@ -105,6 +105,10 @@ low-rank adapters are computed on CPU, provides a template for hardware-aware ad
 placement in heterogeneous P2P nodes, where different peers may have different compute
 capabilities.
 
+% [PROPOSED C1 - Vanja review before removing this marker]
+FlexGen~\cite{ShengFlexGen2023} and AlpaServe~\cite{LiAlpaServe2023} address related single-provider resource-constraint problems: FlexGen offloads generation across GPU, CPU, and disk to run large models on a single GPU, while AlpaServe exploits statistical multiplexing across model-parallel replicas to serve bursty multi-model workloads, neither addressing adapter populations or cross-peer coordination.
+% [END PROPOSED C1]
+
 \subsection{Serverless and Tiered Storage Serving}
 \label{sec:inference_systems:serverless}
 
