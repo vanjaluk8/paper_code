@@ -1,0 +1,22 @@
+## Meta
+- **Citation:** Fedus, W., Zoph, B., & Shazeer, N. (2022). Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity. *JMLR*.
+- **Venue:** JMLR
+- **Tags:** MoE, Sparse Expert Models, Scaling, Routing
+- **Thesis sections:** §7.1 MoE Routing and Sparsity
+
+## Key Findings
+1. Switch Transformers simplify MoE routing by sending each token to exactly one expert (top-1 routing), eliminating the expert imbalance and communication overhead of top-k routing.
+2. Achieves significant speedups over dense Transformer baselines at equal FLOP count — 7x pre-training speedup for T5-large equivalent.
+3. Introduces techniques to improve training stability: router z-loss, expert dropout, and load balancing with auxiliary loss.
+4. Demonstrates scaling to trillion parameters with sparse activations.
+5. Design choices: Simplified MoE routing outperforms the earlier top-2 approach with better load balancing and smaller memory footprint.
+
+## Relevance to Thesis
+- **MoE routing** is the leading strategy for selecting which expert modules to activate per token — directly relevant to how adapters could be routed in a P2P setting.
+- The expert selection paradigm (top-1 routing) provides a template for adapter selection in decentralized systems.
+- Load-balancing regularization in MoE can be adapted to ensure uniform distribution of queries across adapter variants in a P2P marketplace.
+
+## Limitations / Gaps
+- Focused on data-center scale dense GPU clusters, not P2P or edge settings.
+- Synchronous assumption: all experts available in a tightly coupled cluster — no support for the unreliable, churn-prone P2P setting.
+- No study of how routing degrades with partial expert availability.

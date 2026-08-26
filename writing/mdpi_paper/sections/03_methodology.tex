@@ -10,8 +10,9 @@ not prospectively registered in a review protocol repository; systematic
 reviews of computer-science and AI systems literature are not commonly eligible
 for clinical registries such as PROSPERO, and no suitable AI-specific registry
 was available at the time of commencement. The completed
-PRISMA 2020 27-item checklist is provided as Supplementary Material. The three
-intersecting fields covered are parameter-efficient fine-tuning (PEFT) and
+PRISMA 2020 27-item checklist is provided as Supplementary Material. This
+review was conducted and reported in accordance with the PRISMA 2020 statement.
+The three intersecting fields covered are parameter-efficient fine-tuning (PEFT) and
 adapter architectures; distributed and peer-to-peer (P2P) machine learning;
 and multi-task LLM serving and inference. In accordance with the MDPI
 Statement on the Use of Artificial Intelligence, the AI tools used and their
@@ -25,7 +26,10 @@ draft and proofread this manuscript. Neither tool made any inclusion,
 exclusion, appraisal, or synthesis decision; the author conducted all such
 decisions, verified all reported numbers against the underlying pipeline data
 files, and assumes full responsibility for the content of this article,
-including any errors or omissions.
+including any errors or omissions. An earlier version of the search strategy
+and screening protocol described in this section was developed as coursework
+for a doctoral Research Methodology course at the University of Rijeka; the
+review has been substantially revised for this submission.
 
 \subsection{Search Strategy and Corpus}
 \label{sec:methodology:search}
@@ -351,7 +355,9 @@ Applying the rubric to all 123 records yields a mean score of $7.17$ ($\mathrm{S
 Figure~\ref{fig:quality_bands}: 18 records (14.6\%) fall in the high band
 (10--12), 57 (46.3\%) in the upper-mid band (7--9), 46 (37.4\%) in the lower-mid
 band (4--6), and 2 (1.6\%) in the low band (0--3). The full record-by-record
-scores are published as accompanying material. The low-scoring records are
+scores are provided as accompanying material in
+\texttt{figures/quality\_appraisal\_scored.csv} (123 records; each scored
+0--2 on Q1--Q6 with a total and quality band). The low-scoring records are
 pre-PEFT-era distributed-optimisation works (e.g.\ decentralised and gossip
 cooperative learning) that are tangential to the modern adapter-based core; none
 of the findings reported in Sections~\ref{sec:peft} to~\ref{sec:synthesis_gap}
@@ -365,12 +371,42 @@ rests on a low-scoring record alone.
 \label{fig:quality_bands}
 \end{figure}
 
-Three appraisal dimensions common in clinical or empirical benchmarking
-reviews---\emph{code/artifact availability}, \emph{baseline adequacy}, and
-\emph{explicit threats-to-validity reporting}---are deliberately \emph{not}
-scored. These require full-text inspection that is beyond the reproducible
-screening pipeline, and scoring them from the existing fields would impute rather
-than measure. They are instead reported narratively in the synthesis
-(Section~\ref{sec:synthesis_gap}) where relevant, and their absence is disclosed
-here as a limitation of the automated appraisal rather than as a claim of their
-satisfaction.
+\subsubsection{Reproducibility and Risk of Bias: Tier-1 Records}
+\label{sec:methodology:quality:tier1}
+
+Whereas the six-dimension rubric above scores reporting completeness and
+relevance across all 123 records, three appraisal dimensions central to
+empirical benchmarking are scored separately for the \textbf{48 Tier-1 records}
+that form the primary evidence body of this synthesis. These are
+\emph{code/artifact availability}, \emph{baseline adequacy}, and \emph{explicit
+threats-to-validity reporting}. Because such dimensions require full-text
+inspection that lies beyond the automated screening pipeline, they were
+populated by direct review of each Tier-1 paper and cross-checked against the
+accompanying structured reading notes; scoring them from the extraction fields
+alone would have imputed rather than measured. Each record was coded on a
+yes/partial/no basis, with ``partial'' reserved for genuine middle cases in
+response to three questions. Do the authors release a usable artifact? Are
+reported results assessed against a named baseline? Does the paper include an
+explicit limitations or threats discussion?
+
+The results are sobering. Across the 48 Tier-1 papers only \textbf{20}
+(41.7\%) release usable code or artifacts, and a further \textbf{4} (8.3\%)
+release only partial artifacts, so most of the core evidence body cannot be
+re-run from released code. Baseline comparison is the strongest of the three
+dimensions. \textbf{40} (83.3\%) evaluate against a named baseline, and a
+further \textbf{6} (12.5\%) do so only partially. Most striking is the dearth
+of critical self-assessment. Only \textbf{11} (22.9\%) report an explicit
+threats-to-validity or limitations discussion, \textbf{18} (37.5\%) do so only
+partially, and \textbf{19} (39.6\%) contain none at all.
+
+These findings are themselves a result of this review. The sparse code release
+and, especially, the near-absence of threats reporting among even the most
+central records substantiate, at the level of primary evidence, the
+reproducibility and reporting gaps identified in
+Section~\ref{sec:synthesis_gap}, and they inform the gap analysis in
+Section~\ref{sec:conclusion:contributions}. The full per-record coding is
+provided in \texttt{figures/quality\_appraisal\_scored.csv} (Tier-1 rows;
+columns \texttt{code\_released}, \texttt{evaluated\_vs\_baseline},
+\texttt{threats\_reported}). These three dimensions remain outside the 0--12
+rubric by design. They are reported here as a separate, clearly-labelled
+appraisal rather than folded into the aggregate score.
