@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PRISMA 2020 Flow Diagram</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  .flow { width: 820px; }
+
+  .box {
+    border: 1.5px solid #333;
+    border-radius: 5px;
+    padding: 7px 10px;
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.4;
+    background: #fff;
+  }
+
+  .box-main {
+    width: 360px;
+    margin: 0 auto;
+  }
+
+  .box-bold {
+    font-weight: 700;
+    font-size: 13px;
+  }
+
+  .box-title {
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 4px;
+    color: #333;
+  }
+
+  /* ── Connector between main boxes ── */
+  .conn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 24px;
+    justify-content: center;
+  }
+  .conn-l { width: 1.5px; height: 16px; background: #555; }
+  .conn-a {
+    width: 0; height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 7px solid #555;
+  }
+
+  /* ── Exclusion side box ── */
+  .exc {
+    position: absolute;
+    width: 220px;
+    font-size: 9.5px;
+    color: #a33;
+    background: #fef0f0;
+    border: 1px solid #ecc;
+    border-radius: 4px;
+    padding: 4px 7px;
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  /* ── Merge row ── */
+  .merge-box {
+    border: 1.5px solid #2c5f8a;
+    background: #f0f4f8;
+    border-radius: 6px;
+    padding: 10px 14px;
+    width: 520px;
+    margin: 0 auto;
+  }
+  .merge-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .merge-item {
+    border: 1.5px solid #2c5f8a;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 11px;
+    text-align: center;
+    background: #e4edf5;
+    width: 160px;
+    line-height: 1.35;
+  }
+  .merge-op {
+    font-size: 18px; font-weight: 700; color: #2c5f8a;
+  }
+  .merge-result {
+    border: 2px solid #2c5f8a;
+    border-radius: 5px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    background: #d4e2f0;
+    width: 130px;
+    margin: 6px auto 0;
+  }
+
+  /* ── Expansion row (464 + 88 = 552) ── */
+  .expand-box {
+    border: 1.5px solid #6a1b9a;
+    background: #f4eff8;
+    border-radius: 6px;
+    padding: 8px 14px;
+    width: 480px;
+    margin: 0 auto;
+  }
+  .expand-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .expand-item {
+    border: 1.5px solid #6a1b9a;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 11px;
+    text-align: center;
+    background: #e8dff0;
+    width: 170px;
+    line-height: 1.35;
+  }
+  .expand-result {
+    border: 2px solid #6a1b9a;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    background: #dcd0e8;
+    width: 140px;
+    margin: 5px auto 0;
+  }
+
+  /* ── Decision row ── */
+  .decision-row {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+  }
+  .decision-item {
+    border: 1.5px solid #999;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 10px;
+    text-align: center;
+    background: #f9f9f9;
+    width: 160px;
+    line-height: 1.35;
+  }
+
+  .final-box {
+    border: 2px solid #1a6a1a;
+    background: #e8f5e9;
+    font-weight: 700;
+    font-size: 14px;
+    width: 350px;
+    margin: 0 auto;
+  }
+
+  .bottom-note {
+    text-align: center;
+    font-size: 9px;
+    color: #888;
+    margin-top: 6px;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+<div class="flow">
+
+  <!-- ═══ IDENTIFICATION ═══ -->
+  <div class="box-title" style="text-align:center;">IDENTIFICATION</div>
+  <div class="conn" style="height:6px;"></div>
+
+  <div class="box box-main box-bold">1,150 snowball candidates</div>
+  <div class="conn"><div class="conn-l"></div><div class="conn-a"></div></div>
+
+  <!-- 1 → 972 -->
+  <div style="position:relative;">
+    <div class="box box-main"><strong>972</strong> unique records (after deduplication)</div>
+    <div class="exc" style="left:calc(50% + 185px); top:50%; transform:translateY(-50%);">178 duplicates removed</div>
+  </div>
+  <div class="conn"><div class="conn-l"></div><div class="conn-a"></div></div>
+
+  <!-- 972 → 162 -->
+  <div style="position:relative;">
+    <div class="box box-main"><strong>162</strong> records pass title screening</div>
+    <div class="exc" style="left:calc(50% + 185px); top:50%; transform:translateY(-50%);">
+      791 excluded in title screening<br><small>731 Layer-2 keyword + 60 LLM triage</small>
+    </div>
+    <div class="exc" style="right:calc(50% + 185px); top:70%; transform:translateY(-50%);">
+      19 UNCERTAIN (manual review)<br><small>3 → abstract, 0 final</small>
+    </div>
+  </div>
+  <div class="conn"><div class="conn-l"></div><div class="conn-a"></div></div>
+
+  <!-- ═══ MERGE ═══ -->
+  <div class="box-title" style="text-align:center; margin-top:4px;">MERGE WITH PRE-VALIDATED CORPUS</div>
+  <div class="merge-box">
+    <div class="merge-row">
+      <div class="merge-item"><strong>162</strong><br><small>screened-in</small></div>
+      <div class="merge-op">+</div>
+      <div class="merge-item"><strong>352</strong><br><small>pre-validated G0–G6 corpus</small></div>
+      <div class="merge-op">=</div>
+      <div class="merge-item" style="background:#fef0f0; border-color:#c00;"><strong>−12</strong><br><small>cross-duplicates</small></div>
+    </div>
+    <div class="merge-result"><strong>502</strong> merged records</div>
+  </div>
+  <div class="conn"><div class="conn-l"></div><div class="conn-a"></div></div>
+
+  <!-- ═══ SCREENING ═══ -->
+  <div class="box-title" style="text-align:center; margin-top:2px;">SCREENING</div>
+
+  <!-- 502 → 464 -->
+  <div style="position:relative;">
+    <div class="box box-main"><strong>464</strong> enriched records (tier-filtered)</div>
+    <div class="exc" style="left:calc(50% + 185px); top:50%; transform:translateY(-50%);">
+      38 excluded in enrichment<br><small>6 off-topic + 32 deprioritised</small>
+    </div>
+  </div>
+  <div class="conn"><div class="conn-l"></div><div class="conn-a"></div></div>
+
+  <!-- 464 + 88 = 552 -->
+  <div class="expand-box">
+    <div class="expand-row">
+      <div class="expand-item"><strong>464</strong><br><small>enriched records</small></div>
+      <div style="font-size:16px; font-weight:700; color:#6a1b9a;">+</div>
+      <div class="expand-item"><strong>88</strong><br><small>forward-snowball additions</small></div>
+    </div>
+    <div class="expand-result"><strong>552</strong> abstract-review pool</div>
+  </div>
+  <div class="conn"><div class="conn-l"></div><div class="conn-a"></div></div>
+
+  <!-- 552 → decision review -->
+  <div style="margin:2px 0;">
+    <div class="decision-row">
+      <div class="decision-item" style="background:#e8f5e9; border-color:#4a8;"><strong>214</strong><br>KEEP</div>
+      <div class="decision-item" style="background:#fff8e1; border-color:#da8;"><strong>173</strong><br>DEFER reviewed</div>
+    </div>
+  </div>
+  <div class="conn"><div class="conn-l"></div><div class="conn-a"></div></div>
+
+  <!-- 387 valid -->
+  <div style="position:relative;">
+    <div class="box box-main"><strong>387</strong> valid records in full-text queue</div>
+  </div>
+  <div class="conn"><div class="conn-l"></div><div class="conn-a"></div></div>
+
+  <!-- ═══ INCLUDED ═══ -->
+  <div class="box-title" style="text-align:center; margin-top:2px;">INCLUDED</div>
+
+  <!-- 387 → 224 -->
+  <div style="position:relative;">
+    <div class="box box-main"><strong>224</strong> records in data extraction</div>
+    <div class="exc" style="left:calc(50% + 185px); top:50%; transform:translateY(-50%);">
+      163 excluded<br><small>full-text unavailable / DEFERs not taken forward</small>
+    </div>
+  </div>
+  <div class="conn"><div class="conn-l"></div><div class="conn-a"></div></div>
+
+  <!-- 224 → 123 -->
+  <div style="position:relative;">
+    <div class="final-box"><strong>123</strong> included (120 distinct papers)</div>
+    <div class="exc" style="left:calc(50% + 185px); top:50%; transform:translateY(-50%);">
+      101 excluded in final QA
+    </div>
+  </div>
+
+  <div class="bottom-note">PRISMA 2020 — Systematic review on decentralised adapter-based LLM inference</div>
+
+</div>
+</body>
+</html>

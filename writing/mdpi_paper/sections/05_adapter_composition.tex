@@ -65,12 +65,7 @@ h' = \mathrm{Attention}(h \cdot W_Q,\; [h_1, \ldots, h_K] \cdot W_K,\; [h_1, \ld
 
 \begin{figure}[H]
   \centering
-  % CREATE AN ORIGINAL FIGURE here (own drawing, no reproduction permission
-  % needed): a schematic of the AdapterFusion fusion layer. Drop your PDF into
-  % figures/ and replace the \fbox placeholder below with \includegraphics.
-  \fbox{\parbox{0.7\textwidth}{\centering\vspace{1.8cm}
-    \textit{Figure: AdapterFusion fusion layer}\\[0.4em]
-    \small(create original figure here)\vspace{1.8cm}}}
+  \includegraphics[width=0.85\textwidth]{figures/fig_adapterfusion.pdf}
   \caption{AdapterFusion fusion layer (own figure): task adapters
     $A_1,\ldots,A_K$ remain frozen while a lightweight attention mechanism with
     parameters $W_Q, W_K, W_V$ learns to combine their outputs at each

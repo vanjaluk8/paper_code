@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Graphical Abstract</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  .ga {
+    width: 1000px;
+    background: #fff;
+  }
+
+  .title-bar {
+    background: #2c5f8a;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    margin-bottom: 14px;
+  }
+  .title-bar h1 { font-size: 16px; }
+  .title-bar p { font-size: 11px; opacity: 0.8; margin-top: 2px; }
+
+  .row { display: flex; gap: 12px; margin-bottom: 14px; }
+  .col {
+    flex: 1;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 11px;
+    line-height: 1.5;
+    background: #fafafa;
+  }
+  .col h3 {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+
+  .cell {
+    padding: 5px 8px;
+    border-radius: 5px;
+    margin-bottom: 4px;
+    font-size: 10px;
+    font-weight: 600;
+  }
+
+  .arrow-col {
+    width: 24px;
+    flex: 0 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #5a7d9a;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin: 4px 0;
+  }
+  .grid .cell {
+    text-align: center;
+    font-size: 9px;
+    margin-bottom: 0;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1.5px dashed #bbb;
+    margin: 8px 0;
+  }
+
+  .quadrant-row {
+    display: flex;
+    gap: 12px;
+  }
+  .quadrant {
+    flex: 1;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 10px;
+  }
+  .quadrant strong {
+    display: block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2px;
+  }
+  .quadrant span {
+    font-size: 9px;
+    font-style: italic;
+    opacity: 0.85;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 10px;
+    color: #888;
+    font-style: italic;
+    margin-top: 6px;
+    padding-bottom: 4px;
+  }
+</style>
+</head>
+<body>
+<div class="ga">
+
+  <div class="title-bar">
+    <h1>Decentralised Adapter-Based LLM Inference: A Systematic Literature Review</h1>
+    <p>Mapping the research gap at the intersection of PEFT &bull; P2P Systems &bull; Multi-Task Serving</p>
+  </div>
+
+  <!-- Problem → Central Question → Method → Key Finding -->
+  <div class="row">
+
+    <!-- PROBLEM -->
+    <div class="col" style="border-color: #2c5f8a;">
+      <h3 style="color:#2c5f8a;">PROBLEM</h3>
+      <div class="cell" style="background:#fbe9e7; color:#b33; border:1px solid #f5c6c2;">
+        Full fine-tuning is prohibitively expensive
+      </div>
+      <div class="cell" style="background:#fff3e0; color:#b85; border:1px solid #ffe0b2;">
+        Serving systems assume centralised orchestration
+      </div>
+      <div class="cell" style="background:#e8f5e9; color:#2e7d32; border:1px solid #b8e6b8;">
+        Can a P2P direction work?
+      </div>
+    </div>
+
+    <div class="arrow-col">&rarr;</div>
+
+    <!-- CENTRAL QUESTION -->
+    <div class="col" style="border-color: #6a1b9a;">
+      <h3 style="color:#6a1b9a;">CENTRAL QUESTION</h3>
+      <p style="margin-bottom:4px;"><strong>Can task-specific adapters be&hellip;</strong></p>
+      <div style="display:flex; gap:3px; flex-wrap:wrap;">
+        <span class="cell" style="background:#d1c4e9; color:#4a148c; border:1px solid #b39ddb;">discovered</span>
+        <span class="cell" style="background:#d1c4e9; color:#4a148c; border:1px solid #b39ddb;">retrieved</span>
+        <span class="cell" style="background:#d1c4e9; color:#4a148c; border:1px solid #b39ddb;">composed</span>
+        <span class="cell" style="background:#d1c4e9; color:#4a148c; border:1px solid #b39ddb;">served</span>
+      </div>
+      <p style="margin-top:5px; font-style:italic; color:#555;">
+        &hellip;across autonomous nodes sharing a <strong>frozen backbone</strong>, without a central coordinator?
+      </p>
+    </div>
+
+    <div class="arrow-col">&rarr;</div>
+
+    <!-- METHOD -->
+    <div class="col" style="border-color: #2e7d32;">
+      <h3 style="color:#2e7d32;">METHOD</h3>
+      <div class="cell" style="background:#c8e6c9; color:#1b5e20; border:1px solid #a5d6a7; text-align:center;">
+        PRISMA 2020 + Wohlin Snowballing
+      </div>
+      <p style="margin:3px 0;"><strong>1,150</strong> candidates &rarr; <strong>972</strong> screened merged with <strong>352</strong> pre-validated corpus</p>
+      <p style="font-size:10px; color:#555;"><strong>123</strong> included records (120 distinct papers)</p>
+      <p style="font-size:9px; color:#777;">5 clusters &middot; 6-dimension rubric &middot; Gap map</p>
+    </div>
+
+    <div class="arrow-col">&rarr;</div>
+
+    <!-- KEY FINDING -->
+    <div class="col" style="border-color: #b71c1c;">
+      <h3 style="color:#b71c1c;">KEY FINDING</h3>
+      <p style="font-size:9px; margin-bottom:4px;"><strong>No system simultaneously addresses:</strong></p>
+      <div class="grid">
+        <div class="cell" style="background:#ffcdd2; color:#b71c1c; border:1px solid #ef9a9a;">Frozen shared backbone</div>
+        <div class="cell" style="background:#ffcdd2; color:#b71c1c; border:1px solid #ef9a9a;">Adapter-level exchange</div>
+        <div class="cell" style="background:#ffcdd2; color:#b71c1c; border:1px solid #ef9a9a;">P2P topology</div>
+        <div class="cell" style="background:#ffcdd2; color:#b71c1c; border:1px solid #ef9a9a;">Decentralised discovery</div>
+        <div class="cell" style="background:#ffcdd2; color:#b71c1c; border:1px solid #ef9a9a;">Multi-task fusion</div>
+        <div class="cell" style="background:#ffcdd2; color:#b71c1c; border:1px solid #ef9a9a;">No central coordinator</div>
+      </div>
+      <p style="font-size:10px; color:#b71c1c; margin-top:4px; text-align:center; font-weight:700;">
+        &rarr; Partitions into four gap quadrants
+      </p>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div style="text-align:center; font-size:9px; font-weight:700; color:#888; letter-spacing:0.08em; margin:-3px 0 6px;">
+    THE FOUR GAP QUADRANTS
+  </div>
+
+  <div class="quadrant-row">
+    <div class="quadrant" style="background:#e3f2fd; border:1px solid #90caf9;">
+      <strong style="color:#1565c0;">CONCEPTUAL</strong>
+      <span>What P2P adapter architectures are possible?</span>
+    </div>
+    <div class="quadrant" style="background:#e8f5e9; border:1px solid #a5d6a7;">
+      <strong style="color:#2e7d32;">ALGORITHMIC</strong>
+      <span>How to discover, route, and compose adapters?</span>
+    </div>
+    <div class="quadrant" style="background:#fff3e0; border:1px solid #ffcc80;">
+      <strong style="color:#e65100;">SYSTEMS</strong>
+      <span>How to build decentralised inference systems?</span>
+    </div>
+    <div class="quadrant" style="background:#fce4ec; border:1px solid #f48fb1;">
+      <strong style="color:#c62828;">EMPIRICAL</strong>
+      <span>How does it perform in practice?</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    Establishes the evidence base and research agenda for decentralised, adapter-based P2P LLM inference
+  </div>
+
+</div>
+</body>
+</html>

@@ -72,7 +72,7 @@ module, header excluded). Status: ✅ CSV/log-verified · 📌 stated figure
 > single pipeline column. **Total 123 is CSV-authoritative; treat per-cell finals as 📌 stated.**
 > (Corrected 2026-08-21 from a stale earlier snapshot — G0=20/G1=12/G2=15/G3=11/G4=12/G5=9/
 > G6=29/Other=15 — to match the current `tab:groups` in `03_methodology.tex`, per S6
-> `seed_group` re-tagging; see `REVISION_LOG.md` row 16.)
+> `seed_group` re-tagging; see `../../../REVISION_LOG.md` row 16.)
 
 ---
 
