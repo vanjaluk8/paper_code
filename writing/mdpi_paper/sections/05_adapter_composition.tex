@@ -92,6 +92,24 @@ weights, which presupposes a central aggregation step. Removing this centralisat
 requirement: learning to combine independently acquired adapters without
 shared training data, is one of the open research gaps identified in Section~\ref{sec:synthesis_gap}.
 
+A separate line of work removes AdapterFusion's dependency on centralised training data
+entirely by composing adapters algebraically rather than via a trained fusion layer. Task
+Arithmetic~\cite{Ilharco2023TaskArithmetic} combines fine-tuned weight deltas through simple
+arithmetic operations (addition, negation) without any gradient step or access to the
+original per-task training data; TIES-Merging~\cite{Yadav2023TIES} extends this by resolving
+sign conflicts between merged parameter updates. These methods demonstrate that multi-task
+composition without centralised training data is achievable in principle. They do not,
+however, address two properties required by a genuinely decentralised P2P setting: (i)
+discovery --- none of these methods locates adapters across a network of autonomous peers,
+they assume all adapters to be merged are already locally available; and (ii) independent
+initialisation --- reported results typically assume adapters share an initialisation or
+fine-tuning lineage (as in model-soup-style averaging, cf. Section~\ref{sec:adapter_composition:library}),
+whereas independently trained LoRA modules (with independently sampled low-rank factors)
+do not have guaranteed subspace alignment. The centralisation dependency this review
+identifies as an open gap is therefore more precisely scoped to fusion of \emph{independently
+discovered, independently initialised} adapters without shared training lineage or
+centralised coordination, rather than to adapter fusion in general.
+
 \subsection{Cross-Lingual Adapter Stacking}
 \label{sec:adapter_composition:madx}
 

@@ -117,8 +117,12 @@ EXCLUDE           & 731 & ${+}\,60$ \\
 \emph{Column totals:} Layer~2 \mbox{111 + 130 + 731 = 972}. Layer~3 resolved
 the 130-record triage queue into 51 inclusion, 60 exclusion, and 19 retained
 UNCERTAIN; combined with the Layer~2 tallies, $111{+}51{=}162$ INCLUDE and
-$731{+}60{=}791$ EXCLUDE. The 19 UNCERTAIN records are carried forward and resolved during the
-subsequent abstract-level review (Section~A.7 in this appendix).
+$731{+}60{=}791$ EXCLUDE. The 19 UNCERTAIN records were re-examined manually after screening: only 3
+reached the abstract-level review stage and none was retained in the final
+reading list (Section~A.7 in this appendix), so they contributed no records
+to the merged corpus or final synthesis. They are therefore not part of the
+502-record merged pool, which is drawn solely from the 162 title-screened
+INCLUDE records (Table~\ref{tab:screening}).
 
 The automated classifier operated exclusively at the title level, processing
 title and venue name only; no abstracts or full-text content were submitted
@@ -130,7 +134,15 @@ recorded in the audit log (\texttt{log\_screening\_2026-04-21.json}).
 
 All records passing title screening were merged with the 352-paper
 pre-validated corpus (G0--G6) and enriched with full abstracts and keyword
-metadata via the Semantic Scholar batch API and OpenAlex. A
+metadata via the Semantic Scholar batch API and OpenAlex. On merge, the 162
+title-screened INCLUDE records (162 ${}+{}$ 352 $=$ 514) were
+cross-deduplicated against the pre-validated corpus by DOI, arXiv, and
+Semantic Scholar identifier: \textbf{12 records} were already present in the
+pre-validated corpus and were removed as duplicates, yielding the reported
+\textbf{502}-record merged pool (reproducible by re-running
+\texttt{app.merge.py}). The 19 UNCERTAIN title-screening records were not part
+of this merge (it used only the 162 INCLUDE records) and were excluded at
+final curation. A
 topical-relevance filter subsequently removed off-topic records (6 excluded)
 and deprioritised low-citation arXiv preprints lacking a Tier~1 topic signal
 (32 moved to a rescue file). The remaining \textbf{464 records} were
@@ -288,9 +300,11 @@ Section~\ref{sec:synthesis_gap}.
 \subsection*{A.7 Abstract-Level Review}
 
 Following Keshav~\cite{Keshav2007}, the author conducted an abstract-level
-review across all 552 records (464 enriched corpus records after rescues were
-resolved, plus 88 records from forward citation snowballing on Scopus and WoS
-that were title-screened and added to the review). To support decision
+review across all 552 records (464 enriched corpus records --- the 32
+deprioritised low-citation arXiv preprints in the rescue file were confirmed
+excluded and were not reinstated --- plus 88 records from forward citation
+snowballing on Scopus and WoS that were title-screened and added to the
+review). To support decision
 consistency across a corpus of this size, each abstract was accompanied by an
 automated advisory note providing a one-sentence summary, a relevance
 assessment relative to the three core themes, and a preliminary KEEP / SKIP /
@@ -303,9 +317,12 @@ reproducibility checks.
 \begin{table}[H]
 \centering
 \caption{Abstract review outcomes, final consolidated classification (552
-records reviewed; the intermediate second pass carried 173 DEFER records; all
-were subsequently resolved to SKIP in the final classification and none
-advanced to data extraction).}
+records reviewed). KEEP (214) and SKIP (338) sum to the 552 reviewed; the 173
+intermediate second-pass DEFER records are subsumed within the 338 SKIP in
+this final consolidation. These 173 borderline-DEFER records were, however,
+also carried into the full-text review queue (214 KEEP ${}+{}$ 173 DEFER =
+387 queued; see text), and a subset was read in full and extracted before
+being excluded at final curation.}
 \label{tab:abstract}
 \begin{tabular}{lrr}
 \toprule
@@ -320,13 +337,16 @@ SKIP (excluded, or full text not retrieved)    & 338 & 61.2 \\
 \end{table}
 
 KEEP papers were exported for full-text review via RIS format
-(\texttt{08\_zotero\_ready\_2026-05-02.ris}). The full-text review queue
-(\texttt{09\_fulltext\_review\_queue\_2026-05-02.csv}) contains \textbf{387}
-records; of these, \textbf{190} underwent data extraction, and a manual
-Scopus/WoS top-up brought the extraction set to \textbf{224}
-(\texttt{11\_data\_extraction\_2026-05-12.csv}). Every record and its
-per-stage membership are traceable in the unified pipeline file
-(\texttt{pipeline\_unified.csv}). The final reading list
+(\texttt{08\_zotero\_ready\_2026-05-02.ris}, 214 entries). The full-text
+review queue (\texttt{09\_fulltext\_review\_queue\_2026-05-02.csv}),
+compiled from the 214 KEEP and the 173 borderline-DEFER records, contains
+\textbf{387} records; of these, \textbf{190} (all KEEP-origin) underwent data
+extraction, and a manual Scopus/WoS top-up brought the extraction set to
+\textbf{224} (\texttt{11\_data\_extraction\_2026-05-12.csv}). A subset of the
+queued DEFER records was read in full during this phase but was excluded at
+the final curation step (Appendix~\ref{app:search_log}, Table~\ref{tab:search_log}).
+Every record and its per-stage membership are traceable in the unified
+pipeline file (\texttt{pipeline\_unified.csv}). The final reading list
 (\texttt{13\_final\_reading\_list\_2026-05-12.csv}) is the authoritative
 evidentiary base: \textbf{only the 123 papers it lists} entered the final
 inclusion set for this review. Records from earlier pipeline stages whose full

@@ -65,8 +65,9 @@ Fully decentralised FL without a server was formalised by Vanhaesebrouck et al.~
 who analysed the convergence of gossip-based averaging for convex objectives, and by
 Jiang et al.~\cite{JiangCollab2017}, who proposed collaborative deep learning over a peer network
 with fixed communication topology. These works established that fully decentralised
-model averaging converges to the same stationary points as centralised FL under mild
-conditions on graph connectivity, providing the theoretical foundation for applying
+model averaging converges to a stationary point under mild conditions on
+graph connectivity, with guarantees comparable to centralised FL
+\cite{Lian2017Decentralized}, providing the theoretical foundation for applying
 gossip-style aggregation to adapter weight matrices.
 
 \begin{figure}[H]
@@ -75,8 +76,9 @@ gossip-style aggregation to adapter weight matrices.
   \caption{Gossip learning (own figure): each node periodically samples a
     random peer, exchanges model parameters, and averages the received weights
     with its own local model. The process eliminates the central aggregator
-    while maintaining convergence to the same stationary points as centralised
-    FL under mild graph-connectivity conditions \cite{HegeduisGossip2019}.}
+    while maintaining convergence to a stationary point under mild
+    graph-connectivity conditions, with guarantees comparable to centralised FL
+    \cite{HegeduisGossip2019,Lian2017Decentralized}.}
   \label{fig:gossip}
 \end{figure}
 
@@ -240,7 +242,7 @@ correctness and resistance to churn are well understood.
 Chord~\cite{StoicaChord2001} and BitTorrent~\cite{CohenBitTorrent2003} are foundational P2P precedents that predate Kademlia: Chord established $O(\log N)$ consistent-hashing-based lookup, and BitTorrent demonstrated at internet scale that a tit-for-tat incentive scheme can sustain robust peer cooperation without central coordination.
 % [END PROPOSED C1]
 
-Recent work on decentralised LoRA, such as Dec-LoRA by Ghiasvand et al.~\cite{Ghiasvand2025}, demonstrates that parameter-efficient LLM fine‑tuning can be performed without a central server over decentralised communication topologies, motivating similar designs for adapter-based systems.
+Recent work on decentralised LoRA, such as Dec-LoRA by Ghiasvand et al.~\cite{Ghiasvand2025}, demonstrates that parameter-efficient LLM fine‑tuning can be performed without a central server over decentralised communication topologies, motivating similar designs for adapter-based systems. Note that Dec-LoRA addresses decentralised co-training of a single shared adapter via gossip-averaged updates on private per-client data, a distinct problem from the decentralised exchange of independently pre-trained, task-differentiated adapters that this review's systems gap (Section~\ref{sec:synthesis_gap:gaps}) concerns.
 
 \begin{figure}[H]
   \centering

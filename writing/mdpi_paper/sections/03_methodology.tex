@@ -20,9 +20,10 @@ precise roles are disclosed here. Undermind (undermind.ai) was used as a
 candidate-retrieval aid to assemble the six thematically focused pre-validated
 groups (Appendix~\ref{app:undermind}); it suggested candidate papers that the
 author then independently retrieved and screened against the stated inclusion
-criteria. An AI-assisted literature assistant (Claude, Anthropic) was used in a
-strictly advisory capacity to prepare abstract-review consistency notes and to
-draft and proofread this manuscript. Neither tool made any inclusion,
+criteria. An AI-assisted literature assistant (Claude, Anthropic; specifically the
+Claude Opus 4.5 model) was used in a strictly advisory capacity to prepare
+abstract-review consistency notes and to draft and proofread this manuscript.
+Neither tool made any inclusion,
 exclusion, appraisal, or synthesis decision; the author conducted all such
 decisions, verified all reported numbers against the underlying pipeline data
 files, and assumes full responsibility for the content of this article,
@@ -36,21 +37,29 @@ review has been substantially revised for this submission.
 
 The search was anchored on nine foundational seed papers (Group G0) selected
 for direct cross-pillar relevance and citation impact $\geq$300 in a top-tier
-venue. Six thematically focused pre-validated groups (G1--G6) were assembled
+venue. Of these nine seeds, seven were submitted to the automated
+citation-snowballing pipeline; the remaining two ({\v{S}}ajina 2025;
+{\v{S}}ajina et al.\ 2024) entered the corpus directly via the pre-validated
+G0--G6 corpus rather than through automated retrieval. Six thematically focused
+pre-validated groups (G1--G6) were assembled
 by manual curation of leading venues (ACL, EMNLP, NeurIPS, ICML, MLSys);
 Table~\ref{tab:groups} summarises their scope and contribution. Forward and
 backward citation snowballing on G0 was executed via the Semantic Scholar API
 on 2026-04-21, supplemented by a Scopus/WoS forward pass on 2026-05-08.
 After deduplication, \textbf{972 unique records} entered title screening, of
 which \textbf{162} passed; these screened-in records were merged with the
-352-paper pre-validated corpus (G0--G6) to a
-\textbf{502}-record corpus. Enrichment and a topical-relevance/tier filter
+352-paper pre-validated corpus (G0--G6): 162 + 352 = 514 candidate records, of
+which 12 were removed as duplicates already present in both the newly-screened
+set and the pre-validated corpus, yielding the reported \textbf{502}-record
+corpus. Enrichment and a topical-relevance/tier filter
 retained \textbf{464} records. Abstract review across two passes covered these
 464 records plus \textbf{88} records added by a supplementary forward-citation
 snowball pass (Scopus and WoS), yielding a combined abstract-review pool of
-\textbf{552}; full-text queue selection narrowed this pool to \textbf{387}, of
-which
-\textbf{190} underwent data extraction, and a manual Scopus/WoS top-up brought
+\textbf{552}; of these, \textbf{214} were classified KEEP and exported for
+full-text review. The full-text review queue additionally carried
+\textbf{173} borderline-DEFER records for closer inspection, giving a queue of
+\textbf{387} (214 KEEP ${}+{}$ 173 DEFER), of which \textbf{190} (all
+KEEP-origin) underwent data extraction, and a manual Scopus/WoS top-up brought
 the extraction set to \textbf{224}. Full-text reading and quality assessment
 then reduced the corpus to \textbf{123 papers} (2002--2026); these correspond
 to \textbf{120 distinct papers}\footnote{The count of 123 includes 120 distinct
@@ -70,23 +79,66 @@ was retrieved separately as its preprint and its renamed publication.
 This funnel is summarised in Figure~\ref{fig:prisma} and traceable record-by-
 record through the unified pipeline file (Appendix~\ref{sec:appendix:corpus_pipeline}).
 
-As a calibration check on the single-reviewer screening, an independent
-automated re-screening of a random $\sim$10\% subset of the abstract-review
-pool ($n=55$) was performed against the same inclusion rubric, blind to the
-original decisions. It yielded \textbf{58.2\%} observed agreement and
-\textbf{Cohen's $\kappa = 0.17$} (Landis--Koch: ``slight''). The disagreement
-was directional: the re-screener recovered $25/27$ (92.6\%) of the records the
-screeners retained but also flagged 21 of 28 excluded records, i.e.\ it was
-systematically over-inclusive relative to the human pass. This is reported as an
-automated reproducibility diagnostic rather than a human inter-rater measure:
-the re-screener shares priming with the review workflow, so the two passes are
-not genuinely independent. The result indicates that the screening protocol is
-strongly recall-oriented---it rarely misses a relevant record (low false
-negatives)---at the cost of over-inclusion, whose impact is bounded by the
-subsequent full-text and quality-appraisal stages.\footnote{Because the two
-passes are not independent, this $\kappa$ is not evidence of reliable human
-double-screening; it is disclosed as a limitation in
-Section~\ref{sec:conclusion:limitations} rather than offered as a validation.}
+\subsection{Eligibility Criteria}
+\label{sec:methodology:eligibility}
+
+Records were eligible for inclusion if they addressed at least one of the
+three review themes (PEFT/adapters, distributed or P2P/federated machine
+learning, or multi-task LLM serving/inference). Two pre-2021 restrictions
+that apply to snowballed records do \emph{not} apply to the pre-validated
+G0--G6 corpus, which was assembled by manual curation and deliberately
+bypasses the year filter to capture pre-PEFT-era foundational works
+(e.g.\ Houlsby et al.\ 2019, Hu et al.\ 2022). Specifically:
+(i) only English-language records were retained;
+(ii) snowballed records were required to have a publication year
+$\geq$2021, chosen because the confluence of LoRA and large-scale transformer
+deployment marks the practical onset of the PEFT-at-scale era addressed by
+this review;
+(iii) peer-reviewed conference and journal papers were preferred, and
+arXiv preprints were retained only where they carried a non-trivial external
+citation count (Semantic Scholar, retrieved at search time) as a minimal,
+external proxy for community engagement and peer scrutiny
+(Appendix~\ref{sec:appendix:corpus_pipeline}, \S A.3--A.4). The full criteria
+and their motivations are detailed in the appendix.
+
+\subsection*{Screening Reviewer Configuration}
+\label{sec:methodology:screening_reviewers}
+
+Title, abstract, and full-text screening in this review were conducted by
+a single reviewer (the author), consistent with the disclosure requirement
+of PRISMA 2020 Item~8~\cite{Page2021}, which requires reporting the number
+of reviewers involved in the selection process but does not mandate dual
+independent screening as a condition of compliance. Dual independent
+screening is widely recommended as best practice in systematic review
+methodology~\cite{KitchenhamCharters2007} and is treated as mandatory in
+some domain-specific frameworks for full-text inclusion decisions (e.g.,
+Cochrane/MECIR standard C39); however, single-reviewer execution remains
+an accepted and common practice for single-author systematic reviews in
+computer science, particularly doctoral-level work conducted without a
+research team~\cite{KitchenhamCharters2007}. No second independent human
+reviewer was available for this thesis, and none was recruited for
+screening. Consequently, no inter-rater reliability statistic (e.g.,
+Cohen's $\kappa$) is reported for the screening process: a reliability
+coefficient computed against a non-independent artefact (such as an
+automated classifier sharing the same review pipeline and inclusion
+rubric as the primary screener) would not constitute a valid measure of
+independent human agreement, and reporting one risks implying a
+validation that was not in fact performed.
+
+This single-reviewer limitation applies specifically to the screening and
+appraisal of the snowball-retrieved candidate pool. The six thematically
+pre-validated groups (G1--G6, Appendix~\ref{app:undermind}), which
+constitute 85.4\% of the final corpus, were assembled via targeted,
+framing-informed retrieval rather than blind snowball screening; this
+route avoids the screening-reliability risk discussed above, but
+introduces a distinct risk of confirmation bias in candidate discovery,
+since retrieval queries were constructed with prior knowledge of the
+review's own pillar structure and target systems. Both risks are
+therefore acknowledged as complementary, not mutually mitigating: the
+curated-corpus route reduces exposure to inconsistent single-reviewer
+screening but does not reduce, and may compound, the risk of a
+retrieval process shaped by the review's own hypotheses. This is
+discussed further in Section~\ref{sec:conclusion:threats}.
 
 Of the 123 included records, \textbf{105} (85.4\%) originate from the curated,
 pre-validated corpus groups G1--G6 (Table~\ref{tab:groups}), and the remaining
@@ -94,7 +146,12 @@ pre-validated corpus groups G1--G6 (Table~\ref{tab:groups}), and the remaining
 around the G0 seed set (four directly-seeded anchor papers, ten forward and four
 backward snowball additions). The 123 records (120 distinct papers) are
 distributed across the three reading-priority tiers as \textbf{48} Tier-1,
-\textbf{42} Tier-2, and \textbf{33} Tier-3 records.
+\textbf{42} Tier-2, and \textbf{33} Tier-3 records. This final-stage tiering
+re-classifies records at the level of the 123-record reading list and is
+distinct from the earlier tier classification applied to the 464-record
+enriched pool (90 Tier-1 / 141 Tier-2 / 233 Tier-3) at the enrichment stage;
+papers may be re-tiered between stages as additional full-text and extraction
+information becomes available.
 
 \begin{table}[H]
 \centering
@@ -148,7 +205,7 @@ here, and is reported for transparency rather than as an auditable datum.
 
 \begin{table}[H]
 \centering
-\caption{Pre-validated corpus groups: scope, size, and review section coverage.}
+\caption{Pre-validated corpus groups: scope, size, and review section coverage.\footnotemark[1]}
 \label{tab:groups}
 \begin{tabular}{lp{5cm}rrl}
 \toprule
@@ -172,6 +229,11 @@ G6 & Federated PEFT for transformer NLP      & 66  & 30  &
 \textbf{Total} & & \textbf{352} & \textbf{123} & \\
 \bottomrule
 \end{tabular}
+\footnotetext[1]{The G0 final count of 18 reflects the 4 directly-seeded
+anchor papers retained in the final list plus 14 snowball descendants
+retrieved by forward and backward citation snowballing around the G0 seed set
+(ten forward and four backward additions); it is not 18 of the original 9
+seeds. The nine G0 seeds themselves are enumerated in Table~\ref{tab:g0_seeds}.}
 \end{table}
 
 \begin{figure}[H]
@@ -305,8 +367,9 @@ Because the review is a qualitative thematic synthesis of published
 methods--and--systems literature rather than a meta-analysis of participant-level
 interventions, the PRISMA 2020 risk-of-bias instruments for comparative studies do
 not apply directly. Following the practice of software-literature systematic
-reviews~\cite{XiaoWatson2019}, this review instead appraises the \emph{evidence
-quality of each of the 123 included records} with a six-dimension rubric scored
+reviews~\cite{XiaoWatson2019}, this review instead appraises the \emph{reporting
+completeness and thematic relevance of each of the 123 included records} with a
+six-dimension rubric scored
 from the screening and extraction records (Table~\ref{tab:quality_rubric}). It is
 emphasised that this instrument measures the reporting completeness of each record
 and its relevance to this synthesis, not the intrinsic scientific merit of the
@@ -316,18 +379,22 @@ application of the classic quality dimensions (code availability, result
 reproducibility, baseline adequacy, threats reporting) found them to be
 un-populated in the extraction data, so they are scoped out here and disclosed
 rather than estimated. The \texttt{contribution\_codes} field underlying the top
-tier of Q5 is itself sparsely populated (22 of 224 extraction rows, 9.8\%); records
-lacking a code default to the middle Q5 tier regardless of the underlying
-contribution's actual significance, and this should be read as a limitation of
-extraction coverage rather than a substantive quality signal. Every retained
+tier of Q5 is itself sparsely populated (22 of 224 extraction rows, 9.8\%). Records
+lacking a populated \texttt{contribution\_codes} field are excluded from the Q5
+sub-score rather than defaulted to the middle tier; Q5 is therefore reported only
+over the subpopulation of the 123 retained records where the field is populated
+($n=16$; the 22 populated extraction rows reduce to 16 distinct retained records
+after deduplication onto the final list), and this should be read as a limitation
+of extraction coverage rather than a substantive quality signal. Every retained
 dimension is nevertheless operationalised from an explicit, grounded pipeline field
 so that each score is reproducible from the associated CSV artifacts; no dimension
 is inferred or imputed.
 
 \begin{table}[htp]
 \centering
-\caption{Quality-appraisal rubric: each dimension is scored 0--2 from a grounded
-screening/extraction field, giving a total of 0--12 per record.}
+\caption{Reporting-completeness and relevance rubric: each dimension is scored 0--2 from a grounded
+screening/extraction field. The reporting-completeness total is the sum of Q1--Q4 and Q6 (0--10);
+Q5 is scored separately and is excluded from the total.}
 \label{tab:quality_rubric}
 \small
 \setlength{\tabcolsep}{4pt}
@@ -346,20 +413,25 @@ Q4 Evaluation-claim specificity & Key finding / full-text notes & no claim &
 structural or qualitative claim & quantified or benchmarking claim \\
 Q5 Contribution clarity & Contribution type + contribution code(s) &
 neither & contribution type only & contribution type + \textstar~code(s) \\
+\addlinespace
+\multicolumn{5}{l}{\footnotesize\emph{Q5 is scored only where \texttt{contribution\_codes} is populated and is reported separately; it is not included in the 0--10 total.}} \\
 Q6 Synthesis relevance & Tier (1 = core PEFT+P2P+LLM, \dots, 3 =
 tangential) & tier 3 & tier 2 & tier 1 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Applying the rubric to all 123 records yields a mean score of $7.17$ ($\mathrm{SD}
-=2.09$, median 7), with the distribution summarised in
-Figure~\ref{fig:quality_bands}: 18 records (14.6\%) fall in the high band
-(10--12), 57 (46.3\%) in the upper-mid band (7--9), 46 (37.4\%) in the lower-mid
-band (4--6), and 2 (1.6\%) in the low band (0--3). The full record-by-record
-scores are provided as accompanying material in
+Applying the rubric to all 123 records yields a mean reporting-completeness
+score of $6.04$ ($\mathrm{SD}=2.00$, median 6), with the distribution
+summarised in Figure~\ref{fig:quality_bands}: 13 records (10.6\%) fall in the
+high band (9--10), 61 (49.6\%) in the upper-mid band (6--8), 47 (38.2\%) in the
+lower-mid band (3--5), and 2 (1.6\%) in the low band (0--2). Q5 is excluded
+from these totals and reported separately over its populated subpopulation
+($n=16$), all of which recorded a contribution type and \textstar~code(s).
+The full record-by-record scores are provided as accompanying material in
 \texttt{figures/quality\_appraisal\_scored.csv} (123 records; each scored
-0--2 on Q1--Q6 with a total and quality band). The low-scoring records are
+0--2 on Q1--Q4 and Q6 with a reporting-completeness total of 0--10, and Q5
+reported separately). The low-scoring records are
 pre-PEFT-era distributed-optimisation works (e.g.\ decentralised and gossip
 cooperative learning) that are tangential to the modern adapter-based core; none
 of the findings reported in Sections~\ref{sec:peft} to~\ref{sec:synthesis_gap}
@@ -368,8 +440,8 @@ rests on a low-scoring record alone.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.92\linewidth]{figures/fig_slr_quality_bands.pdf}
-\caption{Quality-appraisal score distribution across the 123 included records
-(0--12 rubric, six dimensions).}
+\caption{Reporting-completeness score distribution across the 123 included records
+(0--10 rubric: Q1--Q4 and Q6 summed; Q5 reported separately).}
 \label{fig:quality_bands}
 \end{figure}
 
@@ -393,11 +465,13 @@ explicit limitations or threats discussion?
 
 The results are sobering. Across the 48 Tier-1 papers only \textbf{20}
 (41.7\%) release usable code or artifacts, and a further \textbf{4} (8.3\%)
-release only partial artifacts, so most of the core evidence body cannot be
-re-run from released code. Baseline comparison is the strongest of the three
+release only partial artifacts, so the remaining \textbf{24} (50.0\%) release
+no usable artifact at all and most of the core evidence body cannot be re-run
+from released code. Baseline comparison is the strongest of the three
 dimensions. \textbf{40} (83.3\%) evaluate against a named baseline, and a
-further \textbf{6} (12.5\%) do so only partially. Most striking is the dearth
-of critical self-assessment. Only \textbf{11} (22.9\%) report an explicit
+further \textbf{6} (12.5\%) do so only partially, leaving just
+\textbf{2} (4.2\%) with no named baseline. Most striking is the dearth of
+critical self-assessment. Only \textbf{11} (22.9\%) report an explicit
 threats-to-validity or limitations discussion, \textbf{18} (37.5\%) do so only
 partially, and \textbf{19} (39.6\%) contain none at all.
 
@@ -409,6 +483,6 @@ Section~\ref{sec:synthesis_gap}, and they inform the gap analysis in
 Section~\ref{sec:conclusion:contributions}. The full per-record coding is
 provided in \texttt{figures/quality\_appraisal\_scored.csv} (Tier-1 rows;
 columns \texttt{code\_released}, \texttt{evaluated\_vs\_baseline},
-\texttt{threats\_reported}). These three dimensions remain outside the 0--12
-rubric by design. They are reported here as a separate, clearly-labelled
-appraisal rather than folded into the aggregate score.
+\texttt{threats\_reported}). These three dimensions remain outside the 0--10
+reporting-completeness rubric by design. They are reported here as a separate,
+clearly-labelled appraisal rather than folded into the aggregate score.

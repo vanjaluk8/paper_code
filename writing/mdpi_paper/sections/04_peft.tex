@@ -119,8 +119,10 @@ $W' \leftarrow W_0 + \frac{\alpha}{r}BA$ (with the scaling factor $\frac{\alpha}
 exactly the same computation graph with zero added latency. In the original work, LoRA targets
 $W_q$ and $W_v$ by default; subsequent studies demonstrate that applying LoRA to all
 projection matrices including $W_k$, $W_o$, and FFN layers is required to match full
-fine-tuning performance. With $r = 4$, LoRA matches full fine-tuning across GLUE and
-generation benchmarks for GPT-3-scale models \cite{Hu2022}, at a parameter overhead of
+fine-tuning performance. With $r = 4$, LoRA matches full fine-tuning on GLUE benchmarks using
+RoBERTa/DeBERTa-scale models, and separately matches full fine-tuning on
+generation benchmarks (WikiSQL, MultiNLI, SAMSum) at GPT-3-175B scale
+\cite{Hu2022}, at a parameter overhead of
 approximately 0.01\% of the original model weight count.
 
 The theoretical basis for LoRA's effectiveness was established earlier by work on

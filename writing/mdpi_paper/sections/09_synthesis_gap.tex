@@ -242,10 +242,17 @@ Two empirical gaps remain open in the reviewed literature.
   
   \item \textbf{Centralised fusion dependency.} AdapterFusion \cite{Pfeiffer2021fusion}
     requires a centralised fusion training step that is incompatible with a fully
-    P2P setting. This raises the open architectural question: can probe-based
-    local estimation replace centralised fusion training without unacceptable
-    performance loss, and under what conditions on probe set size and adapter
-    diversity does the approximation degrade?
+    P2P setting; training-free algebraic alternatives (Task Arithmetic
+    \cite{Ilharco2023TaskArithmetic}, TIES-Merging \cite{Yadav2023TIES}; see
+    Section~\ref{sec:adapter_composition:fusion}) remove the training-data dependency
+    but assume the adapters to be merged are already co-located and share an
+    initialisation lineage. No reviewed method demonstrates fusion of
+    independently discovered, independently initialised adapters without a
+    shared training lineage or centralised coordination. This raises the open
+    architectural question: can probe-based local estimation replace centralised
+    fusion training without unacceptable performance loss, and under what
+    conditions on probe set size and adapter diversity does the approximation
+    degrade?
 \end{itemize}
 
 \subsection{Research Gap Map}
@@ -325,8 +332,9 @@ Conceptual &
   Under what distributional conditions does adapter reuse degrade to an
   unacceptable degree, and can this be bounded formally? \\[4pt]
   &
-  All reviewed composition methods require centralised training data for the
-  fusion step, incompatible with P2P operation &
+  No reviewed method demonstrates fusion of independently discovered,
+  independently initialised adapters without a shared training lineage or
+  centralised coordination &
   G2, G5 &
   Multi-task fusion &
   Can probe-based local weight estimation replace centralised fusion training
