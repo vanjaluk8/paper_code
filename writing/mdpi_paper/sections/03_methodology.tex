@@ -37,10 +37,35 @@ review has been substantially revised for this submission.
 
 The search was anchored on nine foundational seed papers (Group G0) selected
 for direct cross-pillar relevance and citation impact $\geq$300 in a top-tier
-venue. Of these nine seeds, seven were submitted to the automated
-citation-snowballing pipeline; the remaining two ({\v{S}}ajina 2025;
-{\v{S}}ajina et al.\ 2024) entered the corpus directly via the pre-validated
-G0--G6 corpus rather than through automated retrieval. Six thematically focused
+venue. %CORRECTED 2026-08-30 (Blocking Issue #4, verified via
+%slr_engine/.../verify_prisma_counts.py cross-checked against the
+%authoritative log_retrieval_2026-04-21.json, which records n_seeds=7 and
+%lists exactly which seeds were submitted for backward/forward retrieval).
+%An earlier pass at this fix wrongly inferred "not submitted" from the
+%absence of a direction=SEED row for a seed in pipeline_unified.csv; that
+%file's G0 bookkeeping is incomplete for Houlsby 2019 and Hu et al. 2022
+%(LoRA), both of which log_retrieval_2026-04-21.json confirms WERE
+%submitted (yielding 157 and 136 new records respectively) and both of
+%which ARE rows in the final 123-record list, just not tagged as G0/SEED
+%in pipeline_unified.csv's consolidation. The original manuscript text
+%naming the two Sajina works as the ones NOT submitted was correct; the
+%clarification below only adds their final-123 disposition, which the
+%original text did not state.
+Of these nine seeds, seven were submitted to the automated
+citation-snowballing pipeline (Houlsby et al.\ 2019; Hu et al.\ 2022, LoRA;
+Pfeiffer et al.\ 2020, AdapterHub; Pfeiffer et al.\ 2021, AdapterFusion;
+Borzunov et al.\ 2023, Petals; Han et al.\ 2024; Sheng et al.\ 2024, S-LoRA);
+the remaining two ({\v{S}}ajina et al.\ 2024; {\v{S}}ajina 2025) were not
+submitted for automated retrieval and are cited as background and
+motivating references only. Of the seven seeds submitted to the automated
+pipeline, six (Houlsby et al.\ 2019; Hu et al.\ 2022, LoRA; Pfeiffer
+et al.\ 2020, AdapterHub; Pfeiffer et al.\ 2021, AdapterFusion; Borzunov
+et al.\ 2023, Petals; Sheng et al.\ 2024, S-LoRA) are themselves retained as
+rows in the final 123-record corpus; the remaining one (Han et al.\ 2024) is
+cited as a background and positioning reference and is not independently
+included among the 123 records. The full disposition of
+all nine seeds is given in Table~\ref{tab:g0_disposition}, immediately
+following Table~\ref{tab:g0_seeds}. Six thematically focused
 pre-validated groups (G1--G6) were assembled
 by manual curation of leading venues (ACL, EMNLP, NeurIPS, ICML, MLSys);
 Table~\ref{tab:groups} summarises their scope and contribution. Forward and
@@ -56,11 +81,34 @@ retained \textbf{464} records. Abstract review across two passes covered these
 464 records plus \textbf{88} records added by a supplementary forward-citation
 snowball pass (Scopus and WoS), yielding a combined abstract-review pool of
 \textbf{552}; of these, \textbf{214} were classified KEEP and exported for
-full-text review. The full-text review queue additionally carried
-\textbf{173} borderline-DEFER records for closer inspection, giving a queue of
-\textbf{387} (214 KEEP ${}+{}$ 173 DEFER), of which \textbf{190} (all
-KEEP-origin) underwent data extraction, and a manual Scopus/WoS top-up brought
-the extraction set to \textbf{224}. Full-text reading and quality assessment
+full-text review, \textbf{173} were classified SKIP but re-flagged DEFER for
+closer inspection, and the remaining \textbf{165} were classified SKIP and did
+not proceed further. %CORRECTED 2026-08-30 (Blocking Issue #2, verified via
+%slr_engine/.../verify_prisma_counts.py): the abstract-review pipeline records
+%only a coarse KEEP/SKIP disposition and does not retain an individually
+%coded exclusion reason for SKIP records; these 165 exclusions are disclosed
+%here as a named limitation (\S\ref{sec:conclusion:threats}) rather than
+%itemised by cause, consistent with PRISMA 2020 Item 16b.
+The abstract-review pipeline records only a coarse KEEP/SKIP disposition and
+does not retain an individually coded exclusion reason for SKIP records; this
+gap is disclosed as a named limitation in
+Section~\ref{sec:conclusion:threats} rather than papered over. The full-text
+review queue therefore comprises \textbf{387} records (214 KEEP
+${}+{}$ 173 DEFER). Of these, \textbf{191} (190 KEEP-origin and 1 DEFER-origin)
+underwent data extraction; the remaining \textbf{196} (24 KEEP-origin,
+full text unavailable; 172 DEFER-origin, not taken further) were excluded.
+%CORRECTED 2026-08-30 (Blocking Issue #3): the extraction-stage total of 224
+%is not a linear 387-minus-exclusions subtraction; a supplementary manual
+%Scopus/WoS cross-validation search contributed 33 further records extracted
+%in parallel, entering directly at the extraction stage without ever passing
+%through the 387-record full-text queue (verified: all 33 have no S5/S6/S7b/Q9
+%stage flags set in pipeline_unified.csv). None of the 33 were ultimately
+%retained in the final 123-record list.
+A supplementary manual Scopus/WoS cross-validation search contributed
+\textbf{33} further records extracted in parallel, entering directly at the
+extraction stage without passing through the full-text queue; none of these
+33 were ultimately retained in the final 123-record list. The extraction-stage
+total is therefore \textbf{224} (191 ${}+{}$ 33). Full-text reading and quality assessment
 then reduced the corpus to \textbf{123 papers} (2002--2026); these correspond
 to \textbf{120 distinct papers}\footnote{The count of 123 includes 120 distinct
 papers because three works are each recorded as two separate entries in the
@@ -158,7 +206,12 @@ information becomes available.
 \caption{The nine foundational seed papers (Group G0) and their role in the
 review. Venues as recorded in the pre-validated corpus.}
 \label{tab:g0_seeds}
-\begin{tabular}{lp{0.30\textwidth}p{0.46\textwidth}}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{
+  >{\raggedright\arraybackslash}p{0.20\textwidth}
+  >{\raggedright\arraybackslash}p{0.24\textwidth}
+  >{\raggedright\arraybackslash}p{0.44\textwidth}}
 \toprule
 \textbf{Seed} & \textbf{Venue} & \textbf{Role in this review} \\
 \midrule
@@ -184,6 +237,42 @@ LoRA-serving baseline. \\
 \end{tabular}
 \end{table}
 
+%ADDED 2026-08-30 (Blocking Issue #4, verified via
+%slr_engine/.../verify_prisma_counts.py against log_retrieval_2026-04-21.json
+%(the authoritative n_seeds=7 record of which seeds were submitted for
+%automated backward/forward retrieval) and 13_final_reading_list_2026-05-12.csv:
+%explicit per-seed disposition table, since Table~\ref{tab:g0_seeds} alone
+%does not disclose which of the nine seeds are themselves rows in the final
+%123-record corpus.
+\begin{table}[H]
+\centering
+\caption{Disposition of the nine G0 seeds: whether each was submitted for
+automated backward/forward retrieval, and whether it is itself a row in the
+final 123-record corpus. Verified against \texttt{log\_retrieval\_2026-04-21.json}
+and the final reading list.}
+\label{tab:g0_disposition}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{
+  >{\raggedright\arraybackslash}p{0.24\textwidth}
+  >{\raggedright\arraybackslash}p{0.10\textwidth}
+  >{\raggedright\arraybackslash}p{0.54\textwidth}}
+\toprule
+\textbf{Seed} & \textbf{In 123?} & \textbf{Route / detail} \\
+\midrule
+Houlsby et al.\ 2019 & Yes & Automated retrieval (157 new records found); 2 rows in the final list (arXiv 1902.00751 and a distinct Scopus key), tier 2. \\
+Hu et al.\ 2022 (LoRA) & Yes & Automated retrieval (136 new records found); 2 rows in the final list (arXiv 2106.09685 and a distinct Scopus key), tier 2. \\
+Pfeiffer et al.\ 2020 (AdapterHub) & Yes & Automated retrieval (128 new records found); 1 row (arXiv 2007.07779), tier 2. \\
+Pfeiffer et al.\ 2021 (AdapterFusion) & Yes & Automated retrieval (125 new records found); 1 row (2005.00247). \\
+{\v{S}}ajina et al.\ 2024 (FGCS) & No & Not submitted for automated retrieval; cited as the closest published predecessor (background/motivation only). \\
+{\v{S}}ajina 2025 (doctoral thesis) & No & Not indexed in the bibliographic databases used for automated retrieval; cited as theoretical background only. \\
+Borzunov et al.\ 2023 (Petals) & Yes & Automated retrieval (131 new records found); 1 row (arXiv 2209.01188). \\
+Han et al.\ 2024 (survey) & No & Automated retrieval (163 new records found), but the seed paper itself was not retained; cited as a positioning/background reference only. \\
+Sheng et al.\ 2024 (S-LoRA) & Yes & Automated retrieval (132 new records found); 1 row (arXiv 2311.03285). \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 A threat to construct validity deserves explicit acknowledgment: the nine G0
 seeds were deliberately chosen at the \emph{intersection} of the three pillars
 studied (PEFT, P2P collaboration, and multi-task serving), on the rationale of
@@ -205,7 +294,7 @@ here, and is reported for transparency rather than as an auditable datum.
 
 \begin{table}[H]
 \centering
-\caption{Pre-validated corpus groups: scope, size, and review section coverage.\footnotemark[1]}
+\caption{Pre-validated corpus groups: scope, size, and review section coverage.\protect\footnotemark[1]}
 \label{tab:groups}
 \begin{tabular}{lp{5cm}rrl}
 \toprule
@@ -244,10 +333,16 @@ seeds. The nine G0 seeds themselves are enumerated in Table~\ref{tab:g0_seeds}.}
            the \textbf{162} screened-in records with the pre-validated corpus
            and title screening (\textbf{502}), enrichment (\textbf{464}), and
            abstract review; the abstract-review pool (\textbf{552}) combines
-           the 464 enriched records with 88 forward-snowball additions. The
-           valid pool proceeds to full-text queue selection (\textbf{387}) and
-           data extraction (\textbf{224}), yielding the \textbf{123}-paper
-           final reading list (\textbf{120} distinct papers).}
+           the 464 enriched records with 88 forward-snowball additions and
+           splits into \textbf{214} KEEP, \textbf{173} DEFER, and
+           \textbf{165} excluded (SKIP, no individually coded reason
+           retained). The valid pool proceeds to full-text queue selection
+           (\textbf{387}), of which \textbf{191} reach data extraction; a
+           separate \textbf{33}-record manual Scopus/WoS cross-validation
+           top-up enters directly at the extraction stage, giving
+           \textbf{224} records extracted in total and yielding the
+           \textbf{123}-paper final reading list (\textbf{120} distinct
+           papers).}
   \label{fig:prisma}
 \end{figure}
 
@@ -274,7 +369,7 @@ of evaluation practice and are not re-normalised or compared across papers.
 \label{tab:datasets}
 \small
 \setlength{\tabcolsep}{5pt}
-  \resizebox{\textwidth}{!}{%
+  \resizebox{0.87\textwidth}{!}{%
   \begin{tabular}{lllllc}
   \toprule
   \textbf{Paper} & \textbf{Dataset} & \textbf{Task Type} & \textbf{Metric} &
@@ -397,8 +492,13 @@ screening/extraction field. The reporting-completeness total is the sum of Q1--Q
 Q5 is scored separately and is excluded from the total.}
 \label{tab:quality_rubric}
 \small
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{p{0.20\textwidth} p{0.36\textwidth} c c c}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{
+  >{\raggedright\arraybackslash}p{0.17\textwidth}
+  >{\raggedright\arraybackslash}p{0.29\textwidth}
+  >{\centering\arraybackslash}p{0.14\textwidth}
+  >{\centering\arraybackslash}p{0.14\textwidth}
+  >{\centering\arraybackslash}p{0.14\textwidth}}
 \toprule
 \textbf{Dimension} & \textbf{Grounded source} & \textbf{0} & \textbf{1} & \textbf{2} \\
 \midrule
@@ -412,7 +512,7 @@ technique & named method with specific PEFT technique \\
 Q4 Evaluation-claim specificity & Key finding / full-text notes & no claim &
 structural or qualitative claim & quantified or benchmarking claim \\
 Q5 Contribution clarity & Contribution type + contribution code(s) &
-neither & contribution type only & contribution type + \textstar~code(s) \\
+neither & contribution type only & contribution type + \ccstar~code(s) \\
 \addlinespace
 \multicolumn{5}{l}{\footnotesize\emph{Q5 is scored only where \texttt{contribution\_codes} is populated and is reported separately; it is not included in the 0--10 total.}} \\
 Q6 Synthesis relevance & Tier (1 = core PEFT+P2P+LLM, \dots, 3 =
@@ -427,7 +527,7 @@ summarised in Figure~\ref{fig:quality_bands}: 13 records (10.6\%) fall in the
 high band (9--10), 61 (49.6\%) in the upper-mid band (6--8), 47 (38.2\%) in the
 lower-mid band (3--5), and 2 (1.6\%) in the low band (0--2). Q5 is excluded
 from these totals and reported separately over its populated subpopulation
-($n=16$), all of which recorded a contribution type and \textstar~code(s).
+($n=16$), all of which recorded a contribution type and \ccstar~code(s).
 The full record-by-record scores are provided as accompanying material in
 \texttt{figures/quality\_appraisal\_scored.csv} (123 records; each scored
 0--2 on Q1--Q4 and Q6 with a reporting-completeness total of 0--10, and Q5

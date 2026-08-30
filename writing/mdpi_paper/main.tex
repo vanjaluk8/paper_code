@@ -27,7 +27,7 @@
 \newcommand{\orcidauthorA}{0009-0009-8142-6890}
 
 % Contribution-code star (referenced in Section 3.3 Quality Assessment)
-\newcommand{\textstar}{\ensuremath{\star}}
+\newcommand{\ccstar}{\ensuremath{\star}}
 
 %=================================================================
 % Title (sentence case for journal submission)
@@ -142,15 +142,21 @@ the pipeline and are not separately version-controlled. The derived
 reproducibility artefacts computed from them---PRISMA funnel counts,
 per-record quality-appraisal scores, and the extraction codebook---are
 reported in \S3.3 and reproducible from the pipeline fields documented in
-Appendix~\ref{sec:appendix:corpus_pipeline}. \texttt{papers\_code}
-is made available to reviewers and the examining committee on request;
-public release with a persistent identifier is deferred until after thesis
-examination.}
+Appendix~\ref{sec:appendix:corpus_pipeline}. Two verification scripts in
+\texttt{slr\_engine} (\texttt{scripts/verify\_prisma\_counts.py} and
+\texttt{scripts/verify\_quality\_appraisal.py}) recompute every PRISMA-stage
+count and quality-appraisal statistic reported in this manuscript directly
+from the underlying pipeline files; their saved run outputs are in
+\texttt{snowball\_output/verification\_runs/}. \texttt{papers\_code} is
+publicly available at \url{https://github.com/vanjaluk8/papers_code}. %TODO: PLACEHOLDER -- confirm/replace with final public repo URL before submission
+}
 
-% PRISMA 2020 checklist provided as Supplementary Material (see note below)
+% PRISMA 2020 checklist + quality-appraisal scores provided as Supplementary Material
 \supplementary{The following supporting information can be downloaded at:
-https://www.mdpi.com/article/10.3390/ai/xxxx/s1: the completed PRISMA 2020
-27-item checklist for this systematic review.}
+https://www.mdpi.com/article/10.3390/ai/xxxx/s1, S1: the completed PRISMA
+2020 27-item checklist for this systematic review; S2:
+quality\_appraisal\_scored.csv, the per-study quality-appraisal scores
+(six-dimension rubric, $N=123$) underlying \S3.3.}
 
 \acknowledgments{Not applicable.}
 

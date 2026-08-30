@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>PRISMA 2020 Flow Diagram</title>
 <style>
+  @page { size: 860px 875px; margin: 0; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: Arial, Helvetica, sans-serif;
@@ -208,7 +209,7 @@
       791 excluded in title screening<br><small>731 Layer-2 keyword + 60 LLM triage</small>
     </div>
     <div class="exc" style="right:calc(50% + 185px); top:70%; transform:translateY(-50%);">
-      19 UNCERTAIN (manual review)<br><small>3 → abstract, 0 final</small>
+      19 UNCERTAIN (manual review)<br><small>3 re-identified later via forward<br>snowball (already in the 88, below);<br>not additive to 162. 0 final.</small>
     </div>
   </div>
   <div class="conn"><div class="conn-l"></div><div class="conn-a"></div></div>
@@ -251,10 +252,15 @@
   <div class="conn"><div class="conn-l"></div><div class="conn-a"></div></div>
 
   <!-- 552 → decision review -->
-  <div style="margin:2px 0;">
+  <div style="position:relative; margin:2px 0;">
     <div class="decision-row">
       <div class="decision-item" style="background:#e8f5e9; border-color:#4a8;"><strong>214</strong><br>KEEP</div>
       <div class="decision-item" style="background:#fff8e1; border-color:#da8;"><strong>173</strong><br>DEFER reviewed</div>
+    </div>
+    <div class="exc" style="left:calc(50% + 185px); top:50%; transform:translateY(-50%);">
+      <strong>165</strong> excluded (SKIP)<br><small>reason not individually coded at
+      abstract review; disposition disclosed<br>per PRISMA Item 16b (does not
+      proceed)</small>
     </div>
   </div>
   <div class="conn"><div class="conn-l"></div><div class="conn-a"></div></div>
@@ -268,11 +274,18 @@
   <!-- ═══ INCLUDED ═══ -->
   <div class="box-title" style="text-align:center; margin-top:2px;">INCLUDED</div>
 
-  <!-- 387 → 224 -->
+  <!-- 387 -> 224 (191 from queue + 33 external top-up) -->
   <div style="position:relative;">
-    <div class="box box-main"><strong>224</strong> records in data extraction</div>
+    <div class="box box-main"><strong>224</strong> records in data extraction
+      <br><small>191 from full-text queue + 33 external top-up</small></div>
     <div class="exc" style="left:calc(50% + 185px); top:50%; transform:translateY(-50%);">
-      163 excluded<br><small>full-text unavailable / DEFERs not taken forward</small>
+      <strong>196</strong> excluded from queue<br><small>24 KEEP-origin: full-text
+      unavailable<br>172 DEFER-origin: not taken forward</small>
+    </div>
+    <div class="exc" style="right:calc(50% + 185px); top:50%; transform:translateY(-50%); background:#eef6ee; border-color:#4a8; color:#2e7d32;">
+      <strong>+33</strong> manual Scopus/WoS<br><small>cross-validation top-up;
+      enters<br>directly at extraction, bypassing<br>the full-text queue; 0 retained
+      in final 123</small>
     </div>
   </div>
   <div class="conn"><div class="conn-l"></div><div class="conn-a"></div></div>

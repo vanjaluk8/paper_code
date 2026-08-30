@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PEFT Taxonomy</title>
+<style>
+  @page { size: 900px 470px; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 900px; height: 470px; background: #fff; }
+  body { font-family: Arial, Helvetica, sans-serif; position: relative; }
+
+  .title { position: absolute; top: 14px; left: 0; width: 900px; text-align: center;
+    font-size: 16px; font-weight: bold; color: #1c2b3a; }
+
+  .stem { position: absolute; top: 42px; width: 1.5px; height: 18px; background: #999; }
+
+  .family {
+    position: absolute; top: 60px; width: 260px; height: 160px;
+    border-radius: 10px; padding: 12px 14px;
+  }
+  .family h2 { font-size: 13px; margin-bottom: 6px; }
+  .family .desc { font-size: 10.5px; line-height: 1.4; color: #333; margin-bottom: 8px; }
+  .family .methods { font-size: 10px; line-height: 1.6; }
+  .family .methods .m { font-weight: bold; }
+  .family .methods .cite { color: #666; font-size: 9px; }
+
+  .fam-additive { left: 30px; background: #E8EEF8; border: 1.5px solid #4C72B0; }
+  .fam-additive h2 { color: #4C72B0; }
+  .fam-repar { left: 320px; background: #E7F3E9; border: 1.5px solid #55A868; }
+  .fam-repar h2 { color: #55A868; }
+  .fam-select { left: 610px; background: #FBEDE3; border: 1.5px solid #DD8452; }
+  .fam-select h2 { color: #DD8452; }
+
+  .connect { position: absolute; top: 220px; height: 26px; width: 1.5px; background: #999; }
+
+  .band {
+    position: absolute; top: 246px; left: 30px; width: 840px; height: 34px;
+    background: #D6E4F0; border: 1px solid #4C72B0; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .band span { font-size: 10.5px; color: #2c5f8a; font-style: italic; }
+
+  .dropline { position: absolute; top: 280px; height: 26px; width: 1px; border-left: 1px dashed #aaa; }
+
+  .method {
+    position: absolute; top: 306px; width: 84px; height: 56px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    color: #fff; font-size: 10px; font-weight: bold; line-height: 1.25; padding: 4px;
+  }
+  .mc-blue { background: #4C72B0; }
+  .mc-green { background: #55A868; }
+  .mc-orange { background: #DD8452; }
+
+  .footer {
+    position: absolute; top: 384px; left: 30px; width: 840px; height: 24px;
+    background: #f5f5f5; border: 1px solid #ccc; border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .footer span { font-size: 9.5px; color: #888; font-style: italic; }
+
+  .mechanism {
+    position: absolute; top: 420px; left: 30px; width: 840px;
+    font-size: 10px; color: #555; line-height: 1.6;
+  }
+  .mechanism b { color: #222; }
+</style>
+</head>
+<body>
+  <div class="title">Taxonomy of Parameter-Efficient Fine-Tuning</div>
+
+  <div class="stem" style="left:159px;"></div>
+  <div class="stem" style="left:449px;"></div>
+  <div class="stem" style="left:739px;"></div>
+
+  <div class="family fam-additive">
+    <h2>Additive methods</h2>
+    <div class="desc">Insert new trainable parameters into or alongside the frozen backbone.</div>
+    <div class="methods">
+      <div><span class="m">Bottleneck adapters</span></div>
+      <div class="cite">Houlsby 2019, Pfeiffer 2021</div>
+      <div style="margin-top:4px;"><span class="m">Prefix tuning</span></div>
+      <div class="cite">Li &amp; Liang 2021, Lester 2021</div>
+    </div>
+  </div>
+
+  <div class="family fam-repar">
+    <h2>Reparameterisation methods</h2>
+    <div class="desc">Decompose the weight update into low-rank or quantised factors.</div>
+    <div class="methods">
+      <div><span class="m">LoRA</span> <span class="cite">(Hu 2022)</span></div>
+      <div><span class="m">QLoRA</span> <span class="cite">(Dettmers 2023)</span></div>
+      <div><span class="m">DoRA</span> <span class="cite">(Liu 2024)</span></div>
+    </div>
+  </div>
+
+  <div class="family fam-select">
+    <h2>Selective methods</h2>
+    <div class="desc">Update a fixed subset of existing backbone parameters.</div>
+    <div class="methods">
+      <div><span class="m">BitFit</span> <span class="cite">(Ben Zaken 2022)</span></div>
+      <div><span class="m">Diff Pruning</span> <span class="cite">(Guo 2021)</span></div>
+    </div>
+  </div>
+
+  <div class="connect" style="left:159px;"></div>
+  <div class="connect" style="left:449px;"></div>
+  <div class="connect" style="left:739px;"></div>
+
+  <div class="band"><span>Trainable parameters: add &nbsp;/&nbsp; decompose weights &nbsp;/&nbsp; select subset</span></div>
+
+  <div class="dropline" style="left:110px;"></div>
+  <div class="dropline" style="left:208px;"></div>
+  <div class="dropline" style="left:355px;"></div>
+  <div class="dropline" style="left:449px;"></div>
+  <div class="dropline" style="left:543px;"></div>
+  <div class="dropline" style="left:700px;"></div>
+  <div class="dropline" style="left:800px;"></div>
+
+  <div class="method mc-blue" style="left:68px;">Bottleneck<br>Adapter</div>
+  <div class="method mc-blue" style="left:166px;">Prefix<br>Tuning</div>
+  <div class="method mc-green" style="left:313px;">LoRA</div>
+  <div class="method mc-green" style="left:407px;">QLoRA</div>
+  <div class="method mc-green" style="left:501px;">DoRA</div>
+  <div class="method mc-orange" style="left:658px;">BitFit</div>
+  <div class="method mc-orange" style="left:758px;">Diff.<br>Pruning</div>
+
+  <div class="footer"><span>Figure adapted from the unified framework of Han et al. (2024)</span></div>
+
+  <div class="mechanism">
+    <b>Trade-off:</b> additive methods add the most inference-time overhead but are the most modular
+    (swappable per task); reparameterisation methods (LoRA family) add zero inference overhead after
+    weight merging; selective methods add no new parameters but require access to update the backbone directly.
+  </div>
+</body>
+</html>

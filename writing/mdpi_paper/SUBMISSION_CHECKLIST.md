@@ -17,7 +17,7 @@ MDPI does not accept free-form formatting — the manuscript must use the offici
 | Section sources | ✅ | `writing/mdpi_paper/sections/01…12_appendix.tex` |
 | LaTeX template (`Definitions/`) | ✅ | `mdpi.cls`, `mdpi.bst`, `mdpi_apacite.*`, `mdpi_chicago.*`, `journalnames.tex`, `logo-*.eps` |
 | Bibliography | ✅ | `writing/mdpi_paper/bibliography.bib` |
-| **Compiled PDF** | ⬜ | Not present on disk. Must be compiled from source before upload. Zip the `.tex` source, `sections/`, `Definitions/`, `bibliography.bib`, and the PDF together. |
+| **Compiled PDF** | ✅ | `main.pdf` compiles cleanly (66 pages, no undefined refs/citations). Still need to zip `.tex` source, `sections/`, `Definitions/`, `bibliography.bib`, and the PDF together. |
 
 ### 1.2 Required front-matter & back-matter sections
 All must already be present inside the manuscript body (MDPI checks these on submission).
@@ -45,8 +45,8 @@ All must already be present inside the manuscript body (MDPI checks these on sub
 ### 1.3 Cover letter — REQUIRED for every submission
 | Item | Status | Notes |
 |---|---|---|
-| Cover letter | ⬜ | **Not yet written.** Must explain significance, novelty, and fit to *AI* journal scope. |
-| Suggested referees | ⬜ | Field-specific — confirm whether *AI* requires them; some legacy MDPI guidelines want 4–5 named referees in the letter. |
+| Cover letter | ✅ | Drafted at `cover_letter.md` (significance, novelty, fit to *AI* scope). |
+| Suggested referees | 🟡 | Placeholder rows in `cover_letter.md` — names/affiliations still need to be filled in (or section removed if *AI* doesn't require them). |
 
 ---
 
@@ -57,7 +57,7 @@ MDPI wants **all figures in a single ZIP**, high resolution — min **1000 px** 
 
 | Item | Status | Notes |
 |---|---|---|
-| Figures (PDF) | ✅ | **15 figures total** in `figures/` (11 pre-existing + 4 newly generated) |
+| Figures (PDF) | ✅ | **15 in-manuscript figures** in `figures/` (11 pre-existing + 4 newly generated) plus the graphical abstract (`fig_ga.pdf`, separate SUSY upload, not in-manuscript) |
 | **Package into single ZIP** | ⬜ | Not yet zipped. Include every figure referenced in the manuscript. |
 | Resolution check | ✅ | All figures are vector PDFs (resolution-independent, ≥1000 px at any reasonable rendering). |
 
@@ -69,16 +69,16 @@ MDPI wants **all figures in a single ZIP**, high resolution — min **1000 px** 
 - `fig_slr1_prisma_flow.pdf`, `fig_slr_quality_bands.pdf`
 - `fig_slr6_tier_breakdown.pdf`, `fig_slr5_venues.pdf`, `fig_slr3_year_distribution.pdf`
 
-**Newly generated & linked (4):**
-- `fig_peft_taxonomy.pdf` — PEFT families taxonomy (section 4, `\label{fig:peft_types}`)
-- `fig_adapterfusion.pdf` — AdapterFusion fusion layer (section 5, `\label{fig:adapterfusion}`)
-- `fig_switch_transformer.pdf` — Switch Transformer Top-1 routing (section 7, `\label{fig:switch_transformer}`)
-- `fig_petals.pdf` — Petals collaborative inference (section 8, `\label{fig:petals}`)
+**Newly generated & linked (4) — built as HTML/CSS/SVG source, rendered to vector PDF via headless Chrome:**
+- `fig_peft_taxonomy.pdf` (source `fig_peft_taxonomy.html`) — PEFT families taxonomy (section 4, `\label{fig:peft_types}`)
+- `fig_adapterfusion.pdf` (source `fig_adapterfusion.html`) — AdapterFusion fusion layer (section 5, `\label{fig:adapterfusion}`)
+- `fig_switch_transformer.pdf` (source `fig_switch_transformer.html`) — Switch Transformer Top-1 routing (section 7, `\label{fig:switch_transformer}`)
+- `fig_petals.pdf` (source `fig_petals.html`) — Petals collaborative inference (section 8, `\label{fig:petals}`)
 
 ### 2.2 Graphical Abstract (GA)
 | Item | Status | Notes |
 |---|---|---|
-| Graphical Abstract | ⬜ | Not created. Optional but recommended — high-quality PNG/JPEG/TIFF. Could reuse the gap-quadrant or concept figure as a basis. |
+| Graphical Abstract | ✅ | `figures/fig_ga.pdf` rendered from `figures/ga.html` via headless Chrome. Not wired into `main.tex` (GA is a separate SUSY upload, not an in-manuscript figure). |
 
 ### 2.3 Original / uncropped images (integrity verification)
 | Item | Status | Notes |
@@ -88,11 +88,11 @@ MDPI wants **all figures in a single ZIP**, high resolution — min **1000 px** 
 ### 2.4 Supplementary data & depositions
 | Item | Status | Notes |
 |---|---|---|
-| Supplementary files packaged | 🟡 | `supplementary/` holds PRISMA 2020 checklist + PRISMA numbers/summary MDs. Need to confirm these are what will be attached as S1. |
+| Supplementary files packaged | ✅ | `\supplementary{}` in `main.tex` now lists S1 (PRISMA 2020 checklist) and S2 (`quality_appraisal_scored.csv`) explicitly. |
 | PRISMA 2020 checklist (S1) | ✅ | `supplementary/PRISMA_2020_checklist.md` — referenced as download in `\supplementary{}` |
-| Raw datasets / extended tables | 🟡 | `quality_appraisal_scored.csv` lives in `figures/`; decide whether to attach as supplementary data. |
+| Raw datasets / extended tables (S2) | ✅ | `quality_appraisal_scored.csv` (123 rows, six-dimension rubric) — now wired in as S2. |
 | **Sequence/database depositions + accession numbers** | ➖ | No new sequences/databases generated — review of published literature. |
-| Datasets/repo links in Data Availability | ✅ | `\dataavailability{...}` points to `papers_code` (private) + `slr_engine` (public GitHub). **Action:** confirm repo is public / accessible before submission (currently `dataavailability` says public release deferred until after examination — verify this is acceptable to MDPI). |
+| Datasets/repo links in Data Availability | 🟡 | `\dataavailability{...}` now points to `slr_engine` (public) + `papers_code` at `https://github.com/vanjaluk8/papers_code` — **this papers_code URL is a placeholder** (marked `%TODO` in `main.tex`); confirm/replace with the final public repo URL before submission. |
 
 ### 2.5 Combined file size cap
 | Item | Status | Notes |
@@ -115,15 +115,15 @@ MDPI wants **all figures in a single ZIP**, high resolution — min **1000 px** 
 
 ## 4. Final Pre-Flight Checklist (before clicking Submit in SUSY)
 
-- [ ] Compile the manuscript and read the PDF end-to-end (orphan sections, figure numbering, references resolve, no LaTeX warnings that break build). **No LaTeX engine on this machine — compile on Overleaf or a system with TeXLive.**
+- [x] Compile the manuscript and read the PDF end-to-end — `main.pdf` compiles cleanly via `latexmk -pdf` (TinyTeX, reinstalled to TL2026 + missing packages installed), 66 pages, no undefined refs/citations left.
 - [ ] Reconcile section headings with the target journal's Instructions for Authors.
 - [ ] Finalize & upload the **compiled PDF** + LaTeX source zip.
-- [ ] Write and attach the **cover letter** (significance, novelty, fit to journal scope; confirm referee requirement).
-- [x] Resolve all 4 `\fbox` figure placeholders — replaced with `\includegraphics` and generated schematic PDFs.
+- [x] Write and attach the **cover letter** — drafted at `cover_letter.md`; referee names still placeholders.
+- [x] Resolve all 4 `\fbox` figure placeholders — replaced with `\includegraphics`; the 4 schematic PDFs were actually missing from disk despite being referenced, now built as HTML/SVG (`fig_*.html`) and rendered to vector PDF via headless Chrome.
 - [ ] Zip all **figures** into a single archive; vector PDFs — no resolution concern.
-- [ ] Create **Graphical Abstract** (PNG/JPEG/TIFF).
-- [ ] Decide which files (PRISMA checklist, quality scoring CSV, etc.) become **Supplementary S1/S2** and attach.
-- [ ] Confirm `\dataavailability` repo links are live/accessible as stated (private repo currently deferred — verify MDPI policy accepts this).
+- [x] Create **Graphical Abstract** — `fig_ga.pdf` rendered from `ga.html`.
+- [x] Decide which files become **Supplementary S1/S2** — S1 = PRISMA checklist, S2 = `quality_appraisal_scored.csv`; wired into `\supplementary{}`.
+- [ ] Confirm `\dataavailability` repo link for `papers_code` — currently a placeholder URL, swap for the real one before submission.
 - [ ] Complete all **declarations in the SUSY form** (ethics, authorship, copyright, COI) — finalized, not just in the manuscript.
 - [ ] Verify **total upload size ≤ 120 MB** — figures are ~1.5 MB, well under cap.
 - [ ] For single-author paper: confirm author-approval step in SUSY is satisfied.

@@ -221,11 +221,11 @@ coverage of the 224-row extraction table.}
 \texttt{peft\_technique} & PEFT technique used & e.g.\ \texttt{LoRA}, \texttt{bottleneck adapter}, \texttt{prefix}, \texttt{generic-PEFT}, \texttt{none} & 190/224 \\
 \texttt{distribution\_mechanism} & How model/adapter state is shared & e.g.\ \texttt{federated}, \texttt{P2P/gossip}, \texttt{centralised server}, \texttt{DHT}, \texttt{none} & 190/224 \\
 \texttt{thesis\_sections} & Review sections citing the paper & \texttt{\S n.n} references & 190/224 \\
-\texttt{contribution\_codes} & Novel-contribution tag(s) & \texttt{\textstar A1/S1/R1/R2/T2/M2} combinations & 22/224 \\
+\texttt{contribution\_codes} & Novel-contribution tag(s) & \texttt{\ccstar A1/S1/R1/R2/T2/M2} combinations & 22/224 \\
 \texttt{datasets} & (schema) datasets used — not populated in archive & free text & 0/224 \\
 \texttt{metrics} & (schema) evaluation metrics — not populated in archive & free text & 0/224 \\
 \texttt{key\_finding} & One-line primary outcome / contribution summary & free text (max ~1--2 lines) & 190/224 \\
-\texttt{notes\_raw} & Full-text reading notes (methods, results, \texttt{\S} and \texttt{\textstar} tags) & free text & 190/224 \\
+\texttt{notes\_raw} & Full-text reading notes (methods, results, \texttt{\S} and \texttt{\ccstar} tags) & free text & 190/224 \\
 \texttt{source} & Retrieval source & \texttt{SCOPUS} / \texttt{ARXIV} / \texttt{WOS} & 220/224 \\
 \bottomrule
 \end{tabular}
@@ -340,9 +340,13 @@ KEEP papers were exported for full-text review via RIS format
 (\texttt{08\_zotero\_ready\_2026-05-02.ris}, 214 entries). The full-text
 review queue (\texttt{09\_fulltext\_review\_queue\_2026-05-02.csv}),
 compiled from the 214 KEEP and the 173 borderline-DEFER records, contains
-\textbf{387} records; of these, \textbf{190} (all KEEP-origin) underwent data
-extraction, and a manual Scopus/WoS top-up brought the extraction set to
-\textbf{224} (\texttt{11\_data\_extraction\_2026-05-12.csv}). A subset of the
+\textbf{387} records; of these, \textbf{191} (190 KEEP-origin and 1
+DEFER-origin) underwent data extraction and \textbf{196} were excluded (24
+KEEP-origin, full text unavailable; 172 DEFER-origin, not taken further). A
+separate manual Scopus/WoS cross-validation top-up of \textbf{33} records
+entered directly at the extraction stage, bypassing this full-text queue
+(none were ultimately retained in the final 123), bringing the extraction
+set to \textbf{224} (\texttt{11\_data\_extraction\_2026-05-12.csv}). A subset of the
 queued DEFER records was read in full during this phase but was excluded at
 the final curation step (Appendix~\ref{app:search_log}, Table~\ref{tab:search_log}).
 Every record and its per-stage membership are traceable in the unified
@@ -752,7 +756,7 @@ $\approx$2026-04-28 & Abstract-level review, pass 1 (on the 464 corpus; AI-assis
 2026-05-11  & DOI-based venue validation: Web of Science (\texttt{M4\_wos\_venue}) &
   125 DOIs & 125 matched \\
 2026-05-12  & Data-extraction top-up with manual Scopus/WoS additions &
-  190 & 224 extracted \\
+  191 & 224 extracted (33 top-up) \\
 2026-05-12  & Full-text reading, quality assessment, and final curation (final
   reading list is the authoritative evidence base) &
   --- & 123 final \\
