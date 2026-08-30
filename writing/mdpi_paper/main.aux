@@ -1,0 +1,831 @@
+\relax 
+\providecommand*\new@tpo@label[2]{}
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\bibstyle{Definitions/mdpi}
+\citation{Vaswani2017,Devlin2019}
+\citation{Houlsby2019,Hu2022}
+\def\@LN@column{1}
+\newmarginnote{note.1.1}{{1}{10945661sp}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:introduction}{{1}{1}{Introduction}{section.1}{}}
+\newlabel{sec:introduction@cref}{{[section][1][]1}{[1][1][]1}{}{}{}}
+\citation{Sheng2024}
+\citation{Chen2023Punica}
+\citation{Li2024CaraServe}
+\citation{Borzunov2023}
+\citation{Sajina2024}
+\def\@LN@column{1}
+\citation{Han2024,WangAIReview2024}
+\citation{MaoLoraSurvey2024}
+\citation{YeDecentralizedFL2022,WinkP2PFL2021}
+\citation{SajinaP2PConnection2024}
+\citation{Vaswani2017}
+\citation{RadfordGPT22019,BrownGPT32020}
+\citation{Devlin2019}
+\citation{RaffelT52020}
+\citation{TouvronLLaMA2023}
+\citation{Devlin2019}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Review Structure}{3}{subsection.1.1}\protected@file@percent }
+\newlabel{sec:introduction:structure}{{1.1}{3}{Review Structure}{subsection.1.1}{}}
+\newlabel{sec:introduction:structure@cref}{{[subsection][1][1]1.1}{[1][3][]3}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Background}{3}{section.2}\protected@file@percent }
+\newlabel{sec:background}{{2}{3}{Background}{section.2}{}}
+\newlabel{sec:background@cref}{{[section][2][]2}{[1][3][]3}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Transformer Architecture}{3}{subsection.2.1}\protected@file@percent }
+\newlabel{sec:background:transformer}{{2.1}{3}{Transformer Architecture}{subsection.2.1}{}}
+\newlabel{sec:background:transformer@cref}{{[subsection][1][2]2.1}{[1][3][]3}{}{}{}}
+\newlabel{eq:attention}{{1}{3}{Transformer Architecture}{equation.1}{}}
+\newlabel{eq:attention@cref}{{[equation][1][]1}{[1][3][]3}{}{}{}}
+\newlabel{eq:mha}{{2}{3}{Transformer Architecture}{equation.2}{}}
+\newlabel{eq:mha@cref}{{[equation][2][]2}{[1][3][]3}{}{}{}}
+\newlabel{eq:ffn}{{3}{3}{Transformer Architecture}{equation.3}{}}
+\newlabel{eq:ffn@cref}{{[equation][3][]3}{[1][3][]3}{}{}{}}
+\citation{Houlsby2019}
+\citation{Hu2022}
+\citation{LiLiang2021}
+\citation{Pfeiffer2020hub}
+\citation{Houlsby2019,Hu2022,LiLiang2021}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Parameter-Efficient Fine-Tuning Primitives}{4}{subsection.2.2}\protected@file@percent }
+\newlabel{sec:background:peft}{{2.2}{4}{Parameter-Efficient Fine-Tuning Primitives}{subsection.2.2}{}}
+\newlabel{sec:background:peft@cref}{{[subsection][2][2]2.2}{[1][4][]4}{}{}{}}
+\newlabel{eq:bottleneck}{{4}{4}{Parameter-Efficient Fine-Tuning Primitives}{equation.4}{}}
+\newlabel{eq:bottleneck@cref}{{[equation][4][]4}{[1][4][]4}{}{}{}}
+\newlabel{eq:lora}{{5}{4}{Parameter-Efficient Fine-Tuning Primitives}{equation.5}{}}
+\newlabel{eq:lora@cref}{{[equation][5][]5}{[1][4][]4}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Evolution of fine-tuning paradigms: from full fine-tuning of the entire model, through parameter-efficient adapters trained per task, to adapter exchange via shared repositories such as AdapterHub \cite  {Pfeiffer2020hub}.}}{4}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:concept_peft_paradigm}{{1}{4}{Evolution of fine-tuning paradigms: from full fine-tuning of the entire model, through parameter-efficient adapters trained per task, to adapter exchange via shared repositories such as AdapterHub \cite {Pfeiffer2020hub}}{figure.caption.1}{}}
+\newlabel{fig:concept_peft_paradigm@cref}{{[figure][1][]1}{[1][4][]4}{}{}{}}
+\citation{MaymounkovKademlia2002}
+\citation{OrmandyGossip2013}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Adapter structural types (own figure): (a) bottleneck adapter modules inserted into a transformer block; (b) LoRA low-rank matrices added in parallel to attention weights; (c) prefix tuning prepends learnable key-value vectors \cite  {Houlsby2019, Hu2022, LiLiang2021}.}}{5}{figure.caption.2}\protected@file@percent }
+\newlabel{fig:peft_adapter_types}{{2}{5}{Adapter structural types (own figure): (a) bottleneck adapter modules inserted into a transformer block; (b) LoRA low-rank matrices added in parallel to attention weights; (c) prefix tuning prepends learnable key-value vectors \cite {Houlsby2019, Hu2022, LiLiang2021}}{figure.caption.2}{}}
+\newlabel{fig:peft_adapter_types@cref}{{[figure][2][]2}{[1][4][]5}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Peer-to-Peer Network Primitives}{5}{subsection.2.3}\protected@file@percent }
+\newlabel{sec:background:p2p}{{2.3}{5}{Peer-to-Peer Network Primitives}{subsection.2.3}{}}
+\newlabel{sec:background:p2p@cref}{{[subsection][3][2]2.3}{[1][5][]5}{}{}{}}
+\citation{Page2021}
+\citation{XiaoWatson2019}
+\citation{Wohlin2014}
+\citation{KitchenhamCharters2007}
+\citation{Webster2002}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces DHT lookup sequence: a query node iteratively probes increasingly close peers through XOR-metric routing until the target is reached.}}{6}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:p2p_dht_lookup}{{3}{6}{DHT lookup sequence: a query node iteratively probes increasingly close peers through XOR-metric routing until the target is reached}{figure.caption.3}{}}
+\newlabel{fig:p2p_dht_lookup@cref}{{[figure][3][]3}{[1][5][]6}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Gossip propagation: an informed peer spreads a piece of state to randomly chosen neighbours each round until the entire network is aware. (Adapter metadata is one example payload discussed in later chapters.)}}{6}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:p2p_gossip}{{4}{6}{Gossip propagation: an informed peer spreads a piece of state to randomly chosen neighbours each round until the entire network is aware. (Adapter metadata is one example payload discussed in later chapters.)}{figure.caption.4}{}}
+\newlabel{fig:p2p_gossip@cref}{{[figure][4][]4}{[1][6][]6}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Materials and Methods}{6}{section.3}\protected@file@percent }
+\newlabel{sec:methodology}{{3}{6}{Materials and Methods}{section.3}{}}
+\newlabel{sec:methodology@cref}{{[section][3][]3}{[1][6][]6}{}{}{}}
+\citation{Li2024CaraServe}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Search Strategy and Corpus}{7}{subsection.3.1}\protected@file@percent }
+\newlabel{sec:methodology:search}{{3.1}{7}{Search Strategy and Corpus}{subsection.3.1}{}}
+\newlabel{sec:methodology:search@cref}{{[subsection][1][3]3.1}{[1][7][]7}{}{}{}}
+\citation{Page2021}
+\citation{KitchenhamCharters2007}
+\citation{KitchenhamCharters2007}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Eligibility Criteria}{8}{subsection.3.2}\protected@file@percent }
+\newlabel{sec:methodology:eligibility}{{3.2}{8}{Eligibility Criteria}{subsection.3.2}{}}
+\newlabel{sec:methodology:eligibility@cref}{{[subsection][2][3]3.2}{[1][8][]8}{}{}{}}
+\newlabel{sec:methodology:screening_reviewers}{{3.2}{8}{}{subsection.3.2}{}}
+\newlabel{sec:methodology:screening_reviewers@cref}{{[subsection][2][3]3.2}{[1][8][]8}{}{}{}}
+\def\@LN@column{1}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The nine foundational seed papers (Group G0) and their role in the review. Venues as recorded in the pre-validated corpus.}}{9}{table.caption.5}\protected@file@percent }
+\newlabel{tab:g0_seeds}{{1}{9}{The nine foundational seed papers (Group G0) and their role in the review. Venues as recorded in the pre-validated corpus}{table.caption.5}{}}
+\newlabel{tab:g0_seeds@cref}{{[table][1][]1}{[1][9][]9}{}{}{}}
+\citation{XiaoWatson2019}
+\def\@LN@column{1}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Disposition of the nine G0 seeds: whether each was submitted for automated backward/forward retrieval, and whether it is itself a row in the final 123-record corpus. Verified against \texttt  {log\_retrieval\_2026-04-21.json} and the final reading list.}}{10}{table.caption.6}\protected@file@percent }
+\newlabel{tab:g0_disposition}{{2}{10}{Disposition of the nine G0 seeds: whether each was submitted for automated backward/forward retrieval, and whether it is itself a row in the final 123-record corpus. Verified against \texttt {log\_retrieval\_2026-04-21.json} and the final reading list}{table.caption.6}{}}
+\newlabel{tab:g0_disposition@cref}{{[table][2][]2}{[1][9][]10}{}{}{}}
+\def\@LN@column{1}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Pre-validated corpus groups: scope, size, and review section coverage.\footnotemark [1]}}{11}{table.caption.7}\protected@file@percent }
+\newlabel{tab:groups}{{3}{11}{Pre-validated corpus groups: scope, size, and review section coverage.\protect \footnotemark [1]}{table.caption.7}{}}
+\newlabel{tab:groups@cref}{{[table][3][]3}{[1][10][]11}{}{}{}}
+\citation{WangGLUE2018}
+\citation{WangSuperGLUE2019}
+\citation{HendrycksMMLU2021}
+\citation{Houlsby2019}
+\citation{Hu2022}
+\citation{Dettmers2023}
+\citation{LiLiang2021}
+\citation{BenZaken2022}
+\citation{PothAdapters2023}
+\citation{Pfeiffer2020hub}
+\citation{Pfeiffer2021fusion}
+\citation{PfeifferMADX2020}
+\citation{Huang2023}
+\citation{ZhaoLoraRetriever2024}
+\citation{Ostapenko2024}
+\citation{Sheng2024}
+\citation{Chen2023Punica}
+\citation{Li2024CaraServe}
+\citation{Borzunov2023}
+\citation{Sajina2024}
+\citation{McMahan2017}
+\citation{Li2020FedProx}
+\citation{ZhangFedPETuning2023}
+\citation{WangFLoRA2024}
+\citation{XuDPFedLoRA2025}
+\citation{Babakniya2023}
+\citation{HegeduisGossip2019}
+\citation{Fedus2022}
+\citation{Zhou2022}
+\citation{RajbhandariDeepSpeed2022}
+\citation{WangAdaMix2022}
+\citation{LiMixLoRA2024}
+\citation{ZhangMiLoRA2024}
+\citation{DouLoRAMoE2024}
+\citation{LiuWhenMOE2024}
+\citation{RyabininCrowdsourced2020}
+\citation{XiaoWatson2019}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces PRISMA 2020 flow diagram. Records trace from \textbf  {1,150} raw snowball candidates through deduplication (\textbf  {972}), merge of the \textbf  {162} screened-in records with the pre-validated corpus and title screening (\textbf  {502}), enrichment (\textbf  {464}), and abstract review; the abstract-review pool (\textbf  {552}) combines the 464 enriched records with 88 forward-snowball additions and splits into \textbf  {214} KEEP, \textbf  {173} DEFER, and \textbf  {165} excluded (SKIP, no individually coded reason retained). The valid pool proceeds to full-text queue selection (\textbf  {387}), of which \textbf  {191} reach data extraction; a separate \textbf  {33}-record manual Scopus/WoS cross-validation top-up enters directly at the extraction stage, giving \textbf  {224} records extracted in total and yielding the \textbf  {123}-paper final reading list (\textbf  {120} distinct papers).}}{12}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:prisma}{{5}{12}{PRISMA 2020 flow diagram. Records trace from \textbf {1,150} raw snowball candidates through deduplication (\textbf {972}), merge of the \textbf {162} screened-in records with the pre-validated corpus and title screening (\textbf {502}), enrichment (\textbf {464}), and abstract review; the abstract-review pool (\textbf {552}) combines the 464 enriched records with 88 forward-snowball additions and splits into \textbf {214} KEEP, \textbf {173} DEFER, and \textbf {165} excluded (SKIP, no individually coded reason retained). The valid pool proceeds to full-text queue selection (\textbf {387}), of which \textbf {191} reach data extraction; a separate \textbf {33}-record manual Scopus/WoS cross-validation top-up enters directly at the extraction stage, giving \textbf {224} records extracted in total and yielding the \textbf {123}-paper final reading list (\textbf {120} distinct papers)}{figure.caption.8}{}}
+\newlabel{fig:prisma@cref}{{[figure][5][]5}{[1][11][]12}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Datasets and Benchmarks}{12}{subsection.3.3}\protected@file@percent }
+\newlabel{sec:methodology:datasets}{{3.3}{12}{Datasets and Benchmarks}{subsection.3.3}{}}
+\newlabel{sec:methodology:datasets@cref}{{[subsection][3][3]3.3}{[1][12][]12}{}{}{}}
+\newlabel{RF1}{13}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Selected datasets, tasks, and metrics across the five synthesis pillars.}}{13}{table.caption.9}\protected@file@percent }
+\newlabel{tab:datasets}{{4}{13}{Selected datasets, tasks, and metrics across the five synthesis pillars}{table.caption.9}{}}
+\newlabel{tab:datasets@cref}{{[table][4][]4}{[1][12][]13}{}{}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Quality Assessment}{14}{subsection.3.4}\protected@file@percent }
+\newlabel{sec:methodology:quality}{{3.4}{14}{Quality Assessment}{subsection.3.4}{}}
+\newlabel{sec:methodology:quality@cref}{{[subsection][4][3]3.4}{[1][12][]14}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Reporting-completeness and relevance rubric: each dimension is scored 0--2 from a grounded screening/extraction field. The reporting-completeness total is the sum of Q1--Q4 and Q6 (0--10); Q5 is scored separately and is excluded from the total.}}{14}{table.caption.10}\protected@file@percent }
+\newlabel{tab:quality_rubric}{{5}{14}{Reporting-completeness and relevance rubric: each dimension is scored 0--2 from a grounded screening/extraction field. The reporting-completeness total is the sum of Q1--Q4 and Q6 (0--10); Q5 is scored separately and is excluded from the total}{table.caption.10}{}}
+\newlabel{tab:quality_rubric@cref}{{[table][5][]5}{[1][14][]14}{}{}{}}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Reporting-completeness score distribution across the 123 included records (0--10 rubric: Q1--Q4 and Q6 summed; Q5 reported separately).}}{15}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:quality_bands}{{6}{15}{Reporting-completeness score distribution across the 123 included records (0--10 rubric: Q1--Q4 and Q6 summed; Q5 reported separately)}{figure.caption.11}{}}
+\newlabel{fig:quality_bands@cref}{{[figure][6][]6}{[1][15][]15}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.1}Reproducibility and Risk of Bias: Tier-1 Records}{15}{subsubsection.3.4.1}\protected@file@percent }
+\newlabel{sec:methodology:quality:tier1}{{3.4.1}{15}{Reproducibility and Risk of Bias: Tier-1 Records}{subsubsection.3.4.1}{}}
+\newlabel{sec:methodology:quality:tier1@cref}{{[subsubsection][1][3,4]3.4.1}{[1][15][]15}{}{}{}}
+\citation{DingNature2023}
+\citation{Han2024}
+\citation{WangAIReview2024}
+\citation{MaoLoraSurvey2024}
+\citation{ZengExpressive2024}
+\citation{Houlsby2019}
+\citation{Houlsby2019}
+\citation{Houlsby2019}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Parameter-Efficient Fine-Tuning}{16}{section.4}\protected@file@percent }
+\newlabel{sec:peft}{{4}{16}{Parameter-Efficient Fine-Tuning}{section.4}{}}
+\newlabel{sec:peft@cref}{{[section][4][]4}{[1][16][]16}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}The Fine-Tuning Bottleneck}{16}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:peft:intro}{{4.1}{16}{The Fine-Tuning Bottleneck}{subsection.4.1}{}}
+\newlabel{sec:peft:intro@cref}{{[subsection][1][4]4.1}{[1][16][]16}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Bottleneck Adapters}{16}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:peft:bottleneck}{{4.2}{16}{Bottleneck Adapters}{subsection.4.2}{}}
+\newlabel{sec:peft:bottleneck@cref}{{[subsection][2][4]4.2}{[1][16][]16}{}{}{}}
+\newlabel{eq:bottleneck_intro}{{6}{16}{Bottleneck Adapters}{equation.6}{}}
+\newlabel{eq:bottleneck_intro@cref}{{[equation][6][]6}{[1][16][]16}{}{}{}}
+\citation{Houlsby2019}
+\citation{WangGLUE2018}
+\citation{HeEffectiveness2021}
+\citation{RuckleAdapterDrop2021}
+\citation{PothAdapters2023}
+\citation{Hu2022}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Bottleneck adapter architecture (own figure) \cite  {Houlsby2019}. (a)~A transformer layer with adapter modules inserted after the multi-head attention and feed-forward sub-layers; dashed lines indicate the residual connections that bypass each sub-layer--adapter pair. (b)~Internal structure of a single adapter module: a down-projection to bottleneck dimension $r$, a GeLU nonlinearity, an up-projection back to $d$, and a skip connection that initialises the module to an identity function at the start of training.}}{17}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:houlsby_adapter}{{7}{17}{Bottleneck adapter architecture (own figure) \cite {Houlsby2019}. (a)~A transformer layer with adapter modules inserted after the multi-head attention and feed-forward sub-layers; dashed lines indicate the residual connections that bypass each sub-layer--adapter pair. (b)~Internal structure of a single adapter module: a down-projection to bottleneck dimension $r$, a GeLU nonlinearity, an up-projection back to $d$, and a skip connection that initialises the module to an identity function at the start of training}{figure.caption.12}{}}
+\newlabel{fig:houlsby_adapter@cref}{{[figure][7][]7}{[1][16][]17}{}{}{}}
+\citation{Hu2022}
+\citation{ZengExpressive2024}
+\citation{Dettmers2023}
+\citation{Dettmers2023}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Low-Rank Adaptation (LoRA)}{18}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:peft:lora}{{4.3}{18}{Low-Rank Adaptation (LoRA)}{subsection.4.3}{}}
+\newlabel{sec:peft:lora@cref}{{[subsection][3][4]4.3}{[1][17][]18}{}{}{}}
+\newlabel{eq:lora_intro}{{7}{18}{Low-Rank Adaptation (LoRA)}{equation.7}{}}
+\newlabel{eq:lora_intro@cref}{{[equation][7][]7}{[1][18][]18}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Advanced LoRA Variants}{18}{subsection.4.4}\protected@file@percent }
+\newlabel{sec:peft:lora_variants}{{4.4}{18}{Advanced LoRA Variants}{subsection.4.4}{}}
+\newlabel{sec:peft:lora_variants@cref}{{[subsection][4][4]4.4}{[1][18][]18}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.4.0.1}QLoRA.}{18}{paragraph.4.4.0.1}\protected@file@percent }
+\citation{ZhangAdaLoRA2023}
+\citation{LiuDoRA2024}
+\citation{LialinReLoRA2023}
+\citation{LiLiang2021}
+\citation{RadfordGPT22019}
+\citation{LewisBART2020}
+\citation{LiLiang2021}
+\citation{Lester2021}
+\citation{RaffelT52020}
+\citation{Lester2021}
+\citation{BenZaken2022}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.4.0.2}AdaLoRA.}{19}{paragraph.4.4.0.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.4.0.3}DoRA.}{19}{paragraph.4.4.0.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.4.0.4}ReLoRA.}{19}{paragraph.4.4.0.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Prompt-Based Adaptation Methods}{19}{subsection.4.5}\protected@file@percent }
+\newlabel{sec:peft:prompt}{{4.5}{19}{Prompt-Based Adaptation Methods}{subsection.4.5}{}}
+\newlabel{sec:peft:prompt@cref}{{[subsection][5][4]4.5}{[1][19][]19}{}{}{}}
+\citation{MahabadiCompacter2021}
+\citation{Mahabadi2021}
+\citation{HeUnifiedPEFT2022}
+\citation{Han2024}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Hypernetwork-Based Adaptation}{20}{subsection.4.6}\protected@file@percent }
+\newlabel{sec:peft:hypernetwork}{{4.6}{20}{Hypernetwork-Based Adaptation}{subsection.4.6}{}}
+\newlabel{sec:peft:hypernetwork@cref}{{[subsection][6][4]4.6}{[1][20][]20}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Taxonomy of parameter-efficient fine-tuning families (own figure) \cite  {Han2024}. Additive methods (bottleneck adapters, prefix tuning) insert new parameters; reparameterisation methods (LoRA, QLoRA) decompose weight updates; selective methods (BitFit) update a fixed subset of existing parameters.}}{20}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:peft_types}{{8}{20}{Taxonomy of parameter-efficient fine-tuning families (own figure) \cite {Han2024}. Additive methods (bottleneck adapters, prefix tuning) insert new parameters; reparameterisation methods (LoRA, QLoRA) decompose weight updates; selective methods (BitFit) update a fixed subset of existing parameters}{figure.caption.13}{}}
+\newlabel{fig:peft_types@cref}{{[figure][8][]8}{[1][20][]20}{}{}{}}
+\citation{Ponti2023}
+\citation{Ponti2023}
+\citation{Pfeiffer2020hub}
+\citation{PothAdapters2023}
+\citation{Pfeiffer2021fusion}
+\citation{Pfeiffer2021fusion}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Adapter Composition and Reuse}{21}{section.5}\protected@file@percent }
+\newlabel{sec:adapter_composition}{{5}{21}{Adapter Composition and Reuse}{section.5}{}}
+\newlabel{sec:adapter_composition@cref}{{[section][5][]5}{[1][20][]21}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}From Single-Task Adapters to Multi-Task Composition}{21}{subsection.5.1}\protected@file@percent }
+\newlabel{sec:adapter_composition:intro}{{5.1}{21}{From Single-Task Adapters to Multi-Task Composition}{subsection.5.1}{}}
+\newlabel{sec:adapter_composition:intro@cref}{{[subsection][1][5]5.1}{[1][21][]21}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Centralised Repositories for Adapter Sharing}{21}{subsection.5.2}\protected@file@percent }
+\newlabel{sec:adapter_composition:hub}{{5.2}{21}{Centralised Repositories for Adapter Sharing}{subsection.5.2}{}}
+\newlabel{sec:adapter_composition:hub@cref}{{[subsection][2][5]5.2}{[1][21][]21}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Learned Non-Destructive Composition}{21}{subsection.5.3}\protected@file@percent }
+\newlabel{sec:adapter_composition:fusion}{{5.3}{21}{Learned Non-Destructive Composition}{subsection.5.3}{}}
+\newlabel{sec:adapter_composition:fusion@cref}{{[subsection][3][5]5.3}{[1][21][]21}{}{}{}}
+\newlabel{eq:adapterfusion}{{8}{21}{Learned Non-Destructive Composition}{equation.8}{}}
+\newlabel{eq:adapterfusion@cref}{{[equation][8][]8}{[1][21][]21}{}{}{}}
+\citation{Pfeiffer2021fusion}
+\citation{Ilharco2023TaskArithmetic}
+\citation{Yadav2023TIES}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces AdapterFusion fusion layer (own figure): task adapters $A_1,\ldots  ,A_K$ remain frozen while a lightweight attention mechanism with parameters $W_Q, W_K, W_V$ learns to combine their outputs at each transformer layer \cite  {Pfeiffer2021fusion}.}}{22}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:adapterfusion}{{9}{22}{AdapterFusion fusion layer (own figure): task adapters $A_1,\ldots ,A_K$ remain frozen while a lightweight attention mechanism with parameters $W_Q, W_K, W_V$ learns to combine their outputs at each transformer layer \cite {Pfeiffer2021fusion}}{figure.caption.14}{}}
+\newlabel{fig:adapterfusion@cref}{{[figure][9][]9}{[1][21][]22}{}{}{}}
+\citation{PfeifferMADX2020}
+\citation{AnsellMADG2021}
+\citation{ZhangHyperPELT2022}
+\citation{IvisonHyperdecoders2022}
+\citation{Huang2023}
+\citation{Huang2023}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Cross-Lingual Adapter Stacking}{23}{subsection.5.4}\protected@file@percent }
+\newlabel{sec:adapter_composition:madx}{{5.4}{23}{Cross-Lingual Adapter Stacking}{subsection.5.4}{}}
+\newlabel{sec:adapter_composition:madx@cref}{{[subsection][4][5]5.4}{[1][23][]23}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Hypernetwork Approaches to Composition}{23}{subsection.5.5}\protected@file@percent }
+\newlabel{sec:adapter_composition:hyper}{{5.5}{23}{Hypernetwork Approaches to Composition}{subsection.5.5}{}}
+\newlabel{sec:adapter_composition:hyper@cref}{{[subsection][5][5]5.5}{[1][23][]23}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Retrieval-Augmented and Library-Based Composition}{23}{subsection.5.6}\protected@file@percent }
+\newlabel{sec:adapter_composition:library}{{5.6}{23}{Retrieval-Augmented and Library-Based Composition}{subsection.5.6}{}}
+\newlabel{sec:adapter_composition:library@cref}{{[subsection][6][5]5.6}{[1][23][]23}{}{}{}}
+\citation{ZhaoLoraRetriever2024}
+\citation{Ostapenko2024}
+\citation{Wortsman2022}
+\citation{MaoUniPELT2022}
+\citation{MaoUniPELT2022}
+\citation{MaoUniPELT2022}
+\citation{Sheng2024}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Unified Multi-PEFT Composition}{24}{subsection.5.7}\protected@file@percent }
+\newlabel{sec:adapter_composition:unified}{{5.7}{24}{Unified Multi-PEFT Composition}{subsection.5.7}{}}
+\newlabel{sec:adapter_composition:unified@cref}{{[subsection][7][5]5.7}{[1][24][]24}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Adapter-Aware Inference Systems}{24}{section.6}\protected@file@percent }
+\newlabel{sec:inference_systems}{{6}{24}{Adapter-Aware Inference Systems}{section.6}{}}
+\newlabel{sec:inference_systems@cref}{{[section][6][]6}{[1][24][]24}{}{}{}}
+\citation{YuOrca2022}
+\citation{KwonPagedAttention2023}
+\citation{Chen2023Punica}
+\citation{Sheng2024}
+\citation{Sheng2024}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces The PEFT serving paradigm: a single frozen backbone is shared across concurrent requests, each associated with a lightweight task-specific adapter. Serving systems must manage a population of adapters in GPU memory while minimising per-request adapter swap latency. Adapted from~\cite  {Sheng2024}.}}{25}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:peft_paradigm}{{10}{25}{The PEFT serving paradigm: a single frozen backbone is shared across concurrent requests, each associated with a lightweight task-specific adapter. Serving systems must manage a population of adapters in GPU memory while minimising per-request adapter swap latency. Adapted from~\cite {Sheng2024}}{figure.caption.15}{}}
+\newlabel{fig:peft_paradigm@cref}{{[figure][10][]10}{[1][24][]25}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}The Multi-Tenant Serving Challenge}{25}{subsection.6.1}\protected@file@percent }
+\newlabel{sec:inference_systems:intro}{{6.1}{25}{The Multi-Tenant Serving Challenge}{subsection.6.1}{}}
+\newlabel{sec:inference_systems:intro@cref}{{[subsection][1][6]6.1}{[1][25][]25}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}GPU-Resident Multi-Tenant LoRA Serving}{25}{subsection.6.2}\protected@file@percent }
+\newlabel{sec:inference_systems:punica}{{6.2}{25}{GPU-Resident Multi-Tenant LoRA Serving}{subsection.6.2}{}}
+\newlabel{sec:inference_systems:punica@cref}{{[subsection][2][6]6.2}{[1][25][]25}{}{}{}}
+\citation{Li2024CaraServe}
+\citation{ShengFlexGen2023}
+\citation{LiAlpaServe2023}
+\citation{ChenFlashServe2025}
+\citation{FuServerlessLLM2024}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}CPU-Assisted and Rank-Aware Serving}{26}{subsection.6.3}\protected@file@percent }
+\newlabel{sec:inference_systems:cpu}{{6.3}{26}{CPU-Assisted and Rank-Aware Serving}{subsection.6.3}{}}
+\newlabel{sec:inference_systems:cpu@cref}{{[subsection][3][6]6.3}{[1][26][]26}{}{}{}}
+\citation{NiPredictive2025}
+\citation{Shen2025EdgeLoRA}
+\citation{CaiEdgeLLM2024}
+\citation{ZhangEdgeShard2025}
+\citation{Borzunov2023}
+\citation{HuDistributed2022}
+\citation{WuRock2025}
+\citation{ZhuCannikin2025}
+\citation{Shi2025AuLoRA}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Serverless and Tiered Storage Serving}{27}{subsection.6.4}\protected@file@percent }
+\newlabel{sec:inference_systems:serverless}{{6.4}{27}{Serverless and Tiered Storage Serving}{subsection.6.4}{}}
+\newlabel{sec:inference_systems:serverless@cref}{{[subsection][4][6]6.4}{[1][26][]27}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Edge Deployment and Constrained Hardware}{27}{subsection.6.5}\protected@file@percent }
+\newlabel{sec:inference_systems:edge}{{6.5}{27}{Edge Deployment and Constrained Hardware}{subsection.6.5}{}}
+\newlabel{sec:inference_systems:edge@cref}{{[subsection][5][6]6.5}{[1][27][]27}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}Distributed and Collaborative Inference}{27}{subsection.6.6}\protected@file@percent }
+\newlabel{sec:inference_systems:distributed}{{6.6}{27}{Distributed and Collaborative Inference}{subsection.6.6}{}}
+\newlabel{sec:inference_systems:distributed@cref}{{[subsection][6][6]6.6}{[1][27][]27}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.7}Advanced Multi-Adapter Orchestration}{27}{subsection.6.7}\protected@file@percent }
+\newlabel{sec:inference_systems:advanced}{{6.7}{27}{Advanced Multi-Adapter Orchestration}{subsection.6.7}{}}
+\newlabel{sec:inference_systems:advanced@cref}{{[subsection][7][6]6.7}{[1][27][]27}{}{}{}}
+\citation{ShazeerMoE2017}
+\citation{Fedus2022}
+\citation{Fedus2022}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Mixture-of-Experts and Adapter Routing}{28}{section.7}\protected@file@percent }
+\newlabel{sec:moe_routing}{{7}{28}{Mixture-of-Experts and Adapter Routing}{section.7}{}}
+\newlabel{sec:moe_routing@cref}{{[section][7][]7}{[1][28][]28}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Mixture-of-Experts as a Scaling Principle}{28}{subsection.7.1}\protected@file@percent }
+\newlabel{sec:moe_routing:foundations}{{7.1}{28}{Mixture-of-Experts as a Scaling Principle}{subsection.7.1}{}}
+\newlabel{sec:moe_routing:foundations@cref}{{[subsection][1][7]7.1}{[1][28][]28}{}{}{}}
+\citation{JiangMixtral2024}
+\citation{LepikhinGShard2021}
+\citation{DuGLaM2022}
+\citation{Zhou2022}
+\citation{RajbhandariDeepSpeed2022}
+\citation{RyabininCrowdsourced2020}
+\citation{ZadouriPushMoE2024}
+\citation{Borzunov2023}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Switch Transformer routing (own figure): a learned router assigns each input token to exactly one expert (Top-1 routing) among a fixed, co-located expert pool, achieving a 7$\times $ pre-training speedup over dense T5 (4$\times $ over the larger T5-XXL) at equivalent quality \cite  {Fedus2022}.}}{29}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:switch_transformer}{{11}{29}{Switch Transformer routing (own figure): a learned router assigns each input token to exactly one expert (Top-1 routing) among a fixed, co-located expert pool, achieving a 7$\times $ pre-training speedup over dense T5 (4$\times $ over the larger T5-XXL) at equivalent quality \cite {Fedus2022}}{figure.caption.16}{}}
+\newlabel{fig:switch_transformer@cref}{{[figure][11][]11}{[1][28][]29}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Towards Distributed and Crowdsourced MoE}{29}{subsection.7.2}\protected@file@percent }
+\newlabel{sec:moe_routing:distributed}{{7.2}{29}{Towards Distributed and Crowdsourced MoE}{subsection.7.2}{}}
+\newlabel{sec:moe_routing:distributed@cref}{{[subsection][2][7]7.2}{[1][29][]29}{}{}{}}
+\citation{LiuWhenMOE2024}
+\citation{LiMixLoRA2024}
+\citation{ZhangMiLoRA2024}
+\citation{LuoMoELoRA2024}
+\citation{WuMixtureLoRA2024}
+\citation{DouLoRAMoE2024}
+\citation{FengMoLoRAs2024}
+\citation{DiaomMoDE2023}
+\citation{WangAdaMix2022}
+\citation{Muqeeth2024}
+\citation{LiuWhenMOE2024}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}LoRA-Level MoE: Routing Among Adapter Experts}{30}{subsection.7.3}\protected@file@percent }
+\newlabel{sec:moe_routing:lora_moe}{{7.3}{30}{LoRA-Level MoE: Routing Among Adapter Experts}{subsection.7.3}{}}
+\newlabel{sec:moe_routing:lora_moe@cref}{{[subsection][3][7]7.3}{[1][30][]30}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Mixture-of-Domain Adapters and Broader Routing Policies}{30}{subsection.7.4}\protected@file@percent }
+\newlabel{sec:moe_routing:domain}{{7.4}{30}{Mixture-of-Domain Adapters and Broader Routing Policies}{subsection.7.4}{}}
+\newlabel{sec:moe_routing:domain@cref}{{[subsection][4][7]7.4}{[1][30][]30}{}{}{}}
+\citation{LiZhouSparser2025}
+\citation{McMahan2017}
+\citation{Li2020FedProx}
+\citation{Li2020FedProx}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5}Sparse Adapters and Efficient Routing}{31}{subsection.7.5}\protected@file@percent }
+\newlabel{sec:moe_routing:sparse}{{7.5}{31}{Sparse Adapters and Efficient Routing}{subsection.7.5}{}}
+\newlabel{sec:moe_routing:sparse@cref}{{[subsection][5][7]7.5}{[1][31][]31}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Peer-to-Peer and Federated Adapter Learning}{31}{section.8}\protected@file@percent }
+\newlabel{sec:p2p_federated}{{8}{31}{Peer-to-Peer and Federated Adapter Learning}{section.8}{}}
+\newlabel{sec:p2p_federated@cref}{{[section][8][]8}{[1][31][]31}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Federated Learning Foundations}{31}{subsection.8.1}\protected@file@percent }
+\newlabel{sec:p2p_federated:fl_foundations}{{8.1}{31}{Federated Learning Foundations}{subsection.8.1}{}}
+\newlabel{sec:p2p_federated:fl_foundations@cref}{{[subsection][1][8]8.1}{[1][31][]31}{}{}{}}
+\newlabel{eq:fedprox}{{9}{31}{Federated Learning Foundations}{equation.9}{}}
+\newlabel{eq:fedprox@cref}{{[equation][9][]9}{[1][31][]31}{}{}{}}
+\citation{OrmandyGossip2013}
+\citation{HegeduisGossip2019}
+\citation{VanhaesebrouckDCL2017}
+\citation{JiangCollab2017}
+\citation{Lian2017Decentralized}
+\citation{HegeduisGossip2019,Lian2017Decentralized}
+\citation{BellavistaDL2021}
+\citation{WinkP2PFL2021}
+\citation{YeDecentralizedFL2022}
+\citation{Savazzi2020}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Gossip Learning and Decentralised FL}{32}{subsection.8.2}\protected@file@percent }
+\newlabel{sec:p2p_federated:gossip}{{8.2}{32}{Gossip Learning and Decentralised FL}{subsection.8.2}{}}
+\newlabel{sec:p2p_federated:gossip@cref}{{[subsection][2][8]8.2}{[1][32][]32}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Gossip learning (own figure): each node periodically samples a random peer, exchanges model parameters, and averages the received weights with its own local model. The process eliminates the central aggregator while maintaining convergence to a stationary point under mild graph-connectivity conditions, with guarantees comparable to centralised FL \cite  {HegeduisGossip2019,Lian2017Decentralized}.}}{32}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:gossip}{{12}{32}{Gossip learning (own figure): each node periodically samples a random peer, exchanges model parameters, and averages the received weights with its own local model. The process eliminates the central aggregator while maintaining convergence to a stationary point under mild graph-connectivity conditions, with guarantees comparable to centralised FL \cite {HegeduisGossip2019,Lian2017Decentralized}}{figure.caption.17}{}}
+\newlabel{fig:gossip@cref}{{[figure][12][]12}{[1][32][]32}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}P2P Systems for Deep Learning}{32}{subsection.8.3}\protected@file@percent }
+\newlabel{sec:p2p_federated:p2p_dl}{{8.3}{32}{P2P Systems for Deep Learning}{subsection.8.3}{}}
+\newlabel{sec:p2p_federated:p2p_dl@cref}{{[subsection][3][8]8.3}{[1][32][]32}{}{}{}}
+\citation{Sajina2025}
+\citation{Sajina2024}
+\citation{SajinaP2PConnection2024}
+\citation{Borzunov2023}
+\citation{Borzunov2023}
+\citation{ZhangFedPETuning2023}
+\citation{ZhangFedPETuning2023}
+\citation{TrautmannAgg2024}
+\citation{SinghalFedEx2025}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}P2P Transformer Inference and the MT-EF Architecture}{33}{subsection.8.4}\protected@file@percent }
+\newlabel{sec:p2p_federated:p2p_transformer}{{8.4}{33}{P2P Transformer Inference and the MT-EF Architecture}{subsection.8.4}{}}
+\newlabel{sec:p2p_federated:p2p_transformer@cref}{{[subsection][4][8]8.4}{[1][33][]33}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Petals collaborative inference (own figure): volunteer nodes each host a contiguous subset of transformer layers; client requests are routed through the volunteer network by passing activations node-to-node \cite  {Borzunov2023}. Critically, no per-task adapter modules are loaded---leaving the adapter dimension of P2P inference unexplored.}}{33}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:petals}{{13}{33}{Petals collaborative inference (own figure): volunteer nodes each host a contiguous subset of transformer layers; client requests are routed through the volunteer network by passing activations node-to-node \cite {Borzunov2023}. Critically, no per-task adapter modules are loaded---leaving the adapter dimension of P2P inference unexplored}{figure.caption.18}{}}
+\newlabel{fig:petals@cref}{{[figure][13][]13}{[1][33][]33}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}Federated PEFT: Integrating Adapters with Federated Learning}{33}{subsection.8.5}\protected@file@percent }
+\newlabel{sec:p2p_federated:fed_peft}{{8.5}{33}{Federated PEFT: Integrating Adapters with Federated Learning}{subsection.8.5}{}}
+\newlabel{sec:p2p_federated:fed_peft@cref}{{[subsection][5][8]8.5}{[1][33][]33}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {8.5.0.1}Federated adapter aggregation.}{33}{paragraph.8.5.0.1}\protected@file@percent }
+\citation{WangFLoRA2024}
+\citation{ChoHeteroLoRA2024}
+\citation{WangGlobecom2024}
+\citation{GaoINFOCOM2025}
+\citation{LiuDP2023}
+\citation{SunImprovingLoRA2024}
+\citation{XuDPFedLoRA2025}
+\citation{LinSplitLoRA2024}
+\citation{ZhangPrivacySplit2023}
+\citation{CaiFedAdapter2023}
+\citation{GuoSelective2025}
+\citation{YanFeDeRA2024}
+\citation{BianFedALT2025}
+\citation{Babakniya2023}
+\citation{ZhaoFedMCP2024}
+\citation{LiuAdaptive2024}
+\citation{KooBai2025}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {8.5.0.2}Heterogeneous client resources.}{34}{paragraph.8.5.0.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {8.5.0.3}Privacy and differential privacy.}{34}{paragraph.8.5.0.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {8.5.0.4}Privacy-preserving split learning.}{34}{paragraph.8.5.0.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {8.5.0.5}Personalisation and selective aggregation.}{34}{paragraph.8.5.0.5}\protected@file@percent }
+\citation{MaymounkovKademlia2002}
+\citation{StoicaChord2001}
+\citation{CohenBitTorrent2003}
+\citation{Ghiasvand2025}
+\citation{MaymounkovKademlia2002}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {8.5.0.6}Advanced federated adapter protocols.}{35}{paragraph.8.5.0.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.6}DHT-Based Infrastructure for P2P Adapter Discovery}{35}{subsection.8.6}\protected@file@percent }
+\newlabel{sec:p2p_federated:dht}{{8.6}{35}{DHT-Based Infrastructure for P2P Adapter Discovery}{subsection.8.6}{}}
+\newlabel{sec:p2p_federated:dht@cref}{{[subsection][6][8]8.6}{[1][35][]35}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Kademlia DHT $O(\log N)$ lookup (own figure): a querying node routes through a sequence of intermediate nodes, each closer to the target key in XOR distance, until the value-holding node is reached \cite  {MaymounkovKademlia2002}. Applied to adapter discovery, adapter descriptors would be indexed as key-value entries allowing peers to locate task-specific modules without a central registry.}}{35}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:dht_lookup}{{14}{35}{Kademlia DHT $O(\log N)$ lookup (own figure): a querying node routes through a sequence of intermediate nodes, each closer to the target key in XOR distance, until the value-holding node is reached \cite {MaymounkovKademlia2002}. Applied to adapter discovery, adapter descriptors would be indexed as key-value entries allowing peers to locate task-specific modules without a central registry}{figure.caption.19}{}}
+\newlabel{fig:dht_lookup@cref}{{[figure][14][]14}{[1][35][]35}{}{}{}}
+\citation{Hu2022}
+\citation{Houlsby2019}
+\citation{Pfeiffer2021fusion}
+\citation{RyabininCrowdsourced2020}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{\numberline {9}Synthesis and Research Gap Analysis}{36}{section.9}\protected@file@percent }
+\newlabel{sec:synthesis_gap}{{9}{36}{Synthesis and Research Gap Analysis}{section.9}{}}
+\newlabel{sec:synthesis_gap@cref}{{[section][9][]9}{[1][36][]36}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}Answers to the Research Questions}{36}{subsection.9.1}\protected@file@percent }
+\newlabel{sec:synthesis_gap:answers}{{9.1}{36}{Answers to the Research Questions}{subsection.9.1}{}}
+\newlabel{sec:synthesis_gap:answers@cref}{{[subsection][1][9]9.1}{[1][36][]36}{}{}{}}
+\citation{McMahan2017,ZhangFedPETuning2023}
+\citation{MaymounkovKademlia2002,OrmandyGossip2013}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}Analytical Framework}{37}{subsection.9.2}\protected@file@percent }
+\newlabel{sec:synthesis_gap:formulation}{{9.2}{37}{Analytical Framework}{subsection.9.2}{}}
+\newlabel{sec:synthesis_gap:formulation@cref}{{[subsection][2][9]9.2}{[1][37][]37}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}Concept Matrix and Dimension Justification}{37}{subsection.9.3}\protected@file@percent }
+\newlabel{sec:synthesis_gap:matrix}{{9.3}{37}{Concept Matrix and Dimension Justification}{subsection.9.3}{}}
+\newlabel{sec:synthesis_gap:matrix@cref}{{[subsection][3][9]9.3}{[1][37][]37}{}{}{}}
+\citation{Houlsby2019}
+\citation{Hu2022}
+\citation{Pfeiffer2020hub}
+\citation{Pfeiffer2021fusion}
+\citation{Huang2023}
+\citation{ZhaoLoraRetriever2024}
+\citation{Sheng2024}
+\citation{Chen2023Punica}
+\citation{Li2024CaraServe}
+\citation{Borzunov2023}
+\citation{Sajina2024}
+\citation{ZhangFedPETuning2023}
+\citation{XuDPFedLoRA2025}
+\citation{WangFLoRA2024}
+\citation{LiMixLoRA2024}
+\citation{ZhangMiLoRA2024}
+\citation{HegeduisGossip2019}
+\def\@LN@column{1}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Concept matrix: related systems against seven design dimensions of the target decentralised adapter-based system. \text  {$\mathsurround \z@ \mathchar "458$}\ = addressed; (\text  {$\mathsurround \z@ \mathchar "458$}) = partially; $\times $ = not addressed; $-$ = dimension not engaged by the system (not applicable).}}{38}{table.caption.20}\protected@file@percent }
+\newlabel{tab:concept_matrix}{{6}{38}{Concept matrix: related systems against seven design dimensions of the target decentralised adapter-based system. \checkmark \ = addressed; (\checkmark ) = partially; $\times $ = not addressed; $-$ = dimension not engaged by the system (not applicable)}{table.caption.20}{}}
+\newlabel{tab:concept_matrix@cref}{{[table][6][]6}{[1][38][]38}{}{}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4}Four-Quadrant Gap Classification}{39}{subsection.9.4}\protected@file@percent }
+\newlabel{sec:synthesis_gap:gaps}{{9.4}{39}{Four-Quadrant Gap Classification}{subsection.9.4}{}}
+\newlabel{sec:synthesis_gap:gaps@cref}{{[subsection][4][9]9.4}{[1][39][]39}{}{}{}}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Research gap taxonomy: gaps identified from the concept matrix classified into four quadrants by type of work required (foundational/operational) and scope of effect (system-level/component-level).}}{40}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:fig_gap_quadrant}{{15}{40}{Research gap taxonomy: gaps identified from the concept matrix classified into four quadrants by type of work required (foundational/operational) and scope of effect (system-level/component-level)}{figure.caption.21}{}}
+\newlabel{fig:fig_gap_quadrant@cref}{{[figure][15][]15}{[1][39][]40}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {9.4.0.1}Conceptual gap: adapters as atomic P2P knowledge units.}{40}{paragraph.9.4.0.1}\protected@file@percent }
+\citation{MaymounkovKademlia2002}
+\citation{OrmandyGossip2013}
+\citation{ZhangFedPETuning2023,Li2020FedProx}
+\citation{BenDavid2010}
+\citation{Pfeiffer2021fusion}
+\citation{Ilharco2023TaskArithmetic}
+\citation{Yadav2023TIES}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {9.4.0.2}Algorithmic gaps: discovery protocol, capability embeddings, behavioural fingerprints.}{41}{paragraph.9.4.0.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {9.4.0.3}Systems gaps: P2P adapter exchange architecture and gossip-based dissemination.}{41}{paragraph.9.4.0.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {9.4.0.4}Empirical gaps: reuse bounds and decentralised fusion.}{41}{paragraph.9.4.0.4}\protected@file@percent }
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.5}Research Gap Map}{42}{subsection.9.5}\protected@file@percent }
+\newlabel{sec:synthesis_gap:gap_map}{{9.5}{42}{Research Gap Map}{subsection.9.5}{}}
+\newlabel{sec:synthesis_gap:gap_map@cref}{{[subsection][5][9]9.5}{[1][42][]42}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Research gap map: identified gaps grouped by quadrant, with evidence base, unaddressed concept matrix dimensions, and open research question.}}{42}{table.caption.22}\protected@file@percent }
+\newlabel{tab:gap_map}{{7}{42}{Research gap map: identified gaps grouped by quadrant, with evidence base, unaddressed concept matrix dimensions, and open research question}{table.caption.22}{}}
+\newlabel{tab:gap_map@cref}{{[table][7][]7}{[1][42][]42}{}{}{}}
+\citation{Page2021}
+\citation{XiaoWatson2019}
+\citation{Wohlin2014}
+\citation{Huang2023}
+\citation{Wortsman2022}
+\citation{ZhaoLoraRetriever2024}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.6}Research Directions and Open Problems}{43}{subsection.9.6}\protected@file@percent }
+\newlabel{sec:synthesis_gap:directions}{{9.6}{43}{Research Directions and Open Problems}{subsection.9.6}{}}
+\newlabel{sec:synthesis_gap:directions@cref}{{[subsection][6][9]9.6}{[1][42][]43}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {10}Conclusion}{43}{section.10}\protected@file@percent }
+\newlabel{sec:conclusion}{{10}{43}{Conclusion}{section.10}{}}
+\newlabel{sec:conclusion@cref}{{[section][10][]10}{[1][43][]43}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.1}Summary of Findings}{43}{subsection.10.1}\protected@file@percent }
+\newlabel{sec:conclusion:summary}{{10.1}{43}{Summary of Findings}{subsection.10.1}{}}
+\newlabel{sec:conclusion:summary@cref}{{[subsection][1][10]10.1}{[1][43][]43}{}{}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.2}Research Gap Identification and Systematisation}{44}{subsection.10.2}\protected@file@percent }
+\newlabel{sec:conclusion:contributions}{{10.2}{44}{Research Gap Identification and Systematisation}{subsection.10.2}{}}
+\newlabel{sec:conclusion:contributions@cref}{{[subsection][2][10]10.2}{[1][44][]44}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.3}Threats to Validity}{44}{subsection.10.3}\protected@file@percent }
+\newlabel{sec:conclusion:threats}{{10.3}{44}{Threats to Validity}{subsection.10.3}{}}
+\newlabel{sec:conclusion:threats@cref}{{[subsection][3][10]10.3}{[1][44][]44}{}{}{}}
+\def\@LN@column{1}
+\citation{BenDavid2010}
+\bibdata{bibliography}
+\bibcite{Vaswani2017}{{1}{2017}{{Vaswani et~al.}}{{Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, and Polosukhin}}}
+\bibcite{Devlin2019}{{2}{2019}{{Devlin et~al.}}{{Devlin, Chang, Lee, and Toutanova}}}
+\bibcite{Houlsby2019}{{3}{2019}{{Houlsby et~al.}}{{Houlsby, Giurgiu, Jastrzebski, Morrone, de~Laroussilhe, Gesmundo, Attariyan, and Gelly}}}
+\bibcite{Hu2022}{{4}{2022}{{Hu et~al.}}{{Hu, Shen, Wallis, Allen-Zhu, Li, Wang, Wang, and Chen}}}
+\bibcite{Sheng2024}{{5}{2024}{{Sheng et~al.}}{{Sheng, Cao, Li, Hooper, Lee, Yang, Chou, Zhu, Zheng, Keutzer, Gonzalez, and Stoica}}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.4}Limitations and Future Work}{46}{subsection.10.4}\protected@file@percent }
+\newlabel{sec:conclusion:limitations}{{10.4}{46}{Limitations and Future Work}{subsection.10.4}{}}
+\newlabel{sec:conclusion:limitations@cref}{{[subsection][4][10]10.4}{[1][45][]46}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {11}}{46}{section.11}\protected@file@percent }
+\bibcite{Chen2023Punica}{{6}{2024}{{Chen et~al.}}{{Chen, Ye, Wu, Zhuo, Ceze, and Krishnamurthy}}}
+\bibcite{Li2024CaraServe}{{7}{2025}{{Li et~al.}}{{Li, Lu, Wu, Yu, Weng, Chen, Shan, Yuan, and Wang}}}
+\bibcite{Borzunov2023}{{8}{2023}{{Borzunov et~al.}}{{Borzunov, Baranchuk, Dettmers, Riabinin, Belkada, Chumachenko, Samygin, and Raffel}}}
+\bibcite{Sajina2024}{{9}{2024}{{{Š}ajina et~al.}}{{{Š}ajina, Tankovi{\'c}, and Ip{\v {s}}i{\'c}}}}
+\bibcite{Han2024}{{10}{2024}{{Han et~al.}}{{Han, Gao, Liu, Zhang, and Zhang}}}
+\bibcite{WangAIReview2024}{{11}{2024}{{Wang et~al.}}{{Wang, Chen, Jiang, Pan, Cai, Yang, and Yang}}}
+\bibcite{MaoLoraSurvey2024}{{12}{2024}{{Mao et~al.}}{{Mao, Ge, Fan, Xu, Mi, Hu, and Gao}}}
+\bibcite{YeDecentralizedFL2022}{{13}{2022}{{Ye et~al.}}{{Ye, Liang, and Li}}}
+\bibcite{WinkP2PFL2021}{{14}{2021}{{Wink and Nochta}}{{}}}
+\bibcite{SajinaP2PConnection2024}{{15}{2024}{{{Š}ajina et~al.}}{{{Š}ajina, Tankovi{\'c}, and Ip{\v {s}}i{\'c}}}}
+\bibcite{RadfordGPT22019}{{16}{2019}{{Radford et~al.}}{{Radford, Wu, Child, Luan, Amodei, and Sutskever}}}
+\bibcite{BrownGPT32020}{{17}{2020}{{Brown et~al.}}{{Brown, Mann, Ryder, Subbiah, Kaplan, Dhariwal, Neelakantan, Shyam, Sastry, Askell, et~al.}}}
+\bibcite{RaffelT52020}{{18}{2020}{{Raffel et~al.}}{{Raffel, Shazeer, Roberts, Lee, Narang, Matena, Zhou, Li, and Liu}}}
+\bibcite{TouvronLLaMA2023}{{19}{2023}{{Touvron et~al.}}{{Touvron, Lavril, Izacard, Martinet, Lachaux, Lacroix, et~al.}}}
+\bibcite{LiLiang2021}{{20}{2021}{{Li and Liang}}{{}}}
+\bibcite{Pfeiffer2020hub}{{21}{2020}{{Pfeiffer et~al.}}{{Pfeiffer, R{\"u}ckl{\'e}, Poth, Kamath, Vuli{\'c}, Ruder, Cho, and Gurevych}}}
+\bibcite{MaymounkovKademlia2002}{{22}{2002}{{Maymounkov and Mazi{\`e}res}}{{}}}
+\bibcite{OrmandyGossip2013}{{23}{2013}{{Orm{\'a}ndi et~al.}}{{Orm{\'a}ndi, Heged\H {u}s, and Jelasity}}}
+\def\@LN@column{1}
+\bibcite{Page2021}{{24}{2021}{{Page et~al.}}{{Page, McKenzie, Bossuyt, Boutron, Hoffmann, Mulrow, et~al.}}}
+\bibcite{XiaoWatson2019}{{25}{2019}{{Xiao and Watson}}{{}}}
+\bibcite{Wohlin2014}{{26}{2014}{{Wohlin}}{{}}}
+\bibcite{KitchenhamCharters2007}{{27}{2007}{{Kitchenham and Charters}}{{}}}
+\bibcite{Webster2002}{{28}{2002}{{Webster and Watson}}{{}}}
+\bibcite{WangGLUE2018}{{29}{2019{}}{{Wang et~al.}}{{Wang, Singh, Michael, Hill, Levy, and Bowman}}}
+\bibcite{WangSuperGLUE2019}{{30}{2019{}}{{Wang et~al.}}{{Wang, Pruksachatkun, Nangia, Singh, Michael, Hill, Levy, and Bowman}}}
+\bibcite{HendrycksMMLU2021}{{31}{2021}{{Hendrycks et~al.}}{{Hendrycks, Burns, Basart, Zou, Mazeika, Song, and Steinhardt}}}
+\bibcite{Dettmers2023}{{32}{2023}{{Dettmers et~al.}}{{Dettmers, Pagnoni, Holtzman, and Zettlemoyer}}}
+\bibcite{BenZaken2022}{{33}{2022}{{Ben-Zaken et~al.}}{{Ben-Zaken, Ravfogel, and Goldberg}}}
+\bibcite{PothAdapters2023}{{34}{2023}{{Poth et~al.}}{{Poth, Sterz, Paul, Purkayastha, Engl{\"a}nder, Imhof, Vuli{\'c}, Ruder, Gurevych, and Pfeiffer}}}
+\bibcite{Pfeiffer2021fusion}{{35}{2021}{{Pfeiffer et~al.}}{{Pfeiffer, Kamath, R{\"u}ckl{\'e}, Cho, and Gurevych}}}
+\bibcite{PfeifferMADX2020}{{36}{2020}{{Pfeiffer et~al.}}{{Pfeiffer, Vuli{\'c}, Gurevych, and Ruder}}}
+\bibcite{Huang2023}{{37}{2023}{{Huang et~al.}}{{Huang, Liu, Lin, Pang, Du, and Lin}}}
+\bibcite{ZhaoLoraRetriever2024}{{38}{2024}{{Zhao et~al.}}{{Zhao, Gan, Wang, Zhou, Yang, Kuang, and Wu}}}
+\bibcite{Ostapenko2024}{{39}{2024}{{Ostapenko et~al.}}{{Ostapenko, Su, Ponti, Charlin, Le~Roux, Caccia, and Sordoni}}}
+\bibcite{McMahan2017}{{40}{2017}{{McMahan et~al.}}{{McMahan, Moore, Ramage, Hampson, and {y Arcas}}}}
+\def\@LN@column{1}
+\bibcite{Li2020FedProx}{{41}{2020}{{Li et~al.}}{{Li, Sahu, Zaheer, Sanjabi, Talwalkar, and Smith}}}
+\bibcite{ZhangFedPETuning2023}{{42}{2023}{{Zhang et~al.}}{{Zhang, Yang, Dai, Wang, Yu, Qu, and Xu}}}
+\bibcite{WangFLoRA2024}{{43}{2024}{{Wang et~al.}}{{Wang, Shen, He, Sun, Wang, Lyu, and Li}}}
+\bibcite{XuDPFedLoRA2025}{{44}{2025}{{Xu et~al.}}{{Xu, Shrestha, Chen, Li, and Cai}}}
+\bibcite{Babakniya2023}{{45}{2023}{{Babakniya et~al.}}{{Babakniya, Elkordy, Ezzeldin, Liu, Song, El-Khamy, and Avestimehr}}}
+\bibcite{HegeduisGossip2019}{{46}{2019}{{Heged{\H {u}}s et~al.}}{{Heged{\H {u}}s, Danner, and Jelasity}}}
+\bibcite{Fedus2022}{{47}{2022}{{Fedus et~al.}}{{Fedus, Zoph, and Shazeer}}}
+\bibcite{Zhou2022}{{48}{2022}{{Zhou et~al.}}{{Zhou, Lei, Liu, Du, Huang, Zhao, Dai, Chen, Le, and Laudon}}}
+\bibcite{RajbhandariDeepSpeed2022}{{49}{2022}{{Rajbhandari et~al.}}{{Rajbhandari, Li, Yao, Zhang, Aminabadi, Awan, Rasley, and He}}}
+\bibcite{WangAdaMix2022}{{50}{2022}{{Wang et~al.}}{{Wang, Agarwal, Mukherjee, Liu, Gao, and Awadallah}}}
+\bibcite{LiMixLoRA2024}{{51}{2024}{{Li et~al.}}{{Li, Ma, Wang, Ye, Cheng, Tang, Zhang, Lei, Zuo, Yang, and Tang}}}
+\bibcite{ZhangMiLoRA2024}{{52}{2024}{{Zhang et~al.}}{{Zhang, Zhao, Chen, Tian, Zheng, and Zhu}}}
+\bibcite{DouLoRAMoE2024}{{53}{2024}{{Dou et~al.}}{{Dou, Zhou, Liu, Gao, Shen, Xiong, Zhou, Wang, Xi, Fan, Pu, Zhu, Zheng, Gui, Zhang, and Huang}}}
+\bibcite{LiuWhenMOE2024}{{54}{2024}{{Liu et~al.}}{{Liu, Wu, Zhao, Zhu, Xu, Tian, and Zheng}}}
+\bibcite{RyabininCrowdsourced2020}{{55}{2020}{{Ryabinin and Gusev}}{{}}}
+\def\@LN@column{1}
+\bibcite{DingNature2023}{{56}{2023}{{Ding et~al.}}{{Ding, Qin, Yang, Wei, Yang, Su, Hu, Chen, Chan, Chen, et~al.}}}
+\bibcite{ZengExpressive2024}{{57}{2024}{{Zeng and Lee}}{{}}}
+\bibcite{HeEffectiveness2021}{{58}{2021}{{He et~al.}}{{He, Liu, Ye, Tan, Ding, Cheng, Low, Bing, and Si}}}
+\bibcite{RuckleAdapterDrop2021}{{59}{2021}{{R{\"u}ckl{\'e} et~al.}}{{R{\"u}ckl{\'e}, Geigle, Glockner, Beck, Pfeiffer, Reimers, and Gurevych}}}
+\bibcite{ZhangAdaLoRA2023}{{60}{2023}{{Zhang et~al.}}{{Zhang, Chen, Bukharin, He, Cheng, Chen, and Zhao}}}
+\bibcite{LiuDoRA2024}{{61}{2024}{{Liu et~al.}}{{Liu, Wang, Yin, Molchanov, Wang, Chao, and Chen}}}
+\bibcite{LialinReLoRA2023}{{62}{2023}{{Lialin et~al.}}{{Lialin, Muckatira, Shivagunde, and Rumshisky}}}
+\bibcite{LewisBART2020}{{63}{2020}{{Lewis et~al.}}{{Lewis, Liu, Goyal, Ghazvininejad, Mohamed, Levy, Stoyanov, and Zettlemoyer}}}
+\bibcite{Lester2021}{{64}{2021}{{Lester et~al.}}{{Lester, Al-Rfou, and Constant}}}
+\bibcite{MahabadiCompacter2021}{{65}{2021{}}{{Mahabadi et~al.}}{{Mahabadi, Henderson, and Ruder}}}
+\bibcite{Mahabadi2021}{{66}{2021{}}{{Mahabadi et~al.}}{{Mahabadi, Ruder, Dehghani, and Henderson}}}
+\bibcite{HeUnifiedPEFT2022}{{67}{2022}{{He et~al.}}{{He, Zhou, Ma, Berg-Kirkpatrick, and Neubig}}}
+\bibcite{Ponti2023}{{68}{2023}{{Ponti et~al.}}{{Ponti, Sordoni, Bengio, and Reddy}}}
+\bibcite{Ilharco2023TaskArithmetic}{{69}{2023}{{Ilharco et~al.}}{{Ilharco, Ribeiro, Wortsman, Gururangan, Schmidt, Hajishirzi, and Farhadi}}}
+\bibcite{Yadav2023TIES}{{70}{2023}{{Yadav et~al.}}{{Yadav, Tam, Choshen, Raffel, and Bansal}}}
+\bibcite{AnsellMADG2021}{{71}{2021}{{Ansell et~al.}}{{Ansell, Ponti, Pfeiffer, Ruder, Glava{\v {s}}, Vuli{\'c}, and Korhonen}}}
+\def\@LN@column{1}
+\bibcite{ZhangHyperPELT2022}{{72}{2022}{{Zhang et~al.}}{{Zhang, Guo, Meng, Wang, Wang, Jiang, Liu, and Han}}}
+\bibcite{IvisonHyperdecoders2022}{{73}{2022}{{Ivison and Peters}}{{}}}
+\bibcite{Wortsman2022}{{74}{2022}{{Wortsman et~al.}}{{Wortsman, Ilharco, Gadre, Roelofs, Garg, Smola, Shankar, Schmitt, Hendrycks, and Farhadi}}}
+\bibcite{MaoUniPELT2022}{{75}{2022}{{Mao et~al.}}{{Mao, Mathias, Hou, Almahairi, Ma, Han, Yih, and Khabsa}}}
+\bibcite{YuOrca2022}{{76}{2022}{{Yu et~al.}}{{Yu, Jeong, Kim, Kim, and Chun}}}
+\bibcite{KwonPagedAttention2023}{{77}{2023}{{Kwon et~al.}}{{Kwon, Li, Zhuang, Sheng, Zheng, Yu, Gonzalez, Zhang, and Stoica}}}
+\bibcite{ShengFlexGen2023}{{78}{2023}{{Sheng et~al.}}{{Sheng, Zheng, Yuan, Li, Ryabinin, Chen, Liang, R{\'e}, Stoica, and Zhang}}}
+\bibcite{LiAlpaServe2023}{{79}{2023}{{Li et~al.}}{{Li, Zheng, Zhong, Liu, Sheng, Jin, Huang, Chen, Zhang, Gonzalez, and Stoica}}}
+\bibcite{ChenFlashServe2025}{{80}{2025}{{Chen}}{{}}}
+\bibcite{FuServerlessLLM2024}{{81}{2024}{{Fu et~al.}}{{Fu, Xue, Huang, Brabete, Ustiugov, Patel, and Mai}}}
+\bibcite{NiPredictive2025}{{82}{2025}{{Ni et~al.}}{{Ni, Yang, Tang, Qiu, Wang, and Yuan}}}
+\bibcite{Shen2025EdgeLoRA}{{83}{2025}{{Shen et~al.}}{{Shen, He, Wang, Zhang, Sun, Ye, and Li}}}
+\bibcite{CaiEdgeLLM2024}{{84}{2024}{{Cai et~al.}}{{Cai, Yuan, Yang, and Cui}}}
+\bibcite{ZhangEdgeShard2025}{{85}{2025}{{Zhang et~al.}}{{Zhang, Shen, Cao, Cui, and Jiang}}}
+\bibcite{HuDistributed2022}{{86}{2022}{{Hu and Li}}{{}}}
+\bibcite{WuRock2025}{{87}{2025}{{Wu et~al.}}{{Wu, Lin, Peng, Chen, Ma, Shen, Chen, Xu, and Ye}}}
+\def\@LN@column{1}
+\bibcite{ZhuCannikin2025}{{88}{2025}{{Zhu et~al.}}{{Zhu, Jiang, Zhang, Liu, Liu, and Jin}}}
+\bibcite{Shi2025AuLoRA}{{89}{2025}{{Shi et~al.}}{{Shi, Du, Chen, and Lu}}}
+\bibcite{ShazeerMoE2017}{{90}{2017}{{Shazeer et~al.}}{{Shazeer, Mirhoseini, Maziarz, Davis, Le, Hinton, and Dean}}}
+\bibcite{JiangMixtral2024}{{91}{2024}{{Jiang et~al.}}{{Jiang, Sablayrolles, Roux, Mensch, Savary, Bamford, Chaplot, de~las Casas, Hanna, Bressand, Lengyel, Bour, Lample, Lavaud, Saulnier, Lachaux, Stock, Subramanian, Yang, Antoniak, Le~Scao, Gervet, Lavril, Wang, Lacroix, and El~Sayed}}}
+\bibcite{LepikhinGShard2021}{{92}{2021}{{Lepikhin et~al.}}{{Lepikhin, Lee, Xu, Chen, Firat, Huang, Krikun, Shazeer, and Chen}}}
+\bibcite{DuGLaM2022}{{93}{2022}{{Du et~al.}}{{Du, Huang, Dai, Tong, Lepikhin, Xu, Krikun, Zhou, Yu, Firat, Zoph, Fedus, Bosma, Zhou, Wang, Wang, Webster, Pellat, Robinson, Meier-Hellstern, Duke, Dixon, Zhang, Le, Wu, Chen, and Cui}}}
+\bibcite{ZadouriPushMoE2024}{{94}{2024}{{Zadouri et~al.}}{{Zadouri, {\"U}st{\"u}n, Ahmadian, Ermi{\c {s}}, Locatelli, and Hooker}}}
+\bibcite{LuoMoELoRA2024}{{95}{2024}{{Luo et~al.}}{{Luo, Lei, Lei, Liu, He, Zhao, and Liu}}}
+\bibcite{WuMixtureLoRA2024}{{96}{2024}{{Wu et~al.}}{{Wu, Huang, and Wei}}}
+\bibcite{FengMoLoRAs2024}{{97}{2024}{{Feng et~al.}}{{Feng, Hao, Zhang, Han, and Wang}}}
+\bibcite{DiaomMoDE2023}{{98}{2023}{{Diao et~al.}}{{Diao, Xu, Xu, Wang, and Zhang}}}
+\bibcite{Muqeeth2024}{{99}{2024}{{Muqeeth et~al.}}{{Muqeeth, Liu, Liu, and Raffel}}}
+\bibcite{LiZhouSparser2025}{{100}{2025}{{Li and Zhou}}{{}}}
+\bibcite{VanhaesebrouckDCL2017}{{101}{2017}{{Vanhaesebrouck et~al.}}{{Vanhaesebrouck, Bellet, and Tommasi}}}
+\bibcite{JiangCollab2017}{{102}{2017}{{Jiang et~al.}}{{Jiang, Balu, Hegde, and Sarkar}}}
+\bibcite{Lian2017Decentralized}{{103}{2017}{{Lian et~al.}}{{Lian, Zhang, Zhang, Hsieh, Zhang, and Liu}}}
+\def\@LN@column{1}
+\bibcite{BellavistaDL2021}{{104}{2021}{{Bellavista et~al.}}{{Bellavista, Foschini, and Mora}}}
+\bibcite{Savazzi2020}{{105}{2020}{{Savazzi et~al.}}{{Savazzi, Nicoli, and Rampa}}}
+\bibcite{Sajina2025}{{106}{2025}{{{Š}ajina}}{{}}}
+\bibcite{TrautmannAgg2024}{{107}{2024}{{Trautmann et~al.}}{{Trautmann, Hales, and Volk}}}
+\bibcite{SinghalFedEx2025}{{108}{2025}{{Singhal et~al.}}{{Singhal, Ponkshe, and Vepakomma}}}
+\bibcite{ChoHeteroLoRA2024}{{109}{2024}{{Cho et~al.}}{{Cho, Liu, Xu, Fahrezi, and Joshi}}}
+\bibcite{WangGlobecom2024}{{110}{2024}{{Wang et~al.}}{{Wang, Zhou, Shi, and Letaief}}}
+\bibcite{GaoINFOCOM2025}{{111}{2025}{{Gao et~al.}}{{Gao, Zhang, Guo, and Gong}}}
+\bibcite{LiuDP2023}{{112}{2023}{{Liu et~al.}}{{Liu, Zhu, Zha, Gao, Zhong, White, and Qiu}}}
+\bibcite{SunImprovingLoRA2024}{{113}{2024}{{Sun et~al.}}{{Sun, Li, Li, and Ding}}}
+\bibcite{LinSplitLoRA2024}{{114}{2024}{{Lin et~al.}}{{Lin, Hu, Zhang, Chen, Fang, Zhu, Gao, Gao, and Xu}}}
+\bibcite{ZhangPrivacySplit2023}{{115}{2023}{{Zhang et~al.}}{{Zhang, Pinto, Turina, Esposito, and Matta}}}
+\bibcite{CaiFedAdapter2023}{{116}{2023}{{Cai et~al.}}{{Cai, Wu, Wang, and Xu}}}
+\bibcite{GuoSelective2025}{{117}{2025}{{Guo et~al.}}{{Guo, Zeng, Wang, Fan, Wang, and Qu}}}
+\bibcite{YanFeDeRA2024}{{118}{2024}{{Yan et~al.}}{{Yan, Yang, Tang, and Shi}}}
+\bibcite{BianFedALT2025}{{119}{2025}{{Bian et~al.}}{{Bian, Wang, Zhang, and Xu}}}
+\bibcite{ZhaoFedMCP2024}{{120}{2024}{{Zhao et~al.}}{{Zhao, Qu, Chen, Fan, and Wang}}}
+\bibcite{LiuAdaptive2024}{{121}{2024}{{Liu et~al.}}{{Liu, Liao, Xu, Xu, Liu, and Qian}}}
+\def\@LN@column{1}
+\bibcite{KooBai2025}{{122}{2025}{{Koo et~al.}}{{Koo, Jang, and Ok}}}
+\bibcite{StoicaChord2001}{{123}{2001}{{Stoica et~al.}}{{Stoica, Morris, Karger, Kaashoek, and Balakrishnan}}}
+\bibcite{CohenBitTorrent2003}{{124}{2003}{{Cohen}}{{}}}
+\bibcite{Ghiasvand2025}{{125}{2025}{{Ghiasvand et~al.}}{{Ghiasvand, Alizadeh, and Pedarsani}}}
+\bibcite{BenDavid2010}{{126}{2010}{{Ben-David et~al.}}{{Ben-David, Blitzer, Crammer, Kulesza, Pereira, and Vaughan}}}
+\bibcite{SemanticScholar2023}{{127}{2023}{{Semantic Scholar}}{{}}}
+\bibcite{Keshav2007}{{128}{2007}{{Keshav}}{{}}}
+\citation{Hu2022}
+\citation{Wohlin2014}
+\citation{SemanticScholar2023}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Appendix~A}{54}{appendix.A}\protected@file@percent }
+\newlabel{sec:appendix:corpus_pipeline}{{A}{54}{\appendixname ~\thesection }{appendix.A}{}}
+\newlabel{sec:appendix:corpus_pipeline@cref}{{[section][1][]A}{[1][54][]54}{}{}{}}
+\def\@LN@column{1}
+\@writefile{lot}{\contentsline {table}{\numberline {A1}{\ignorespaces Title screening outcomes across the 972 snowballed records, shown by layer. The bold final counts match the screened records stored in the pipeline and the audit log.}}{55}{table.caption.23}\protected@file@percent }
+\newlabel{tab:screening}{{A1}{55}{Title screening outcomes across the 972 snowballed records, shown by layer. The bold final counts match the screened records stored in the pipeline and the audit log}{table.caption.23}{}}
+\newlabel{tab:screening@cref}{{[table][1][]A1}{[1][55][]55}{}{}{}}
+\citation{Keshav2007}
+\def\@LN@column{1}
+\@writefile{lot}{\contentsline {table}{\numberline {A2}{\ignorespaces Tier classification of the 464-paper enriched corpus.}}{56}{table.caption.24}\protected@file@percent }
+\newlabel{tab:tiers}{{A2}{56}{Tier classification of the 464-paper enriched corpus}{table.caption.24}{}}
+\newlabel{tab:tiers@cref}{{[table][2][]A2}{[1][56][]56}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A1}{\ignorespaces Tier breakdown of the 464-paper relevant corpus. Tier~1 papers (90, 19.4\%) address all three themes; Tier~2 (141, 30.4\%) address two; Tier~3 (233, 50.2\%) address one theme.}}{56}{figure.caption.25}\protected@file@percent }
+\newlabel{fig:tiers}{{A1}{56}{Tier breakdown of the 464-paper relevant corpus. Tier~1 papers (90, 19.4\%) address all three themes; Tier~2 (141, 30.4\%) address two; Tier~3 (233, 50.2\%) address one theme}{figure.caption.25}{}}
+\newlabel{fig:tiers@cref}{{[figure][1][]A1}{[1][56][]56}{}{}{}}
+\def\@LN@column{1}
+\@writefile{lot}{\contentsline {table}{\numberline {A4}{\ignorespaces Publication year distribution of the 123-paper reviewed corpus.}}{57}{table.caption.27}\protected@file@percent }
+\newlabel{tab:year_dist}{{A4}{57}{Publication year distribution of the 123-paper reviewed corpus}{table.caption.27}{}}
+\newlabel{tab:year_dist@cref}{{[table][4][]A4}{[1][57][]57}{}{}{}}
+\citation{Keshav2007}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {A2}{\ignorespaces Venue distribution of the 464-paper enriched pool (an intermediate funnel stage prior to full-text review and quality appraisal; \emph  {not} the final 123-paper corpus). ACL/EMNLP comprises the largest venue category (25 papers), followed by arXiv preprints (9), NeurIPS (8), and ICML/MLSys (7).}}{58}{figure.caption.28}\protected@file@percent }
+\newlabel{fig:venues}{{A2}{58}{Venue distribution of the 464-paper enriched pool (an intermediate funnel stage prior to full-text review and quality appraisal; \emph {not} the final 123-paper corpus). ACL/EMNLP comprises the largest venue category (25 papers), followed by arXiv preprints (9), NeurIPS (8), and ICML/MLSys (7)}{figure.caption.28}{}}
+\newlabel{fig:venues@cref}{{[figure][2][]A2}{[1][57][]58}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A3}{\ignorespaces Year distribution of the 123-paper reviewed corpus, showing the acceleration of publication volume from 2023 onward.}}{58}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:bibliometric}{{A3}{58}{Year distribution of the 123-paper reviewed corpus, showing the acceleration of publication volume from 2023 onward}{figure.caption.29}{}}
+\newlabel{fig:bibliometric@cref}{{[figure][3][]A3}{[1][58][]58}{}{}{}}
+\def\@LN@column{1}
+\@writefile{lot}{\contentsline {table}{\numberline {A5}{\ignorespaces Abstract review outcomes, final consolidated classification (552 records reviewed). KEEP (214) and SKIP (338) sum to the 552 reviewed; the 173 intermediate second-pass DEFER records are subsumed within the 338 SKIP in this final consolidation. These 173 borderline-DEFER records were, however, also carried into the full-text review queue (214 KEEP ${}+{}$ 173 DEFER = 387 queued; see text), and a subset was read in full and extracted before being excluded at final curation.}}{59}{table.caption.30}\protected@file@percent }
+\newlabel{tab:abstract}{{A5}{59}{Abstract review outcomes, final consolidated classification (552 records reviewed). KEEP (214) and SKIP (338) sum to the 552 reviewed; the 173 intermediate second-pass DEFER records are subsumed within the 338 SKIP in this final consolidation. These 173 borderline-DEFER records were, however, also carried into the full-text review queue (214 KEEP ${}+{}$ 173 DEFER = 387 queued; see text), and a subset was read in full and extracted before being excluded at final curation}{table.caption.30}{}}
+\newlabel{tab:abstract@cref}{{[table][5][]A5}{[1][59][]59}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Appendix~B}{59}{appendix.B}\protected@file@percent }
+\newlabel{app:undermind}{{B}{59}{\appendixname ~\thesection }{appendix.B}{}}
+\newlabel{app:undermind@cref}{{[section][2][]B}{[1][59][]59}{}{}{}}
+\newlabel{app:undermind:g1}{{B}{59}{}{appendix.B}{}}
+\newlabel{app:undermind:g1@cref}{{[section][2][]B}{[1][59][]59}{}{}{}}
+\def\@LN@column{1}
+\newlabel{app:undermind:g2}{{B}{60}{}{appendix.B}{}}
+\newlabel{app:undermind:g2@cref}{{[section][2][]B}{[1][60][]60}{}{}{}}
+\newlabel{app:undermind:g3}{{B}{60}{}{appendix.B}{}}
+\newlabel{app:undermind:g3@cref}{{[section][2][]B}{[1][60][]60}{}{}{}}
+\newlabel{app:undermind:g4}{{B}{60}{}{appendix.B}{}}
+\newlabel{app:undermind:g4@cref}{{[section][2][]B}{[1][60][]60}{}{}{}}
+\newlabel{app:undermind:g5}{{B}{60}{}{appendix.B}{}}
+\newlabel{app:undermind:g5@cref}{{[section][2][]B}{[1][60][]60}{}{}{}}
+\def\@LN@column{1}
+\newlabel{app:undermind:g6}{{B}{61}{}{appendix.B}{}}
+\newlabel{app:undermind:g6@cref}{{[section][2][]B}{[1][61][]61}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Appendix~C}{61}{appendix.C}\protected@file@percent }
+\newlabel{app:db_queries}{{C}{61}{\appendixname ~\thesection }{appendix.C}{}}
+\newlabel{app:db_queries@cref}{{[section][3][]C}{[1][61][]61}{}{}{}}
+\newlabel{app:db_queries:scopus}{{C}{61}{}{appendix.C}{}}
+\newlabel{app:db_queries:scopus@cref}{{[section][3][]C}{[1][61][]61}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {C.0.0.1}Q1 — Core Adapter-Based NLP.}{61}{paragraph.C.0.0.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {C.0.0.2}Q2 — Multi-Task Learning with Transformers.}{61}{paragraph.C.0.0.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {C.0.0.3}Q3 — Peer-to-Peer \& Distributed NLP.}{61}{paragraph.C.0.0.3}\protected@file@percent }
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {C.0.0.4}Q4 — Adapter Fusion \& Dynamic Routing.}{62}{paragraph.C.0.0.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {C.0.0.5}Q5 — Parameter-Efficient Multi-Task Transformers.}{62}{paragraph.C.0.0.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {C.0.0.6}Q6 — Modular Inference \& Task Switching.}{62}{paragraph.C.0.0.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {C.0.0.7}Q7 — Agent-Based Collaborative Learning.}{62}{paragraph.C.0.0.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {C.0.0.8}Q8 — NL-to-SQL with Adapters.}{62}{paragraph.C.0.0.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {C.0.0.9}Q9 — Sequence Labelling \& Token Classification with PEFT.}{62}{paragraph.C.0.0.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {C.0.0.10}Q10 — Frozen Base Model Paradigm.}{62}{paragraph.C.0.0.10}\protected@file@percent }
+\def\@LN@column{1}
+\newlabel{app:db_queries:wos}{{C.0.0.10}{63}{}{paragraph.C.0.0.10}{}}
+\newlabel{app:db_queries:wos@cref}{{[paragraph][10][3,0,0]C.0.0.10}{[1][62][]63}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {C.0.0.11}Q1 — Core Adapter-Based NLP.}{63}{paragraph.C.0.0.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {C.0.0.12}Q2 — Multi-Task Adapter Inference.}{63}{paragraph.C.0.0.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {C.0.0.13}Q3 — Peer-to-Peer Distributed Learning.}{63}{paragraph.C.0.0.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {C.0.0.14}Q4 — Adapter Fusion \& Routing Mechanisms.}{63}{paragraph.C.0.0.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {C.0.0.15}Q5 — Modular Deep Learning.}{63}{paragraph.C.0.0.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {C.0.0.16}Q6 — Agent-Based Collaborative ML.}{63}{paragraph.C.0.0.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {C.0.0.17}Q7 — Memory-Efficient Multi-Task NLP.}{63}{paragraph.C.0.0.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {C.0.0.18}Q8 — Transfer Learning with Task Adaptation.}{63}{paragraph.C.0.0.18}\protected@file@percent }
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {C.0.0.19}Q9 — Sequence Task Learning.}{64}{paragraph.C.0.0.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {C.0.0.20}Q10 — Distributed Inference.}{64}{paragraph.C.0.0.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {D}Appendix~D}{64}{appendix.D}\protected@file@percent }
+\newlabel{app:search_log}{{D}{64}{\appendixname ~\thesection }{appendix.D}{}}
+\newlabel{app:search_log@cref}{{[section][4][]D}{[1][64][]64}{}{}{}}
+\citation{Wohlin2014}
+\citation{Sajina2025}
+\citation{Sajina2024}
+\def\@LN@column{1}
+\newlabel{app:search_log:timeline}{{D}{65}{}{appendix.D}{}}
+\newlabel{app:search_log:timeline@cref}{{[section][4][]D}{[1][64][]65}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {A6}{\ignorespaces Chronological search log with input and output record counts.}}{65}{table.caption.31}\protected@file@percent }
+\newlabel{tab:search_log}{{A6}{65}{Chronological search log with input and output record counts}{table.caption.31}{}}
+\newlabel{tab:search_log@cref}{{[table][6][]A6}{[1][64][]65}{}{}{}}
+\newlabel{app:search_log:snowball}{{D}{65}{}{table.caption.31}{}}
+\newlabel{app:search_log:snowball@cref}{{[section][4][]D}{[1][65][]65}{}{}{}}
+\def\@LN@column{1}
+\newlabel{app:search_log:forward}{{D}{66}{}{table.caption.31}{}}
+\newlabel{app:search_log:forward@cref}{{[section][4][]D}{[1][66][]66}{}{}{}}
+\newlabel{app:search_log:crossval}{{D}{66}{}{table.caption.31}{}}
+\newlabel{app:search_log:crossval@cref}{{[section][4][]D}{[1][66][]66}{}{}{}}
+\newlabel{app:search_log:doi}{{D}{66}{}{table.caption.31}{}}
+\newlabel{app:search_log:doi@cref}{{[section][4][]D}{[1][66][]66}{}{}{}}
+\newlabel{app:search_log:pdf}{{D}{66}{}{table.caption.31}{}}
+\newlabel{app:search_log:pdf@cref}{{[section][4][]D}{[1][66][]66}{}{}{}}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\newlabel{LastPage}{{D}{68}{}{page.68}{}}
+\gdef\lastpage@lastpage{68}
+\gdef\lastpage@lastpageHy{68}
+\gdef \@abspage@last{68}

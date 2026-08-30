@@ -36,8 +36,10 @@ review has been substantially revised for this submission.
 \label{sec:methodology:search}
 
 The search was anchored on nine foundational seed papers (Group G0) selected
-for direct cross-pillar relevance and citation impact $\geq$300 in a top-tier
-venue. %CORRECTED 2026-08-30 (Blocking Issue #4, verified via
+for direct cross-pillar relevance and demonstrated citation impact in
+top-tier venues (e.g., LoRA and AdapterFusion each exceed 1,000 citations as
+of August 2026; Petals, as a more recent 2023 system paper, has accumulated
+over 100 citations in three years). %CORRECTED 2026-08-30 (Blocking Issue #4, verified via
 %slr_engine/.../verify_prisma_counts.py cross-checked against the
 %authoritative log_retrieval_2026-04-21.json, which records n_seeds=7 and
 %lists exactly which seeds were submitted for backward/forward retrieval).
@@ -276,8 +278,8 @@ Sheng et al.\ 2024 (S-LoRA) & Yes & Automated retrieval (132 new records found);
 A threat to construct validity deserves explicit acknowledgment: the nine G0
 seeds were deliberately chosen at the \emph{intersection} of the three pillars
 studied (PEFT, P2P collaboration, and multi-task serving), on the rationale of
-cross-pillar relevance and high citation impact (nominally $\geq$300 citations)
-in top-tier venues. Because this selection was informed by the research
+cross-pillar relevance and high citation impact, assessed qualitatively
+rather than against a fixed numerical threshold, in top-tier venues. Because this selection was informed by the research
 question itself, it carries an inherent risk of biasing the corpus toward the
 thesis narrative and could under-sample works that challenge the premise of
 decentralised adapter sharing. Two features mitigate this risk. First, the G0
@@ -285,12 +287,19 @@ set is complemented by the independently curated G1--G6 groups, which were
 assembled from leading venues without reference to the seeds'
 conclusions~\cite{XiaoWatson2019} (Table~\ref{tab:groups}). Second, forward and
 backward citation snowballing and the Scopus/WoS forward pass expand the corpus
-beyond the seeds' immediate frame. It is further noted that, although the
-$\geq$300-citation criterion was applied at seed selection, verified per-record
-citation counts are not uniformly retained in the reproducible corpus (the
-pre-validated snapshot stores counts for a minority of seeds); the threshold
-therefore reflects the decision-time snapshot rather than a figure reproduced
-here, and is reported for transparency rather than as an auditable datum.
+beyond the seeds' immediate frame. The nine G0 seeds were selected
+qualitatively for citation impact rather than against a single fixed
+numerical threshold applied uniformly at selection time; no such fixed
+threshold was retained as an auditable selection parameter. To ground this
+qualitative characterization, current citation counts were checked
+informally at the time of writing (August 2026): the most established seeds
+(LoRA, AdapterFusion) each exceed 1,000 citations, while more recent seeds
+(e.g., Petals, published 2023) show lower but still substantial and rapidly
+growing citation counts consistent with their shorter time in circulation.
+These figures reflect the state of citation databases at the time of
+writing rather than the original decision-time assessment, and are reported
+to characterize impact qualitatively rather than to claim a precisely
+audited, uniformly-applied threshold.
 
 \begin{table}[H]
 \centering
