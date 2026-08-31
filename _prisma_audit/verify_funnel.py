@@ -7,7 +7,15 @@ No number is read from the .tex manuscript.
 import csv, json, os, sys
 from collections import Counter, defaultdict
 
-SO = "/Users/vluk/PycharmProjects/slr_engine/slr_engine/snowballing/snowball_output"
+# Data root — the slr_engine repo's frozen output snapshot. Overridable via the
+# SLR_OUTPUT env var; defaults to the flattened layout (slr_engine/snowballing/...).
+import os as _os
+SO = _os.environ.get(
+    "SLR_OUTPUT",
+    _os.path.join(_os.path.dirname(__file__), "..", "..", "slr_engine",
+                  "snowballing", "snowball_output"),
+)
+SO = _os.path.abspath(SO)
 
 def load_csv(name):
     p = os.path.join(SO, name)
@@ -56,7 +64,12 @@ if 'results' in audit:
 elif 'decisions' in audit:
     res = audit['decisions']
     print("\n[Stage 2] Title screening decisions (audit['decisions'])")
-    print("  len:", len(res), "sample:", res[0] if res else None)
+    if isinstance(res, dict):
+        # dict of {decision_label: count}, e.g. INCLUDE=162 REVIEW=19 EXCLUDE=791
+        print("  decision counts:", dict(res))
+    elif isinstance(res, list):
+        dec = Counter(r.get('decision') or r.get('inclusion') for r in res)
+        print("  decision counts:", dict(dec))
 
 # ---------------- Merge step: 162 INCLUDE + 352 prevalidated -> 502 ---------
 rows = load_csv("pipeline_unified.csv")
