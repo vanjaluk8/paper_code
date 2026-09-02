@@ -1,0 +1,27 @@
+# ── LaTeX build artifacts (regenerable — not source-of-truth) ──────────────
+# The final PDF (build/out/main.pdf) is already ignored by the repo-level
+# **/*.pdf rule; these cover the intermediate files if anyone compiles in place.
+*.aux
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.log
+*.out
+*.toc
+*.lot
+*.lof
+*.nav
+*.snm
+*.synctex.gz
+*.listing
+*-converted-to.pdf
+*.bcf
+*.run.xml
+*.ilg
+*.ind
+*.idx
+
+# Build output directory — the deliverable PDF is already ignored by the
+# repo-level **/*.pdf rule; ignore everything else here too.
+build/out/*

@@ -194,7 +194,7 @@ instead captured narratively in `key\_finding`/`notes\_raw`, and the
 corresponding appraisal dimensions are handled in
 Section~\ref{sec:methodology:quality}.
 
-\begin{sidewaystable}[H]
+\begin{sidewaystable}[p]
 \centering
 \caption{Data-extraction codebook: column schema, meaning, allowed values, and
 coverage of the 224-row extraction table.}
@@ -321,8 +321,9 @@ records reviewed). KEEP (214) and SKIP (338) sum to the 552 reviewed; the 173
 intermediate second-pass DEFER records are subsumed within the 338 SKIP in
 this final consolidation. These 173 borderline-DEFER records were, however,
 also carried into the full-text review queue (214 KEEP ${}+{}$ 173 DEFER =
-387 queued; see text), and a subset was read in full and extracted before
-being excluded at final curation.}
+387 queued; see text), and a subset was read in full during full-text
+review before being excluded at final curation — none reached the
+data-extraction stage.}
 \label{tab:abstract}
 \begin{tabular}{lrr}
 \toprule
@@ -340,10 +341,10 @@ KEEP papers were exported for full-text review via RIS format
 (\texttt{08\_zotero\_ready\_2026-05-02.ris}, 214 entries). The full-text
 review queue (\texttt{09\_fulltext\_review\_queue\_2026-05-02.csv}),
 compiled from the 214 KEEP and the 173 borderline-DEFER records, contains
-\textbf{387} records; of these, \textbf{191} (190 KEEP-origin and 1
-DEFER-origin) underwent data extraction and \textbf{196} were excluded (24
-KEEP-origin, full text unavailable; 172 DEFER-origin, not taken further). A
-separate manual Scopus/WoS cross-validation top-up of \textbf{33} records
+\textbf{387} records; of these, \textbf{190} (all KEEP-origin; no
+DEFER-origin records reached extraction) and \textbf{197} were excluded (24
+KEEP-origin, full text unavailable; 173 DEFER-origin, not taken further). A
+separate manual Scopus/WoS cross-validation top-up of \textbf{34} records
 entered directly at the extraction stage, bypassing this full-text queue
 (none were ultimately retained in the final 123), bringing the extraction
 set to \textbf{224} (\texttt{11\_data\_extraction\_2026-05-12.csv}). A subset of the
@@ -756,7 +757,7 @@ $\approx$2026-04-28 & Abstract-level review, pass 1 (on the 464 corpus; AI-assis
 2026-05-11  & DOI-based venue validation: Web of Science (\texttt{M4\_wos\_venue}) &
   125 DOIs & 125 matched \\
 2026-05-12  & Data-extraction top-up with manual Scopus/WoS additions &
-  191 & 224 extracted (33 top-up) \\
+  190 & 224 extracted (34 top-up) \\
 2026-05-12  & Full-text reading, quality assessment, and final curation (final
   reading list is the authoritative evidence base) &
   --- & 123 final \\

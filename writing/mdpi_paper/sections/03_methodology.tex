@@ -78,14 +78,23 @@ which \textbf{162} passed; these screened-in records were merged with the
 352-paper pre-validated corpus (G0--G6): 162 + 352 = 514 candidate records, of
 which 12 were removed as duplicates already present in both the newly-screened
 set and the pre-validated corpus, yielding the reported \textbf{502}-record
-corpus. Enrichment and a topical-relevance/tier filter
+corpus. No search was dedicated specifically to locating competing systematic
+reviews or umbrella surveys of this exact scope; relevant surveys and reviews
+that surfaced during retrieval and snowballing were screened under the same
+eligibility criteria and retained where they qualified (see the study-type
+breakdown in \S\ref{sec:methodology:eligibility}), rather than being excluded a
+priori as a separate class. Enrichment and a topical-relevance/tier filter
 retained \textbf{464} records. Abstract review across two passes covered these
 464 records plus \textbf{88} records added by a supplementary forward-citation
 snowball pass (Scopus and WoS), yielding a combined abstract-review pool of
 \textbf{552}; of these, \textbf{214} were classified KEEP and exported for
 full-text review, \textbf{173} were classified SKIP but re-flagged DEFER for
 closer inspection, and the remaining \textbf{165} were classified SKIP and did
-not proceed further. %CORRECTED 2026-08-30 (Blocking Issue #2, verified via
+not proceed further. The \textbf{88} supplementary forward-snowball records
+resolved at this second abstract-review pass as \textbf{12} KEEP, \textbf{4}
+DEFER, and \textbf{72} SKIP; their retained records advanced alongside the
+queue to data extraction via the \texttt{abstract-2nd-pass} route, and
+\textbf{53} of the 123 final records trace to this supplementary branch. %CORRECTED 2026-08-30 (Blocking Issue #2, verified via
 %slr_engine/.../verify_prisma_counts.py): the abstract-review pipeline records
 %only a coarse KEEP/SKIP disposition and does not retain an individually
 %coded exclusion reason for SKIP records; these 165 exclusions are disclosed
@@ -96,21 +105,22 @@ does not retain an individually coded exclusion reason for SKIP records; this
 gap is disclosed as a named limitation in
 Section~\ref{sec:conclusion:threats} rather than papered over. The full-text
 review queue therefore comprises \textbf{387} records (214 KEEP
-${}+{}$ 173 DEFER). Of these, \textbf{191} (190 KEEP-origin and 1 DEFER-origin)
-underwent data extraction; the remaining \textbf{196} (24 KEEP-origin,
-full text unavailable; 172 DEFER-origin, not taken further) were excluded.
+${}+{}$ 173 DEFER). Of these, \textbf{190} (all KEEP-origin; no DEFER-origin
+records reached extraction) underwent data extraction; the remaining
+\textbf{197} (24 KEEP-origin, full text unavailable; 173 DEFER-origin, not
+taken further) were excluded.
 %CORRECTED 2026-08-30 (Blocking Issue #3): the extraction-stage total of 224
 %is not a linear 387-minus-exclusions subtraction; a supplementary manual
-%Scopus/WoS cross-validation search contributed 33 further records extracted
+%Scopus/WoS cross-validation search contributed 34 further records extracted
 %in parallel, entering directly at the extraction stage without ever passing
-%through the 387-record full-text queue (verified: all 33 have no S5/S6/S7b/Q9
-%stage flags set in pipeline_unified.csv). None of the 33 were ultimately
+%through the 387-record full-text queue (verified: all 34 have no S5/S6/S7b/Q9
+%stage flags set in pipeline_unified.csv). None of the 34 were ultimately
 %retained in the final 123-record list.
 A supplementary manual Scopus/WoS cross-validation search contributed
-\textbf{33} further records extracted in parallel, entering directly at the
+\textbf{34} further records extracted in parallel, entering directly at the
 extraction stage without passing through the full-text queue; none of these
-33 were ultimately retained in the final 123-record list. The extraction-stage
-total is therefore \textbf{224} (191 ${}+{}$ 33). Full-text reading and quality assessment
+34 were ultimately retained in the final 123-record list. The extraction-stage
+total is therefore \textbf{224} (190 ${}+{}$ 34). Full-text reading and quality assessment
 then reduced the corpus to \textbf{123 papers} (2002--2026); these correspond
 to \textbf{120 distinct papers}\footnote{The count of 123 includes 120 distinct
 papers because three works are each recorded as two separate entries in the
@@ -149,7 +159,12 @@ arXiv preprints were retained only where they carried a non-trivial external
 citation count (Semantic Scholar, retrieved at search time) as a minimal,
 external proxy for community engagement and peer scrutiny
 (Appendix~\ref{sec:appendix:corpus_pipeline}, \S A.3--A.4). The full criteria
-and their motivations are detailed in the appendix.
+and their motivations are detailed in the appendix. With respect to study type,
+the 123 included records comprise 114 primary studies (PEFT methods, serving
+systems, composition mechanisms, and federated/P2P training schemes); the
+remaining \textbf{9} records ($7.3\%$) are survey or overview contributions
+retained to establish field context and to map the taxonomy, and no position or
+tutorial works are included among the 123.
 
 \subsection*{Screening Reviewer Configuration}
 \label{sec:methodology:screening_reviewers}
@@ -190,11 +205,20 @@ screening but does not reduce, and may compound, the risk of a
 retrieval process shaped by the review's own hypotheses. This is
 discussed further in Section~\ref{sec:conclusion:threats}.
 
-Of the 123 included records, \textbf{105} (85.4\%) originate from the curated,
-pre-validated corpus groups G1--G6 (Table~\ref{tab:groups}), and the remaining
-\textbf{18} (14.6\%) were added by forward and backward citation snowballing
-around the G0 seed set (four directly-seeded anchor papers, ten forward and four
-backward snowball additions). The 123 records (120 distinct papers) are
+Of the 123 included records, \textbf{70} (56.9\%) entered through the primary
+full-text-queue path (i.e.\ they are part of the \textbf{387}-record full-text
+queue and its \textbf{190}-record extraction subset in
+Figure~\ref{fig:prisma}), and the remaining \textbf{53} (43.1\%) were added
+by the supplementary forward-citation snowball described below and were
+screened in a second abstract-review pass before data extraction. Both cohorts
+were therefore retrieved through documented citation snowballing --- the
+automated G0 Semantic Scholar pass and the Scopus/WoS forward pass --- rather
+than from an untraced source; the 53 second-pass records are enumerated by
+their extraction-document \texttt{review\_source} label
+(\texttt{abstract-2nd-pass}) in the accompanying data-availability record. The
+123 records (120 distinct papers) are distributed across the three
+reading-priority tiers as \textbf{48} Tier-1, \textbf{42} Tier-2, and
+\textbf{33} Tier-3 records. This final-stage tiering
 distributed across the three reading-priority tiers as \textbf{48} Tier-1,
 \textbf{42} Tier-2, and \textbf{33} Tier-3 records. This final-stage tiering
 re-classifies records at the level of the 123-record reading list and is
@@ -346,8 +370,8 @@ seeds. The nine G0 seeds themselves are enumerated in Table~\ref{tab:g0_seeds}.}
            splits into \textbf{214} KEEP, \textbf{173} DEFER, and
            \textbf{165} excluded (SKIP, no individually coded reason
            retained). The valid pool proceeds to full-text queue selection
-           (\textbf{387}), of which \textbf{191} reach data extraction; a
-           separate \textbf{33}-record manual Scopus/WoS cross-validation
+           (\textbf{387}), of which \textbf{190} reach data extraction; a
+           separate \textbf{34}-record manual Scopus/WoS cross-validation
            top-up enters directly at the extraction stage, giving
            \textbf{224} records extracted in total and yielding the
            \textbf{123}-paper final reading list (\textbf{120} distinct

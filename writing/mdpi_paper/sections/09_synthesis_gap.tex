@@ -209,6 +209,12 @@ Three algorithmic gaps follow from the missing discovery dimension in Table~\ref
     defines the first open algorithmic question: can DHT-based infrastructure,
     proven at scale in systems such as Kademlia \cite{MaymounkovKademlia2002},
     support adapter discovery at the capability level rather than the identifier level?
+    DHT-based lookup is foregrounded here because of its demonstrated scale and
+    bounded $O(\log N)$ lookup cost, but it is one candidate mechanism among
+    several --- gossip-based propagation, federated indexing of registries,
+    replicated registries, and hybrid coordination each offer distinct trade-offs ---
+    and which of these best sustains capability-level discovery under realistic
+    P2P churn remains open (Section~\ref{sec:p2p_federated}).
   \item \textbf{Adapter capability embeddings.} Effective discovery requires
     a compact representation of what task a given adapter performs, computable from
     the adapter's weight matrices alone (without access to training data).
