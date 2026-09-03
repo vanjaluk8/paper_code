@@ -62,7 +62,7 @@ yielding 123 included records (120 distinct papers) across five clusters:
 parameter-efficient fine-tuning, adapter composition, LLM inference serving,
 mixture-of-experts routing, and P2P/federated learning. Each study was
 appraised on a six-dimension rubric, and the evidence was synthesised into a
-unified gap map. To our knowledge, no reviewed system simultaneously
+unified gap map. To the author's knowledge, no reviewed system simultaneously
 addresses a frozen shared backbone, adapter-level exchange, P2P topology,
 decentralised discovery, multi-task fusion, and the absence of a central
 coordinator; the literature instead partitions into four gap
@@ -142,7 +142,7 @@ per-record data-extraction spreadsheet---are regenerable local outputs of
 the pipeline and are not separately version-controlled. The derived
 reproducibility artefacts computed from them---PRISMA funnel counts,
 per-record quality-appraisal scores, and the extraction codebook---are
-reported in \S3.3 and reproducible from the pipeline fields documented in
+reported in \S3.4 and reproducible from the pipeline fields documented in
 Appendix~\ref{sec:appendix:corpus_pipeline}. Two verification scripts in
 \texttt{slr\_engine} (\texttt{scripts/verify\_prisma\_counts.py} and
 \texttt{scripts/verify\_quality\_appraisal.py}) recompute every PRISMA-stage
@@ -157,7 +157,7 @@ publicly available at \url{https://github.com/vanjaluk8/papers_code}. %TODO: PLA
 https://www.mdpi.com/article/10.3390/ai/xxxx/s1, S1: the completed PRISMA
 2020 27-item checklist for this systematic review; S2:
 quality\_appraisal\_scored.csv, the per-study quality-appraisal scores
-(six-dimension rubric, $N=123$) underlying \S3.3.}
+(six-dimension rubric, $N=123$) underlying \S3.4.}
 
 \acknowledgments{Not applicable.}
 
@@ -186,6 +186,7 @@ MHA   & Multi-Head Attention \\
 SVD   & Singular Value Decomposition \\
 IID   & Independent and Identically Distributed \\
 DP    & Differential Privacy \\
+MT-EF & Multi-Task Encoder Fusion \\
 \end{tabular}
 }
 
