@@ -92,9 +92,10 @@ full-text review, \textbf{173} were classified SKIP but re-flagged DEFER for
 closer inspection, and the remaining \textbf{165} were classified SKIP and did
 not proceed further. The \textbf{88} supplementary forward-snowball records
 resolved at this second abstract-review pass as \textbf{12} KEEP, \textbf{4}
-DEFER, and \textbf{72} SKIP; their retained records advanced alongside the
-queue to data extraction via the \texttt{abstract-2nd-pass} route, and
-\textbf{53} of the 123 final records trace to this supplementary branch. %CORRECTED 2026-08-30 (Blocking Issue #2, verified via
+DEFER, and \textbf{72} SKIP. The 12 KEEP records entered the full-text queue
+(8 reaching data extraction), yet none of the 88 \texttt{G\_SNOW\_F} records
+survived to the final list; the supplementary forward branch therefore
+contributed \textbf{0} of the 123 final records. %CORRECTED 2026-08-30 (Blocking Issue #2, verified via
 %slr_engine/.../verify_prisma_counts.py): the abstract-review pipeline records
 %only a coarse KEEP/SKIP disposition and does not retain an individually
 %coded exclusion reason for SKIP records; these 165 exclusions are disclosed
@@ -208,9 +209,11 @@ discussed further in Section~\ref{sec:conclusion:threats}.
 Of the 123 included records, \textbf{70} (56.9\%) entered through the primary
 full-text-queue path (i.e.\ they are part of the \textbf{387}-record full-text
 queue and its \textbf{190}-record extraction subset in
-Figure~\ref{fig:prisma}), and the remaining \textbf{53} (43.1\%) were added
-by the supplementary forward-citation snowball described below and were
-screened in a second abstract-review pass before data extraction. Both cohorts
+Figure~\ref{fig:prisma}), and the remaining \textbf{53} (43.1\%) were screened in a second
+abstract-review pass (\texttt{abstract-2nd-pass}) before data extraction.
+These 53 second-pass records are drawn from the pre-validated/enriched corpus
+(G0--G6), not from the supplementary forward-citation snowball, whose records
+contributed none of the final 123. Both cohorts
 were therefore retrieved through documented citation snowballing --- the
 automated G0 Semantic Scholar pass and the Scopus/WoS forward pass --- rather
 than from an untraced source; the 53 second-pass records are enumerated by
