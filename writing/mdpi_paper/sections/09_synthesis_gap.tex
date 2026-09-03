@@ -1,7 +1,7 @@
 \section{Synthesis and Research Gap Analysis}
 \label{sec:synthesis_gap}
 
-The preceding chapters reviewed five bodies of literature: parameter-efficient
+The preceding sections reviewed five bodies of literature: parameter-efficient
 fine-tuning, adapter composition, adapter-aware inference serving,
 mixture-of-experts routing, and peer-to-peer and federated learning, each
 addressing one of the five sub-questions (SQ1--SQ5) posed in
@@ -13,14 +13,14 @@ formulation that frames the requirements of a fully decentralised
 adapter-based inference setting; Section~\ref{sec:synthesis_gap:matrix} maps
 the reviewed literature against these requirements; and the remaining sections
 classify and characterise the resulting gaps as open research questions. All
-gap claims in this chapter are bounded by the 123-paper corpus assembled
+gap claims in this section are bounded by the 123-paper corpus assembled
 through the methodology described in Section~\ref{sec:methodology}; they do not
 constitute claims about the broader literature.
 
 \subsection{Answers to the Research Questions}
 \label{sec:synthesis_gap:answers}
 
-This section consolidates the findings of the five review chapters
+This section consolidates the findings of the five review sections
 (Sections~\ref{sec:peft}--\ref{sec:p2p_federated}) into a direct answer to each
 sub-question, followed by an answer to the overarching research question posed
 in Section~\ref{sec:introduction}.
@@ -98,7 +98,7 @@ Drawing on the architectural properties that recur across the five reviewed bodi
 \subsection{Concept Matrix and Dimension Justification}
 \label{sec:synthesis_gap:matrix}
 
-The seven dimensions as shown in table~\ref{tab:concept_matrix}, were selected because each one represents a binary architectural commitment rather than a performance metric. These dimensions were derived inductively from the architectural properties that recur across the five reviewed bodies of literature. They were not defined a priori from an external theoretical framework, but emerged from the synthesis as the minimal set of binary commitments that distinguish the reviewed systems from one another:
+The seven dimensions, as shown in Table~\ref{tab:concept_matrix}, were selected because each one represents a binary architectural commitment rather than a performance metric. These dimensions were derived inductively from the architectural properties that recur across the five reviewed bodies of literature. They were not defined a priori from an external theoretical framework, but emerged from the synthesis as the minimal set of binary commitments that distinguish the reviewed systems from one another:
 \begin{itemize}
     \item A frozen backbone ensures model consistency across all peers and prevents uncontrolled modification, transferring the responsibility for task-specific behaviour entirely to the adapters. 
     \item Adapter exchange is included because a P2P network is inherently dynamic: the ability to exchange adapters enables a wider range of compositional combinations and improves overall system functionality.
@@ -109,7 +109,7 @@ The seven dimensions as shown in table~\ref{tab:concept_matrix}, were selected b
     \item The absence of a central coordinator is the defining property of a genuinely peer-to-peer setting --- by definition, a P2P network implies no central orchestrator, and any system that retains one falls outside this category.
 \end{itemize}
 
-Two dimensions were considered and deliberately excluded. Latency was not included as a dimension because it is a continuous evaluation metric rather than a binary architectural commitment; its trade-offs for a P2P setting are acknowledged narratively in the per-pillar chapters (Sections~\ref{sec:inference_systems} and~\ref{sec:p2p_federated}) rather than scored in the concept matrix. Incentive mechanisms were also excluded; they are relevant to any future decentralised adapter-sharing design but belong outside the scope of this review. Both exclusions are reflected in the limitations discussed in Section~\ref{sec:conclusion:limitations}
+Two dimensions were considered and deliberately excluded. Latency was not included as a dimension because it is a continuous evaluation metric rather than a binary architectural commitment; its trade-offs for a P2P setting are acknowledged narratively in the per-pillar sections (Sections~\ref{sec:inference_systems} and~\ref{sec:p2p_federated}) rather than scored in the concept matrix. Incentive mechanisms were also excluded; they are relevant to any future decentralised adapter-sharing design but belong outside the scope of this review. Both exclusions are reflected in the limitations discussed in Section~\ref{sec:conclusion:limitations}.
 
 The scoring uses a binary \checkmark/$\times$ scheme rather than a graded scale because each dimension represents a structural commitment that a system either makes or does not. A graded scale would introduce precision that the available evidence cannot support. The (\checkmark) partial marker is reserved for the small number of cases where a system addresses a dimension in a limited or indirect way, sufficient to acknowledge but not sufficient to claim full satisfaction.
 
@@ -151,7 +151,7 @@ MixLoRA \cite{LiMixLoRA2024}                & \checkmark & \checkmark  & $\times
 MiLoRA \cite{ZhangMiLoRA2024}               & \checkmark & \checkmark  & $\times$    & $\times$    & \checkmark  & $\times$    & $\times$   \\
 Gossip Learning \cite{HegeduisGossip2019}   & $\times$   & $\times$   & \checkmark  & $\times$    & $\times$    & $\times$    & \checkmark \\
 \midrule
-\textit{Combined reference profile}                 & \checkmark & \checkmark  & \checkmark  & \checkmark  & \checkmark  & $\times$    & \checkmark \\
+\textit{Combined reference profile}                 & \checkmark & \checkmark  & \checkmark  & \checkmark  & \checkmark  & $\times^{\dagger}$    & \checkmark \\
 \bottomrule
 \multicolumn{8}{p{\textwidth}}{\footnotesize$\dagger$\ Privacy/DP is marked $\times$ because no reviewed
 system addresses this dimension in a fully decentralised adapter-serving
