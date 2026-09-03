@@ -72,7 +72,7 @@ Section~\ref{sec:conclusion:threats}.
 \subsection*{A.4 Screening Procedure}
 
 Title screening was applied to all 972 snowballed records in three layers.
-\textbf{Layer~1} excluded records published before 2021 based on publication
+\textbf{Layer~1} identified records published before 2021 based on publication
 year metadata. \textbf{Layer~2} scored each title against four pre-defined
 term sets --- \textit{PEFT/adapters}, \textit{LLM/transformers},
 \textit{systems/serving}, and \textit{distributed/P2P/federated} --- using
@@ -854,6 +854,10 @@ version and the venue metadata was updated accordingly. After this step,
 \textbf{18 papers} in the final 123-paper reading list retained an arXiv source
 (\texttt{source = ARXIV} in \texttt{13\_final\_reading\_list\_2026-05-12.csv}),
 either because no published version was found or because the accepted manuscript was
-not separately accessible. A further \textbf{4 records} have no source annotation,
+not separately accessible. (This ``18'' figure reports the \emph{retrieval source};
+a separate, narrower count of \textbf{11 records} cited in
+Section~\ref{sec:conclusion:threats} reports \emph{venue status}---records
+whose current indexed venue remains arXiv and for which no peer-reviewed
+published version was identified at any retrieval stage.) A further \textbf{4 records} have no source annotation,
 reflecting papers added from curated references whose primary retrieval provenance was
 not logged in the pipeline output files.
