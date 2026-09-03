@@ -47,6 +47,10 @@ N_NORETR     = "265"     # reports not retrieved (no PDF); 122 yes / 265 no
 N_EXTRACT    = "224"     # reports assessed for eligibility (data extraction)
 N_FINAL      = "123"     # studies included in review
 N_DISTINCT   = "120"     # distinct papers
+N_EXCL       = "101"     # excluded at eligibility (extraction -> final list)
+N_EXCL_TOPUP = "34"      # manual Scopus/WoS cross-validation top-up, not retained
+N_EXCL_BG    = "53"      # background-corpus records, excluded before final list
+N_EXCL_CORE  = "14"      # core-corpus records failing full-text inclusion appraisal
 
 # ---------------------------------------------------------------------------
 # Layout constants
@@ -116,6 +120,9 @@ EXCLUSIONS = [
          "n = {0}".format(N_ABS_SKIP)]),
     (6, ["Reports not retrieved (no PDF):",
          "n = {0} not retrieved / {1} retrieved".format(N_NORETR, "122")]),
+    (7, ["Excluded at eligibility (n = {0}):".format(N_EXCL),
+         "top-up {0} / background {1} / core {2}".format(
+             N_EXCL_TOPUP, N_EXCL_BG, N_EXCL_CORE)]),
 ]
 
 fig, ax = plt.subplots(figsize=(11.5, 8.8))
@@ -128,7 +135,7 @@ cy = [0.96 - i * SPACING for i in range(9)]   # 0.96 .. 0.064
 
 
 def h_of(lines):
-    return 0.096 + 0.030 * max(lines - 1, 0)
+    return 0.088 + 0.024 * max(lines - 1, 0)
 
 
 def arrow(x1, y1, x2, y2):

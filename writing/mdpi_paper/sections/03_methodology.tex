@@ -137,8 +137,16 @@ it was renamed ``Toppings.'' The final reading list therefore contains
 method) are each recorded under both their arXiv and Scopus retrieval keys in
 the reading list, and a third work (CaraServe, later published as Toppings)
 was retrieved separately as its preprint and its renamed publication.
-This funnel is summarised in Figure~\ref{fig:prisma} and traceable record-by-
-record through the unified pipeline file (Appendix~\ref{sec:appendix:corpus_pipeline}).
+The \textbf{101} records that entered the extraction stage (\textbf{224}) but were not
+retained in the final reading list (\textbf{123}) divide into three
+eligibility-stage categories that sum to 101: \textbf{34} manual Scopus/WoS
+cross-validation top-up records (which, as noted above, contributed no final
+records), \textbf{53} background-corpus records retained for context but
+excluded before the final list, and \textbf{14} core-corpus records that did
+not pass full-text inclusion appraisal
+(Table~\ref{tab:final_exclusions}). This funnel is summarised in
+Figure~\ref{fig:prisma} and traceable record-by-record through the unified
+pipeline file (Appendix~\ref{sec:appendix:corpus_pipeline}).
 
 \subsection{Eligibility Criteria}
 \label{sec:methodology:eligibility}
@@ -365,6 +373,29 @@ Table~\ref{tab:g0_disposition}. The nine seeds are listed in
 Table~\ref{tab:g0_seeds}.}
 \end{table}
 
+\begin{table}[H]
+\centering
+\caption{Eligibility-stage exclusions at the final transition from data
+extraction ($224$ records) to the $123$-paper reading list. Each of the $101$
+non-retained records is attributed to one of three categories that partition
+the total; per-record codings are published in the accompanying data-availability
+record (\texttt{14\_final\_curation\_reasons}).}
+\label{tab:final_exclusions}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lr}
+\toprule
+\textbf{Eligibility-stage exclusion category} & \textbf{\textit{n}} \\
+\midrule
+Manual Scopus/WoS cross-validation top-up, not retained & 34 \\
+Background-corpus records retained for context, excluded before final list & 53 \\
+Core-corpus records failing full-text inclusion appraisal & 14 \\
+\midrule
+\textbf{Total} & \textbf{101} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=\linewidth]{figures/fig_slr1_prisma_flow.pdf}
@@ -382,7 +413,9 @@ Table~\ref{tab:g0_seeds}.}
            top-up enters directly at the extraction stage, giving
            \textbf{224} records extracted in total and yielding the
            \textbf{123}-paper final reading list (\textbf{120} distinct
-           papers).}
+           papers). The \textbf{101} eligibility-stage exclusions are:
+           \textbf{34} manual cross-validation top-up, \textbf{53}
+           background-corpus, and \textbf{14} core-corpus.}
   \label{fig:prisma}
 \end{figure}
 
