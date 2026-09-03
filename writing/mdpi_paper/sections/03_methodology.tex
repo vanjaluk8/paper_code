@@ -330,7 +330,7 @@ audited, uniformly-applied threshold.
 
 \begin{table}[H]
 \centering
-\caption{Pre-validated corpus groups: scope, size, and review section coverage.\protect\footnotemark[1]}
+\caption{Pre-validated corpus groups: scope, size, and review section coverage. Each final record is attributed to the single pre-validated group recorded by the unified pipeline; the \emph{n}~final column therefore partitions the 123-record total. G0's \emph{n}~final = 18 comprises four directly-seeded records (S-LoRA, AdapterHub, AdapterFusion, Petals) and 14 snowball descendants; two further seeds (Houlsby~2019, Hu/LoRA~2022) are in the final list but attributed outside G0 (Table~\ref{tab:g0_disposition}).\protect\footnotemark[1]}
 \label{tab:groups}
 \begin{tabular}{lp{5cm}rrl}
 \toprule
@@ -354,11 +354,16 @@ G6 & Federated PEFT for transformer NLP      & 66  & 30  &
 \textbf{Total} & & \textbf{352} & \textbf{123} & \\
 \bottomrule
 \end{tabular}
-\footnotetext[1]{The G0 final count of 18 reflects the 4 directly-seeded
-anchor papers retained in the final list plus 14 snowball descendants
-retrieved by forward and backward citation snowballing around the G0 seed set
-(ten forward and four backward additions); it is not 18 of the original 9
-seeds. The nine G0 seeds themselves are enumerated in Table~\ref{tab:g0_seeds}.}
+\footnotetext[1]{The G0 final count of 18 is not 18 of the original nine seeds:
+it is the number of final-list records attributed to group G0 by the unified
+pipeline, comprising 4 records whose primary route is the seed itself
+(S-LoRA, AdapterHub, AdapterFusion, Petals) plus 14 snowball descendants
+(10 forward, 4 backward). Two further G0 seeds --- Houlsby et al.\ 2019 and
+Hu et al.\ 2022 (LoRA) --- are themselves in the final list, but the unified
+pipeline attributes them outside G0 (Houlsby is absent from its group
+bookkeeping; LoRA is assigned to G1), so they are enumerated only in
+Table~\ref{tab:g0_disposition}. The nine seeds are listed in
+Table~\ref{tab:g0_seeds}.}
 \end{table}
 
 \begin{figure}[H]
