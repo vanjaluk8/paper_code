@@ -101,11 +101,11 @@ Savazzi et al.~\cite{Savazzi2020} addressed bandwidth-heterogeneous wireless P2P
 energy-aware model aggregation policies that adapt the communication pattern to link
 quality.
 
-\subsection{P2P Transformer Inference and the MT-EF Architecture}
+\subsection{P2P Transformer Inference and the MT-EF (Multi-Task Encoder Fusion) Architecture}
 \label{sec:p2p_federated:p2p_transformer}
 
 The most directly relevant P2P works for this review operate at the transformer level.
-{\v{S}}ajina~\cite{Sajina2025} described, to the best of our knowledge, one of the first systems for multi-task P2P learning with
+{\v{S}}ajina~\cite{Sajina2025} described, to the best of the author's knowledge, one of the first systems for multi-task P2P learning with
 transformer-based models, proposing an architecture in which peers collaboratively
 train and serve task-specific modules over a shared encoder backbone. {\v{S}}ajina et al.~\cite{Sajina2024}
 extended this framework in a peer-to-peer multi-task environment for transformer NLP
@@ -253,6 +253,6 @@ Recent work on decentralised LoRA, such as Dec-LoRA by Ghiasvand et al.~\cite{Gh
 
 The Kademlia DHT is a candidate infrastructure for adapter-level discovery. In principle, adapter descriptors could be indexed as key-value entries in a DHT, allowing peers to locate adapters without a central registry. Whether task capability descriptors are sufficiently structured for DHT-based retrieval — and how such an index would perform under realistic churn — are open questions that the existing P2P literature has not examined.
 
-\noindent The decentralised-learning findings of this chapter are
+\noindent The decentralised-learning findings of this section are
 consolidated, alongside the other four sub-questions, in the centralised
 discussion in Section~\ref{sec:synthesis_gap:answers}.
