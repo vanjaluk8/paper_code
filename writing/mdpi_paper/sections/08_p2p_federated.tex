@@ -49,7 +49,8 @@ The second limitation motivates the fully decentralised protocols discussed in t
 
 The centralised FL server in FedAvg and FedProx represents a single point of failure and
 a coordination bottleneck. The gossip learning literature removes this dependency by
-having peers communicate directly with randomly selected neighbours. In gossip learning,
+having peers communicate directly with randomly selected neighbours: in gossip learning
+(Figure~\ref{fig:gossip}),
 each node periodically samples a peer, exchanges model parameters with that peer, and
 averages the received parameters with its own local model \cite{OrmandyGossip2013}.
 
@@ -114,7 +115,7 @@ while distributing task-specific computation across independent network nodes. T
 methods for P2P deep learning networks, identifying the lack of adapter-level discovery
 protocols as an open research gap.
 
-Borzunov et al.~\cite{Borzunov2023} introduced Petals, which applies P2P principles to LLM inference
+Borzunov et al.~\cite{Borzunov2023} introduced Petals (Figure~\ref{fig:petals}), which applies P2P principles to LLM inference
 at the layer level: volunteer nodes each host a subset of transformer layers, and
 inference requests are routed through the volunteer network by passing activations
 from node to node. Petals demonstrated that collaborative inference of BLOOM-176B-scale
@@ -227,7 +228,7 @@ beneficial as a pretraining signal even when tasks are non-overlapping.
 All of the federated systems reviewed above rely on a central aggregation server for
 adapter collection and redistribution. The P2P literature provides infrastructure
 primitives for performing this coordination without a central node. Maymounkov and Mazi{\`{e}}res~\cite{MaymounkovKademlia2002}
-introduced the Kademlia distributed hash table (DHT), which provides $O(\log N)$
+introduced the Kademlia distributed hash table (DHT) (Figure~\ref{fig:dht_lookup}), which provides $O(\log N)$
 lookup of key-value pairs across a network of $N$ nodes using a XOR-distance metric.
 Kademlia has been deployed at scale in BitTorrent and other P2P systems, and its
 correctness and resistance to churn are well understood.

@@ -18,7 +18,7 @@ PEFT adapter is treated as one expert, a routing mechanism can select the approp
 adapter for each incoming request without loading all adapters simultaneously, which is an
 efficiency property that scales to large adapter libraries.
 
-Fedus et al.~\cite{Fedus2022} introduced Switch Transformers, which replace the feedforward
+Fedus et al.~\cite{Fedus2022} introduced Switch Transformers (Figure~\ref{fig:switch_transformer}), which replace the feedforward
 sub-layer in each transformer block with a sparse MoE layer whose \textit{router}
 assigns each token to exactly one expert (Top-1 routing). Top-1 routing eliminates the
 token-drop problem of earlier Top-$k$ schemes by introducing a configurable \textit{expert

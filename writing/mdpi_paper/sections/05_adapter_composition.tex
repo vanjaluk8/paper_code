@@ -53,7 +53,7 @@ more complex fusion methods described below.
 \subsection{Learned Non-Destructive Composition}
 \label{sec:adapter_composition:fusion}
 
-Pfeiffer et al.~\cite{Pfeiffer2021fusion} proposed AdapterFusion, a two-stage approach to multi-task
+Pfeiffer et al.~\cite{Pfeiffer2021fusion} proposed AdapterFusion (Figure~\ref{fig:adapterfusion}), a two-stage approach to multi-task
 adapter composition. In the first stage, task-specific adapters are trained independently
 in isolation, one per task, each using only that task's data. In the second stage,
 a lightweight \textit{fusion layer} (an attention mechanism with learnable parameters) is trained to combine the outputs of all task adapters at each transformer layer:
