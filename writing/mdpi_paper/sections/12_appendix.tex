@@ -344,9 +344,10 @@ KEEP papers were exported for full-text review via RIS format
 (\texttt{08\_zotero\_ready\_2026-05-02.ris}, 214 entries). The full-text
 review queue (\texttt{09\_fulltext\_review\_queue\_2026-05-02.csv}),
 compiled from the 214 KEEP and the 173 borderline-DEFER records, contains
-\textbf{387} records; of these, \textbf{190} (all KEEP-origin; no
-DEFER-origin records reached extraction) and \textbf{197} were excluded (24
-KEEP-origin, full text unavailable; 173 DEFER-origin, not taken further). A
+\textbf{387} records; of these, \textbf{190} proceeded to data extraction (all
+KEEP-origin; no DEFER-origin records reached extraction) and \textbf{197} were
+excluded (24 KEEP-origin, full text unavailable; 173 DEFER-origin, not taken
+further). A
 separate manual Scopus/WoS cross-validation top-up of \textbf{34} records
 entered directly at the extraction stage, bypassing this full-text queue
 (none were ultimately retained in the final 123), bringing the extraction
@@ -714,7 +715,7 @@ The audited final deliverables referenced below are committed to the
 see the Data Availability statement for further repository access.
 
 % -----------------------------------------------------------------------
-\subsection*{C.1 — Search Timeline}
+\subsection*{D.1 — Search Timeline}
 \label{app:search_log:timeline}
 
 
@@ -769,7 +770,7 @@ $\approx$2026-04-28 & Abstract-level review, pass 1 (on the 464 corpus; AI-assis
 \end{table}
 
 % -----------------------------------------------------------------------
-\subsection*{C.2 — Automated Citation Snowballing}
+\subsection*{D.2 — Automated Citation Snowballing}
 \label{app:search_log:snowball}
 
 Citation snowballing was executed programmatically on \textbf{2026-04-21} via the
@@ -791,7 +792,7 @@ Screening decisions are logged in \texttt{log\_screening\_2026-04-21.json}; per-
 retrieval counts are in \texttt{log\_retrieval\_2026-04-21.json}.
 
 % -----------------------------------------------------------------------
-\subsection*{C.3 — Forward Citation Snowballing (Scopus and WoS)}
+\subsection*{D.3 — Forward Citation Snowballing (Scopus and WoS)}
 \label{app:search_log:forward}
 
 On \textbf{2026-05-08}, a supplementary forward snowball was conducted by manually
@@ -810,11 +811,11 @@ extraction), all were excluded at the eligibility stage, so the forward branch
 contributes \textbf{0} records to the final list.
 
 % -----------------------------------------------------------------------
-\subsection*{C.4 — Manual Database Cross-Validation}
+\subsection*{D.4 — Manual Database Cross-Validation}
 \label{app:search_log:crossval}
 
 To verify completeness, the ten WoS and ten Scopus advanced queries documented in
-Appendix~B were also executed manually against the live database interfaces.
+Appendix~C were also executed manually against the live database interfaces.
 \textbf{Scopus} returned \textbf{172 records}
 (\texttt{11\_MANUAL\_SCOPUS\_export\_1105.csv}); \textbf{Web of Science} returned
 \textbf{125 records} (\texttt{11\_MANUAL\_WOS\_export\_1105.txt}).
@@ -830,7 +831,7 @@ cross-check} rather than a source of new records, confirming that the Scopus-dom
 retrieval pipeline achieved comprehensive coverage of the target literature.
 
 % -----------------------------------------------------------------------
-\subsection*{C.5 — DOI-Based Venue Verification}
+\subsection*{D.5 — DOI-Based Venue Verification}
 \label{app:search_log:doi}
 
 Following full-text reading, the DOIs of candidate papers were submitted in batch to
@@ -843,7 +844,7 @@ numbers and confirmed Scopus EIDs to records already in the reading pool, and we
 used to introduce new candidates.
 
 % -----------------------------------------------------------------------
-\subsection*{C.6 — Manual PDF and Venue Check}
+\subsection*{D.6 — Manual PDF and Venue Check}
 \label{app:search_log:pdf}
 
 A subset of candidate papers had been initially downloaded from the arXiv preprint
