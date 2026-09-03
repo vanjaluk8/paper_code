@@ -86,7 +86,15 @@ def check_prose(t):
     bad = []
     if re.search(r'5[–-]13screening', t):
         bad.append("BROKEN SENTENCE: '5-13screening' in Threats to Validity (B5)")
+    # 'chapter' is a thesis-register word (manuscript section). Exclude proper
+    # nouns: "North American Chapter of the Association..." / "European Chapter
+    # of ..." are conference venue names (NAACL/EACL booktitles), not register.
+    # The region adjective ("North American"/"European") always sits adjacent to
+    # "Chapter" in these venue names, which is layout-robust (the "of the
+    # Association" tail can be pushed far right by the pdftotext page-number
+    # column, but "North American Chapter" never wraps mid-phrase).
     n = len(re.findall(r'\bchapters?\b', t, re.I))
+    n -= len(re.findall(r'(?:North American|European)\s+Chapter', t))
     if n:
         bad.append(f"REGISTER: 'chapter' appears {n}x — should be 'Section'")
     for pat, why in [(r'\bfor this thesis\b', 'thesis register'),
