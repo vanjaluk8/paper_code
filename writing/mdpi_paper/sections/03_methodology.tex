@@ -426,6 +426,8 @@ Core-corpus records failing full-text inclusion appraisal & 14 \\
 
 Table~\ref{tab:datasets} reports the datasets, task types, and evaluation
 metrics for 33 representative systems drawn from the five synthesis sections.
+Its final \emph{Public} column records whether each system releases usable code
+or artifacts (operational rule and check date in the caption).
 PEFT papers predominantly evaluate on GLUE~\cite{WangGLUE2018},
 SuperGLUE~\cite{WangSuperGLUE2019}, and MMLU~\cite{HendrycksMMLU2021};
 serving papers rely on synthetic throughput benchmarks. No single benchmark
@@ -440,7 +442,17 @@ of evaluation practice and are not re-normalised or compared across papers.
 
 \begin{sidewaystable}[p]
 \centering
-\caption{Selected datasets, tasks, and metrics across the five synthesis pillars.}
+\caption{Selected datasets, tasks, and metrics across the five synthesis
+pillars. The \emph{Public} column records \emph{code/artifact availability}:
+whether the authors release usable source code or a functional artifact. Values
+were re-derived for this revision by checking the cited systems' public
+repositories on \textbf{2026-09-03}: \emph{Yes} = usable code/artifact located;
+\emph{Partial} = available only through a maintained downstream framework rather
+than the paper's own release (FedAvg, via TensorFlow Federated); \emph{No} = no
+artifact released (Expert Choice, MT-EF); \emph{Unknown} = no public artifact
+could be located at the check date (Ostapenko et al., DP-FedLoRA, SLoRA, Gossip
+Learning). The column encodes artifact availability, not dataset availability:
+the benchmarks themselves are public in every row.}
 \label{tab:datasets}
 \small
 \setlength{\tabcolsep}{5pt}
@@ -480,19 +492,19 @@ of evaluation practice and are not re-normalised or compared across papers.
   \midrule
   \multicolumn{6}{l}{\textbf{Pillar 3: Adapter-Aware Inference Serving}} \\
   S-LoRA~\cite{Sheng2024} & synthetic & throughput & req/s & up to 4$\times$
-  throughput & No \\
+  throughput & Yes \\
   Punica~\cite{Chen2023Punica} & synthetic serving & throughput & req/s &
-  12$\times$ higher throughput & No \\
+  12$\times$ higher throughput & Yes \\
   CaraServe~\cite{Li2024CaraServe} & synthetic & throughput & req/s &
-  1.4$\times$ on average & No \\
+  1.4$\times$ on average & Yes \\
   Petals~\cite{Borzunov2023} & multiple & instruction following & Accuracy &
   multiple & Yes \\
   MT-EF / {\v{S}}ajina~\cite{Sajina2024} & Reddit, StackOverflow, CoNLL-2003,
-  Few-NERD & MTP + NER & Test UA & +11.6\% mean relative gain & Yes \\
+  Few-NERD & MTP + NER & Test UA & +11.6\% mean relative gain & No \\
   \midrule
   \multicolumn{6}{l}{\textbf{Pillar 4: P2P and Federated Learning}} \\
   FedAvg~\cite{McMahan2017} & CIFAR-10, Shakespeare & image/text classification
-   & Accuracy & 10--100$\times$ comm. saving & Yes \\
+   & Accuracy & 10--100$\times$ comm. saving & Partial \\
   FedProx~\cite{Li2020FedProx} & FEMNIST, Sent140 & image/text classification &
    Accuracy & +1--5\% vs FedAvg & Yes \\
   FedPETuning~\cite{ZhangFedPETuning2023} & GLUE & NLU classification &
@@ -500,19 +512,19 @@ of evaluation practice and are not re-normalised or compared across papers.
   FLoRA~\cite{WangFLoRA2024} & GLUE (few-shot) & NLU classification & Accuracy
   & robust to rank hete. & Yes \\
   DP-FedLoRA~\cite{XuDPFedLoRA2025} & MMLU, BBH, CRASS & NLU + reasoning &
-  Accuracy + $(\epsilon,\delta)$ & $\approx$4--5\% loss at $\epsilon=25$ & Yes \\
+  Accuracy + $(\epsilon,\delta)$ & $\approx$4--5\% loss at $\epsilon=25$ & Unknown \\
   SLoRA~\cite{Babakniya2023} & GLUE, SuperGLUE & NLU classification & Accuracy
-  & 2$\times$ faster convergence & Yes \\
+  & 2$\times$ faster convergence & Unknown \\
   Gossip Learning~\cite{HegeduisGossip2019} & synthetic & classification &
-  Accuracy & $\approx$ FL quality (20--50\% slower) & Yes \\
+  Accuracy & $\approx$ FL quality (20--50\% slower) & Unknown \\
   \midrule
   \multicolumn{6}{l}{\textbf{Pillar 5: MoE and Adapter Routing}} \\
   Switch Transformers~\cite{Fedus2022} & C4 pre-training & language modelling &
-   Perplexity, speedup & 4$\times$ speedup over T5-XXL & No \\
+   Perplexity, speedup & 4$\times$ speedup over T5-XXL & Yes \\
   Expert Choice~\cite{Zhou2022} & SuperGLUE, WMT & NLU + MT & Accuracy/BLEU &
   +2\% average accuracy & No \\
   DeepSpeed-MoE~\cite{RajbhandariDeepSpeed2022} & GLUE, SuperGLUE & NLU
-  classification & Accuracy & 4.5$\times$ speedup, $<$0.5\% loss & No \\
+  classification & Accuracy & 4.5$\times$ speedup, $<$0.5\% loss & Yes \\
   AdaMix~\cite{WangAdaMix2022} & GLUE, SuperGLUE & NLU classification &
   Accuracy & outperforms single PEFT & Yes \\
   MixLoRA~\cite{LiMixLoRA2024} & GLUE, domain-specific & NLU classification &
@@ -520,11 +532,11 @@ of evaluation practice and are not re-normalised or compared across papers.
   MiLoRA~\cite{ZhangMiLoRA2024} & commonsense reasoning, math reasoning &
   reasoning + instruction following & Accuracy & $>$ single LoRA & Yes \\
   LoRAMoE~\cite{DouLoRAMoE2024} & world knowledge + instruct & multi-task
-  generation & Accuracy, forgetting & alleviates forgetting & No \\
+  generation & Accuracy, forgetting & alleviates forgetting & Yes \\
   MOELoRA~\cite{LiuWhenMOE2024} & medical + GLUE & NLU classification &
   Accuracy & $>$ single LoRA & Yes \\
   Crowdsourced MoE~\cite{RyabininCrowdsourced2020} & CIFAR-10/100, MNIST &
-  image classification & Accuracy & up to 16 peers, 30\% dropout & No \\
+  image classification & Accuracy & up to 16 peers, 30\% dropout & Yes \\
 \bottomrule
   \end{tabular}
   }
@@ -620,44 +632,45 @@ rests on a low-scoring record alone.
 \label{fig:quality_bands}
 \end{figure}
 
-\subsubsection{Reproducibility and Risk of Bias: Tier-1 Records}
+\subsubsection{Reproducibility: Artifact Availability}
 \label{sec:methodology:quality:tier1}
 
 Whereas the six-dimension rubric above scores reporting completeness and
-relevance across all 123 records, three appraisal dimensions central to
-empirical benchmarking are scored separately for the \textbf{48 Tier-1 records}
-that form the primary evidence body of this synthesis. These are
-\emph{code/artifact availability}, \emph{baseline adequacy}, and \emph{explicit
-threats-to-validity reporting}. Because such dimensions require full-text
-inspection that lies beyond the automated screening pipeline, they were
-populated by direct review of each Tier-1 paper and cross-checked against the
-accompanying structured reading notes; scoring them from the extraction fields
-alone would have imputed rather than measured. Each record was coded on a
-yes/partial/no basis, with ``partial'' reserved for genuine middle cases in
-response to three questions. Do the authors release a usable artifact? Are
-reported results assessed against a named baseline? Does the paper include an
-explicit limitations or threats discussion?
+relevance across all 123 records, three further dimensions central to
+empirical reproducibility---\emph{code/artifact availability}, \emph{baseline
+adequacy}, and \emph{explicit threats-to-validity reporting}---require
+full-text inspection that lies beyond the automated screening pipeline. Of
+these, this review reports \emph{code/artifact availability} quantitatively,
+grounded in verified evidence: for each of the 33 representative systems in
+Table~\ref{tab:datasets}, the author checked directly against the system's
+public repositories whether usable code or an artifact is released (the
+operational rule and check date are stated in the table caption). Baseline
+adequacy and threats-to-validity reporting are likewise central to risk of
+bias, but the review's screening and extraction records do not populate
+reliable per-record codings for these two dimensions, so no quantitative claim
+is made for them here; reporting figures would have imputed rather than
+measured. They remain a candidate for a full-text re-read pass before
+submission.
 
-The results are sobering. Across the 48 Tier-1 papers only \textbf{20}
-(41.7\%) release usable code or artifacts, and a further \textbf{4} (8.3\%)
-release only partial artifacts, so the remaining \textbf{24} (50.0\%) release
-no usable artifact at all and most of the core evidence body cannot be re-run
-from released code. Baseline comparison is the strongest of the three
-dimensions. \textbf{40} (83.3\%) evaluate against a named baseline, and a
-further \textbf{6} (12.5\%) do so only partially, leaving just
-\textbf{2} (4.2\%) with no named baseline. Most striking is the dearth of
-critical self-assessment. Only \textbf{11} (22.9\%) report an explicit
-threats-to-validity or limitations discussion, \textbf{18} (37.5\%) do so only
-partially, and \textbf{19} (39.6\%) contain none at all.
+The verified picture is uneven. Across the 33 representative systems,
+\textbf{26} (\textbf{79\%}) release usable code or artifacts. FedAvg is
+available only through a maintained downstream framework (TensorFlow
+Federated) rather than its original release. For \textbf{6} systems
+(\textbf{18\%})---Expert Choice, MT-EF ({\v{S}}ajina et al.), Ostapenko et al.,
+DP-FedLoRA, SLoRA, and Gossip Learning---no public artifact could be located at
+the check date. The gap is concentrated among the systems closest to this
+review's object of study: none of the three federated or P2P fine-tuning
+methods (SLoRA, DP-FedLoRA, Gossip Learning), the MT-EF P2P architecture, nor
+the modular-LoRA composition framework (Ostapenko et al.) releases a locatable
+artifact, despite several being recent and otherwise well-documented.
 
-These findings are themselves a result of this review. The sparse code release
-and, especially, the near-absence of threats reporting among even the most
-central records substantiate, at the level of primary evidence, the
-reproducibility and reporting gaps identified in
-Section~\ref{sec:synthesis_gap}, and they inform the gap analysis in
-Section~\ref{sec:conclusion:contributions}. The full per-record coding is
-provided in \texttt{figures/quality\_appraisal\_scored.csv} (Tier-1 rows;
-columns \texttt{code\_released}, \texttt{evaluated\_vs\_baseline},
-\texttt{threats\_reported}). These three dimensions remain outside the 0--10
-reporting-completeness rubric by design. They are reported here as a separate,
-clearly-labelled appraisal rather than folded into the aggregate score.
+These findings are themselves a result of this review. The unevenness---in
+particular the absence of locatable artifacts for several systems most central
+to the P2P and adapter-composition directions---substantiates, at the level of
+primary evidence, the reproducibility and reporting gaps identified in
+Section~\ref{sec:synthesis_gap}, and it informs the gap analysis in
+Section~\ref{sec:conclusion:contributions}. These dimensions remain outside the
+0--10 reporting-completeness rubric by design and are reported here as a
+separate, clearly-labelled appraisal rather than folded into the aggregate
+score. The per-row artifact-availability codings are given in
+Table~\ref{tab:datasets}.
