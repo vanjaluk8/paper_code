@@ -38,8 +38,8 @@ review has been substantially revised for this submission.
 The search was anchored on nine foundational seed papers (Group G0) selected
 for direct cross-pillar relevance and demonstrated citation impact in
 top-tier venues (e.g., LoRA and AdapterFusion each exceed 1,000 citations as
-of August 2026; Petals, as a more recent 2023 system paper, has accumulated
-over 100 citations in three years). %CORRECTED 2026-08-30 (Blocking Issue #4, verified via
+of August 2026; Petals, as a more recent 2023 system paper, has accumulated a
+substantial and rapidly growing citation count). %CORRECTED 2026-08-30 (Blocking Issue #4, verified via
 %slr_engine/.../verify_prisma_counts.py cross-checked against the
 %authoritative log_retrieval_2026-04-21.json, which records n_seeds=7 and
 %lists exactly which seeds were submitted for backward/forward retrieval).
@@ -190,7 +190,7 @@ Cochrane/MECIR standard C39); however, single-reviewer execution remains
 an accepted and common practice for single-author systematic reviews in
 computer science, particularly doctoral-level work conducted without a
 research team~\cite{KitchenhamCharters2007}. No second independent human
-reviewer was available for this thesis, and none was recruited for
+reviewer was available for this review, and none was recruited for
 screening. Consequently, no inter-rater reliability statistic (e.g.,
 Cohen's $\kappa$) is reported for the screening process: a reliability
 coefficient computed against a non-independent artefact (such as an
@@ -264,7 +264,7 @@ Multi-task P2P learning on a shared transformer encoder; closest published
 predecessor. \\
 {\v{S}}ajina 2025 & Doctoral thesis, Univ.\ of Rijeka & Theoretical
 foundation of P2P collaborative training without a central server. \\
-Borzunov et al.\ 2023 (Petals) & ACL 2023 / NeurIPS 2023 & Only deployed P2P
+Borzunov et al.\ 2023 (Petals) & ACL 2023 (Syst.~Demos.) & Only deployed P2P
 frozen-backbone LLM inference system. \\
 Han et al.\ 2024 & TMLR 2024 & PEFT survey; primary positioning reference. \\
 Sheng et al.\ 2024 (S-LoRA) & MLSys 2024 & State-of-the-art multi-tenant
@@ -317,7 +317,7 @@ studied (PEFT, P2P collaboration, and multi-task serving), on the rationale of
 cross-pillar relevance and high citation impact, assessed qualitatively
 rather than against a fixed numerical threshold, in top-tier venues. Because this selection was informed by the research
 question itself, it carries an inherent risk of biasing the corpus toward the
-thesis narrative and could under-sample works that challenge the premise of
+review's intended narrative and could under-sample works that challenge the premise of
 decentralised adapter sharing. Two features mitigate this risk. First, the G0
 set is complemented by the independently curated G1--G6 groups, which were
 assembled from leading venues without reference to the seeds'
@@ -425,7 +425,7 @@ Core-corpus records failing full-text inclusion appraisal & 14 \\
 \label{sec:methodology:datasets}
 
 Table~\ref{tab:datasets} reports the datasets, task types, and evaluation
-metrics for 33 representative systems drawn from the five synthesis chapters.
+metrics for 33 representative systems drawn from the five synthesis sections.
 PEFT papers predominantly evaluate on GLUE~\cite{WangGLUE2018},
 SuperGLUE~\cite{WangSuperGLUE2019}, and MMLU~\cite{HendrycksMMLU2021};
 serving papers rely on synthetic throughput benchmarks. No single benchmark
