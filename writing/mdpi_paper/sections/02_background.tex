@@ -57,6 +57,7 @@ small structured subset of parameters while keeping the backbone frozen.
 
 The three canonical PEFT approaches reviewed in this SLR are:
 \begin{enumerate}
+\sloppy
   \item \textbf{Bottleneck adapters} \cite{Houlsby2019}: compact modules inserted
     within each transformer layer that apply a down-projection, a non-linearity, and
     an up-projection to the layer's hidden representations (Equation~\ref{eq:bottleneck}).
@@ -66,6 +67,7 @@ The three canonical PEFT approaches reviewed in this SLR are:
   \item \textbf{Prefix tuning} \cite{LiLiang2021}: learnable continuous vectors
     prepended to the key--value representations at each layer to steer generation
     without weight modification.
+\fussy
 \end{enumerate}
 
 \begin{equation}

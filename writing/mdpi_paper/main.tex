@@ -22,6 +22,7 @@
 \datepublished{ }
 
 \usepackage{rotating}
+\usepackage{seqsplit}% break long monospace filenames/dataset ids at any point so they do not overflow the margin
 %=================================================================
 % Author ORCID
 \newcommand{\orcidauthorA}{0009-0009-8142-6890}
@@ -134,29 +135,30 @@ previously published literature. Materials are held in two repositories:
 pipeline and its output files), publicly available at
 \url{https://github.com/vanjaluk8/slr_engine}. The audited final reading
 list and PRISMA summary
-(\texttt{13\_final\_reading\_list\_2026-05-12.csv},
-\texttt{PRISMA\_summary\_2026-04-21.md}) are version-controlled deliverables
+(\texttt{\seqsplit{13\_final\_reading\_list\_2026-05-12.csv}},
+\texttt{\seqsplit{PRISMA\_summary\_2026-04-21.md}}) are version-controlled deliverables
 in \texttt{slr\_engine}; intermediate pipeline artefacts---the consolidated
-\texttt{pipeline\_unified.csv}, retrieval/screening logs, and the
+\texttt{\seqsplit{pipeline\_unified.csv}}, retrieval/screening logs, and the
 per-record data-extraction spreadsheet---are regenerable local outputs of
 the pipeline and are not separately version-controlled. The derived
 reproducibility artefacts computed from them---PRISMA funnel counts,
 per-record quality-appraisal scores, and the extraction codebook---are
 reported in \S3.4 and reproducible from the pipeline fields documented in
 Appendix~\ref{sec:appendix:corpus_pipeline}. Two verification scripts in
-\texttt{slr\_engine} (\texttt{scripts/verify\_prisma\_counts.py} and
-\texttt{scripts/verify\_quality\_appraisal.py}) recompute every PRISMA-stage
+\texttt{slr\_engine} (\path{scripts/verify_prisma_counts.py} and
+\path{scripts/verify_quality_appraisal.py}) recompute every PRISMA-stage
 count and quality-appraisal statistic reported in this manuscript directly
 from the underlying pipeline files; their saved run outputs are in
-\texttt{snowball\_output/verification\_runs/}. \texttt{papers\_code} is
+\texttt{\seqsplit{snowball\_output/verification\_runs/}}.
+\texttt{papers\_code} is
 publicly available at \url{https://github.com/vanjaluk8/papers_code}. %TODO: PLACEHOLDER -- confirm/replace with final public repo URL before submission
 }
 
 % PRISMA 2020 checklist + quality-appraisal scores provided as Supplementary Material
 \supplementary{The following supporting information can be downloaded at:
-https://www.mdpi.com/article/10.3390/ai/xxxx/s1, S1: the completed PRISMA
+\url{https://www.mdpi.com/article/10.3390/ai/xxxx/s1}, S1: the completed PRISMA
 2020 27-item checklist for this systematic review; S2:
-quality\_appraisal\_scored.csv, the per-study quality-appraisal scores
+\texttt{\seqsplit{quality\_appraisal\_scored.csv}}, the per-study quality-appraisal scores
 (six-dimension rubric, $N=123$) underlying \S3.4.}
 
 \acknowledgments{Not applicable.}

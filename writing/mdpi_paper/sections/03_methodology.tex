@@ -59,21 +59,17 @@ Pfeiffer et al.\ 2020, AdapterHub; Pfeiffer et al.\ 2021, AdapterFusion;
 Borzunov et al.\ 2023, Petals; Han et al.\ 2024; Sheng et al.\ 2024, S-LoRA);
 the remaining two ({\v{S}}ajina et al.\ 2024; {\v{S}}ajina 2025) were not
 submitted for automated retrieval and are cited as background and
-motivating references only. Of the seven seeds submitted to the automated
-pipeline, six (Houlsby et al.\ 2019; Hu et al.\ 2022, LoRA; Pfeiffer
-et al.\ 2020, AdapterHub; Pfeiffer et al.\ 2021, AdapterFusion; Borzunov
-et al.\ 2023, Petals; Sheng et al.\ 2024, S-LoRA) are themselves retained as
-rows in the final 123-record corpus; the remaining one (Han et al.\ 2024) is
-cited as a background and positioning reference and is not independently
-included among the 123 records. The full disposition of
-the nine seeds and their role; Table~\ref{tab:g0_disposition} records the
-disposition of each. Six thematically focused
+motivating references only. \sloppy Of the seven submitted, six are themselves retained
+as rows in the final 123-record corpus; the remaining one (Han et al.\ 2024) is
+cited as a background and positioning reference only.
+Table~\ref{tab:g0_disposition} records the
+disposition of each seed. Six thematically focused
 pre-validated groups (G1--G6) were assembled
 by manual curation of leading venues (ACL, EMNLP, NeurIPS, ICML, MLSys);
-Table~\ref{tab:groups} summarises their scope and contribution. Forward and
+Table~\ref{tab:groups} summarises their scope and contribution.Forward and
 backward citation snowballing on G0 was executed via the Semantic Scholar API
 on 2026-04-21, supplemented by a Scopus/WoS forward pass on 2026-05-08.
-After deduplication, \textbf{972 unique records} entered title screening, of
+\fussy After deduplication, \textbf{972 unique records} entered title screening, of
 which \textbf{162} passed; these screened-in records were merged with the
 352-paper pre-validated corpus (G0--G6): 162 + 352 = 514 candidate records, of
 which 12 were removed as duplicates already present in both the newly-screened
@@ -286,7 +282,7 @@ LoRA-serving baseline. \\
 automated backward/forward retrieval, and whether it is itself a row in the
 final 123-record corpus. The ``new records found'' figures are incremental
 post-deduplication counts; their sum (972) matches the screened record total in
-Table~\ref{tab:screening}. Verified against \texttt{log\_retrieval\_2026-04-21.json}
+Table~\ref{tab:screening}. Verified against \texttt{\seqsplit{log\_retrieval\_2026-04-21.json}}
 and the final reading list.}
 \label{tab:g0_disposition}
 \small

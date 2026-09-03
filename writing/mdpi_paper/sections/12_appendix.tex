@@ -192,7 +192,7 @@ Q1 venues; 189 (40.7\%) in other peer-reviewed conferences or journals; 91
 unknown or missing venue metadata.
 
 Table~\ref{tab:extraction_codebook} documents the column schema of the data
-extraction table (`11\_data\_extraction\_2026-05-12.csv`, 224 rows) that feeds
+extraction table (`\texttt{\seqsplit{11\_data\_extraction\_2026-05-12.csv}}`, 224 rows) that feeds
 the funnel in Section~\ref{sec:methodology:search}. Coverage reports the number
 of the 224 rows carrying a non-null value. Three schema columns
 (`method\_name`, `datasets`, `metrics`) are uniformly empty in the archived
@@ -207,8 +207,9 @@ Section~\ref{sec:methodology:quality}.
 coverage of the 224-row extraction table.}
 \label{tab:extraction_codebook}
 \small
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lp{2.6cm}p{6.4cm}r}
+\setlength{\tabcolsep}{3pt}
+  \resizebox{0.85\textwidth}{!}{%
+  \begin{tabular}{lp{2.4cm}p{5.6cm}r}
 \toprule
 \textbf{Column} & \textbf{Meaning} & \textbf{Allowed / typical values} & \textbf{Coverage} \\
 \midrule
@@ -235,7 +236,7 @@ coverage of the 224-row extraction table.}
 \texttt{notes\_raw} & Full-text reading notes (methods, results, \texttt{\S} and \texttt{\ccstar} tags) & free text & 190/224 \\
 \texttt{source} & Retrieval source & \texttt{SCOPUS} / \texttt{ARXIV} / \texttt{WOS} & 220/224 \\
 \bottomrule
-\end{tabular}
+  \end{tabular}}
 \end{sidewaystable}
 
 \subsection*{A.6 Bibliometric Overview}
@@ -346,8 +347,8 @@ SKIP (excluded, or full text not retrieved)    & 338 & 61.2 \\
 \end{table}
 
 KEEP papers were exported for full-text review via RIS format
-(\texttt{08\_zotero\_ready\_2026-05-02.ris}, 214 entries). The full-text
-review queue (\texttt{09\_fulltext\_review\_queue\_2026-05-02.csv}),
+(\texttt{\seqsplit{08\_zotero\_ready\_2026-05-02.ris}}, 214 entries). The full-text
+review queue (\texttt{\seqsplit{09\_fulltext\_review\_queue\_2026-05-02.csv}}),
 compiled from the 214 KEEP and the 173 borderline-DEFER records, contains
 \textbf{387} records; of these, \textbf{190} proceeded to data extraction (all
 KEEP-origin; no DEFER-origin records reached extraction) and \textbf{197} were
@@ -356,12 +357,12 @@ further). A
 separate manual Scopus/WoS cross-validation top-up of \textbf{34} records
 entered directly at the extraction stage, bypassing this full-text queue
 (none were ultimately retained in the final 123), bringing the extraction
-set to \textbf{224} (\texttt{11\_data\_extraction\_2026-05-12.csv}). A subset of the
+set to \textbf{224} (\texttt{\seqsplit{11\_data\_extraction\_2026-05-12.csv}}). A subset of the
 queued DEFER records was read in full during this phase but was excluded at
 the final curation step (Appendix~\ref{app:search_log}, Table~\ref{tab:search_log}).
 Every record and its per-stage membership are traceable in the unified
-pipeline file (\texttt{pipeline\_unified.csv}). The final reading list
-(\texttt{13\_final\_reading\_list\_2026-05-12.csv}) is the authoritative
+pipeline file (\texttt{\seqsplit{pipeline\_unified.csv}}). The final reading list
+(\texttt{\seqsplit{13\_final\_reading\_list\_2026-05-12.csv}}) is the authoritative
 evidentiary base: \textbf{only the 123 papers it lists} entered the final
 inclusion set for this review. Records from earlier pipeline stages whose full
 text was not obtained (whether marked \texttt{DEFER} or left un-assessed, and
@@ -842,8 +843,8 @@ retrieval pipeline achieved comprehensive coverage of the target literature.
 Following full-text reading, the DOIs of candidate papers were submitted in batch to
 Scopus and WoS to retrieve authoritative venue, publication year, and citation-count
 metadata. The Scopus batch returned \textbf{172 records}
-(\texttt{M3\_scopus\_venue\_validation\_2026-05-11.csv}); the WoS batch returned
-\textbf{125 records} (\texttt{M4\_wos\_venue\_validation\_2026-05-11.txt}). These
+(\texttt{\seqsplit{M3\_scopus\_venue\_validation\_2026-05-11.csv}}); the WoS batch returned
+\textbf{125 records} (\texttt{\seqsplit{M4\_wos\_venue\_validation\_2026-05-11.txt}}). These
 files served exclusively as metadata enrichment sources: they appended WoS accession
 numbers and confirmed Scopus EIDs to records already in the reading pool, and were not
 used to introduce new candidates.
