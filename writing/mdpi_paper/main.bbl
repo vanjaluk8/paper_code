@@ -40,7 +40,7 @@ Chen, L.; Ye, Z.; Wu, Y.; Zhuo, D.; Ceze, L.; Krishnamurthy, A.
 Li, S.; Lu, H.; Wu, T.; Yu, M.; Weng, Q.; Chen, X.; Shan, Y.; Yuan, B.; Wang, W.
 \newblock Toppings: {CPU}-Assisted, Rank-Aware Adapter Serving for {LLM} Inference.
 \newblock In Proceedings of the USENIX Annual Technical Conference (ATC),  2025.
-\newblock Originally released as an arXiv preprint titled ``{CaraServe}: {CPU}-Assisted and Rank-Aware {LoRA} Serving for Generative {LLM} Inference'' (arXiv:2401.11240), {\url{https://doi.org/10.5555/3768039.3768076}}.
+\newblock Originally released as an arXiv preprint titled ``{CaraServe}: {CPU}-Assisted and Rank-Aware {LoRA} Serving for Generative {LLM} Inference'' (arXiv:2401.11240).
 
 \bibitem[Borzunov et~al.(2023)Borzunov, Baranchuk, Dettmers, Riabinin, Belkada, Chumachenko, Samygin, and Raffel]{Borzunov2023}
 Borzunov, A.; Baranchuk, D.; Dettmers, T.; Riabinin, M.; Belkada, Y.; Chumachenko, A.; Samygin, P.; Raffel, C.
@@ -151,7 +151,7 @@ Xiao, Y.; Watson, R.T.
 \bibitem[Wohlin(2014)]{Wohlin2014}
 Wohlin, C.
 \newblock Guidelines for Snowballing in Systematic Literature Studies and a Replication in Software Engineering.
-\newblock In Proceedings of the Proceedings of the 18th International Conference on Evaluation and Assessment in Software Engineering (EASE),  2014.
+\newblock In Proceedings of the 18th International Conference on Evaluation and Assessment in Software Engineering (EASE),  2014.
 \newblock {\url{https://doi.org/10.1145/2601248.2601268}}.
 
 \bibitem[Kitchenham and Charters(2007)]{KitchenhamCharters2007}

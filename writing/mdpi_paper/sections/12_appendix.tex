@@ -207,9 +207,8 @@ Section~\ref{sec:methodology:quality}.
 coverage of the 224-row extraction table.}
 \label{tab:extraction_codebook}
 \small
-\setlength{\tabcolsep}{3pt}
-  \resizebox{0.85\textwidth}{!}{%
-  \begin{tabular}{lp{2.4cm}p{5.6cm}r}
+\setlength{\tabcolsep}{4pt}
+  \begin{tabular}{lp{4.5cm}p{5.4cm}r}
 \toprule
 \textbf{Column} & \textbf{Meaning} & \textbf{Allowed / typical values} & \textbf{Coverage} \\
 \midrule
@@ -225,18 +224,16 @@ coverage of the 224-row extraction table.}
 \texttt{review\_source} & Whether the record proceeded from full-text or abstract second pass & \texttt{fulltext} / \texttt{abstract-2nd-pass} & 190/224 \\
 \texttt{corpus} & Relevance position & \texttt{core} / \texttt{background} & 190/224 \\
 \texttt{contribution\_type} & Inferred contribution category & one of 15 categories (per-table text) & 190/224 \\
-\texttt{method\_name} & (schema) named method — not populated in archive & free text & 0/224 \\
 \texttt{peft\_technique} & PEFT technique used & e.g.\ \texttt{LoRA}, \texttt{bottleneck adapter}, \texttt{prefix}, \texttt{generic-PEFT}, \texttt{none} & 190/224 \\
 \texttt{distribution\_mechanism} & How model/adapter state is shared & e.g.\ \texttt{federated}, \texttt{P2P/gossip}, \texttt{centralised server}, \texttt{DHT}, \texttt{none} & 190/224 \\
 \texttt{thesis\_sections} & Review sections citing the paper & \texttt{\S n.n} references & 190/224 \\
 \texttt{contribution\_codes} & Novel-contribution tag(s) & \texttt{\ccstar A1/S1/R1/R2/T2/M2} combinations & 22/224 \\
-\texttt{datasets} & (schema) datasets used — not populated in archive & free text & 0/224 \\
-\texttt{metrics} & (schema) evaluation metrics — not populated in archive & free text & 0/224 \\
+\texttt{method\_name}, \texttt{datasets}, \texttt{metrics} & Schema columns retained but not populated in the archived extraction & --- & 0/224 \\
 \texttt{key\_finding} & One-line primary outcome / contribution summary & free text (max ~1--2 lines) & 190/224 \\
 \texttt{notes\_raw} & Full-text reading notes (methods, results, \texttt{\S} and \texttt{\ccstar} tags) & free text & 190/224 \\
 \texttt{source} & Retrieval source & \texttt{SCOPUS} / \texttt{ARXIV} / \texttt{WOS} & 220/224 \\
 \bottomrule
-  \end{tabular}}
+  \end{tabular}
 \end{sidewaystable}
 
 \subsection*{A.6 Bibliometric Overview}
@@ -325,26 +322,32 @@ reproducibility checks.
 
 \begin{table}[H]
 \centering
-\caption{Abstract review outcomes, final consolidated classification (552
-records reviewed). KEEP (214) and SKIP (338) sum to the 552 reviewed; the 173
-intermediate second-pass DEFER records are subsumed within the 338 SKIP in
-this final consolidation. These 173 borderline-DEFER records were, however,
-also carried into the full-text review queue (214 KEEP ${}+{}$ 173 DEFER =
-387 queued; see text), and a subset was read in full during full-text
-review before being excluded at final curation — none reached the
-data-extraction stage.}
+\caption{Abstract-review disposition of the 552-record pool, matching
+Figure~\ref{fig:prisma}. The three-way KEEP / DEFER / SKIP split is the
+canonical classification. DEFER records were not disposed of as SKIP: they
+were carried into the full-text review queue (214 KEEP ${}+{}$ 173 DEFER =
+387 queued; see text), and a subset was read in full before being excluded
+at final curation — none reached the data-extraction stage.}
 \label{tab:abstract}
 \begin{tabular}{lrr}
 \toprule
 \textbf{Decision} & \textbf{\textit{N}} & \textbf{\%} \\
 \midrule
-KEEP (included in the full-text review queue)  & 214 & 38.8 \\
-SKIP (excluded, or full text not retrieved)    & 338 & 61.2 \\
+KEEP (exported to the full-text review queue)          & 214 & 38.8 \\
+DEFER (re-flagged for closer inspection; also queued)  & 173 & 31.3 \\
+SKIP (excluded at abstract review, did not proceed)    & 165 & 29.9 \\
 \midrule
-\textbf{Total reviewed}                        & \textbf{552} & \\
+\textbf{Total reviewed}                                & \textbf{552} & \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\emph{Derived rollup (for reference, KEEP vs.\ combined DEFER${}+{}$SKIP).}
+Collapsing DEFER into the not-advanced group gives a two-way view of
+\textbf{214} KEEP (38.8\%) and \textbf{338} not advanced immediately
+(61.2\%); this is a presentational rollup of the canonical three-way
+classification above and \emph{not} an alternative final count, since the
+173 DEFER records were carried into the 387-record full-text queue.
 
 KEEP papers were exported for full-text review via RIS format
 (\texttt{\seqsplit{08\_zotero\_ready\_2026-05-02.ris}}, 214 entries). The full-text

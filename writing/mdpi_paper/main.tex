@@ -23,6 +23,8 @@
 
 \usepackage{rotating}
 \usepackage{seqsplit}% break long monospace filenames/dataset ids at any point so they do not overflow the margin
+\usepackage{etoolbox}
+\robustify{\seqsplit}% \seqsplit is fragile; make it survive moving arguments (table/figure captions)
 %=================================================================
 % Author ORCID
 \newcommand{\orcidauthorA}{0009-0009-8142-6890}
