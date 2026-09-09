@@ -195,6 +195,31 @@ rubric as the primary screener) would not constitute a valid measure of
 independent human agreement, and reporting one risks implying a
 validation that was not in fact performed.
 
+\mentornote{OVAJ DIO TREBA POGLEDATI I ODLUČITI KAKO PRISTUPITI:
+This review currently reports no inter-rater reliability statistic for
+screening, on the grounds that a single reviewer conducted all title, abstract, and
+full-text decisions and no independent second human reviewer was available
+(consistent with PRISMA 2020 Item~8, which does not mandate dual screening). An
+external audit of this manuscript flagged this as the weakest point of the
+methodology section and suggested two possible remedies, neither of which has
+been implemented yet: \textbf{(A)} recruit a colleague or co-supervisor to
+independently re-screen a random 5--10\% sample of the 972 title-screened
+records, blind to the original decisions, and report percent agreement; or
+\textbf{(B)} the author independently re-screens the same random sample after a
+time delay, blind to their own prior labels, and reports intra-rater agreement
+as a documented (weaker, but single-author-feasible) substitute. Open questions
+for discussion: (1) Is a formal spot-check expected or optional for a
+single-author doctoral SLR at this Faculty, given PRISMA 2020's Item~8 wording
+does not mandate dual screening? (2) If a spot-check is advisable, is Option A
+or Option B more appropriate given time constraints before submission? (3) If
+neither is feasible before the submission deadline, is the existing disclosure
+(single-reviewer limitation, cited 5--13\% miss-rate estimate, Threats to
+Validity \mbox{\S\ref{sec:conclusion:threats}}) sufficient as reported, or does it need
+strengthening even without a new measurement? This note is a working flag for
+mentor discussion and must be deleted --- along with its result, once
+resolved, folded into the permanent Internal Validity paragraph in
+\mbox{\S\ref{sec:conclusion:threats}} --- before the manuscript is submitted.}
+
 This single-reviewer limitation applies specifically to the screening and
 appraisal of the snowball-retrieved candidate pool. The six thematically
 pre-validated groups (G1--G6, Appendix~\ref{app:undermind}), which
@@ -213,8 +238,9 @@ discussed further in Section~\ref{sec:conclusion:threats}.
 Of the 123 included records, \textbf{70} (56.9\%) entered through the primary
 full-text-queue path (i.e.\ they are part of the \textbf{387}-record full-text
 queue and its \textbf{190}-record extraction subset in
-Figure~\ref{fig:prisma}), and the remaining \textbf{53} (43.1\%) were screened in a second
-abstract-review pass (\texttt{abstract-2nd-pass}) before data extraction.
+Figure~\ref{fig:prisma}), and the remaining \textbf{53} second-pass-included records (43.1\%) were
+screened in a second abstract-review pass (\texttt{abstract-2nd-pass}) before
+data extraction.
 These 53 second-pass records are drawn from the pre-validated/enriched corpus
 (G0--G6), not from the supplementary forward-citation snowball, whose records
 contributed none of the final 123. Both cohorts
@@ -391,6 +417,9 @@ Core-corpus records failing full-text inclusion appraisal & 14 \\
 \midrule
 \textbf{Total} & \textbf{101} \\
 \bottomrule
+\multicolumn{2}{p{0.95\linewidth}}{\footnotesize\emph{These 53
+background-excluded records are unrelated to the 53 second-pass-included
+records reported in Section~\ref{sec:methodology:screening_reviewers}.}} \\
 \end{tabular}
 \end{table}
 
@@ -538,13 +567,26 @@ the benchmarks themselves are public in every row.}
   }
 \end{sidewaystable}
 
-\subsection{Quality Assessment}
+\subsection{Reporting-Completeness and Relevance Appraisal}
 \label{sec:methodology:quality}
 
 Because the review is a qualitative thematic synthesis of published
 methods--and--systems literature rather than a meta-analysis of participant-level
 interventions, the PRISMA 2020 risk-of-bias instruments for comparative studies do
-not apply directly. Following the practice of software-literature systematic
+not apply directly.
+
+This review therefore does not claim to have conducted a classical risk-of-bias
+assessment as defined for comparative clinical or empirical intervention studies.
+Its object of appraisal is the reporting quality and synthesis relevance of
+methods-and-systems papers, not the internal validity of a controlled comparison.
+Where the reviewed literature permits it, this review supplements the
+reporting-completeness rubric with a targeted, verified reproducibility check
+(code/artifact availability, Section~\ref{sec:methodology:quality:tier1}) over a
+representative subset of 33 systems; this subset check is disclosed as a bounded,
+illustrative appraisal and not extrapolated as a corpus-wide risk-of-bias
+statistic.
+
+Following the practice of software-literature systematic
 reviews~\cite{XiaoWatson2019}, this review instead appraises the \emph{reporting
 completeness and thematic relevance of each of the 123 included records} with a
 six-dimension rubric scored

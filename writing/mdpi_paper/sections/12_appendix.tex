@@ -56,7 +56,10 @@ removed).
 \subsection*{A.3 Inclusion and Exclusion Criteria}
 
 Eleven of the 123 included records (\textbf{8.9\%}) are arXiv preprints with
-no peer-reviewed published venue at the search date; they are included where
+no peer-reviewed published venue at the search date (this is a narrower,
+venue-status count; a broader retrieval-source count of 18 records with
+\texttt{source = ARXIV} is reported and reconciled in
+Appendix~\ref{app:search_log:pdf}, \S D.6); they are included where
 they carry a non-trivial external citation count (Semantic Scholar, retrieved
 2026-04-21), which serves as a minimal, \emph{external} proxy for
 community engagement and peer scrutiny. By this criterion a preprint must have
@@ -239,13 +242,13 @@ coverage of the 224-row extraction table.}
 \subsection*{A.6 Bibliometric Overview}
 
 The final corpus of 123 papers spans the period 2002--2026 (Table~\ref{tab:year_dist};
-Figure~\ref{fig:bibliometric}), with a marked
-concentration in the 2021--2025 window (107 papers, 87\% of the corpus). The
-most active year is 2024 with 38 papers (31\% of total), followed by 2025
-with 20 (16\%) and 2023 with 19 (15\%), confirming that the field is both
-active and growing. Publication volume accelerates sharply after 2022,
-coinciding with the proliferation of LoRA-based PEFT papers and
-adapter-serving systems.
+Figure~\ref{fig:bibliometric}),with a marked concentration in 
+the 2021--2025 window (106 papers, 86\% of the corpus). The most 
+active year is 2024 with 38 papers (31\% of total), followed by 
+2023 with 20 (16\%) and 2025 with 19 (15\%), confirming that 
+the field is both active and growing. Publication volume 
+accelerates sharply after 2022, coinciding with the proliferation 
+of LoRA-based PEFT papers and adapter-serving systems.
 
 \begin{table}[H]
 \centering
@@ -262,11 +265,11 @@ adapter-serving systems.
 2019 & 4 & 3.3 \\
 2020 & 5 & 4.1 \\
 2021 & 17 & 13.8 \\
-2022 & 13 & 10.6 \\
-2023 & 19 & 15.4 \\
+2022 & 12 & 9.8 \\
+2023 & 20 & 16.3 \\
 2024 & 38 & 30.9 \\
-2025 & 20 & 16.3 \\
-2026 & 3 & 2.4 \\
+2025 & 19 & 15.4 \\
+2026 & 4 & 3.3 \\
 \midrule
 \textbf{Total} & \textbf{123} & \textbf{100} \\
 \bottomrule
@@ -843,6 +846,12 @@ retrieval pipeline achieved comprehensive coverage of the target literature.
 \subsection*{D.5 — DOI-Based Venue Verification}
 \label{app:search_log:doi}
 
+The batch submitted for venue verification consists of the same 172 Scopus and
+125 WoS records retrieved during the manual cross-validation search
+(Appendix~\ref{app:search_log:crossval}, \S D.4); this step re-submits those
+record DOIs to obtain authoritative venue and citation metadata, rather than
+drawing a new, independent sample.
+
 Following full-text reading, the DOIs of candidate papers were submitted in batch to
 Scopus and WoS to retrieve authoritative venue, publication year, and citation-count
 metadata. The Scopus batch returned \textbf{172 records}
@@ -869,6 +878,9 @@ not separately accessible. (This ``18'' figure reports the \emph{retrieval sourc
 a separate, narrower count of \textbf{11 records} cited in
 Section~\ref{sec:conclusion:threats} reports \emph{venue status}---records
 whose current indexed venue remains arXiv and for which no peer-reviewed
-published version was identified at any retrieval stage.) A further \textbf{4 records} have no source annotation,
+published version was identified at any retrieval stage; see also
+Appendix~\ref{sec:appendix:corpus_pipeline}, \S A.3, and
+Section~\ref{sec:conclusion:threats} for the related 11-record venue-status
+count.) A further \textbf{4 records} have no source annotation,
 reflecting papers added from curated references whose primary retrieval provenance was
 not logged in the pipeline output files.

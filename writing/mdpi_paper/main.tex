@@ -24,6 +24,10 @@
 \usepackage{rotating}
 \usepackage{seqsplit}% break long monospace filenames/dataset ids at any point so they do not overflow the margin
 \usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{soul}
+\sethlcolor{yellow}
+\newcommand{\mentornote}[1]{\bigskip\noindent\hl{\textbf{[MENTOR CONSULTATION NEEDED --- REMOVE BEFORE SUBMISSION:] }#1}\bigskip}
 \robustify{\seqsplit}% \seqsplit is fragile; make it survive moving arguments (table/figure captions)
 %=================================================================
 % Author ORCID
@@ -131,8 +135,8 @@ published version of the manuscript.}
 
 \dataavailability{No new experimental data were created: the review analyses
 previously published literature. Materials are held in two repositories:
-\texttt{papers\_code} (this manuscript, the curated corpus
-\texttt{papers\_repo/}, and the PRISMA package; private) and
+\texttt{paper\_code} (this manuscript, the curated corpus
+\texttt{papers\_repo/}, and the PRISMA package; publicly available) and
 \texttt{slr\_engine} (the snowballing/retrieval/screening/extraction
 pipeline and its output files), publicly available at
 \url{https://github.com/vanjaluk8/slr_engine}. The audited final reading
@@ -152,8 +156,8 @@ Appendix~\ref{sec:appendix:corpus_pipeline}. Two verification scripts in
 count and quality-appraisal statistic reported in this manuscript directly
 from the underlying pipeline files; their saved run outputs are in
 \texttt{\seqsplit{snowball\_output/verification\_runs/}}.
-\texttt{papers\_code} is
-publicly available at \url{https://github.com/vanjaluk8/papers_code}. %TODO: PLACEHOLDER -- confirm/replace with final public repo URL before submission
+\texttt{paper\_code} is
+publicly available at \url{https://github.com/vanjaluk8/paper_code}.
 }
 
 % PRISMA 2020 checklist + quality-appraisal scores provided as Supplementary Material
