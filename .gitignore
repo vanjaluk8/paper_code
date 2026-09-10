@@ -72,3 +72,5 @@ build/out/*
 mdpi_paper/_archive/
 _archive/
 _prisma_audit/
+prisma_audit/
+.claude/
