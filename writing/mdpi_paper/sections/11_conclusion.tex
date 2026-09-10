@@ -9,7 +9,8 @@ adapter-aware inference systems (Section~\ref{sec:inference_systems}), unified b
 mixture-of-experts routing as the selection mechanism (Section~\ref{sec:moe_routing}) and
 peer-to-peer and federated learning (Section~\ref{sec:p2p_federated}).
 The systematic review followed the PRISMA 2020 guidelines \cite{Page2021}, the
-eight-step process of Xiao and Watson~\cite{XiaoWatson2019}, and the snowballing procedure of
+eight-step process of Xiao and Watson~\cite{XiaoWatson2019}, and a single-wave
+adaptation of the snowballing procedure of
 Wohlin et al.~\cite{Wohlin2014}, yielding a final corpus of 123 included
 records (120 distinct papers), assembled from nine seed papers and six
 thematic pre-validated groups.
@@ -23,23 +24,36 @@ The review established four key findings:
 
 \begin{enumerate}
   \item \textbf{Adapters are structurally suitable for P2P exchange.} LoRA and
-    bottleneck adapters are self-contained, small (2--10~MB for $r = 4$--$8$ at
-    GPT-2 scale), additive to a frozen backbone, and task-specific. These properties
+    bottleneck adapters are self-contained, small (of order 2--10~MB for
+    $r = 4$--$8$ at GPT-2 scale\footnote{Order-of-magnitude estimate derived
+    from architecture parameters, not a measured file size. LoRA on the two
+    attention projections most commonly adapted (query and value) adds $2rd$
+    trainable parameters per projection, where $r$ is the rank and $d$ the
+    hidden size. For GPT-2 medium through XL ($d \approx 1024$--$1600$;
+    $24$--$48$ transformer layers) at $r = 4$--$8$ this is $\approx 0.4$--$2.5$
+    million parameters, i.e.\ roughly $1$--$10$~MB stored in single precision;
+    wider rank, more adapted modules, or lower-precision storage move the figure
+    within this band.}), additive to a frozen backbone, and task-specific. These properties
     make them natural transmission units in a P2P network. No reviewed work has operationalised this observation into a complete adapter exchange protocol.
 
   \item \textbf{Adapter composition is technically feasible without joint training.}
-    LoraHub \cite{Huang2023}, Model Soups \cite{Wortsman2022}, and
-    LoraRetriever \cite{ZhaoLoraRetriever2024} all demonstrate that independently
-    trained adapters can be composed effectively using weight averaging or retrieval-based
-    combination, without access to any task's original training data. Composition quality
+    LoraHub \cite{Huang2023} and LoraRetriever \cite{ZhaoLoraRetriever2024} demonstrate
+    that independently trained adapters can be composed effectively using
+    weight-combination or retrieval-based selection, without access to any task's
+    original training data. Composition quality
     depends on the ability to match adapters to queries based on learned capability
-    representations.
+    representations. Model Soups \cite{Wortsman2022} is the underlying weight-averaging
+    precedent for this class of methods, though it was demonstrated on full
+    fine-tuned vision models averaged from a common initialisation on the same
+    task, not on independently trained adapters.
 
   \item \textbf{Federated PEFT confirms communication efficiency but requires
     centralised aggregation.} The federated PEFT literature (30 papers, the
     G6 group in Table~\ref{tab:groups}) consistently
-    shows that adapter-only exchange reduces communication cost by 90--99\% compared
-    to full gradient exchange, and that non-IID performance degradation is bounded.
+    shows that adapter-only exchange reduces per-round communication cost by
+    90--99\% compared to full gradient or weight exchange
+    \cite{ZhangFedPETuning2023}, and that non-IID performance degradation is
+    bounded (Section~\ref{sec:p2p_federated:fed_peft}).
     However, all reviewed systems require a central aggregation server, leaving fully
     decentralised adapter aggregation as an open problem.
 
@@ -56,11 +70,12 @@ The review established four key findings:
 The central contribution of this review is the identification and structured
 characterisation of a compound research gap at the intersection of three active
 fields: parameter-efficient fine-tuning, peer-to-peer and federated learning,
-and adapter-aware inference serving. Within the reviewed corpus, the concept
-matrix (Table~\ref{tab:concept_matrix}) shows that none of the 123 reviewed
-records simultaneously satisfies all seven design dimensions of a fully
-decentralised adapter-based inference setting (to the best of the author's
-knowledge). The research gap map (Table~\ref{tab:gap_map})
+and adapter-aware inference serving. The concept
+matrix (Table~\ref{tab:concept_matrix}) shows that none of the 17 systems it
+scores --- selected as the most developed published exemplars of each of the
+five pillars (selection rule in
+Section~\ref{sec:synthesis_gap:matrix}) --- simultaneously satisfies all seven
+design dimensions of a fully decentralised adapter-based inference setting. The research gap map (Table~\ref{tab:gap_map})
 decomposes this compound gap into eight open research questions across four
 quadrants, each demanding a different type of research contribution.
 
@@ -68,7 +83,7 @@ The systematisation of the 123 included records (120 distinct papers) across fiv
 intersection between DHT-based discovery, adapter capability representation,
 decentralised fusion, and P2P topology together constitute the analytical
 contribution of this review.
-From the literature that has been reviewed, no prior finding has examined this intersection; the present work establishes the evidence base and the open
+Within the reviewed corpus, no prior finding has examined this intersection; the present work establishes the evidence base and the open
 questions on which future empirical work can be grounded.
 
 \subsection{Threats to Validity}
@@ -86,13 +101,11 @@ earlier draft of this review reported an automated re-screening
 diagnostic as a partial calibration check, but this has been removed,
 since a non-independent automated process sharing the reviewer's own
 screening pipeline and rubric cannot support a valid claim of inter-rater
-agreement. Single-reviewer screening has been estimated elsewhere to miss
-on the order of 5--13\% of eligible studies relative to dual independent
-screening. We consider single-reviewer selection bias, together with the
+agreement. The author treats single-reviewer selection bias, together with the
 framing-informed construction of the pre-validated G1--G6 corpora
-(Section~\ref{sec:methodology:screening_reviewers}), the two principal
-threats to the internal validity of this review, and do not claim to
-have eliminated either. To bound the consequent bias, automated keyword scoring (Layer~2), structured term sets, and AI-assisted consistency checks were employed alongside manual review, every per-record decision is logged in audit files for reproducibility, and over-inclusion is mitigated downstream by the full-text and quality-appraisal stages (Section~\ref{sec:methodology}). The use of automated classifiers may have introduced systematic bias; however, all automated outputs were advisory, and final decisions were made by the author. The year filter ($\geq$2021 for snowballed records) excluded potentially relevant earlier work, though this risk was mitigated by the inclusion of pre-2021 foundational papers through the pre-validated G0--G6 corpora. Additionally, eleven of the 123 included records (8.9\%) are arXiv preprints without a peer-reviewed published venue at the search date (this is a narrower, venue-status count; a broader retrieval-source count of 18 records with \texttt{source = ARXIV} is reported and reconciled in Appendix~\ref{app:search_log:pdf}, \S D.6); these were retained on an external-citation proxy for minimal peer scrutiny (Semantic Scholar, retrieved 2026-04-21; 2--318 citations, median 48), rather than on in-corpus citation linking, to avoid a circular inclusion criterion. No formal threshold has been established in the SLR methodology literature for this criterion, and a different threshold could alter the corpus composition. A related reporting gap concerns the abstract-review stage: of the 552-record abstract-review pool, 165 records were excluded with only a coarse SKIP disposition and no individually coded exclusion reason retained in the pipeline data (Section~\ref{sec:methodology:search}); this is disclosed here as a limitation on the granularity of the audit trail at that specific stage, consistent with PRISMA 2020 Item 16b, rather than a gap in the fact of reporting the exclusion itself. By contrast,
+(Section~\ref{sec:methodology:screening_reviewers}), as the two principal
+threats to the internal validity of this review, and does not claim to
+have eliminated either. To bound the consequent bias, automated keyword scoring (Layer~2), structured term sets, and AI-assisted consistency checks were employed alongside manual review, every per-record decision is logged in audit files for reproducibility, and over-inclusion is mitigated downstream by the full-text and quality-appraisal stages (Section~\ref{sec:methodology}). The use of automated classifiers may have introduced systematic bias; however, all automated outputs were advisory, and final decisions were made by the author. The year filter ($\geq$2021 for snowballed records) excluded potentially relevant earlier work, though this risk was mitigated by the inclusion of pre-2021 foundational papers through the pre-validated G0--G6 corpora. Additionally, eleven of the 123 included records (8.9\%) are arXiv preprints without a peer-reviewed published venue at the search date (this is a narrower, venue-status count; a broader retrieval-source count of 18 records with \texttt{source = ARXIV} is reported and reconciled in Appendix~\ref{app:search_log:pdf}, \S D.6); these were retained on an external-citation proxy for minimal peer scrutiny (Semantic Scholar, retrieved 2026-04-21; 2--318 citations, median 48), rather than on in-corpus citation linking, to avoid a circular inclusion criterion. No formal threshold has been established in the SLR methodology literature for this criterion, and a different threshold could alter the corpus composition. A related reporting gap concerns the abstract-review stage: of the 552-record abstract-review pool, 165 records were excluded with only a coarse SKIP disposition and no individually coded exclusion reason retained in the pipeline data (Section~\ref{sec:methodology:search}); this is disclosed here as a limitation on the granularity of the audit trail at that specific stage, consistent with PRISMA 2020 Item 16b, rather than a gap in the fact of reporting the exclusion itself. A second, analogous granularity limitation concerns the identification stage of the Undermind-assisted route, to which 105 of the 123 final records are attributed: Undermind returns a relevance-ranked candidate list rather than an exhaustive hit count, and the size of the candidate pool it evaluated per query before the author's manual selection was not separately retained. This route is therefore reported from its six exported ranked lists (377 records before cross-group deduplication, 343 after; per-group funnel in Table~\ref{tab:groups} and Appendix~\ref{sec:appendix:corpus_pipeline}, \S A.1) rather than from a raw candidate pool. Every stage downstream of that exported list is enumerated and traceable record-by-record. By contrast,
  the \textbf{101} records dropped at the eligibility stage (extraction $\rightarrow$
  final list) are fully categorised and enumerated per-record
  (Table~\ref{tab:final_exclusions}, Section~\ref{sec:methodology}),
@@ -101,42 +114,64 @@ have eliminated either. To bound the consequent bias, automated keyword scoring 
 
 \textit{External validity.}
 The corpus is exclusively English-language and predominantly NLP-focused. Findings may not generalise to computer vision, multimodal, or speech-processing settings where adapter architectures are also increasingly used. The dominance of ACL, EMNLP, and NeurIPS venues in the corpus reflects the field's publication patterns but may underrepresent relevant systems work published in networking or distributed systems venues not covered by the seed papers.
+One scope boundary is worth stating explicitly: systems for decentralised or
+communication-efficient training of a \emph{full} model from scratch (for
+example \textsc{DiLoCo} or \textsc{SWARM} Parallelism) were not sought, because
+this review concerns the exchange and composition of adapters over a frozen,
+shared backbone rather than collaborative training of the backbone itself ---
+for which Petals~\cite{Borzunov2023} is the in-scope peer-to-peer exemplar and
+is included. Within the in-scope literature, adjacent recent lines are
+represented: heterogeneous-rank federated LoRA
+(HetLoRA~\cite{ChoHeteroLoRA2024}, FLoRA~\cite{WangFLoRA2024},
+FFA-LoRA~\cite{SunImprovingLoRA2024}) and adapter retrieval beyond
+LoraRetriever~\cite{ZhaoLoraRetriever2024}
+(PHATGOOSE~\cite{Muqeeth2024}, the LoRA-library approach of Ostapenko et
+al.~\cite{Ostapenko2024}) are all in the final corpus.
 
 \textit{Conclusion validity.}
 One wave of citation snowballing was performed; saturation was assessed by overlap with the pre-validated corpora but was not formally measured using a stopping criterion such as diminishing marginal inclusion rate. The field is rapidly evolving: papers published after the search date (2026-04-21) may address gaps identified in this review. The gap analysis reflects the state of the literature at the time of the search and should be interpreted accordingly.
 
-As a supplementary check on the gap claims in Section~\ref{sec:synthesis_gap},
-a non-systematic adversarial search was conducted specifically to seek
-evidence against this review's own conclusions --- i.e., to locate any
-existing decentralised adapter-exchange or adapter-marketplace system,
-regardless of publication type, that might already satisfy the
-combination of requirements identified in Table~\ref{tab:concept_matrix}.
-This search identified two adjacent non-academic projects: Bittensor,\footnote{\url{https://www.bittensor.com/}, accessed 2026-08-27; see also~\url{https://arxiv.org/abs/2507.02951}.} a blockchain-based decentralised
+As a check on the gap claims in Section~\ref{sec:synthesis_gap}, a structured
+disconfirming search was conducted (method, queries, and results in
+Section~\ref{sec:methodology:search} and
+Appendix~\ref{app:db_queries:adversarial}; grey-literature methodology after
+Garousi et al.~\cite{Garousi2019}) specifically to seek evidence against this
+review's own conclusions --- to locate any existing decentralised
+adapter-exchange or adapter-marketplace system, regardless of publication type,
+that might already satisfy the combination of requirements in
+Table~\ref{tab:concept_matrix}. No located artefact provided that combination;
+the near-misses are catalogued in Table~\ref{tab:adversarial_search}. Among the
+candidates were two adjacent non-academic projects: Bittensor,\footnote{\url{https://www.bittensor.com/}, accessed 2026-08-27; see also~\url{https://arxiv.org/abs/2507.02951}.} a blockchain-based decentralised
 marketplace for machine-learning resources (compute, inference, and whole
 models) organised into incentivised ``subnets,'' and Platformless
 AI,\footnote{\url{https://www.platformlessai.org/}, accessed 2026-08-27.} a
 commercial project describing peer-to-peer training and storage of LoRA
-adapters with on-chain attestation. Neither meets this review's
-peer-reviewed inclusion criteria (Section~\ref{sec:methodology}), and
-neither is treated as scientific evidence in this review; they are
-disclosed here solely to document that the search process was capable of
-surfacing disconfirming candidates and to bound the review's gap claims
-accordingly. Substantively, neither system addresses the specific
-combination examined in this review: Bittensor operates at
-whole-model/subnet granularity without adapter-level capability discovery
-or fusion, and Platformless AI is session-scoped, lacks a published
-discovery or composition protocol, and has not been subject to peer
-review or independent evaluation. Their existence indicates practical,
-industry-level demand for the general problem addressed by this review,
-which is noted here as motivating context rather than as evidence
-qualifying or weakening the gap claims in Section~\ref{sec:synthesis_gap}.
+adapters with on-chain attestation. Neither meets this review's peer-reviewed
+inclusion criteria (Section~\ref{sec:methodology}) and neither is treated as
+scientific evidence; they are disclosed to document that the search surfaced
+disconfirming candidates and to bound the gap claims accordingly.
+Substantively, neither addresses the specific combination examined here:
+Bittensor operates at whole-model/subnet granularity without adapter-level
+capability discovery or fusion, and Platformless AI is session-scoped, lacks a
+published discovery or composition protocol, and has not been peer reviewed or
+independently evaluated. Their existence indicates practical, industry-level
+demand for the general problem addressed by this review, noted as motivating
+context rather than as evidence qualifying the gap claims in
+Section~\ref{sec:synthesis_gap}.
 
 \subsection{Limitations and Future Work}
 \label{sec:conclusion:limitations}
 
-This work has several limitations. All findings rest on collected 
-literature evidence and the author's own analytical validation and 
+This work has several limitations. All findings rest on collected
+literature evidence and the author's own analytical validation and
 identification of a theoretical foundation. The open research directions identified in this review remain at the conceptual and analytical level; no empirical work yet exists to validate the open question of bounding on adapter reuse quality or the feasibility of local fusion weight estimation in a P2P setting.
+
+The concept matrix (Table~\ref{tab:concept_matrix}) scores 17 selected systems
+spanning the five pillars rather than every one of the 123 included records; the
+central gap claim is therefore quantified over that illustrative cross-section,
+not the full corpus. Extending the seven-dimension scoring to all 123 records
+(or at least the 48 Tier-1 records) and publishing the full matrix as a
+supplementary artefact is identified as future work.
 
 Second, the reviewed corpus is exclusively English-language. The PRISMA 2020 
 review process covered only peer-reviewed works written in English. The 

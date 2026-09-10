@@ -27,7 +27,7 @@
 \usepackage{xcolor}
 \usepackage{soul}
 \sethlcolor{yellow}
-\newcommand{\mentornote}[1]{\bigskip\noindent\hl{\textbf{[MENTOR CONSULTATION NEEDED --- REMOVE BEFORE SUBMISSION:] }#1}\bigskip}
+% (draft-review highlight command removed 2026-09-10 --- no remaining call sites)
 \robustify{\seqsplit}% \seqsplit is fragile; make it survive moving arguments (table/figure captions)
 %=================================================================
 % Author ORCID
@@ -63,16 +63,18 @@ orchestration. This systematic literature review asks whether a peer-to-peer
 (P2P) direction is theoretically grounded: can task-specific adapters be
 discovered, retrieved, composed, and served across autonomous nodes sharing a
 frozen backbone without a central coordinator? Following PRISMA 2020 and
-Wohlin et al.\ snowballing, 1{,}150 snowball candidates were examined; 162
-records passing screening were merged with a 352-paper pre-validated corpus,
+a single-wave Wohlin et al.\ snowballing pass, 1{,}150 snowball candidates were
+examined; 162 records passing screening were merged with a 352-paper
+pre-validated corpus,
 yielding 123 included records (120 distinct papers) across five clusters:
 parameter-efficient fine-tuning, adapter composition, LLM inference serving,
 mixture-of-experts routing, and P2P/federated learning. Each study was
 appraised on a six-dimension rubric, and the evidence was synthesised into a
-unified gap map. To the author's knowledge, no reviewed system simultaneously
-addresses a frozen shared backbone, adapter-level exchange, P2P topology,
-decentralised discovery, multi-task fusion, and the absence of a central
-coordinator; the literature instead partitions into four gap
+unified gap map. Across the 17 systems compared in the review's concept
+matrix---the most developed published exemplars of each pillar---none
+simultaneously addresses a frozen shared backbone, adapter-level exchange, P2P
+topology, decentralised discovery, multi-task fusion, and the absence of a
+central coordinator; the literature instead partitions into four gap
 quadrants---conceptual, algorithmic, systems, and empirical---each defining
 open research questions. This establishes the evidence base and research
 agenda for decentralised, adapter-based P2P inference.}
@@ -134,30 +136,41 @@ published version of the manuscript.}
 \informedconsent{Not applicable.}
 
 \dataavailability{No new experimental data were created: the review analyses
-previously published literature. Materials are held in two repositories:
-\texttt{paper\_code} (this manuscript, the curated corpus
-\texttt{papers\_repo/}, and the PRISMA package; publicly available) and
-\texttt{slr\_engine} (the snowballing/retrieval/screening/extraction
-pipeline and its output files), publicly available at
-\url{https://github.com/vanjaluk8/slr_engine}. The audited final reading
-list and PRISMA summary
-(\texttt{\seqsplit{13\_final\_reading\_list\_2026-05-12.csv}},
-\texttt{\seqsplit{PRISMA\_summary\_2026-04-21.md}}) are version-controlled deliverables
-in \texttt{slr\_engine}; intermediate pipeline artefacts---the consolidated
-\texttt{\seqsplit{pipeline\_unified.csv}}, retrieval/screening logs, and the
-per-record data-extraction spreadsheet---are regenerable local outputs of
-the pipeline and are not separately version-controlled. The derived
-reproducibility artefacts computed from them---PRISMA funnel counts,
-per-record quality-appraisal scores, and the extraction codebook---are
-reported in \S3.4 and reproducible from the pipeline fields documented in
-Appendix~\ref{sec:appendix:corpus_pipeline}. Two verification scripts in
-\texttt{slr\_engine} (\path{scripts/verify_prisma_counts.py} and
-\path{scripts/verify_quality_appraisal.py}) recompute every PRISMA-stage
-count and quality-appraisal statistic reported in this manuscript directly
-from the underlying pipeline files; their saved run outputs are in
-\texttt{\seqsplit{snowball\_output/verification\_runs/}}.
-\texttt{paper\_code} is
-publicly available at \url{https://github.com/vanjaluk8/paper_code}.
+previously published literature. Materials are held in two publicly available
+repositories: \texttt{paper\_code} (this manuscript, the curated corpus
+\texttt{papers\_repo/}, and the PRISMA package;
+\url{https://github.com/vanjaluk8/paper_code}) and \texttt{slr\_engine} (the
+snowballing/retrieval/screening/extraction pipeline and its output files;
+\url{https://github.com/vanjaluk8/slr_engine}).
+The following per-record artefacts are version-controlled in
+\texttt{slr\_engine} and together allow the corpus construction reported in
+Section~\ref{sec:methodology} and
+Appendix~\ref{sec:appendix:corpus_pipeline} to be reproduced end to end:
+\texttt{\seqsplit{13\_final\_reading\_list\_2026-05-12.csv}} (the 123-record
+final reading list);
+\texttt{\seqsplit{pipeline\_unified.csv}} (every record with its membership at
+each pipeline stage);
+\texttt{\seqsplit{log\_retrieval\_2026-04-21.json}} and
+\texttt{\seqsplit{log\_screening\_2026-04-21.json}} (the retrieval log and the
+per-record title-screening decisions, including the classifier identifier,
+term-set version, and final label);
+\texttt{\seqsplit{S7b\_abstract\_reviewed\_final.csv}} (the per-record
+abstract-review disposition: advisory model suggestion and the author's final
+decision);
+\texttt{\seqsplit{11\_data\_extraction\_2026-05-12.csv}} (the 224-row
+data-extraction spreadsheet);
+\texttt{\seqsplit{14\_final\_curation\_reasons.csv}} (the per-record
+eligibility-stage exclusion codings for the 101 records dropped between
+extraction and the final list); and
+\texttt{\seqsplit{PRISMA\_summary\_2026-04-21.md}} (the PRISMA funnel summary).
+Two verification scripts in \texttt{slr\_engine}
+(\path{scripts/verify_prisma_counts.py} and
+\path{scripts/verify_quality_appraisal.py}) recompute every PRISMA-stage count
+and quality-appraisal statistic reported in this manuscript directly from these
+files; their saved run outputs are in
+\texttt{\seqsplit{snowball\_output/verification\_runs/}}. The per-record
+quality-appraisal scores underlying \S3.4 are additionally provided as
+Supplementary Material S2.
 }
 
 % PRISMA 2020 checklist + quality-appraisal scores provided as Supplementary Material
@@ -169,7 +182,12 @@ publicly available at \url{https://github.com/vanjaluk8/paper_code}.
 
 \acknowledgments{Not applicable.}
 
-\conflictsofinterest{The author declares no conflicts of interest.}
+\conflictsofinterest{The author declares no conflicts of interest. For
+transparency: the author and R.~{\v{S}}ajina, whose doctoral thesis is cited as
+the closest published predecessor to this review's premise, are both affiliated
+with the University of Rijeka; they have no research collaboration, shared
+supervision, or co-authored work, and that thesis is cited solely on its
+scholarly merits.}
 
 \abbreviations{Abbreviations}{
 The following abbreviations are used in this manuscript:\\

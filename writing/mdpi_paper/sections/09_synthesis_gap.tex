@@ -113,12 +113,32 @@ Two dimensions were considered and deliberately excluded. Latency was not includ
 
 The scoring uses a binary \checkmark/$\times$ scheme rather than a graded scale because each dimension represents a structural commitment that a system either makes or does not. A graded scale would introduce precision that the available evidence cannot support. The (\checkmark) partial marker is reserved for the small number of cases where a system addresses a dimension in a limited or indirect way, sufficient to acknowledge but not sufficient to claim full satisfaction.
 
+\paragraph{System selection for the matrix.}
+Table~\ref{tab:concept_matrix} scores 17 systems rather than the full 123-record
+corpus. The 17 were selected as follows: the two foundational adapter methods
+that every later system builds on (Houlsby adapters, LoRA), plus, for each of
+the five pillars, the most architecturally developed published exemplars ---
+those that make an explicit design commitment on at least one of the seven
+dimensions and are either the pillar's canonical reference or its closest
+approach to the decentralised target. Incremental variants that share a
+predecessor's profile on all seven dimensions are represented by that
+predecessor and not listed separately; records that engage none of the seven
+dimensions (for example, pure benchmark or survey entries) are omitted. The
+matrix is therefore an illustrative cross-section chosen to span the design
+space, not an exhaustive scoring, and the gap claim in
+Section~\ref{sec:conclusion:contributions} is quantified only over these 17
+systems. A full-corpus scoring pass is identified as future work in
+Section~\ref{sec:conclusion:limitations}.
+
 
 \begin{table}[H]
 \centering
 \footnotesize
-\caption{Concept matrix: related systems against seven design dimensions of the target
-         decentralised adapter-based system. \checkmark\ = addressed; (\checkmark) = partially;
+\caption{Concept matrix: 17 selected systems against seven design dimensions of the target
+         decentralised adapter-based system. The 17 are an illustrative
+         cross-section spanning the five pillars, not an exhaustive scoring of
+         the 123-record corpus (selection rule in
+         Section~\ref{sec:synthesis_gap:matrix}). \checkmark\ = addressed; (\checkmark) = partially;
          $\times$ = not addressed; $-$ = dimension not engaged by the system (not applicable).}
 \label{tab:concept_matrix}
 \setlength{\tabcolsep}{2pt}
@@ -160,7 +180,7 @@ empirical work.}
 \end{tabular}
 \end{table}
 
-The final row of Table~\ref{tab:concept_matrix} defines a combined reference profile that aggregates the dimensions addressed individually by different bodies of work. It does not represent a proposed system or architecture. No reviewed system addresses all seven dimensions simultaneously. The combination of these requirements represents a coherent but as yet unexplored research direction, and each unaddressed dimension identifies an open question that future work in this area would need to resolve. Two clarifications on scoring. First, the marker $-$ denotes a dimension the system does not engage at all (for example, LoRA and the original adapters are single-model training methods that neither provide nor require coordination, so their ``no central coordinator'' cell is $-$ rather than \checkmark); only systems that make an explicit design commitment are marked \checkmark\ or $(\checkmark)$. Second, ``P2P topology'' and ``absence of a central coordinator'' are related but distinct commitments: the former describes how peers connect and exchange modules, the latter whether a coordinating server is required, and the two are deliberately kept separate because a system could in principle adopt a P2P topology while still depending on a central coordinator for orchestration.
+The final row of Table~\ref{tab:concept_matrix} defines a combined reference profile that aggregates the dimensions addressed individually by different bodies of work. It does not represent a proposed system or architecture. None of the 17 systems scored addresses all seven dimensions simultaneously. The combination of these requirements represents a coherent but as yet unexplored research direction, and each unaddressed dimension identifies an open question that future work in this area would need to resolve. Two clarifications on scoring. First, the marker $-$ denotes a dimension the system does not engage at all (for example, LoRA and the original adapters are single-model training methods that neither provide nor require coordination, so their ``no central coordinator'' cell is $-$ rather than \checkmark); only systems that make an explicit design commitment are marked \checkmark\ or $(\checkmark)$. Second, ``P2P topology'' and ``absence of a central coordinator'' are related but distinct commitments: the former describes how peers connect and exchange modules, the latter whether a coordinating server is required, and the two are deliberately kept separate because a system could in principle adopt a P2P topology while still depending on a central coordinator for orchestration.
 
 \subsection{Four-Quadrant Gap Classification}
 \label{sec:synthesis_gap:gaps}
@@ -273,16 +293,20 @@ in this direction must resolve.
 
 \begin{table}[H]
 \centering
-\caption{Research gap map: identified gaps grouped by quadrant, with evidence
-         base, unaddressed concept matrix dimensions, and open research question.}
+\caption{Research gap map: identified gaps grouped by quadrant, with the closest
+         prior work checked against each gap, unaddressed concept matrix
+         dimensions, and open research question. Each gap is a negative claim
+         bounded by the 123-paper corpus; the cited works are the nearest
+         approaches identified and found not to address the listed dimensions
+         (see \S\ref{sec:synthesis_gap:gaps}).}
 \label{tab:gap_map}
 \setlength{\tabcolsep}{4pt}
 \footnotesize
-\begin{tabular}{p{2cm}p{3.5cm}p{1.5cm}p{2cm}p{4cm}}
+\begin{tabular}{p{1.9cm}p{3.3cm}p{2cm}p{1.9cm}p{3.9cm}}
 \toprule
 \textbf{Quadrant} &
 \textbf{Gap Description} &
-\textbf{Evidence} &
+\textbf{Closest prior work checked} &
 \textbf{Dimensions Unaddressed} &
 \textbf{Open Research Question} \\
 \midrule
@@ -290,7 +314,7 @@ Conceptual &
   Within the reviewed corpus, no work yet frames adapters as autonomous,
   transferable knowledge units with identity, provenance, and capability in a
   P2P context &
-  G0--G6 &
+  Concept matrix (Table~\ref{tab:concept_matrix}); \cite{Sajina2024,Ponti2023} &
   Adapter exchange + P2P &
   What properties must an adapter possess to function as an exchangeable
   knowledge unit between autonomous peers? \\
@@ -298,34 +322,34 @@ Conceptual &
 \multirow{3}{*}{Algorithmic} &
   No protocol has been identified for locating task-relevant adapters across a P2P network
   without a central registry &
-  G3, G4 &
+  \cite{MaymounkovKademlia2002,ZhaoLoraRetriever2024,Ostapenko2024} &
   Discovery &
   Can DHT-based lookup support capability-level adapter discovery at scale? \\[4pt]
   &
   No reviewed method derives a compact, data-free representation of adapter functional
   capability from weights alone &
-  G2, G5 &
+  \cite{Ostapenko2024,Muqeeth2024} &
   Discovery &
   Do weight-space properties of adapters carry sufficient task-level signal
   for similarity-based retrieval? \\[4pt]
   &
   No reviewed method provides a functional, behaviour-based adapter descriptor robust
   to distribution shift &
-  G2, G4 &
+  \cite{ZhaoLoraRetriever2024,Muqeeth2024} &
   Discovery &
   Can probe-set outputs provide functional capability descriptions more robust
   than structural weight representations? \\
 \midrule
 \multirow{2}{*}{Systems} &
   No P2P architecture has been proposed for adapter exchange without central infrastructure &
-  G3, G4 &
+  \cite{Sheng2024,Chen2023Punica,Li2024CaraServe,Borzunov2023} &
   P2P + No central coord. &
   What communication and storage primitives are necessary and sufficient for
   decentralised adapter sharing? \\[4pt]
   &
   No gossip-based protocol has been identified for adapter metadata dissemination across
   a dynamic peer population &
-  G3, G6 &
+  \cite{OrmandyGossip2013,HegeduisGossip2019} &
   P2P + No central coord. &
   Is gossip propagation sufficient for adapter metadata under realistic churn
   and bandwidth constraints? \\
@@ -333,7 +357,7 @@ Conceptual &
 \multirow{2}{*}{Empirical} &
   No theoretical bounds have been derived for adapter reuse quality as a function of
   distribution distance between peers &
-  G3, G6 &
+  \cite{ZhangFedPETuning2023,Li2020FedProx,BenDavid2010} &
   Adapter exchange + P2P &
   Under what distributional conditions does adapter reuse degrade to an
   unacceptable degree, and can this be bounded formally? \\[4pt]
@@ -341,7 +365,7 @@ Conceptual &
   No reviewed method demonstrates fusion of independently discovered,
   independently initialised adapters without a shared training lineage or
   centralised coordination &
-  G2, G5 &
+  \cite{Pfeiffer2021fusion,Ilharco2023TaskArithmetic,Yadav2023TIES} &
   Multi-task fusion &
   Can probe-based local weight estimation replace centralised fusion training
   without unacceptable performance loss? \\

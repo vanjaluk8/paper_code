@@ -22,6 +22,64 @@ are reproduced verbatim in Appendix~B. All inclusion decisions remained with
 the human reviewer: Undermind accelerated retrieval of candidates, but
 relevance assessment and selection were performed manually.
 
+The six deep searches were run on 2026-04-14 and their exported
+relevance-ranked result lists imported into the pipeline (group metadata ---
+venue names and citation counts --- corrected on 2026-04-17). Table~\ref{tab:undermind_funnel}
+gives the per-group identification funnel. The six exported lists held
+\textbf{377} records in total; \textbf{34} records that also appeared in a
+higher-priority group were removed as cross-group duplicates (dedup priority
+G0${}>{}$G1${}>{}$\ldots${}>{}$G6), leaving \textbf{343} pre-validated records
+from this route. Together with the nine G0 seeds this forms the
+\textbf{352}-record pre-validated corpus that joins the screening funnel at
+the merge stage (Figure~\ref{fig:prisma}). \textbf{105} of the final 123
+records carry a G1--G6 attribution in the unified pipeline (per-group split in
+Table~\ref{tab:undermind_funnel}); this is a group-label count, not a strict
+subset of the 343, because the LoRA and Houlsby seed papers are booked under
+G1 and G2 here although they entered as G0 seeds
+(Table~\ref{tab:g0_disposition}).
+
+Undermind reports a relevance-ranked candidate list, not an exhaustive count
+of every record it evaluated for a query. The number of records surfaced per
+query before the author's manual selection --- that is, the size of the
+pre-export candidate pool --- was not separately retained. The G1--G6 route
+is therefore reported from its exported ranked lists (377 records before
+cross-group dedup, 343 after) rather than from a raw candidate pool. This is
+a limitation on the granularity of the identification-stage audit trail for
+this route specifically, disclosed in \S\ref{sec:conclusion:threats}; it does
+not affect the counts at every downstream stage, all of which are traceable
+record-by-record through the unified pipeline file
+(\S\ref{sec:appendix:corpus_pipeline}, Table~\ref{tab:extraction_codebook}).
+
+\begin{table}[H]
+\centering
+\caption{G1--G6 identification funnel for the Undermind-assisted route.
+\emph{Exported} is the record count in each group's exported Undermind
+relevance-ranked list (search date 2026-04-14). \emph{Pre-validated} is the
+count after removing cross-group duplicates against higher-priority groups.
+\emph{Final} is the number retained in the 123-record reading list, attributed
+by the unified pipeline's recorded \texttt{seed\_group}; the G1 and G2 rows
+each include one G0 seed paper (LoRA, Houlsby) that the pipeline books under
+that group, so \emph{Final} sums to 105 by group label rather than being a
+strict subset of \emph{Pre-validated}. Verified against
+\texttt{data/inputs/G$\ast$.csv}, \texttt{S1\_prevalidated\_corpus.csv}, and
+\texttt{pipeline\_unified.csv} in the \texttt{slr\_engine} repository.}
+\label{tab:undermind_funnel}
+\begin{tabular}{lp{5.2cm}rrr}
+\toprule
+\textbf{Group} & \textbf{Theme} & \textbf{Exported} & \textbf{Pre-val.} & \textbf{Final} \\
+\midrule
+G1 & PEFT methods beyond adapters and LoRA  & 62  & 59  & 17 \\
+G2 & Adapter composition for multi-task NLP & 42  & 37  & 17 \\
+G3 & Decentralised and P2P ML systems       & 96  & 95  & 14 \\
+G4 & Adapter multiplexing for LLM inference & 56  & 51  & 16 \\
+G5 & Routing and MoE for modular PEFT       & 46  & 35  & 11 \\
+G6 & Federated PEFT for transformer NLP     & 75  & 66  & 30 \\
+\midrule
+\textbf{G1--G6 total} & & \textbf{377} & \textbf{343} & \textbf{105} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 Because G1--G6 papers were assembled through targeted manual curation, they
 bypassed both the year filter and the automated domain-relevance filter
 applied to snowballed candidates. Pre-2021 foundational works (e.g.,
@@ -33,10 +91,12 @@ the practical onset of the PEFT-at-scale era addressed by this review.
 \subsection*{A.2 Citation Snowballing}
 
 Forward and backward citation snowballing was conducted on the G0 seeds
-following the procedure of Wohlin et al.~\cite{Wohlin2014}. Backward
-snowballing examined the reference lists of each seed; forward snowballing
-identified subsequent works citing the seeds. One wave of snowballing was
-executed; saturation was assessed qualitatively by inspecting the overlap
+following a single-wave adaptation of the procedure of Wohlin et
+al.~\cite{Wohlin2014}: the procedure as published is iterated until no new
+studies are found, whereas this review executed one forward/backward wave only.
+Backward snowballing examined the reference lists of each seed; forward
+snowballing identified subsequent works citing the seeds. Saturation was
+assessed qualitatively by inspecting the overlap
 between newly retrieved candidates and the pre-validated G1--G6 corpora, with
 high overlap suggesting diminishing marginal returns. This was not, however,
 formalised as a quantitative stopping criterion (e.g.\ a measured diminishing
@@ -91,12 +151,13 @@ excluded. The author verified all keyword-flagged records during the
 subsequent review stages. \textbf{Layer~3} resolved the remaining 130-record
 triage queue through manual assessment of title and venue metadata. The author
 reviewed all 130 records individually; to support consistency across this
-batch, an automated classifier generated preliminary sorting suggestions,
-which the author independently verified before finalising each
+batch, an automated classifier --- Claude Haiku~4.5 (Anthropic, model
+\texttt{claude-haiku-4-5-20251001}) --- generated preliminary sorting
+suggestions, which the author independently verified before finalising each
 classification. Records classified as UNCERTAIN (19 of 130) were retained for
-closer inspection. The classifier model identifier and per-record decisions
-are recorded in the audit log. Table~\ref{tab:screening} shows the screening
-outcomes.
+closer inspection. The classifier's per-record suggestions are recorded in the
+audit log (\texttt{log\_screening\_2026-04-21.json}). Table~\ref{tab:screening}
+shows the screening outcomes.
 
 \begin{table}[H]
 \centering
@@ -135,8 +196,9 @@ INCLUDE records (Table~\ref{tab:screening}).
 The automated classifier operated exclusively at the title level, processing
 title and venue name only; no abstracts or full-text content were submitted
 to the model. All final inclusion and exclusion decisions were made by the
-author. The model identifier, term-set version, and per-record decisions are
-recorded in the audit log (\texttt{log\_screening\_2026-04-21.json}).
+author. The model identifier (\texttt{claude-haiku-4-5-20251001}), term-set
+version (1.0), and per-record decisions are recorded in the audit log
+(\texttt{log\_screening\_2026-04-21.json}).
 
 \subsection*{A.5 Enrichment and Tier Classification}
 
@@ -179,9 +241,9 @@ Tier~3 & Foundational or tangential (one theme)   & 233 & 50.2 \\
   \includegraphics[width=1\linewidth]{figures/fig_slr6_tier_breakdown.pdf}
   \caption{Tier breakdown of the 123-record final list (cf.\ Table~\ref{tab:tiers}
            for the enrichment-stage tiering of the 464-record pool).
-           Tier~1 papers (48, 39.0\%) address all three themes;
-           Tier~2 (42, 34.1\%) address two;
-           Tier~3 (33, 26.8\%) address one theme. The right panel shows the
+           Tier~1 (48, 39.0\%): PEFT + distributed/P2P + LLM (all three);
+           Tier~2 (42, 34.1\%): two of the three themes;
+           Tier~3 (33, 26.8\%): foundational or tangential (one theme). The right panel shows the
            citation-count distribution by tier for the 123 records.}
   \label{fig:tiers}
 \end{figure}
@@ -242,7 +304,7 @@ coverage of the 224-row extraction table.}
 \subsection*{A.6 Bibliometric Overview}
 
 The final corpus of 123 papers spans the period 2002--2026 (Table~\ref{tab:year_dist};
-Figure~\ref{fig:bibliometric}),with a marked concentration in 
+Figure~\ref{fig:bibliometric}), with a marked concentration in
 the 2021--2025 window (106 papers, 86\% of the corpus). The most 
 active year is 2024 with 38 papers (31\% of total), followed by 
 2023 with 20 (16\%) and 2025 with 19 (15\%), confirming that 
@@ -252,7 +314,8 @@ of LoRA-based PEFT papers and adapter-serving systems.
 
 \begin{table}[H]
 \centering
-\caption{Publication year distribution of the 123-paper reviewed corpus.}
+\caption{Publication year distribution of the 123-paper reviewed corpus. The
+\% column sums to 100.1 due to rounding.}
 \label{tab:year_dist}
 \begin{tabular}{lrr}
 \toprule
@@ -276,6 +339,14 @@ of LoRA-based PEFT papers and adapter-serving systems.
 \end{tabular}
 \end{table}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\linewidth]{figures/fig_slr3_year_distribution.pdf}
+  \caption{Year distribution of the 123-paper reviewed corpus,
+           showing the acceleration of publication volume from 2023 onward.}
+  \label{fig:bibliometric}
+\end{figure}
+
 For context on venue composition prior to the final quality-appraisal and
 full-text filtering stages, Figure~\ref{fig:venues} reports the venue
 distribution of the 464-paper \emph{enriched pool} (an earlier funnel stage,
@@ -290,14 +361,6 @@ not the 123-paper final corpus discussed above).
            largest venue category (25 papers), followed by arXiv preprints
            (9), NeurIPS (8), and ICML/MLSys (7).}
   \label{fig:venues}
-\end{figure}
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=1\linewidth]{figures/fig_slr3_year_distribution.pdf}
-  \caption{Year distribution of the 123-paper reviewed corpus,
-           showing the acceleration of publication volume from 2023 onward.}
-  \label{fig:bibliometric}
 \end{figure}
 
 The most densely covered concept-matrix dimension is \textbf{adapter
@@ -315,13 +378,16 @@ excluded and were not reinstated --- plus 88 records from forward citation
 snowballing on Scopus and WoS that were title-screened and added to the
 review). To support decision
 consistency across a corpus of this size, each abstract was accompanied by an
-automated advisory note providing a one-sentence summary, a relevance
+automated advisory note --- produced by Claude Sonnet (Anthropic,
+\texttt{claude-sonnet-4-6}) --- providing a one-sentence summary, a relevance
 assessment relative to the three core themes, and a preliminary KEEP / SKIP /
 DEFER recommendation. These notes served as a consistency aid; all final
-decisions were made by the author after independent assessment. The model
-identifier, the automated suggestion, and the author's final decision are
-logged per record in \texttt{S7b\_abstract\_reviewed\_final.csv} to support
-reproducibility checks.
+decisions were made by the author after independent assessment. The
+resulting disposition of the 552-record pool is reported in
+Table~\ref{tab:abstract}. The advisory notes were shown in the interactive
+screener and not separately exported; the author's final KEEP / SKIP / DEFER
+decision is logged per record (column \texttt{abstract\_decision}) in
+\texttt{S7b\_abstract\_reviewed\_final.csv} to support reproducibility checks.
 
 \begin{table}[H]
 \centering
@@ -516,9 +582,12 @@ adapter or PEFT contexts.
 
 Scopus (Elsevier) and Web of Science (Clarivate) were queried manually as part of the
 snowballing and enrichment stages described in Appendix~\ref{sec:appendix:corpus_pipeline}.
-Ten advanced search queries were executed on each platform. In Scopus, results were
-filtered to journal articles and conference proceedings (\texttt{SRCTYPE("j" OR "p")}).
-In WoS, Topic-field (\texttt{TS=}) queries were used with equivalent year filters.
+Ten advanced search queries were executed on each platform; all twenty are
+reproduced verbatim below. In Scopus, results were filtered to journal articles
+and conference proceedings (\texttt{SRCTYPE("j" OR "p")}) with a
+\texttt{PUBYEAR > $y$} bound; the WoS queries are Topic-field (\texttt{TS=})
+searches with an analogous \texttt{PY >= $y$} bound (the two platforms' year
+operators differ by one boundary year).
 The WoS Starter API was subsequently used in a \textit{post-hoc enrichment role} only
 --- to append WoS accession numbers and citation counts to already-retrieved records ---
 and was not a source of new candidates. All raw result sets from both platforms are
@@ -709,6 +778,129 @@ AND ("efficient" OR "modular" OR "lightweight"))
 AND PY >= 2018
 \end{verbatim}
 
+% -----------------------------------------------------------------------
+\subsection*{Related-Reviews Search (2026-09-10)}
+\label{app:db_queries:related}
+
+A single dedicated query was run on each of Web of Science and Scopus on
+2026-09-10 to locate competing secondary studies of overlapping scope
+(\S\ref{sec:methodology:search}, Table~\ref{tab:related_surveys}); ScienceDirect
+was not searched separately as it indexes the same Elsevier content surfaced by
+Scopus. WoS returned 50 records, Scopus 19; six competing surveys were retained
+after screening.
+
+\paragraph{Web of Science.}
+\begin{verbatim}
+TS=(("survey" OR "systematic review" OR "literature review"
+     OR "overview" OR "taxonomy" OR "SLR")
+AND ("parameter-efficient fine-tuning" OR "PEFT"
+     OR "adapter" OR "adapters" OR "LoRA"
+     OR "prompt tuning" OR "prefix tuning")
+AND ("federated" OR "decentralized" OR "decentralised"
+     OR "peer-to-peer" OR "P2P" OR "distributed"
+     OR "multi-task serving" OR "modular"
+     OR "mixture-of-experts" OR "mixture of experts"))
+AND PY=2021-2026
+\end{verbatim}
+
+\paragraph{Scopus.}
+\begin{verbatim}
+TITLE-ABS-KEY(("survey" OR "systematic review"
+     OR "literature review" OR "SLR")
+AND ("parameter-efficient" OR "PEFT" OR "LoRA"
+     OR "adapter" OR "prompt tuning")
+AND ("federated" OR "decentralized" OR "peer-to-peer"
+     OR "distributed" OR "modular" OR "mixture-of-experts"))
+AND DOCTYPE(re) AND PUBYEAR > 2020
+\end{verbatim}
+
+% -----------------------------------------------------------------------
+\subsection*{Disconfirming (Adversarial) Search (2026-09-10)}
+\label{app:db_queries:adversarial}
+
+To test the gap claim of \S\ref{sec:synthesis_gap} against sources outside the
+peer-reviewed corpus, a structured disconfirming search was run on 2026-09-10
+following the grey-literature / multivocal-review guidelines of Garousi et
+al.~\cite{Garousi2019}. \textbf{Eight} queries were issued across \textbf{arXiv}
+(abstract and full-text fields), \textbf{GitHub} (repositories and code), and
+\textbf{general web search}, with \emph{no} peer-review, venue, or
+document-type filter:
+
+\begin{enumerate}\setlength{\itemsep}{1pt}
+\item decentralized LoRA adapter marketplace exchange peer-to-peer LLM
+\item ``adapter'' OR ``LoRA'' peer-to-peer discovery routing ``without a
+      central'' server capability
+\item github decentralized LoRA adapter sharing network gossip DHT language
+      model
+\item Bittensor subnet LoRA adapter fine-tuning marketplace incentive
+\item peer-to-peer adapter exchange frozen backbone adapter discovery
+      composition decentralized inference
+\item ``Platformless AI'' decentralized model adapter serving
+\item decentralized adapter repository hub retrieval composition multiple LoRA
+      peers no coordinator
+\item gossip protocol OR DHT adapter capability discovery LLM peer nodes serving
+\end{enumerate}
+
+\paragraph{Screening rule.} A hit was recorded as a candidate disconfirming
+artefact if it described a system, protocol, or running project (peer-reviewed,
+preprint, blog, or code repository) combining \textbf{(i)} task-specific
+adapters or LoRA as the unit of exchange with \textbf{(ii)} a peer-to-peer or
+server-free topology; for each, it was further noted whether it provides
+adapter-level \emph{discovery} (locating a capability without a central
+registry) and \emph{composition}.
+
+\paragraph{Result.} No located artefact satisfied all four properties
+(Table~\ref{tab:adversarial_search}); each candidate covers a single facet. The
+two industry projects named in \S\ref{sec:conclusion:threats} (Bittensor,
+Platformless~AI) were re-confirmed as non-matching: both operate at whole-model
+granularity with a central artefact store (a model hub or on-chain metadata),
+and neither publishes an adapter-level discovery or composition protocol. The
+gap claim of \S\ref{sec:synthesis_gap} therefore stands on a documented rather
+than informal basis.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Disconfirming-search results grouped by category (2026-09-10).
+\emph{Unit} = adapters/LoRA are the exchanged object; \emph{P2P} =
+coordinator-free topology; \emph{Disc.} = registry-free capability discovery;
+\emph{Comp.} = multi-adapter composition. \checkmark~= yes; $\circ$~= partial;
+blank~= no. No row satisfies all four. Representative artefacts (with arXiv
+identifiers) are listed in the note below the table.}
+\label{tab:adversarial_search}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{p{4.4cm} p{4.2cm} cccc}
+\toprule
+\textbf{Category} & \textbf{What it is} &
+\textbf{Unit} & \textbf{P2P} & \textbf{Disc.} & \textbf{Comp.} \\
+\midrule
+Decentralised whole-model serving & P2P serving of whole models or KV-cache,
+not adapters & & \checkmark & $\circ$ & \\
+Decentralised market for fine-tuned models & incentivised training market;
+artefacts hosted centrally & & $\circ$ & & \\
+Decentralised co-training of one shared adapter & gossip-averaged updates to a
+\emph{single} adapter & $\circ$ & \checkmark & & \\
+Centralised adapter retrieval $+$ composition & retrieve-then-merge from a
+central pool / registry & \checkmark & & $\circ$ & \checkmark \\
+Registry-based adapter hubs & centralised multi-tenant registries &
+\checkmark & & $\circ$ & \checkmark \\
+DHT capability discovery for agents & DHT keys map capability paths; for
+agents/services, not adapters & & \checkmark & \checkmark & \\
+\bottomrule
+\multicolumn{6}{@{}p{\textwidth}@{}}{\footnotesize\emph{Representative
+artefacts:} whole-model serving --- Platformless~AI, PlanetServe
+(\seqsplit{arXiv:2504.20101}), P2P prefix-cache serving
+(\seqsplit{arXiv:2606.17059}); model-training market --- Bittensor
+finetuning-subnet, \seqsplit{arXiv:2506.07940}; co-training one adapter ---
+Dec-LoRA~\cite{Ghiasvand2025}, \seqsplit{arXiv:2511.18291},
+\seqsplit{arXiv:2606.22878}; retrieval $+$ composition ---
+LoraRetriever~\cite{ZhaoLoraRetriever2024}, \seqsplit{arXiv:2605.01429},
+\seqsplit{arXiv:2602.21222}; adapter hubs ---
+AdapterHub~\cite{Pfeiffer2020hub}, HuggingFace adapters; DHT for agents ---
+\seqsplit{arXiv:2601.14567}.}
+\end{tabular}
+\end{table}
+
 % =============================================================================
 %  Appendix C — Search Execution Log
 % =============================================================================
@@ -731,7 +923,7 @@ see the Data Availability statement for further repository access.
 \label{app:search_log:timeline}
 
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \small
 \caption{Chronological search log with input and output record counts.}
@@ -745,6 +937,15 @@ see the Data Availability statement for further repository access.
 \toprule
 \textbf{Date} & \textbf{Activity} & \textbf{In} & \textbf{Out} \\
 \midrule
+2026-04-14 & Undermind AI-assisted deep search, six group queries G1--G6
+  (prompts verbatim in Appendix~\ref{app:undermind}); author screened each
+  exported list against the \S\ref{sec:methodology:eligibility} criteria &
+  6 queries\textsuperscript{a} & 377 exported (ranked lists) \\
+2026-04-14 & Cross-group deduplication of the six G1--G6 exports
+  (priority G0${}>{}$G1${}>{}\cdots>{}$G6); joined with 9 G0 seeds &
+  377 ${}+{}$ 9 & 352 pre-validated (343 from G1--G6) \\
+2026-04-17 & Pre-validated corpus metadata correction (venue names,
+  citation counts; no records added or removed) & 352 & 352 \\
 2026-04-21 & Semantic Scholar API snowball on G0 seeds (backward + forward) &
   7 seeds & 1\,150 raw \\
 2026-04-21 & Within-snowball deduplication (DOI + SS paper ID) &
@@ -777,7 +978,20 @@ $\approx$2026-04-28 & Abstract-level review, pass 1 (on the 464 corpus; AI-assis
 2026-05-12  & Full-text reading, quality assessment, and final curation (final
   reading list is the authoritative evidence base) &
   --- & 123 final \\
+2026-09-10  & Related-reviews search: WoS + Scopus, one query each
+  (\S\ref{app:db_queries:related}); screening for competing secondary studies &
+  50 (WoS) $+$ 19 (Scopus) & 6 competing surveys retained
+  (Table~\ref{tab:related_surveys}) \\
+2026-09-10  & Disconfirming (adversarial) search: 8 queries across arXiv,
+  GitHub, and web, no venue filter (\S\ref{app:db_queries:adversarial}) &
+  8 queries & 0 matching artefacts; near-misses catalogued
+  (Table~\ref{tab:adversarial_search}) \\
 \bottomrule
+\multicolumn{4}{@{}p{\textwidth}@{}}{\footnotesize\textsuperscript{a}~Undermind
+  returns a relevance-ranked candidate list, not an exhaustive hit count; the
+  size of the candidate pool it evaluated per query before the author's manual
+  selection was not separately retained. The G1--G6 route is therefore logged
+  from its exported ranked lists (\S\ref{sec:conclusion:threats}).}
 \end{tabularx}
 \end{table}
 
@@ -787,7 +1001,9 @@ $\approx$2026-04-28 & Abstract-level review, pass 1 (on the 464 corpus; AI-assis
 
 Citation snowballing was executed programmatically on \textbf{2026-04-21} via the
 Semantic Scholar Academic Graph API, supplemented by Scopus and ACL Anthology engines,
-following the procedure of Wohlin et al.~\cite{Wohlin2014}. The G0 corpus comprises nine seed
+following a single-wave adaptation of the procedure of Wohlin et
+al.~\cite{Wohlin2014} (one forward/backward wave, not iterated to saturation).
+The G0 corpus comprises nine seed
 papers; seven of these were submitted for both backward (reference list) and forward (citing
 papers) retrieval via the Semantic Scholar API. The remaining two seeds were
 excluded from this automated pass for documented reasons: the doctoral thesis
@@ -872,7 +1088,7 @@ peer-reviewed published version existed. Where a published venue was identified 
 the PDF was publicly accessible, the preprint was replaced with the official published
 version and the venue metadata was updated accordingly. After this step,
 \textbf{18 papers} in the final 123-paper reading list retained an arXiv source
-(\texttt{source = ARXIV} in \texttt{13\_final\_reading\_list\_2026-05-12.csv}),
+(\texttt{source = ARXIV} in \seqsplit{\texttt{13\_final\_reading\_list\_2026-05-12.csv}}),
 either because no published version was found or because the accepted manuscript was
 not separately accessible. (This ``18'' figure reports the \emph{retrieval source};
 a separate, narrower count of \textbf{11 records} cited in

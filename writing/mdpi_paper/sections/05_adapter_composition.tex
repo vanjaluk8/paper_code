@@ -185,13 +185,18 @@ component of a P2P exchange architecture.
 
 Wortsman et al.~\cite{Wortsman2022} demonstrated that averaging the weights of multiple fine-tuned
 models (``model soups'') improves robustness and out-of-distribution generalisation
-without any additional training. (While Model Soups was demonstrated for vision models,
-the weight-averaging principle extends by construction to any linear parameter space,
-including LoRA adapter matrices, provided the adapters share the same initialisation
-point.) Applied to adapter-scale modules, this result implies
-that adapter weight averaging is a viable zero-shot composition strategy: a peer can
-combine adapters from different sources by mean-averaging their weight matrices,
-without requiring access to any of the original training data.
+without any additional training. That demonstration used full vision models
+fine-tuned from a \emph{shared} pre-trained initialisation on the \emph{same}
+task, so the averaged checkpoints lie in a common low-loss region. Independently
+trained LoRA adapters do not meet that precondition: the down-projection $A$ is
+randomly initialised per run and the up-projection $B$ is zero-initialised, so
+two separately trained adapters share no initialisation point and are not
+guaranteed to occupy a common basin. Whether mean-averaging their weight
+matrices nonetheless yields a useful composed adapter --- letting a peer combine
+adapters from different sources without access to any original training data ---
+is therefore a \emph{plausible but empirically unvalidated} zero-shot strategy,
+and is among the open questions this review identifies
+(Section~\ref{sec:synthesis_gap}).
 
 \subsection{Unified Multi-PEFT Composition}
 \label{sec:adapter_composition:unified}

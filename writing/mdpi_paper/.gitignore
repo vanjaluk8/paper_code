@@ -25,3 +25,4 @@
 # Build output directory — the deliverable PDF is already ignored by the
 # repo-level **/*.pdf rule; ignore everything else here too.
 build/out/*
+_archive/

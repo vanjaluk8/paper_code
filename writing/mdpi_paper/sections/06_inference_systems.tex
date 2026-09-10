@@ -105,9 +105,48 @@ low-rank adapters are computed on CPU, provides a template for hardware-aware ad
 placement in heterogeneous P2P nodes, where different peers may have different compute
 capabilities.
 
-% [PROPOSED C1 - Vanja review before removing this marker]
 FlexGen~\cite{ShengFlexGen2023} and AlpaServe~\cite{LiAlpaServe2023} address related single-provider resource-constraint problems: FlexGen offloads generation across GPU, CPU, and disk to run large models on a single GPU, while AlpaServe exploits statistical multiplexing across model-parallel replicas to serve bursty multi-model workloads, neither addressing adapter populations or cross-peer coordination.
-% [END PROPOSED C1]
+
+Table~\ref{tab:serving_comparison} summarises the four multi-tenant LoRA serving
+systems examined above (Punica, S-LoRA, CaraServe, and the edge-oriented
+EdgeLoRA) along the axes a decentralised deployment would stress.
+
+\begin{table}[H]
+\centering
+\caption{Multi-tenant LoRA serving systems compared on the axes a decentralised
+setting would stress. All four assume a single operator with centralised
+scheduling and co-located compute; none addresses peer discovery, variable
+inter-node bandwidth, or node churn. Figures are as reported by each system's
+cited primary against its own stated baseline and are not re-normalised across
+rows.}
+\label{tab:serving_comparison}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l p{2.5cm} p{3.0cm} p{2.0cm} p{3.0cm}}
+\toprule
+\textbf{System} & \textbf{Adapter\newline residence} &
+\textbf{Multi-adapter\newline batching} & \textbf{Tier beyond\newline GPU HBM} &
+\textbf{Headline result\newline (vs.\ own baseline)} \\
+\midrule
+Punica~\cite{Chen2023Punica} & All active adapters resident in GPU HBM;
+asynchronous on-demand load & SGMV (segmented gather matrix--vector) kernel;
+one shared base-model batch & None (HBM only) & $12\times$ throughput vs.\
+state-of-the-art LLM serving \\
+S-LoRA~\cite{Sheng2024} & Paged in a unified GPU/CPU pool; swapped per request &
+Unified Paging with heterogeneous batched kernels; mixed adapter ranks in one
+batch & CPU DRAM (Unified Paging) & up to $4\times$ throughput; thousands of
+adapters on one GPU \\
+CaraServe~\cite{Li2024CaraServe} & Rank-aware split: high-rank on GPU, low-rank
+computed on CPU cores & CPU-side prefill early-start, pipelined GPU transfer
+during ongoing decode & CPU compute $+$ DRAM & up to $1.7\times$ lower serving
+latency; $\leq$99\% SLO attainment \\
+EdgeLoRA~\cite{Shen2025EdgeLoRA} & Compressed (quantised / pruned) adapters
+time-sharing device memory & Dynamic time-sharing of GPU memory across tenants &
+Device DRAM / flash & up to 70\% memory saving, within 2\% accuracy (edge
+devices) \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsection{Serverless and Tiered Storage Serving}
 \label{sec:inference_systems:serverless}
