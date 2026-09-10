@@ -1,0 +1,34 @@
+paper_key,system,pillar,verdict,evidence_url,note
+Houlsby2019,adapters,1-PEFT,YES,https://github.com/google-research/adapter-bert,Original BERT-adapter code (google-research)
+Hu2022,LoRA,1-PEFT,YES,https://github.com/microsoft/LoRA,Official LoRA implementation
+Dettmers2023,QLoRA,1-PEFT,YES,https://github.com/artidoro/qlora,Official QLoRA code + weights
+LiLiang2021,Prefix-Tuning,1-PEFT,YES,https://github.com/XiangLi1999/PrefixTuning,Official prefix-tuning implementation
+BenZaken2022,BitFit,1-PEFT,YES,https://github.com/benzakenelad/BitFit,Official BitFit code
+PothAdapters2023,adapter-transformers,1-PEFT,YES,https://github.com/adapter-hub/adapter-transformers,Official PEFT library
+Pfeiffer2020hub,AdapterHub,2-Composition,YES,https://github.com/adapter-hub/adapter-transformers,Official framework (redirects to adapter-hub/adapters)
+Pfeiffer2021fusion,AdapterFusion,2-Composition,YES,https://github.com/adapter-hub/adapters,Implemented within AdapterHub (no separate repo)
+PfeifferMADX2020,MAD-X,2-Composition,YES,https://github.com/adapter-hub/adapters,Implemented within AdapterHub (examples/madx)
+Huang2023,LoraHub,2-Composition,YES,https://github.com/sail-sg/lorahub,Official LoraHub repo + HF modules
+ZhaoLoraRetriever2024,LoraRetriever,2-Composition,YES,https://github.com/StyxXuan/LoraRetriever,Official repo (author handle StyxXuan; zhao-ht repo is fabricated)
+Ostapenko2024,Modular-LoRA-composition,2-Composition,UNKNOWN,,No public repo located (arXiv:2405.11157)
+Sheng2024,S-LoRA,3-Serving,YES,https://github.com/S-LoRA/S-LoRA,Archived (read-only) but code usable
+Chen2023Punica,Punica,3-Serving,YES,https://github.com/punica-ai/punica,Archived (read-only) but code usable
+Li2024CaraServe,CaraServe,3-Serving,YES,https://github.com/SongZhuoRan413/CaraServe,Official release (ASPLOS 2025)
+Borzunov2023,Petals,3-Serving,YES,https://github.com/bigscience-workshop/petals,Active maintained framework
+Sajina2024,MT-EF,3-Serving,NO,,No public repo located (arXiv:2307.13949; none on GitHub/PwC)
+McMahan2017,FedAvg,4-P2P-FL,PARTIAL,https://github.com/tensorflow/federated,Original release not public; available only via TensorFlow Federated framework
+Li2020FedProx,FedProx,4-P2P-FL,YES,https://github.com/litian96/FedProx,Official FedProx code
+ZhangFedPETuning2023,FedPETuning,4-P2P-FL,YES,https://github.com/SMILELab-FL/FedPETuning,Official ACL 2023 implementation
+WangFLoRA2024,FLoRA,4-P2P-FL,YES,https://github.com/ziyaow1010/FederatedLLM,Official repository (first author Ziyao Wang)
+XuDPFedLoRA2025,DP-FedLoRA,4-P2P-FL,UNKNOWN,,No public repo located (arXiv:2503.19613)
+Babakniya2023,SLoRA,4-P2P-FL,UNKNOWN,,No verifiable public repo located
+HegeduisGossip2019,Gossip-Learning,4-P2P-FL,UNKNOWN,,No verifiable public repo located
+Fedus2022,Switch-Transformers,5-MoE,YES,https://github.com/google-research/t5x,Reference Switch/MoE implementation ships in T5X
+Zhou2022,Expert-Choice,5-MoE,NO,,Official code never released; no repo under google-research
+RajbhandariDeepSpeed2022,DeepSpeed-MoE,5-MoE,YES,https://github.com/microsoft/DeepSpeed,MoE is a core DeepSpeed feature
+WangAdaMix2022,AdaMix,5-MoE,YES,https://github.com/microsoft/AdaMix,Archived (read-only) but code present
+LiMixLoRA2024,MixLoRA,5-MoE,YES,https://github.com/TUDB-Labs/MixLoRA,Official repo
+ZhangMiLoRA2024,MiLoRA,5-MoE,YES,https://github.com/sufenlp/MiLoRA,Official repo (NAACL 2025)
+DouLoRAMoE2024,LoRAMoE,5-MoE,YES,https://github.com/Ablustrund/LoRAMoE,Official repo (author Shihan Dou)
+LiuWhenMOE2024,MOELoRA,5-MoE,YES,https://github.com/liuqidong07/MOELoRA-peft,Official repo (SIGIR'24)
+RyabininCrowdsourced2020,Crowdsourced-MoE,5-MoE,YES,https://github.com/learning-at-home/hivemind,Official decentralized-MoE framework (NeurIPS 2020)
