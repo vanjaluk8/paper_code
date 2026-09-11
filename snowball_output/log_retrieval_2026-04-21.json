@@ -1,0 +1,131 @@
+{
+  "_meta": {
+    "timestamp_utc": "2026-04-21T05:48:15.820288+00:00",
+    "databases": [
+      "acl",
+      "ss",
+      "scopus",
+      "ieee"
+    ],
+    "n_seeds": 7
+  },
+  "Houlsby 2019": {
+    "paper_id": "arXiv:1902.00751",
+    "group": "G0",
+    "engines": [
+      "acl",
+      "ss",
+      "scopus",
+      "ieee"
+    ],
+    "title": "Parameter-Efficient Transfer Learning for NLP",
+    "citation_count": 3494,
+    "backward_examined": 57,
+    "backward_new": 57,
+    "forward_examined": 100,
+    "forward_new": 100,
+    "total_new": 157
+  },
+  "Hu 2022": {
+    "paper_id": "arXiv:2106.09685",
+    "group": "G0",
+    "engines": [
+      "acl",
+      "ss",
+      "scopus",
+      "ieee"
+    ],
+    "title": "LORA: LOW-RANK ADAPTATION OF LARGE LANGUAGE MODELS",
+    "citation_count": 6047,
+    "backward_examined": 65,
+    "backward_new": 51,
+    "forward_examined": 100,
+    "forward_new": 85,
+    "total_new": 136
+  },
+  "Pfeiffer 2020": {
+    "paper_id": "arXiv:2007.07779",
+    "group": "G0",
+    "engines": [
+      "acl",
+      "ss",
+      "scopus",
+      "ieee"
+    ],
+    "title": "AdapterHub: A Framework for Adapting Transformers",
+    "citation_count": 420,
+    "backward_examined": 44,
+    "backward_new": 28,
+    "forward_examined": 100,
+    "forward_new": 100,
+    "total_new": 128
+  },
+  "Pfeiffer 2021": {
+    "paper_id": "arXiv:2005.00247",
+    "group": "G0",
+    "engines": [
+      "acl",
+      "ss",
+      "scopus",
+      "ieee"
+    ],
+    "title": "AdapterFusion: Non-destructive task composition for transfer learning",
+    "citation_count": 488,
+    "backward_examined": 71,
+    "backward_new": 44,
+    "forward_examined": 100,
+    "forward_new": 81,
+    "total_new": 125
+  },
+  "Borzunov 2022": {
+    "paper_id": "arXiv:2209.01188",
+    "group": "G0",
+    "engines": [
+      "acl",
+      "ss",
+      "scopus",
+      "ieee"
+    ],
+    "title": "Petals: Collaborative inference and fine-Tuning of large models",
+    "citation_count": 23,
+    "backward_examined": 52,
+    "backward_new": 39,
+    "forward_examined": 100,
+    "forward_new": 92,
+    "total_new": 131
+  },
+  "Han 2024": {
+    "paper_id": "arXiv:2403.14608",
+    "group": "G0",
+    "engines": [
+      "acl",
+      "ss",
+      "scopus",
+      "ieee"
+    ],
+    "title": "Parameter-Efficient Fine-Tuning for Large Models: A Comprehensive Survey",
+    "citation_count": 60,
+    "backward_examined": 100,
+    "backward_new": 74,
+    "forward_examined": 100,
+    "forward_new": 89,
+    "total_new": 163
+  },
+  "Sheng 2024": {
+    "paper_id": "arXiv:2311.03285",
+    "group": "G0",
+    "engines": [
+      "acl",
+      "ss",
+      "scopus",
+      "ieee"
+    ],
+    "title": "S-LoRA: Serving Thousands of Concurrent LoRA Adapters",
+    "citation_count": 168,
+    "backward_examined": 61,
+    "backward_new": 44,
+    "forward_examined": 100,
+    "forward_new": 88,
+    "total_new": 132
+  }
+}

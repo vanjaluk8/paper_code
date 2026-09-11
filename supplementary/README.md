@@ -64,8 +64,8 @@ version-controlled in `mdpi_paper_slr`:
 `log_retrieval_2026-04-21.json`, `log_screening_2026-04-21.json`,
 `S7b_abstract_reviewed_final.csv`, `11_data_extraction_2026-05-12.csv`,
 `14_final_curation_reasons.csv`, `PRISMA_summary_2026-04-21.md`. The
-verification scripts `scripts/verify_prisma_counts.py` and
-`scripts/verify_quality_appraisal.py` live in `mdpi_slr_engine` (code-only),
+verification scripts `src/slr_engine/verify/verify_prisma_counts.py` and
+`src/slr_engine/verify/verify_quality_appraisal.py` live in `mdpi_slr_engine` (code-only),
 and their run outputs are version-controlled in `mdpi_paper_slr`.
 Both verify scripts pass (40/40 and 19/19) as of 2026-09-10.
 
@@ -78,12 +78,12 @@ Both verify scripts pass (40/40 and 19/19) as of 2026-09-10.
    or published** (M18); mention the two supplementary searches of 2026-09-10
    (related surveys + disconfirming/adversarial) and that the eight
    grey-literature query strings are in Appendix C.
-2. **`mdpi_paper_slr`** — commit the eight per-record artefacts +
-   `snowball_output/verification_runs/`, and create
-   `14_final_curation_reasons.csv` (referenced in the DAS, not yet present).
-   Also commit the re-synced `verification_fixtures/13_final_reading_list_2026-05-12.csv`
-   (2 stale year cells fixed 2026-09-10). **`mdpi_slr_engine`** — commit the two
-   `verify_*.py` scripts (code-only pipeline repo).
+2. **Staged (2026-09-11):** the eight per-record artefacts and
+   `snowball_output/verification_runs/` (incl. `FINAL_REPORT.md/json` and the
+   `verify_*.result.txt`) are now committed under `snowball_output/` here, and
+   `14_final_curation_reasons.csv` is present. **`mdpi_slr_engine`** — the two
+   `verify_*.py` scripts live under `src/slr_engine/verify/` (code-only), which
+   is already committed.
 3. **`mdpi_paper_slr`** — make the repository public.
 4. **S1 format** — if the editor requires the official PRISMA 2020 checklist
    PDF/DOCX rather than this mapping table, fill the template at

@@ -1,0 +1,7 @@
+QUALITY-APPRAISAL VERIFICATION — recomputed from pipeline data files
+[1] Venue quality of the enriched pool (S6 = 464)
+[2] Tier split of the enriched pool
+[3] Abstract review decision split (S7b = 552)
+[4] Year distribution of the final reading list (13 = 123)
+
+19 passed, 0 failed

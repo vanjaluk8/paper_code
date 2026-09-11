@@ -1,0 +1,102 @@
+paper_key,title,corpus,review_source,tier,category
+2312.05677,Batched Low-Rank Adaptation of Foundation Models,core,fulltext,3,core
+2510.14054,FedHFT: Efficient Federated Finetuning with Heterogeneous Edge Clients,core,fulltext,3,core
+2408.11304,FedMoE: Personalized Federated Learning via Heterogeneous Mixture of Experts,core,fulltext,3,core
+2210.01708,Exploring Parameter-Efficient Fine-tuning for Improving Communication Efficiency in Federated Learning,core,fulltext,3,core
+2406.09679,Exploring Training on Heterogeneous Data with Mixture of Low-rank Adapters,core,fulltext,3,core
+10.18653/v1/2025.acl-short.54,GenKnowSub: Improving Modularity and Reusability of LLMs through General Knowledge Subtraction,core,fulltext,G_SNOW_F,core
+2404.08417,AdapterSwap: Continuous Training of LLMs with Data Removal and Access-Control Guarantees,core,fulltext,3,core
+2310.04742,Parameter Efficient Multi-task Model Fusion with Partial Linearization,core,fulltext,3,core
+2205.12148,Hyper-X: A Unified Hypernetwork for Multi-Task Multilingual Transfer,core,fulltext,3,core
+2509.26182,Parallax: Efficient LLM Inference Service over Decentralized Environment,core,fulltext,3,core
+2311.06805,Tunable Soft Prompts are Messengers in Federated Learning,core,fulltext,3,core
+10.18653/v1/2025.acl-long.719,"Adapt Once, Thrive with Updates: Transferable Parameter-Efficient Fine-Tuning on Evolving Base Models",core,fulltext,G_SNOW_F,core
+2304.04947,Conditional Adapters: Parameter-efficient Transfer Learning with Fast Inference,core,fulltext,3,core
+10.1145/3775043.3775047,"Idle Consumer GPUs as a Complement to Enterprise Hardware for LLM Inference: Performance, Cost and Carbon Analysis",core,abstract-2nd-pass,G_SNOW_F,core
+10.1109/ccgrid64434.2025.00013,P2P-Fed: A Decentralized Federated Learning Platform on Structured Peer-to-Peer Systems,background,abstract-2nd-pass,3,background
+10.1016/j.ins.2024.120582,DeFTA: A plug-and-play peer-to-peer decentralized federated learning framework,background,abstract-2nd-pass,3,background
+10.1109/TVT.2023.3332898,TravellingFL: Communication Efficient Peer-to-Peer Federated Learning,background,abstract-2nd-pass,3,background
+10.1109/GLOBECOM52923.2024.10901542,Decentralized LLM Inference over Edge Networks with Energy Harvesting,background,abstract-2nd-pass,3,background
+2206.01288,Decentralized Training of Foundation Models in Heterogeneous Environments,background,fulltext,3,background
+5263d43a275cc2475ab780ea3adbcfa390de3ee8,Decentralized federated learning of deep neural networks on non-iid data,background,abstract-2nd-pass,3,background
+7d6d7a31464cb9079ba32ed117eaed1878a5d2eb,Secure Distributed Training at Scale,background,abstract-2nd-pass,3,background
+aad543a5b7f231f085764ce0258fe8914a15006f,BrainTorrent: A Peer-to-Peer Environment for Decentralized Federated Learning,background,abstract-2nd-pass,3,background
+df4fa94897ce02d2f394d8ae7304da639d3e7b5c,Decentralized Federated Learning: A Segmented Gossip Approach,background,abstract-2nd-pass,3,background
+10.1109/CSITSS67709.2025.11294535,A Distributed Peer-to-Peer NLP Model Training Framework with Blockchain Incentives,background,abstract-2nd-pass,3,background
+2312.08361,Distributed Inference and Fine-tuning of Large Language Models Over The Internet,background,fulltext,3,background
+10.1016/j.future.2023.11.006,Multi-task peer-to-peer learning using an encoder-only transformer model,background,abstract-2nd-pass,3,background
+2506.21901,A Survey of LLM Inference Systems,background,fulltext,3,background
+10.1145/3754448,Towards Efficient Generative Large Language Model Serving: A Survey from Algorithms to Systems,background,abstract-2nd-pass,3,background
+2602.08019,The Rise of Sparse Mixture-of-Experts: A Survey from Algorithmic Foundations to Decentralized Architectures and Vertical Domain Applications,background,fulltext,3,background
+10.1145/3719664,"A Review on Edge Large Language Models: Design, Execution, and Applications",background,abstract-2nd-pass,G_SNOW_F,background
+2403.14608,Parameter-Efficient Fine-Tuning for Large Models: A Comprehensive Survey,background,fulltext,2,background
+2312.12148,Parameter-Efficient Fine-Tuning Methods for Pretrained Language Models: A Critical Review and Assessment,background,fulltext,2,background
+6007263dd3d14373be5f84fb6ccb0be3f7fce903,Scaling Down to Scale Up: A Guide to Parameter-Efficient Fine-Tuning,background,abstract-2nd-pass,2,background
+2304.14999,Empirical Analysis of the Strengths and Weaknesses of PEFT Techniques for LLMs,background,fulltext,2,background
+2308.04604,A Survey on Decentralized Federated Learning,background,fulltext,3,background
+2205.05638,Few-Shot Parameter-Efficient Fine-Tuning is Better and Cheaper than In-Context Learning,background,fulltext,2,background
+2203.06904,Delta Tuning: A Comprehensive Study of Parameter Efficient Methods for Pre-trained Language Models,background,fulltext,2,background
+10.1109/LSP.2026.3652946,FiLoRA: Parameter-Efficient Fine-Tuning With Fisher Information-Guided Low-Rank Adaptation,background,abstract-2nd-pass,3,background
+10.18653/v1/2025.findings-acl.527,LoRMA: Low-Rank Multiplicative Adaptation for LLMs,background,fulltext,G_SNOW_F,background
+26d9a6ef4063ab3d32e672031bc8fd43f0262821,"LoRA-One: One-Step Full Gradient Could Suffice for Fine-Tuning Large Language Models, Provably and Efficiently",background,abstract-2nd-pass,G_SNOW_F,background
+9b509c71cc96f1168e7c2048291ed58e573dbc88,IPA: An Information-Reconstructive Input Projection Framework for Efficient Foundation Model Adaptation,background,abstract-2nd-pass,G_SNOW_F,background
+2407.05000,LoRA-GA: Low-Rank Adaptation with Gradient Approximation,background,fulltext,2,background
+2410.21228,LoRA vs Full Fine-tuning: An Illusion of Equivalence,background,fulltext,2,background
+2405.17604,LoRA-XS: Low-Rank Adaptation with Extremely Small Number of Parameters,background,fulltext,2,background
+2402.12354,LoRA+: Efficient Low Rank Adaptation of Large Models,background,fulltext,3,background
+2303.16199,LLaMA-Adapter: Efficient Fine-tuning of Language Models with Zero-init Attention,background,fulltext,2,background
+2303.10512,Adaptive Budget Allocation for Parameter-Efficient Fine-Tuning,background,fulltext,2,background
+2304.01933,LLM-Adapters: An Adapter Family for Parameter-Efficient Fine-Tuning of Large Language Models,background,fulltext,2,background
+2310.11454,VeRA: Vector-based Random Matrix Adaptation,background,fulltext,2,background
+2310.08659,LoftQ: LoRA-Fine-Tuning-Aware Quantization for Large Language Models,background,fulltext,2,background
+2311.11696,Sparse Low-rank Adaptation of Pre-trained Language Models,background,fulltext,2,background
+2301.01821,Parameter-Efficient Fine-Tuning Design Spaces,background,fulltext,2,background
+2305.15212,Towards Adaptive Prefix Tuning for Parameter-Efficient Language Model Fine-tuning,background,fulltext,2,background
+2110.07602,P-Tuning v2: Prompt Tuning Can Be Comparable to Fine-tuning Universally Across Scales and Tasks,background,fulltext,2,background
+10.1145/3731806.3731859,Distributed Inference of Large Language Models on Edge Devices,background,abstract-2nd-pass,3,background
+10.1016/j.softx.2025.102183,"Hive: A secure, scalable framework for distributed Ollama inference",background,abstract-2nd-pass,3,background
+10.1016/j.peva.2025.102527,Optimizing resource allocation for geographically-distributed inference by large language models,background,fulltext,3,background
+10.3390/app152312615,Self-Organized Neural Network Inference in Dynamic Edge Networks,background,abstract-2nd-pass,3,background
+10.1109/RTSS66672.2025.00021,HCInfer: Hierarchical Coordination for Real-Time Collaborative Inference of LLM on the Edge,background,abstract-2nd-pass,3,background
+10.1109/ICANCS65819.2025.11377729,Distributed Inference Software for Large Language Models,background,abstract-2nd-pass,3,background
+f4fbd1eef355405253f0abed9c7411391ec2fe35,MuxServe: Flexible Spatial-Temporal Multiplexing for Multiple LLM Serving,background,abstract-2nd-pass,3,background
+10.1109/ICCC62479.2024.10681712,CoLLM: A Collaborative LLM Inference Framework for Resource-Constrained Devices,background,abstract-2nd-pass,3,background
+10.1109/MILCOM61039.2024.10773726,JARVIS: Disjoint Large Language Models on Radio VLANs for Intelligent Services,background,abstract-2nd-pass,3,background
+424f702fe61e5549ddf49efd7c513045ddad4ebf,HEXGEN: Generative Inference of Large Language Model over Heterogeneous Environment,background,abstract-2nd-pass,G_SNOW_F,background
+2311.04934,Prompt Cache: Modular Attention Reuse for Low-Latency Inference,background,fulltext,3,background
+10.1145/3689031.3717468,DeltaZip: Efficient Serving of Multiple Full-Model-Tuned LLMs,background,abstract-2nd-pass,3,background
+,AlpaServe: Statistical Multiplexing with Model Parallelism for Deep Learning Serving,background,abstract-2nd-pass,3,background
+10.1016/j.asoc.2026.114943,FinePE: Fine-grained personality editing of large language model via mixture of LoRA experts,,,,topup
+10.1109/TSC.2026.3671484,Adapting Large Language Models for Encrypted Traffic Analysis Services: An Efficient Realization With Mixture of LoRA Experts,,,,topup
+10.1109/TIP.2026.3654473,Interpretable Few-Shot Image Classification via Prototypical Concept-Guided Mixture of LoRA Experts,,,,topup
+10.1609/aaai.v40i37.40383,Hybrid Routing for a Mixture of LoRA Experts,,,,topup
+10.1145/3744464.3744473,DMoLE: Dynamic Mixture of LoRA Experts for Spam Email Detection,,,,topup
+10.3390/electronics14112269,A Novel Trustworthy Video Summarization Algorithm Through a Mixture of LoRA Experts,,,,topup
+10.1109/ASRU65441.2025.11434670,MoLEx: Mixture of LoRA Experts in Speech Self-Supervised Models for Audio Deepfake Detection,,,,topup
+10.1007/978-981-96-6005-6_16,TMMP: Efficient Continual Learning via Mixture of LoRA Experts and Top Maximum Magnitude Parameter Fusion,,,,topup
+10.21437/Interspeech.2025-775,Mixture of LoRA Experts for Low-Resourced Multi-Accent Automatic Speech Recognition,,,,topup
+10.1109/ICVRV67992.2025.00097,Mitigating Negative Transfer in Continual Test-Time Adaptation Via Orthogonal Dual-Path Mixture of LoRa Experts,,,,topup
+10.1016/j.procs.2025.07.128,CLIP-DoRA: Weight-decomposed Low-rank Adaptation for Efficient Vision-Language Models,,,,topup
+10.5302/J.ICROS.2025.25.0174,An Efficient Mixture of LoRA Experts for Instruction-based Multi-task Image Editing,,,,topup
+2-s2.0-105010231924,HMORA: MAKING LLMS MORE EFFECTIVE WITH HIERARCHICAL MIXTURE OF LORA EXPERTS,,,,topup
+10.1109/ICASSP49660.2025.10888133,HDMoLE: Mixture of LoRA Experts with Hierarchical Routing and Dynamic Thresholds for Fine-Tuning LLM-based ASR Models,,,,topup
+10.18653/v1/2025.findings-emnlp.718,Mixture of LoRA Experts for Continual Information Extraction with LLMs,,,,topup
+10.18653/v1/2024.emnlp-main.57,RoseLoRA: Row and Column-wise Sparse Low-rank Adaptation of Pre-trained Language Model for Knowledge Editing and Fine-tuning,,,,topup
+2-s2.0-105001672898,System Report for CCL24-Eval Task 4: Chinese AMR Parsing framework with Mixture of LoRA Experts [CCL24-Eval 任务 4 系统报告:混合 LoRA 专家的中文抽象语义表示解析框架],,,,topup
+10.21437/Interspeech.2024-1006,SAML: Speaker Adaptive Mixture of LoRA Experts for End-to-End ASR,,,,topup
+10.18653/v1/2023.acl-long.280,Mixture-of-Domain-Adapters: Decoupling and Injecting Domain Knowledge to Pre-trained Language Models' Memories,,,,topup
+10.1109/LGRS.2025.3589738,LoRA-CLIP: Efficient Low-Rank Adaptation of Large CLIP Foundation Model for Scene Classification,,,,topup
+10.1109/TBDATA.2024.3362191,Decentralized Federated Learning: A Survey on Security and Privacy,,,,topup
+10.1109/DSC63484.2024.00015,Unleashing the Potential of Decentralized Federated Learning in Healthcare: A Comprehensive Survey on Insights and Challenges,,,,topup
+WOS:001693113700137,Dynamic Mixture of Curriculum LoRA Experts for Continual Multimodal Instruction Tuning,,,,topup
+WOS:001693113700010,Make LoRA Great Again: Boosting LoRA with Adaptive Singular Values and Mixture-of-Experts Optimization Alignment,,,,topup
+10.1109/TIP.2026.3678087,Mixture of Cluster-Conditional LoRA Experts for Vision-Language Instruction Tuning,,,,topup
+10.1109/TASLPRO.2025.3637555,HybridMoE: LoRA-Based LLMs Fine-Tune With Hybrid Mixture of Experts,,,,topup
+10.1109/LGRS.2026.3668783,RSV-LoRA: Enhancing Object Segmentation in Remote Sensing Videos via Fine-Tuning With LoRA-Based Mixture of Experts,,,,topup
+10.1145/3712285.3759888,TT-LoRA MoE: Using Parameter-Efficient Fine-Tuning and Sparse Mixture-Of-Experts,,,,topup
+WOS:001611629600098,Hierarchical-Task-Aware Multi-modal Mixture of Incremental LoRA Experts for Embodied Continual Learning,,,,topup
+10.1109/TASLPRO.2025.3579303,Speaker Adaptive Mixture of Weight-Decomposed LoRA Experts for On-Device End-to-End ASR,,,,topup
+WOS:001612977900226,MoDE-CoTD: Chain-of-Thought Distillation for Complex Reasoning Tasks with Mixture of Decoupled LoRA-Experts,,,,topup
+WOS:001693172600224,TimeStep Master: Asymmetrical Mixture of Timestep LoRA Experts for Versatile and Efficient Diffusion Models in Vision,,,,topup
+10.1109/TASLPRO.2025.3589856,Mixture of LoRA Experts With Multi-Modal and Multi-Granularity LLM Generative Error Correction for Accented Speech Recognition,,,,topup
+10.1063/5.0203126,"X-LoRA: Mixture of low-rank adapter experts, a flexible framework for large language models with applications in protein mechanics and molecular design",,,,topup

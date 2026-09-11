@@ -1,0 +1,180 @@
+{
+  "screening_run": {
+    "timestamp_utc": "2026-04-21T06:12:22.498212+00:00",
+    "tool": "app.screen",
+    "term_set_version": "1.0",
+    "year_cutoff": 2021,
+    "min_citations": 0
+  },
+  "input": {
+    "file": "01_raw_2026-04-21.csv",
+    "sha256": "6dae981905ba20d3ad06bd21eacd4b929a7a216ac1ae578782c4e3ebe76ba758",
+    "total_records": 972,
+    "note": "Original file was NOT modified. Decisions written to screened_candidates file."
+  },
+  "outputs": {
+    "screened_csv": "02_screened_2026-04-21.csv",
+    "included_csv": "04_included_2026-04-21.csv",
+    "review_queue_csv": "03_review_queue_2026-04-21.csv",
+    "audit_log": "log_screening_2026-04-21.json"
+  },
+  "decisions": {
+    "INCLUDE": 162,
+    "REVIEW": 19,
+    "EXCLUDE": 791,
+    "already_set_skipped": 0
+  },
+  "exclusion_breakdown": {
+    "Year 2020": 34,
+    "Year 2018": 27,
+    "Year 2017": 24,
+    "Year 2016": 17,
+    "Year 2015": 4,
+    "Year 2014": 10,
+    "Year 2013": 9,
+    "Year 2011": 4,
+    "Year 2010": 2,
+    "Year 2009": 2,
+    "Year 2008": 3,
+    "Year 2003": 1,
+    "Year 1999": 1,
+    "Year 1997": 1,
+    "Year 1995": 2,
+    "Year 1992": 2,
+    "Year 2019": 41,
+    "Year 1989": 1,
+    "No keyword match in title": 284,
+    "LLM-only match (too broad)": 255,
+    "Year 2005": 3,
+    "Year 2007": 1,
+    "Year 2006": 1,
+    "Year 1966": 1,
+    "Year 1994": 1
+  },
+  "by_seed_group": {
+    "G0": {
+      "EXCLUDE": 731,
+      "REVIEW": 130,
+      "INCLUDE": 111
+    }
+  },
+  "by_direction": {
+    "BACKWARD": {
+      "EXCLUDE": 287,
+      "REVIEW": 30,
+      "INCLUDE": 20
+    },
+    "FORWARD": {
+      "EXCLUDE": 444,
+      "REVIEW": 100,
+      "INCLUDE": 91
+    }
+  },
+  "term_sets": {
+    "peft": [
+      "adapter",
+      "adapters",
+      "adapter module",
+      "adapter modules",
+      "lora",
+      "low-rank adaptation",
+      "low rank adaptation",
+      "parameter-efficient fine-tuning",
+      "parameter efficient fine tuning",
+      "parameter-efficient tuning",
+      "parameter efficient tuning",
+      "prompt tuning",
+      "prefix tuning",
+      "peft",
+      "ia3",
+      "(IA)^3",
+      "soft prompt",
+      "soft prompts",
+      "bitfit",
+      "adapter-tuning",
+      "adapter tuning"
+    ],
+    "llm": [
+      "large language model",
+      "large language models",
+      "llm",
+      "llms",
+      "transformer",
+      "transformers",
+      "language model",
+      "language models",
+      "foundation model",
+      "foundation models",
+      "pre-trained model",
+      "pre-trained language",
+      "bert",
+      "gpt",
+      "t5",
+      "roberta",
+      "llama",
+      "mistral",
+      "falcon"
+    ],
+    "systems": [
+      "serving system",
+      "model serving",
+      "inference server",
+      "inference service",
+      "inference system",
+      "inference pipeline",
+      "online serving",
+      "multi-tenant",
+      "multi tenant",
+      "edge device",
+      "edge devices",
+      "edge computing",
+      "edge inference",
+      "adapter caching",
+      "kv cache",
+      "kv-cache",
+      "scheduling",
+      "multi-task inference",
+      "task routing",
+      "task-specific",
+      "mixture of experts",
+      "mixture-of-experts",
+      "moe"
+    ],
+    "distributed": [
+      "peer-to-peer",
+      "peer to peer",
+      "p2p",
+      "decentralized",
+      "decentralised",
+      "distributed inference",
+      "distributed serving",
+      "distributed learning",
+      "collaborative inference",
+      "collaborative serving",
+      "collaborative learning",
+      "federated learning",
+      "federated fine-tuning",
+      "federated adapter",
+      "gossip",
+      "overlay network",
+      "distributed system"
+    ]
+  },
+  "screening_rules": [
+    "Layer 1: Exclude if year < year_cutoff or citation_count < min_citations",
+    "Layer 2: Score title against 4 term sets (peft, llm, systems, distributed)",
+    "  >= 2 sets matched \u2192 INCLUDE",
+    "  1 set matched (non-llm) \u2192 REVIEW",
+    "  llm-only match \u2192 EXCLUDE (precision too low)",
+    "  0 sets matched \u2192 EXCLUDE",
+    "Layer 3 (optional): LLM triage of REVIEW rows via Claude API",
+    "  INCLUDE / EXCLUDE resolved; UNCERTAIN rows remain for manual inspection"
+  ],
+  "llm_screening": {
+    "model": "claude-haiku-4-5-20251001",
+    "rows_sent": 130,
+    "resolved_include": 51,
+    "resolved_exclude": 60,
+    "uncertain_remaining": 19
+  }
+}

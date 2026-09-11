@@ -36,8 +36,8 @@ literature review on **decentralised adapter-based LLM inference**:
 - `supplementary/PRISMA_summary_2026-04-21.md` — per-stage pipeline summary.
 - `supplementary/S2_quality_appraisal_scored.csv` — per-study quality-appraisal
   scores underlying §3.4. The **authoritative funnel/validation numbers** are
-  produced by the `mdpi_slr_engine` scripts `verify_prisma_counts.py` /
-  `verify_quality_appraisal.py` and their outputs are version-controlled in
+  produced by the `mdpi_slr_engine` scripts `src/slr_engine/verify/verify_prisma_counts.py` /
+  `src/slr_engine/verify/verify_quality_appraisal.py` and their outputs are version-controlled in
   `mdpi_paper_slr` under `snowball_output/` (see the manuscript's Data Availability
   statement).
 

@@ -1,0 +1,4 @@
+LIVE-RUN REPRODUCIBILITY — recomputed from a fresh pipeline run
+Source: live data/snowball_output/  (fixtures deliberately NOT used)
+
+19 passed, 0 failed
