@@ -23,7 +23,7 @@ venv/
 
 # ── Reference PDFs (kept locally / in Zotero — not in git) ────────────────
 **/pdfs/
-**/*.pdf
+#**/*.pdf
 
 # ── Regenerable / derived artifacts (not source-of-truth) ─────────────────
 *.png
