@@ -1,0 +1,30 @@
+Raw direction tally over the 123 final records:
+  BACKWARD: 4
+  FORWARD: 10
+  PREVALIDATED: 105
+  SEED: 4
+  TOTAL: 123
+
+Houlsby/LoRA rows found inside PREVALIDATED (should be 4: 2 papers x 2 rows each):
+  seed_group=G1   arxiv_id=             doi=                     title=LoRA: Low-Rank Adaptation of Large Language Models
+  seed_group=G1   arxiv_id=2106.09685   doi=                     title=LoRA: Low-Rank Adaptation of Large Language Models
+  seed_group=G2   arxiv_id=             doi=                     title=Parameter-Efficient Transfer Learning for NLP
+  seed_group=G2   arxiv_id=1902.00751   doi=                     title=Parameter-Efficient Transfer Learning for NLP
+
+=== As currently reported in Table 5 (manuscript) ===
+  Direct G0 seed:      4
+  Targeted retrieval:  105   <- includes 4 Houlsby/LoRA seed-origin rows
+  Snowball descendant: 14
+  SUM: 123
+
+=== Corrected (seed-origin counted consistently) ===
+  Seed-origin (direct + Houlsby/LoRA dup rows): 8
+  Targeted retrieval (PREVALIDATED minus seed dups): 101
+  Snowball descendant: 14
+  SUM: 123
+
+Cross-check against manuscript Table 2/3 note ('six seeds, eight
+seed-origin rows'):
+  6 distinct seed papers = 4 direct (S-LoRA, AdapterHub, AdapterFusion,
+  Petals) + Houlsby + LoRA  ->  matches
+  8 seed-origin rows = 4 direct + 4 Houlsby/LoRA dup rows = 8  -> matches

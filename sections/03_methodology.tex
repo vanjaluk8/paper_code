@@ -338,16 +338,23 @@ retrieval process shaped by the review's own hypotheses. This is
 discussed further in Section~\ref{sec:conclusion:threats}.
 
 A group label (G0--G6) records the corpus into which a paper was finally
-placed, not how it was discovered, G0's final count in particular folds in
+placed, not how it was discovered; G0's final count in particular folds in
 14 citation-snowball descendants (Table~\ref{tab:groups}). The split by
 \emph{discovery route}, taken from the unified pipeline's \texttt{direction}
-field, is therefore reported separately in Table~\ref{tab:discovery_route}. It
-confirms that the 105-record figure above is a genuine targeted-retrieval
-count and not an artefact of group labelling: only \textbf{14} of the 123
-final records were obtained by blind citation snowballing, and the two
-supplementary manual passes (the 88-record Scopus/WoS forward-snowball pass and
-the 34-record cross-validation top-up) retained none. The route split is given
-in Table~\ref{tab:discovery_route}, alongside Table~\ref{tab:groups}.
+field, is reported separately in Table~\ref{tab:discovery_route}. Two G0 seed
+papers -- Houlsby et al.~\cite{Houlsby2019} and Hu et al.~\cite{Hu2022}
+(LoRA) -- are attributed by group label to G2 and G1 respectively rather than
+to G0, and each is present in the pipeline as two rows (an arXiv-sourced and
+a Scopus-sourced record); their group-label total and their discovery-route
+\texttt{direction=PREVALIDATED} tally therefore share the same four
+seed-origin rows, so agreement between the two counts does not by itself
+establish that the targeted-retrieval figure is free of seed influence.
+Counting seed origin consistently gives \textbf{101} genuinely independent
+targeted-retrieval records, \textbf{8} seed-origin rows (the four
+directly-seeded records plus these four Houlsby/LoRA rows), and \textbf{14}
+citation-snowball records, summing to 123 (Table~\ref{tab:discovery_route});
+the two supplementary manual passes (the 88-record Scopus/WoS forward-snowball
+pass and the 34-record cross-validation top-up) retained none.
 
 Of the 123 included records, \textbf{70} (56.9\%) entered through the primary
 full-text-queue path (i.e.\ they are part of the \textbf{387}-record full-text
@@ -555,23 +562,27 @@ unified LLM survey & \checkmark & & & \checkmark & $\circ$ & \\
 \caption{The 123 final records by \emph{discovery route}, from the unified
 pipeline's \texttt{direction} field and independent of the group label in
 Table~\ref{tab:groups}. ``Targeted retrieval'' is the Undermind-assisted
-curation of Groups G1--G6; ``direct G0 seed'' are the four seeds themselves
-(S-LoRA, AdapterHub, AdapterFusion, Petals); ``citation snowballing'' is the
-one-wave forward/backward pass on the G0 seeds. The two remaining routes were
-executed (Appendix~\ref{app:search_log}) but retained no records. The \%
-column sums to 100.1 due to rounding.}
+curation of Groups G1--G6, excluding four rows attributable to G0 seed papers
+(see below); ``seed-origin'' is the four seeds submitted for retrieval in
+their own right (S-LoRA, AdapterHub, AdapterFusion, Petals) plus two further
+G0 seeds, Houlsby et al.\ and LoRA, each present as two rows (an
+arXiv-sourced and a Scopus-sourced record) attributed by group label to G2
+and G1 respectively rather than to G0 (verification script:
+\texttt{verify/wp6\_seed\_origin\_route\_split.py}); ``citation snowballing''
+is the one-wave forward/backward pass on the G0 seeds. The two remaining
+routes were executed (Appendix~\ref{app:search_log}) but retained no records.}
 \label{tab:discovery_route}
 \begin{tabular}{lrr}
 \toprule
 \textbf{Discovery route} & \textbf{\textit{n}} & \textbf{\% of 123} \\
 \midrule
-Targeted retrieval (pre-validated G1--G6, Undermind-assisted) & 105 & 85.4 \\
-Direct G0 seed & 4 & 3.3 \\
+Targeted retrieval (pre-validated G1--G6, Undermind-assisted, excluding seed rows) & 101 & 82.1 \\
+Seed-origin (direct + Houlsby/LoRA rows attributed to G1/G2) & 8 & 6.5 \\
 Citation snowballing on G0 (10 forward $+$ 4 backward) & 14 & 11.4 \\
 Supplementary forward-snowball pass (Scopus/WoS) & 0 & 0.0 \\
 Manual Scopus/WoS cross-validation top-up & 0 & 0.0 \\
 \midrule
-\textbf{Total} & \textbf{123} & \textbf{100} \\
+\textbf{Total} & \textbf{123} & \textbf{100.0} \\
 \bottomrule
 \end{tabular}
 \end{table}
