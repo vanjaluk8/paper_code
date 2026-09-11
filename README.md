@@ -1,5 +1,7 @@
 # mdpi_paper_slr — Decentralised Adapter-Based LLM Inference: An SLR (manuscript + curated corpus)
 
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22703573-blue)](https://doi.org/10.5281/zenodo.22703573)
+
 The **manuscript & curated-corpus half** of a two-repo split for the systematic
 literature review on **decentralised adapter-based LLM inference**:
 
