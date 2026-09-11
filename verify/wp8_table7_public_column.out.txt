@@ -1,0 +1,12 @@
+Total data rows parsed: 33 (expect 33)
+Public column tally (from table body, not caption/prose):
+  Yes: 26
+  Partial: 1
+  No: 2
+  Unknown: 4
+  SUM: 33
+-> Matches Sec 3.4.1's reported 26/1/2/4. OK.
+
+Pillar 4 (P2P and Federated Learning) rows: 7
+  tally: {'Partial': 1, 'Yes': 3, 'Unknown': 3}
+  -> denominator for the 'federated or P2P fine-tuning methods' claim in Sec 3.4.1 is 7, not 3.

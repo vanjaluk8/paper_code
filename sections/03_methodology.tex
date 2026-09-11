@@ -723,7 +723,7 @@ the benchmarks themselves are public in every row.}
   LoraRetriever~\cite{ZhaoLoraRetriever2024} & domain QA, MT-bench & multi-task
    QA & Accuracy/win-rate & matches best single & Yes \\
   Ostapenko et al.~\cite{Ostapenko2024} & GLUE, SuperGLUE & NLU classification &
-  Accuracy & --- & No \\
+  Accuracy & --- & Unknown \\
   \midrule
   \multicolumn{6}{l}{\textbf{Pillar 3: Adapter-Aware Inference Serving}} \\
   S-LoRA~\cite{Sheng2024} & synthetic & throughput & req/s & up to 4$\times$
@@ -905,14 +905,14 @@ The verified picture is uneven. Across the 33 representative systems,
 (\textbf{3\%}), FedAvg, is available only through a maintained downstream
 framework (TensorFlow Federated) rather than its original release. For
 \textbf{2} systems (\textbf{6\%})---Expert Choice and MT-EF
-({\v{S}}ajina et al.)---no artifact was ever released; for a further
+({\v{S}}ajina et al.)---no artifact was located at the check date; for a further
 \textbf{4} systems (\textbf{12\%})---Ostapenko et al., DP-FedLoRA, SLoRA, and
-Gossip Learning---no public artifact could be located at the check date,
-which does not rule out an unreleased or unadvertised one existing. The gap is concentrated among the systems closest to this
-review's object of study: none of the three federated or P2P fine-tuning
-methods (SLoRA, DP-FedLoRA, Gossip Learning), the MT-EF P2P architecture, nor
-the modular-LoRA composition framework (Ostapenko et al.) releases a locatable
-artifact, despite several being recent and otherwise well-documented.
+Gossip Learning---no public artifact could be located at the check date
+either, which does not rule out an unreleased or unadvertised one existing. The gap is concentrated among the systems closest to this
+review's object of study: three of the seven federated or P2P fine-tuning
+methods in Pillar 4 (SLoRA, DP-FedLoRA, Gossip Learning), the MT-EF P2P architecture, and
+the modular-LoRA composition framework (Ostapenko et al.) have no locatable
+artifact at the check date, despite several being recent and otherwise well-documented.
 
 These findings are themselves a result of this review. The unevenness (in
 particular the absence of locatable artifacts for several systems most central
