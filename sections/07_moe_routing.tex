@@ -95,7 +95,7 @@ sparse routing framework. This shifts the routing granularity from the layer lev
 of selecting adapters from a library in a multi-task serving system.
 
 These methods differ primarily in routing granularity and gating mechanism.
-At the finest granularity, MOELoRA \cite{LiuWhenMOE2024} attaches separate LoRA experts
+At the finest granularity, MOELoRA (Liu et al.) \cite{LiuWhenMOE2024} attaches separate LoRA experts
 per attention head and routes each token to its top-$k$ experts at the head level,
 allowing different subspaces of the key--value projection to specialise for different tasks.
 The remaining methods operate at the layer level but vary in how routing weights are
@@ -103,7 +103,7 @@ computed: MixLoRA \cite{LiMixLoRA2024} uses continuous mixing weights produced b
 differentiable gating function with contrastive regularisation to prevent expert collapse,
 while MiLoRA \cite{ZhangMiLoRA2024} uses Top-1 sparse gating with a diversity penalty
 that encourages each expert to capture a distinct region of the task distribution.
-MoELoRA \cite{LuoMoELoRA2024} and Mixture of LoRA Experts \cite{WuMixtureLoRA2024}
+MoELoRA (Luo et al.) \cite{LuoMoELoRA2024} and Mixture of LoRA Experts \cite{WuMixtureLoRA2024}
 independently demonstrated that routing among multiple LoRA experts within a single
 fine-tuning run outperforms standard LoRA and full fine-tuning on multi-task benchmarks,
 using different gating mechanisms to achieve this result.

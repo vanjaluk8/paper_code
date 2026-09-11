@@ -225,11 +225,11 @@ megabytes.
 
 Bottleneck adapters, LoRA, and prompt-based methods all produce per-task parameter sets
 that are trained independently and do not share information across tasks during the
-training phase. Mahabadi et al.~\cite{MahabadiCompacter2021} proposed Compacter, which combines
+training phase. Karimi Mahabadi et al.~\cite{MahabadiCompacter2021} proposed Compacter, which combines
 hypercomplex multiplication layers with low-rank factorisation to generate adapter weights
 from compact parameter tensors, reducing the total adapter parameter count by approximately two orders of magnitude
 compared to standard bottleneck adapters (0.047\% of a full fine-tuning parameter budget).
-Mahabadi et al.~\cite{Mahabadi2021} proposed HyperFormer, which uses a shared hypernetwork
+Karimi Mahabadi et al.~\cite{Mahabadi2021} proposed HyperFormer, which uses a shared hypernetwork
 to generate adapter weights conditioning on task embedding, layer identifier, and adapter
 position to generate layer-specific adapter parameters, enabling explicit knowledge
 sharing across tasks. HyperFormer's conditioning on all three inputs: task embedding,
