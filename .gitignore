@@ -30,6 +30,10 @@ venv/
 # Data-extraction spreadsheets are derived from the pipeline in mdpi_slr_engine:
 # keep them local, not version-controlled here.
 *_data_extraction_*.csv
+# Exception: 11_data_extraction_2026-05-12.csv is the audited 224-row extraction
+# deliverable named in the Data Availability statement (main.tex) — it must be
+# tracked here, same treatment as 13_final_reading_list_2026-05-12.csv above.
+!11_data_extraction_2026-05-12.csv
 
 # ── NOTE ──────────────────────────────────────────────────────────────────
 # papers_repo/*.csv (G1-G6 curated corpora) ARE tracked — they are the canonical
@@ -75,3 +79,4 @@ _prisma_audit/
 prisma_audit/
 .claude/
 CLAUDE.md
+materials/
