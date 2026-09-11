@@ -595,7 +595,7 @@ archived alongside the \texttt{slr\_engine} repository (\texttt{exports/scopus/}
 \texttt{exports/wos/}); access is detailed in the Data Availability statement.
 
 % -----------------------------------------------------------------------
-\subsection*{Scopus Advanced Search Queries}
+\subsection*{C.1 Scopus Advanced Search Queries}
 \label{app:db_queries:scopus}
 
 \paragraph{Q1 — Core Adapter-Based NLP.}
@@ -691,7 +691,7 @@ AND PUBYEAR > 2018
 \end{verbatim}
 
 % -----------------------------------------------------------------------
-\subsection*{Web of Science Advanced Search Queries}
+\subsection*{C.2 Web of Science Advanced Search Queries}
 \label{app:db_queries:wos}
 
 \paragraph{Q1 — Core Adapter-Based NLP.}
@@ -779,7 +779,7 @@ AND PY >= 2018
 \end{verbatim}
 
 % -----------------------------------------------------------------------
-\subsection*{Related-Reviews Search (2026-09-10)}
+\subsection*{C.3 Related-Reviews Search (2026-09-10)}
 \label{app:db_queries:related}
 
 A single dedicated query was run on each of Web of Science and Scopus on
@@ -815,7 +815,7 @@ AND DOCTYPE(re) AND PUBYEAR > 2020
 \end{verbatim}
 
 % -----------------------------------------------------------------------
-\subsection*{Disconfirming (Adversarial) Search (2026-09-10)}
+\subsection*{C.4 Disconfirming (Adversarial) Search (2026-09-10)}
 \label{app:db_queries:adversarial}
 
 To test the gap claim of \S\ref{sec:synthesis_gap} against sources outside the
@@ -977,11 +977,11 @@ $\approx$2026-04-28 & Abstract-level review, pass 1 (on the 464 corpus; AI-assis
   reading list is the authoritative evidence base) &
   --- & 123 final \\
 2026-09-10  & Related-reviews search: WoS + Scopus, one query each
-  (\S\ref{app:db_queries:related}); screening for competing secondary studies &
+  (\S~C.3); screening for competing secondary studies &
   50 (WoS) $+$ 19 (Scopus) & 6 competing surveys retained
   (Table~\ref{tab:related_surveys}) \\
 2026-09-10  & Disconfirming (adversarial) search: 8 queries across arXiv,
-  GitHub, and web, no venue filter (\S\ref{app:db_queries:adversarial}) &
+  GitHub, and web, no venue filter (\S~C.4) &
   8 queries & 0 matching artefacts; near-misses catalogued
   (Table~\ref{tab:adversarial_search}) \\
 \bottomrule

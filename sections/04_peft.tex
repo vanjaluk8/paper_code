@@ -214,7 +214,7 @@ deltas sufficient for task conditioning.
 
 Ben-Zaken et al.~\cite{BenZaken2022} demonstrated that fine-tuning only the \textit{bias parameters}
 of a transformer network (BitFit) (approximately 0.08\% of BERT-Large's total
-parameters achieves performance competitive with full fine-tuning on GLUE in small-to-medium data regimes.
+parameters) achieves performance competitive with full fine-tuning on GLUE in small-to-medium data regimes.
 BitFit requires no added modules and imposes virtually no additional memory or computation
 at inference time, making it among the most transmission-efficient forms of PEFT: the per-task
 parameter delta is a set of scalar bias vectors, occupying kilobytes rather than
