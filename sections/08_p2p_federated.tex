@@ -79,7 +79,10 @@ gossip-style aggregation to adapter weight matrices.
     with its own local model. The process eliminates the central aggregator
     while maintaining convergence to a stationary point under mild
     graph-connectivity conditions, with guarantees comparable to centralised FL
-    \cite{HegeduisGossip2019,Lian2017Decentralized}.}
+    \cite{HegeduisGossip2019,Lian2017Decentralized}. This reproduces the
+    gossip-propagation diagram from
+    Section~\ref{sec:background:p2p} (Figure~\ref{fig:p2p_gossip}) in the
+    gossip-learning context.}
   \label{fig:gossip}
 \end{figure}
 
@@ -140,7 +143,7 @@ specialisation, leaving the adapter dimension of P2P inference unexplored.
 
 The observation that PEFT adapters are dramatically smaller than full model weights
 makes them well-suited units for federated communication: exchanging only the adapter
-matrices reduces per-round communication by 90--99\% compared to exchanging full model
+matrices reduces per-round communication by over 90\% compared to exchanging full model
 gradients or weights \cite{ZhangFedPETuning2023}. This insight motivated a substantial
 body of work on federated PEFT, which applies FL algorithms to the training and
 aggregation of adapter modules across distributed clients.
@@ -245,7 +248,9 @@ Recent work on decentralised LoRA, such as Dec-LoRA by Ghiasvand et al.~\cite{Gh
     distance, until the value-holding node is reached \cite{MaymounkovKademlia2002}.
     Applied to adapter
     discovery, adapter descriptors would be indexed as key-value entries
-    allowing peers to locate task-specific modules without a central registry.}
+    allowing peers to locate task-specific modules without a central registry.
+    The underlying DHT-lookup diagram is introduced in
+    Section~\ref{sec:background:p2p} (Figure~\ref{fig:p2p_dht_lookup}).}
   \label{fig:dht_lookup}
 \end{figure}
 

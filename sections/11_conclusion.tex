@@ -48,14 +48,16 @@ The review established four key findings:
     task, not on independently trained adapters.
 
   \item \textbf{Federated PEFT confirms communication efficiency but requires
-    centralised aggregation.} The federated PEFT literature (30 papers, the
-    G6 group in Table~\ref{tab:groups}) consistently
-    shows that adapter-only exchange reduces per-round communication cost by
-    90--99\% compared to full gradient or weight exchange
-    \cite{ZhangFedPETuning2023}, and that non-IID performance degradation is
+    centralised aggregation.} The federated PEFT literature (the G6 group in
+    Table~\ref{tab:groups}, 30 papers in the final corpus) reports major
+    per-round communication savings from exchanging adapter-only updates rather
+    than full gradients or weights---for example, FedPETuning reports over
+    90\% savings at within-5\% accuracy degradation relative to centralised PEFT
+    \cite{ZhangFedPETuning2023}---and that non-IID performance degradation is
     bounded (Section~\ref{sec:p2p_federated:fed_peft}).
-    However, all reviewed systems require a central aggregation server, leaving fully
-    decentralised adapter aggregation as an open problem.
+    However, all of the reviewed federated-PEFT systems rely on a central
+    aggregation server, leaving fully decentralised adapter aggregation as an
+    open problem.
 
   \item \textbf{P2P distributed ML has the protocol infrastructure but lacks adapter
     semantics.} P2P systems (Petals, Šajina, gossip learning) demonstrate that

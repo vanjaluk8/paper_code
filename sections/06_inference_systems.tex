@@ -10,11 +10,12 @@ Section~\ref{sec:synthesis_gap:answers}.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.85\linewidth]{figures/fig_concept_peft_paradigm.pdf}
-  \caption{The PEFT serving paradigm: a single frozen backbone is shared across
+  \caption{The PEFT serving paradigm, viewed through the adapter-paradigm
+    figure introduced in
+    Section~\ref{sec:background}: a single frozen backbone is shared across
     concurrent requests, each associated with a lightweight task-specific
     adapter. Serving systems must manage a population of adapters in GPU
-    memory while minimising per-request adapter swap latency. Adapted
-    from~\cite{Sheng2024}.}
+    memory while minimising per-request adapter swap latency~\cite{Sheng2024}.}
   \label{fig:peft_paradigm}
 \end{figure}
 
