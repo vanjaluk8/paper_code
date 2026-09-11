@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: >-
+  If you use this repository (the manuscript, curated corpus and PRISMA
+  evidence for the systematic literature review), please cite it as below.
+title: "Decentralised Adapter-Based LLM Inference: A Systematic Literature Review — manuscript, curated corpus and PRISMA evidence"
+authors:
+  - family-names: "Luk"
+    given-names: "Vanja"
+    orcid: "https://orcid.org/0009-0009-8142-6890"
+    affiliation: "Faculty of Informatics and Digital Technologies, University of Rijeka"
+date-released: "2026-09-11"
+version: "1.0.0-mdpi"
+url: "https://github.com/vanjaluk8/mdpi_paper_slr"
+# The Zenodo software DOI is minted automatically when this repository is
+# archived on Zenodo; it is intentionally not hard-coded here to avoid a
+# self-referential or placeholder DOI.
+license: CC-BY-4.0
+keywords:
+  - systematic-literature-review
+  - prisma-2020
+  - citation-snowballing
+  - peft
+  - adapters
+  - peer-to-peer
+  - federated-learning
+  - llm-inference
+abstract: >-
+  Manuscript and curated evidence for a systematic literature review of
+  decentralised, adapter-based LLM inference at the intersection of PEFT,
+  P2P/federated systems and multi-task serving. Follows PRISMA 2020 reporting
+  and Wohlin (2014) citation snowballing over a 123-record corpus. This release
+  ships the MDPI manuscript (LaTeX), the curated G0-G6 corpus, the PRISMA
+  2020 checklist, quality-appraisal scoring, and the supporting search
+  exports and provenance. Licensed bibliographic source records are not
+  redistributed beyond what the underlying vendors' terms permit.
+preferred-citation:
+  type: article
+  title: "Decentralised Adapter-Based LLM Inference: A Systematic Literature Review—Mapping the Research Gap at the Intersection of PEFT, P2P Systems, and Multi-Task Serving"
+  authors:
+    - family-names: "Luk"
+      given-names: "Vanja"
+      orcid: "https://orcid.org/0009-0009-8142-6890"
+  journal: "AI (MDPI)"
+  year: 2026

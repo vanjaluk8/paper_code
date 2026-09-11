@@ -1,0 +1,39 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "Decentralised Adapter-Based LLM Inference — Systematic Literature Review (manuscript, curated corpus & PRISMA evidence)",
+  "identifier": "mdpi-paper-slr",
+  "description": "Manuscript and curated evidence for a systematic literature review of decentralised, adapter-based LLM inference at the intersection of PEFT, P2P/federated systems and multi-task serving. Follows PRISMA 2020 reporting and Wohlin (2014) citation snowballing over a 123-record corpus. Ships the MDPI manuscript (LaTeX), the curated G0-G6 corpus, the PRISMA 2020 checklist, quality-appraisal scoring, and supporting search exports and provenance.",
+  "version": "1.0.0-mdpi",
+  "dateCreated": "2026-09-11",
+  "datePublished": "2026-09-11",
+  "license": "https://spdx.org/licenses/CC-BY-4.0",
+  "codeRepository": "https://github.com/vanjaluk8/mdpi_paper_slr",
+  "relatedLink": ["https://zenodo.org/"],
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Vanja",
+      "familyName": "Luk",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Faculty of Informatics and Digital Technologies, University of Rijeka"
+      },
+      "identifier": "https://orcid.org/0009-0009-8142-6890"
+    }
+  ],
+  "keywords": [
+    "systematic-literature-review",
+    "prisma-2020",
+    "citation-snowballing",
+    "peft",
+    "adapters",
+    "peer-to-peer",
+    "federated-learning",
+    "llm-inference"
+  ],
+  "isAccessibleForFree": true,
+  "developmentStatus": "active",
+  "issueTracker": "https://github.com/vanjaluk8/mdpi_paper_slr/issues",
+  "funder": { "@type": "Organization", "name": "No external funding" }
+}
