@@ -32,25 +32,29 @@ Availability Statement.
 
 | File | Purpose |
 |---|---|
-| `manuscript_compiled.pdf` | Current compiled manuscript (78 pp, build 2026-09-10). Convenience copy — the authoritative build is `../build/out/` via `../build/compile_mdpi.sh`. |
+| `manuscript_compiled.pdf` | Current compiled manuscript (78 pp, build 2026-09-10). Convenience copy kept **local only** (PDFs are gitignored — not committed); the authoritative build is `../build/out/` via `../build/compile_mdpi.sh`. |
 | `cover_letter.md` | Draft cover letter. **Needs updating before submission** — see "Author to-do" below. |
 
-Everything in this folder except `README.md` and `cover_letter.md` is either a
-formal supplementary item or supporting data that a reviewer may ask for. The
-working number-audit (`PRISMA_NUMBERS_VALIDATION.md`) and the un-prefixed
-checklist source have been moved to `../_archive/`; `S1_PRISMA_2020_checklist.md`
-here is the submission copy.
+Everything in this folder except `../README.md` and `cover_letter.md` is either a
+formal supplementary item or supporting data that a reviewer may ask for.
+`S1_PRISMA_2020_checklist.md` here is the submission copy. The earlier working
+number-audit table (`PRISMA_NUMBERS_VALIDATION.md`) is **no longer tracked in this
+repo** — it was maintained under the old `writing/` layout in git history, and its
+authoritative values now live in `slr_engine/snowball_output/` (per the DAS).
 
 ---
 
 ## The manuscript package (NOT in this folder — kept as repo source)
 
-For a LaTeX submission, zip from `../` (the `writing/mdpi_paper/` root):
+The manuscript files live at the **repo root** (the old `writing/mdpi_paper/`
+folder was flattened during the reorg). For a LaTeX submission, zip from the repo
+root (`/Users/vluk/PycharmProjects/paper_code`):
 `main.tex`, `bibliography.bib`, `sections/*.tex`, `figures/*.pdf`,
 `Definitions/` (the MDPI class + assets), and `main.pdf`. Do **not** include
-`REVISION_STATUS.md`, `VALIDATION_NOTE.md`, or anything under `_archive/`
-(the remediation working docs, raw search exports, superseded PRISMA files,
-figure-generation scripts, and reviewer-response drafts).
+`papers_repo/`, `REVISION_STATUS.md`, `VALIDATION_NOTE.md`, `build/`, or anything
+under `_archive/` (the remediation working docs, raw search exports, superseded
+PRISMA files, figure-generation scripts, and reviewer-response drafts; none of
+these currently exist in the flat layout).
 
 ## Data Availability — external repositories (per the DAS)
 
@@ -77,7 +81,7 @@ Both verify scripts pass (40/40 and 19/19) as of 2026-09-10.
    `14_final_curation_reasons.csv` (referenced in the DAS, not yet present).
    Also commit the re-synced `verification_fixtures/13_final_reading_list_2026-05-12.csv`
    (2 stale year cells fixed 2026-09-10).
-3. **`paper_code`** — make the repository public.
+3. **`mdpi_paper_slr`** — make the repository public.
 4. **S1 format** — if the editor requires the official PRISMA 2020 checklist
    PDF/DOCX rather than this mapping table, fill the template at
    <https://www.prisma-statement.org> using the section pointers in

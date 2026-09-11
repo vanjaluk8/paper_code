@@ -201,7 +201,7 @@ Author: no blocker, will commit the files. Changes:
   stale "`papers_code` is private" / "available on request" text.
 - **Author action items before submission:** (1) commit those 7 files +
   `verify_*.py` + `snowball_output/verification_runs/` to `slr_engine`;
-  (2) make `paper_code` public; (3) confirm `14_final_curation_reasons.csv` name
+  (2) make `mdpi_paper_slr` public; (3) confirm `14_final_curation_reasons.csv` name
   + extension.
 - **What was done:**
 
@@ -744,7 +744,7 @@ finding…".
 
 ## N48 — Archive both repos to Zenodo, cite DOIs — `GATE:AUTHOR` — **DEFERRED (author: keep GitHub for now)**
 GitHub URLs are not persistent identifiers; MDPI prefers PIDs. Archive
-`paper_code` and `slr_engine` to Zenodo, cite the DOIs in the DAS.
+`mdpi_paper_slr` and `slr_engine` to Zenodo, cite the DOIs in the DAS.
 - **Author (2026-09-10):** leave GitHub for now; revisit at submission. Parked.
   (MDPI reviewers may still request a PID; low effort to add later once the
   Zenodo deposit exists.)
@@ -753,7 +753,7 @@ GitHub URLs are not persistent identifiers; MDPI prefers PIDs. Archive
 ## N49 — Supply the ten Web of Science search strings — `AGENT-OK` — **DONE (already in Appendix C)**
 - **Finding (2026-09-10):** the WoS strings were **already present** — Appendix C
   has a "Web of Science Advanced Search Queries" subsection with all ten
-  (`app:db_queries:wos`, Q1–Q10), and they match `queries.sql` (repo root)
+  (`app:db_queries:wos`, Q1–Q10), and they match `supplementary/queries.sql` (repo root)
   verbatim. A prior session added them; only this tracker was stale.
 - **What was done:** verified the 10 appendix WoS queries against
   `/Users/vanja/git/papers_code/queries.sql` (exact match). Tightened the

@@ -49,7 +49,7 @@ This checklist maps each of the 27 PRISMA 2020 items to the section, table, figu
 | | 13c | Describe any methods used to tabulate or visually display results of individual studies and syntheses. | Figures and tables throughout (§4–§9); bibliometric figures Fig. venues / bibliometric; tier figures |
 | | 13d | Describe any methods used to synthesise results and provide a rationale for the choice(s). If meta-analysis was performed, describe the model, methods to identify statistical heterogeneity and methods of handling heterogeneity. | Narrative thematic synthesis (§9); no meta-analysis performed |
 | | 13e | Describe any methods used to explore possible causes of heterogeneity among study results. | Not applicable (no meta-analysis); heterogeneity handled thematically across five bodies of literature (§9) |
-| | 13f | Describe any sensitivity analyses conducted to assess robustness of the synthesised results. | Funnel cross-validation and per-stage reconciliation (`PRISMA_NUMBERS_VALIDATION.md`); §3.1 |
+| | 13f | Describe any sensitivity analyses conducted to assess robustness of the synthesised results. | Funnel cross-validation and per-stage reconciliation (recomputed by `slr_engine` scripts `verify_prisma_counts.py` / `verify_quality_appraisal.py`, run outputs in `slr_engine/snowball_output/verification_runs/`); §3.1 |
 | **Reporting bias assessment** | 14 | Describe any methods used to assess risk of bias due to missing results in a synthesis. | Citation-snowballing + Scopus/WoS forward pass reduces missing-result risk (**Appendix D.3**, **D.4** manual cross-validation); stated in §3.1 |
 | **Certainty assessment** | 15 | Describe any methods used to assess certainty (or confidence) in the body of evidence for an outcome. | Not applicable — qualitative synthesis; quality/venue assessment at full-text stage substitutes for GRADE-style certainty |
 
@@ -65,7 +65,7 @@ This checklist maps each of the 27 PRISMA 2020 items to the section, table, figu
 | **Results of syntheses** | 20a | For each synthesis, briefly summarise the characteristics and risk of bias among contributing studies. | §9 Synthesis and Research Gap Analysis (`sec:synthesis_gap`) |
 | | 20b | Present results of all statistical syntheses conducted. | Not applicable (no meta-analysis) |
 | | 20c | Present results of all investigations of possible causes of heterogeneity among study results. | Not applicable; thematic treatment of heterogeneity (§9) |
-| | 20d | Present results of all sensitivity analyses conducted to assess the robustness of the synthesised results. | Funnel reconciliation and per-stage counts (`PRISMA_NUMBERS_VALIDATION.md`) |
+| | 20d | Present results of all sensitivity analyses conducted to assess the robustness of the synthesised results. | Funnel reconciliation and per-stage counts (recomputed by `slr_engine` scripts `verify_prisma_counts.py` / `verify_quality_appraisal.py`, outputs in `slr_engine/snowball_output/verification_runs/`) |
 | **Reporting biases** | 21 | Present assessments of risk of bias due to missing results arising from reporting biases. | §3.1; Appendix D.3/D.4 (forward snowball + manual cross-validation) |
 | **Certainty of evidence** | 22 | Present assessments of certainty (or confidence) in the body of evidence for each outcome assessed. | Not applicable — qualitative synthesis; see Item 15 |
 

@@ -1,59 +1,57 @@
 # CLAUDE.md
 
-> **Two-repo split (2026-08-21):** this repo (`papers_code`) holds the manuscripts,
-> curated corpus (`papers_repo/`), and PRISMA package. The **`slr_engine/`** pipeline
-> code moved to the sibling **`slr_engine`** repository. Paths below that mention
-> `slr_engine/...` refer to that sibling checkout, not this repo.
+> **Two-repo split (2026-08-21):** this repo (`mdpi_paper_slr`) holds the MDPI
+> manuscript (`main.tex`, `sections/`, `Definitions/`, `bibliography.bib`), the
+> curated corpus (`papers_repo/`), and the PRISMA/supplementary package
+> (`supplementary/`). The **`slr_engine/`** pipeline code lives in the sibling
+> **`slr_engine`** repository (`../slr_engine`), not this repo. Paths below that
+> mention `slr_engine/...` refer to that sibling checkout unless stated otherwise.
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
 
-Research repository for a systematic literature review (SLR) on **Decentralized Adapter-Based LLM Systems** — specifically P2P multi-task NLP inference using PEFT adapters over a shared frozen transformer backbone. Affiliated with University of Rijeka, Faculty of Informatics and Digital Technologies.
+Research repository for a systematic literature review (SLR) on **Decentralized Adapter-Based LLM Systems** — specifically P2P multi-task NLP inference using PEFT adapters over a shared frozen transformer backbone, reported as a manuscript for the MDPI *AI* journal. Affiliated with University of Rijeka, Faculty of Informatics and Digital Technologies.
 
-The thesis synthesises three fields: **PEFT** (adapters/LoRA) · **P2P systems** · **multi-task NLP**.
+The review synthesises three fields: **PEFT** (adapters/LoRA) · **P2P systems** · **multi-task NLP**.
 
-## Running the Notebook
+> **Note.** All pipeline/screening code lives in the sibling **`slr_engine`** repo
+> (`../slr_engine`). This repo is the manuscript + curated corpus + submission
+> package only; it contains no runnable screening code.
 
-The original screening notebook now lives in `slr_engine/archive/main.ipynb` (archived — the active pipeline is the snowballing engine under `slr_engine/snowballing/`).
-
-```bash
-# Install dependencies
-pip install -r slr_engine/snowballing/requirements.txt
-
-# Launch the archived screening notebook
-jupyter notebook slr_engine/archive/main.ipynb
-```
-
-The notebook expects WoS raw exports (`*.xls`) in `exports/wos/`. It must be run cell-by-cell in order.
-
-## Repository Structure
+## Repository Structure (this repo)
 
 | File/Dir | Purpose |
 |---|---|
-| `papers_repo/` | Paper curation: `lit-review-outline.md`, `G0_seed_papers.md`, `G1–G6_*.csv`, `WORKFLOW.md`, `research_topic.md`, methodology/validation references |
-| `slr_engine/snowballing/` | Active automated pipeline: retrieval, screening, merge, enrichment, PRISMA, figures (run via `run_pipeline.sh`) |
-| `slr_engine/snowballing/snowball_output/` | Intermediate pipeline CSVs/logs/PRISMA reports |
-| `slr_engine/db_queries/` | Scopus and WoS advanced search query strings (`queries.sql`, `refined-queries-scopus-wos.md`) |
-| `slr_engine/archive/` | Superseded earlier work (`main.ipynb`, `SLR_kostur.md`, `INTRO.md`, `papers_per_field.md`) |
-| `slr_engine/assets/figures/` | Generated SLR figures (fig_slr1–9) |
-| `writing/slr_methodology_paper/` | The paper itself: `latex_folder/` (LaTeX source + figures), `validation/`, `writing_materials/`, reference guides |
+| `main.tex` | MDPI `AI` manuscript root (class, title/abstract, DAS, supplementary, bibliography, appendices); `\input`s `sections/*`. |
+| `sections/` | Manuscript body: `01_introduction` … `09_synthesis_gap`, `11_conclusion`, `12_appendix`. |
+| `Definitions/` | MDPI LaTeX class + assets (`mdpi.cls`, `*.bst`, `*.sty`, logos). |
+| `bibliography.bib` | Manuscript bibliography. |
+| `figures/` | Figure sources (HTML + source CSVs). Compiled PDFs are regenerable from `slr_engine` and gitignored. |
+| `supplementary/` | Submission bundle: S1 (PRISMA 2020 checklist), S2 (quality-appraisal scores CSV), supporting data, search exports, cover letter. See `supplementary/README.md`. |
+| `papers_repo/` | **Curated literature corpus** — G0–G6 seed/corpus CSVs (352-paper pre-validated corpus) + `G0_seed_papers.md`. Promised publicly in the manuscript DAS. Author working/draft notes (`lit-review-outline.md`, methodology outlines, workflow/research notes) were removed in the reorg — recoverable from git history. |
+| `build/` | Bundle/compile tooling (`compile_mdpi.sh`). |
+| `supplementary/queries.sql` | Scopus / WoS advanced search query strings (mirrored from `slr_engine/db_queries/`). |
+| `REVISION_STATUS.md`, `VALIDATION_NOTE.md` | Author-side working docs (excluded from the submission package; see `supplementary/README.md`). |
 
-## Screening Pipeline (archived notebook — `slr_engine/archive/main.ipynb`)
+## Related work in the sibling `slr_engine` repo
 
-1. **Convert** — `exports/wos/*.xls` → `*.csv`
-2. **Load & merge** — all CSVs concatenated into one DataFrame
-3. **Deduplicate** — on `Article Title` (~5,429 unique records)
-4. **Screen** — keyword match on title + abstract → `screened_in` bool + `exclusion_reason`
-5. **Tag** — classify into tiers: Tier 1 (PEFT + systems + LLM), Tier 2 (PEFT + LLM), Tier 3 (other)
-6. **Export** — `screened_studies.csv` and `screened_studies_tagged.csv`
-
-> The current, maintained pipeline is the python snowballing engine under `slr_engine/snowballing/`
-> (see its `README.md`), not this archived notebook.
+| Path (in `../slr_engine`) | Purpose |
+|---|---|
+| `snowballing/` | Active automated pipeline: retrieval, screening, merge, enrichment, PRISMA, figures (run via `run_pipeline.sh`). |
+| `snowballing/snowball_output/` | Intermediate pipeline CSVs / logs / PRISMA reports (authoritative funnel numbers). |
+| `db_queries/` | Scopus and WoS advanced search query strings (`supplementary/queries.sql`, `refined-queries-scopus-wos.md`). |
+| `archive/` | Superseded earlier work (`main.ipynb`, `SLR_kostur.md`, `INTRO.md`, `papers_per_field.md`). |
+| `assets/figures/` | Generated SLR figures (fig_slr1–9). |
+| `scripts/` | Verification scripts (`verify_prisma_counts.py`, `verify_quality_appraisal.py`). |
 
 ## Literature Review Status
 
-Tracked in `papers_repo/lit-review-outline.md`. Critical gaps (🔴 Empty, Priority 1):
+The working literature-review outline (`lit-review-outline.md`) that tracked
+section status and gaps was **removed in the reorg** (recoverable from git
+history) — the review's live content now lives in the manuscript itself
+(`sections/*.tex`). Earlier tracked critical gaps (🔴 Empty, Priority 1) for
+reference:
 - **§6.1** Federated learning foundations (FedAvg, FedProx)
 - **§7.1–7.2** MoE routing + adapter routing (SiRA, MoDE, Switch Transformers)
 - **§4.3** Modular composition (Ponti 2023, LoraHub, AdapterSoup)
@@ -61,7 +59,7 @@ Tracked in `papers_repo/lit-review-outline.md`. Critical gaps (🔴 Empty, Prior
 
 ## Contribution Codes
 
-Used throughout the outline to tag novel contributions:
+Novel contributions, consistently tagged in the outline and referenced in the manuscript's §3.3 Quality Assessment:
 
 | Code | Description |
 |---|---|
@@ -75,5 +73,5 @@ Used throughout the outline to tag novel contributions:
 
 - Citation style: Harvard numbered — LaTeX `\citep{}` / `\citet{}`
 - Section status emoji: 🟢 Drafted · 🟡 Partial · 🔴 Empty
-- Snowball log in `papers_repo/lit-review-outline.md` Appendix B tracks G-groups (G0–G6) and read/unread status
-- Figures referenced by number in outline; stored in `slr_engine/assets/figures/`
+- The G0–G6 snowball groups (with read/unread status) were logged in the now-removed `lit-review-outline.md` Appendix B (git history); group data lives in the `papers_repo/G*-*` CSVs here and `slr_engine`.
+- Figures: compiled PDFs referenced in `sections/*.tex` are regenerated from `slr_engine`; their sources live in `figures/` here. The outline's figure numbering maps to `slr_engine/assets/figures/`.
