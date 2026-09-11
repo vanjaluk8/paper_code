@@ -79,11 +79,12 @@ Both verify scripts pass (40/40 and 19/19) as of 2026-09-10.
    (related surveys + disconfirming/adversarial) and that the eight
    grey-literature query strings are in Appendix C.
 2. **Staged (2026-09-11):** the eight per-record artefacts and
-   `snowball_output/verification_runs/` (incl. `FINAL_REPORT.md/json` and the
-   `verify_*.result.txt`) are now committed under `snowball_output/` here, and
-   `14_final_curation_reasons.csv` is present. **`mdpi_slr_engine`** — the two
-   `verify_*.py` scripts live under `src/slr_engine/verify/` (code-only), which
-   is already committed.
+   `snowball_output/verification_runs/` (incl. the combined report
+   `FINAL_REPORT_2026-09-11.md/json` — 78/78 checks pass — and the archived
+   `FINAL_REPORT_2026-09-02.md/json`, plus the `verify_*.result.txt`) are now
+   committed under `snowball_output/` here, and `14_final_curation_reasons.csv`
+   is present. **`mdpi_slr_engine`** — the two `verify_*.py` scripts live under
+   `src/slr_engine/verify/` (code-only), which is already committed.
 3. **`mdpi_paper_slr`** — make the repository public.
 4. **S1 format** — if the editor requires the official PRISMA 2020 checklist
    PDF/DOCX rather than this mapping table, fill the template at

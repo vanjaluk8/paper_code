@@ -1,0 +1,673 @@
+{
+  "generated_from": "verification_fixtures/ and live data/snowball_output/ (or SLR_OUTPUT_DIR)",
+  "checks_total": 78,
+  "checks_passed": 78,
+  "checks_failed": 0,
+  "reproducible": true,
+  "checks": [
+    {
+      "suite": "PRISMA funnel",
+      "label": "n_seeds submitted",
+      "actual": 7,
+      "expected": 7,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "raw records retrieved",
+      "actual": 1150,
+      "expected": 1150,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "unique records after dedup (log_retrieval total_new)",
+      "actual": 972,
+      "expected": 972,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "duplicates removed (1150-972)",
+      "actual": 178,
+      "expected": 178,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "screening-pool total (log_screening input.total_records)",
+      "actual": 972,
+      "expected": 972,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "title INCLUDE",
+      "actual": 162,
+      "expected": 162,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "title REVIEW/UNCERTAIN",
+      "actual": 19,
+      "expected": 19,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "title EXCLUDE",
+      "actual": 791,
+      "expected": 791,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "title screen sums to pool (162+19+791)",
+      "actual": 972,
+      "expected": 972,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "S3_title_screened_all rows",
+      "actual": 972,
+      "expected": 972,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "S4_title_screened_included rows (INCLUDE set)",
+      "actual": 162,
+      "expected": 162,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "03_review_queue rows (UNCERTAIN set)",
+      "actual": 19,
+      "expected": 19,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "llm rows sent",
+      "actual": 130,
+      "expected": 130,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "llm promoted to INCLUDE",
+      "actual": 51,
+      "expected": 51,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "llm confirmed EXCLUDE",
+      "actual": 60,
+      "expected": 60,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "llm UNCERTAIN remaining",
+      "actual": 19,
+      "expected": 19,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "title INCLUDE = rule-based + llm (111 + 51 = 162)",
+      "actual": 162,
+      "expected": 162,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "pre-validated corpus (S1 rows)",
+      "actual": 352,
+      "expected": 352,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "merged corpus (S5 rows)",
+      "actual": 502,
+      "expected": 502,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "merge duplicates removed (514-502)",
+      "actual": 12,
+      "expected": 12,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "enriched retained (S6 rows)",
+      "actual": 464,
+      "expected": 464,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "deprioritized (S6c rows)",
+      "actual": 32,
+      "expected": 32,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "off-topic excluded (S6b rows)",
+      "actual": 6,
+      "expected": 6,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "S6 + S6b + S6c = merged",
+      "actual": 502,
+      "expected": 502,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "abstract-review pool (S7b rows = 464+88)",
+      "actual": 552,
+      "expected": 552,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "forward-added records (S7b - S7a = 88)",
+      "actual": 88,
+      "expected": 88,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "KEEP",
+      "actual": 214,
+      "expected": 214,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "DEFER (from 09 queue)",
+      "actual": 173,
+      "expected": 173,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "SKIP (abstract 338 - DEFER 173 = 165)",
+      "actual": 165,
+      "expected": 165,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "keep + defer + skip = pool",
+      "actual": 552,
+      "expected": 552,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "full-text queue (09 rows = 214+173)",
+      "actual": 387,
+      "expected": 387,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "queue KEEP + DEFER = 387",
+      "actual": 387,
+      "expected": 387,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "preliminary extraction (10_data_extraction rows)",
+      "actual": 190,
+      "expected": 190,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "final extraction (11_data_extraction rows)",
+      "actual": 224,
+      "expected": 224,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "top-up (224 - 190)",
+      "actual": 34,
+      "expected": 34,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "final reading list rows (13)",
+      "actual": 123,
+      "expected": 123,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "duplicate works present in final list",
+      "actual": 3,
+      "expected": 3,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "distinct papers (123 - 3 extra rows)",
+      "actual": 120,
+      "expected": 120,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "final tiers 1/2/3",
+      "actual": [
+        48,
+        42,
+        33
+      ],
+      "expected": [
+        48,
+        42,
+        33
+      ],
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "PRISMA funnel",
+      "label": "final corpus core/background",
+      "actual": [
+        89,
+        34
+      ],
+      "expected": [
+        89,
+        34
+      ],
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "Quality appraisal",
+      "label": "enriched pool size",
+      "actual": 464,
+      "expected": 464,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "Quality appraisal",
+      "label": "venue_quality top_venue",
+      "actual": 166,
+      "expected": 166,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "Quality appraisal",
+      "label": "venue_quality peer_reviewed",
+      "actual": 189,
+      "expected": 189,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "Quality appraisal",
+      "label": "venue_quality preprint",
+      "actual": 91,
+      "expected": 91,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "Quality appraisal",
+      "label": "venue_quality unknown",
+      "actual": 18,
+      "expected": 18,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "Quality appraisal",
+      "label": "venue-quality sums to 464",
+      "actual": 464,
+      "expected": 464,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "Quality appraisal",
+      "label": "enriched tier 1",
+      "actual": 90,
+      "expected": 90,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "Quality appraisal",
+      "label": "enriched tier 2",
+      "actual": 141,
+      "expected": 141,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "Quality appraisal",
+      "label": "enriched tier 3",
+      "actual": 233,
+      "expected": 233,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "Quality appraisal",
+      "label": "tier sums to 464",
+      "actual": 464,
+      "expected": 464,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "Quality appraisal",
+      "label": "abstract pool size",
+      "actual": 552,
+      "expected": 552,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "Quality appraisal",
+      "label": "KEEP",
+      "actual": 214,
+      "expected": 214,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "Quality appraisal",
+      "label": "SKIP",
+      "actual": 338,
+      "expected": 338,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "Quality appraisal",
+      "label": "KEEP + SKIP = 552",
+      "actual": 552,
+      "expected": 552,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "Quality appraisal",
+      "label": "final list size",
+      "actual": 123,
+      "expected": 123,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "Quality appraisal",
+      "label": "year distribution matches manuscript",
+      "actual": {
+        "2002": 1,
+        "2011": 1,
+        "2016": 1,
+        "2017": 1,
+        "2019": 4,
+        "2020": 5,
+        "2021": 17,
+        "2022": 13,
+        "2023": 19,
+        "2024": 38,
+        "2025": 20,
+        "2026": 3
+      },
+      "expected": {
+        "2002": 1,
+        "2011": 1,
+        "2016": 1,
+        "2017": 1,
+        "2019": 4,
+        "2020": 5,
+        "2021": 17,
+        "2022": 13,
+        "2023": 19,
+        "2024": 38,
+        "2025": 20,
+        "2026": 3
+      },
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "Quality appraisal",
+      "label": "most active year 2024 = 38",
+      "actual": 38,
+      "expected": 38,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "Quality appraisal",
+      "label": "year distribution sums to 123",
+      "actual": 123,
+      "expected": 123,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "Quality appraisal",
+      "label": "full year range present (2002..2026)",
+      "actual": 2002,
+      "expected": 2002,
+      "ok": true,
+      "ref": ""
+    },
+    {
+      "suite": "Live run",
+      "label": "n_seeds submitted (live)",
+      "actual": 7,
+      "expected": 7,
+      "ok": true,
+      "ref": "Fig. 1 / \u00a73.1"
+    },
+    {
+      "suite": "Live run",
+      "label": "raw records retrieved (live)",
+      "actual": 1150,
+      "expected": 1150,
+      "ok": true,
+      "ref": "Fig. 1"
+    },
+    {
+      "suite": "Live run",
+      "label": "unique records after dedup (live)",
+      "actual": 972,
+      "expected": 972,
+      "ok": true,
+      "ref": "Fig. 1"
+    },
+    {
+      "suite": "Live run",
+      "label": "duplicates removed (live)",
+      "actual": 178,
+      "expected": 178,
+      "ok": true,
+      "ref": "Fig. 1"
+    },
+    {
+      "suite": "Live run",
+      "label": "screening pool (live)",
+      "actual": 972,
+      "expected": 972,
+      "ok": true,
+      "ref": "Fig. 1"
+    },
+    {
+      "suite": "Live run",
+      "label": "title INCLUDE (live)",
+      "actual": 162,
+      "expected": 162,
+      "ok": true,
+      "ref": "Fig. 1"
+    },
+    {
+      "suite": "Live run",
+      "label": "title REVIEW/UNCERTAIN (live)",
+      "actual": 19,
+      "expected": 19,
+      "ok": true,
+      "ref": "Fig. 1"
+    },
+    {
+      "suite": "Live run",
+      "label": "title EXCLUDE (live)",
+      "actual": 791,
+      "expected": 791,
+      "ok": true,
+      "ref": "Fig. 1"
+    },
+    {
+      "suite": "Live run",
+      "label": "title screen sums to pool (live)",
+      "actual": 972,
+      "expected": 972,
+      "ok": true,
+      "ref": "Fig. 1"
+    },
+    {
+      "suite": "Live run",
+      "label": "llm promoted to INCLUDE (live)",
+      "actual": 51,
+      "expected": 51,
+      "ok": true,
+      "ref": "Fig. 1"
+    },
+    {
+      "suite": "Live run",
+      "label": "llm UNCERTAIN remaining (live)",
+      "actual": 19,
+      "expected": 19,
+      "ok": true,
+      "ref": "Fig. 1"
+    },
+    {
+      "suite": "Live run",
+      "label": "pre-validated corpus (live)",
+      "actual": 352,
+      "expected": 352,
+      "ok": true,
+      "ref": "Fig. 1"
+    },
+    {
+      "suite": "Live run",
+      "label": "merged corpus (live)",
+      "actual": 502,
+      "expected": 502,
+      "ok": true,
+      "ref": "Fig. 1"
+    },
+    {
+      "suite": "Live run",
+      "label": "enriched retained (live)",
+      "actual": 464,
+      "expected": 464,
+      "ok": true,
+      "ref": "Fig. 1"
+    },
+    {
+      "suite": "Live run",
+      "label": "abstract-review pool (live)",
+      "actual": 552,
+      "expected": 552,
+      "ok": true,
+      "ref": "Fig. 1"
+    },
+    {
+      "suite": "Live run",
+      "label": "abstract KEEP (live)",
+      "actual": 214,
+      "expected": 214,
+      "ok": true,
+      "ref": "Fig. 1"
+    },
+    {
+      "suite": "Live run",
+      "label": "final reading list rows (live)",
+      "actual": 123,
+      "expected": 123,
+      "ok": true,
+      "ref": "Fig. 1"
+    },
+    {
+      "suite": "Live run",
+      "label": "distinct papers (live)",
+      "actual": 120,
+      "expected": 120,
+      "ok": true,
+      "ref": "Fig. 1 + \u00a73.4"
+    },
+    {
+      "suite": "Live run",
+      "label": "PRISMA_summary.md consistent with funnel (values in summary)",
+      "actual": 0,
+      "expected": 0,
+      "ok": true,
+      "ref": "PRISMA_summary.md"
+    }
+  ]
+}
