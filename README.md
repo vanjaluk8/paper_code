@@ -15,6 +15,10 @@ literature review on **decentralised adapter-based LLM inference**:
 > `papers_repo/G*-*` CSVs here. The extraction spreadsheet (`11_data_extraction_*.csv`)
 > is pipeline-derived and kept local, not versioned.
 
+> **Cite as:** Vanja Luk. *Decentralised Adapter-Based LLM Inference: A
+> Systematic Literature Review — manuscript, curated corpus and PRISMA evidence*
+> (v1.0.0-mdpi). Zenodo. DOI: https://doi.org/10.5281/zenodo.22703573
+
 ## Layout
 
 | Path | Purpose |

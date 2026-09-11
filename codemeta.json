@@ -2,14 +2,15 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "name": "Decentralised Adapter-Based LLM Inference — Systematic Literature Review (manuscript, curated corpus & PRISMA evidence)",
-  "identifier": "mdpi-paper-slr",
+  "identifier": "https://doi.org/10.5281/zenodo.22703573",
+  "@id": "https://doi.org/10.5281/zenodo.22703573",
   "description": "Manuscript and curated evidence for a systematic literature review of decentralised, adapter-based LLM inference at the intersection of PEFT, P2P/federated systems and multi-task serving. Follows PRISMA 2020 reporting and Wohlin (2014) citation snowballing over a 123-record corpus. Ships the MDPI manuscript (LaTeX), the curated G0-G6 corpus, the PRISMA 2020 checklist, quality-appraisal scoring, and supporting search exports and provenance.",
   "version": "1.0.0-mdpi",
   "dateCreated": "2026-09-11",
   "datePublished": "2026-09-11",
   "license": "https://spdx.org/licenses/CC-BY-4.0",
   "codeRepository": "https://github.com/vanjaluk8/mdpi_paper_slr",
-  "relatedLink": ["https://zenodo.org/"],
+  "relatedLink": ["https://doi.org/10.5281/zenodo.22703573"],
   "author": [
     {
       "@type": "Person",

@@ -10,10 +10,8 @@ authors:
     affiliation: "Faculty of Informatics and Digital Technologies, University of Rijeka"
 date-released: "2026-09-11"
 version: "1.0.0-mdpi"
+doi: "10.5281/zenodo.22703573"
 url: "https://github.com/vanjaluk8/mdpi_paper_slr"
-# The Zenodo software DOI is minted automatically when this repository is
-# archived on Zenodo; it is intentionally not hard-coded here to avoid a
-# self-referential or placeholder DOI.
 license: CC-BY-4.0
 keywords:
   - systematic-literature-review
