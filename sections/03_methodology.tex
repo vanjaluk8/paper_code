@@ -12,7 +12,7 @@ not prospectively registered in a review protocol repository. PROSPERO
 restricts registration to reviews with a health-related outcome, which this
 review does not have; general-purpose registries that do accept
 computer-science and engineering review protocols (OSF Registries,
-protocols.io) exist but were not used --- the protocol evolved iteratively
+protocols.io) exist but were not used, the protocol evolved iteratively
 rather than being fixed in advance, and every search string, screening rule,
 and per-record decision is instead documented in Appendices~A--D and the
 public pipeline repository (Data Availability). Retrospective registration was
@@ -195,8 +195,8 @@ across Web of Science (Core Collection, topic field \texttt{TS=}) and Scopus
 (\texttt{TITLE-ABS-KEY}, document type \texttt{re}), restricted to 2021--2026;
 the two query strings are reproduced in Appendix~\ref{app:db_queries}. The
 searches returned \textbf{50} (WoS) and \textbf{19} (Scopus) records. After
-removing false positives --- predominantly the LoRa long-range radio protocol,
-hardware ``adapters'', and application-domain reviews in medicine and IoT ---
+removing false positives (predominantly the LoRa long-range radio protocol,
+hardware ``adapters'', and application-domain reviews in medicine and IoT)
 and applying the inclusion rule (a secondary study whose stated scope covers at
 least two of this review's five pillars), \textbf{six} distinct competing
 surveys were retained \emph{for positioning}; one further survey known to the
@@ -229,7 +229,7 @@ the unit of exchange over a frozen shared backbone under a coordinator-free
 peer-to-peer topology (queries, sources, screening rule, and results in
 Appendix~\ref{app:db_queries:adversarial}). No located artefact provides that
 combination together with decentralised capability discovery and multi-adapter
-composition; the nearest candidates each address a single facet ---
+composition; the nearest candidates each address a single facet:
 decentralised serving of \emph{whole} models (e.g.\ PlanetServe, Platformless
 AI), decentralised co-training of a \emph{single} shared adapter
 (Dec-LoRA~\cite{Ghiasvand2025} and related work), centralised adapter
@@ -242,10 +242,10 @@ claim on a documented basis.
 \paragraph{Scope of the coded extraction.}
 The archived data-extraction table (224 rows,
 Appendix~\ref{sec:appendix:corpus_pipeline}, Table~\ref{tab:extraction_codebook})
-records bibliographic and classificatory fields --- record key, DOI, title,
+records bibliographic and classificatory fields: record key, DOI, title,
 authors, year, venue, citation count, reading-priority tier, review source,
 corpus position, contribution type, PEFT technique, distribution mechanism,
-citing review sections, and contribution codes --- together with free-text
+citing review sections, and contribution codes, together with free-text
 \texttt{key\_finding} and \texttt{notes\_raw} columns holding full-text reading
 notes. The three columns intended to hold structured evaluation data
 (\texttt{method\_name}, \texttt{datasets}, \texttt{metrics}) are uniformly empty
@@ -276,8 +276,8 @@ citation count (Semantic Scholar, retrieved at search time) as a minimal,
 external proxy for community engagement and peer scrutiny
 (Appendix~\ref{sec:appendix:corpus_pipeline}, \S A.3--A.4). The full criteria
 and their motivations are detailed in the appendix. With respect to study type,
-the 120 distinct papers underlying the 123 included records (three works ---
-LoRA, Houlsby et al., and the CaraServe/Toppings pair --- each appear as two
+the 120 distinct papers underlying the 123 included records (three works:
+LoRA, Houlsby et al., and the CaraServe/Toppings pair, each appear as two
 records; \S~\ref{sec:methodology:search}) comprise \textbf{111} primary studies
 (PEFT methods, serving systems, composition mechanisms, and federated/P2P
 training schemes) and \textbf{9} survey or overview contributions ($7.5\%$)
@@ -338,7 +338,7 @@ retrieval process shaped by the review's own hypotheses. This is
 discussed further in Section~\ref{sec:conclusion:threats}.
 
 A group label (G0--G6) records the corpus into which a paper was finally
-placed, not how it was discovered --- G0's final count in particular folds in
+placed, not how it was discovered, G0's final count in particular folds in
 14 citation-snowball descendants (Table~\ref{tab:groups}). The split by
 \emph{discovery route}, taken from the unified pipeline's \texttt{direction}
 field, is therefore reported separately in Table~\ref{tab:discovery_route}. It
@@ -358,8 +358,8 @@ data extraction.
 These 53 second-pass records are drawn from the pre-validated/enriched corpus
 (G0--G6), not from the supplementary forward-citation snowball, whose records
 contributed none of the final 123. Both cohorts
-were therefore retrieved through documented citation snowballing --- the
-automated G0 Semantic Scholar pass and the Scopus/WoS forward pass --- rather
+were therefore retrieved through documented citation snowballing (the
+automated G0 Semantic Scholar pass and the Scopus/WoS forward pass) rather
 than from an untraced source; the 53 second-pass records are enumerated by
 their extraction-document \texttt{review\_source} label
 (\texttt{abstract-2nd-pass}) in the accompanying data-availability record. The
@@ -503,10 +503,10 @@ is not 18 of the original nine seeds: it is the number of final-list records
 attributed to group G0 by the unified pipeline, comprising 4 records whose
 primary route is the seed itself (S-LoRA, AdapterHub, AdapterFusion, Petals)
 plus 14 snowball descendants (10 forward, 4 backward). Two further G0 seeds
---- Houlsby et al.\ 2019 and Hu et al.\ 2022 (LoRA) --- are themselves in the
+Houlsby et al.\ 2019 and Hu et al.\ 2022 (LoRA), are themselves in the
 final list, but the unified pipeline attributes their records to G1 (LoRA) and
-G2 (Houlsby) --- both papers were also returned by those groups' Undermind
-searches --- rather than to G0, so their seed status is recorded only in
+G2 (Houlsby), both papers were also returned by those groups' Undermind
+searches rather than to G0, so their seed status is recorded only in
 Table~\ref{tab:g0_disposition}. The nine seeds are listed in
 Table~\ref{tab:g0_seeds}.} \\
 \end{tabular}
@@ -655,7 +655,7 @@ or artifacts (operational rule and check date in the caption).
 PEFT papers predominantly evaluate on GLUE~\cite{WangGLUE2018},
 SuperGLUE~\cite{WangSuperGLUE2019}, and MMLU~\cite{HendrycksMMLU2021};
 serving papers rely on synthetic throughput benchmarks. No single benchmark
-spans all three pillars simultaneously---a fragmentation that is itself one
+spans all three pillars simultaneously, a fragmentation that is itself one
 of the empirical gaps identified in Section~\ref{sec:synthesis_gap}. The
 representative ``Score'' figures are transcribed from the results reported in
 the cited primary papers themselves (each row's cited reference is the source
@@ -874,8 +874,8 @@ rests on a low-scoring record alone.
 
 Whereas the six-dimension rubric above scores reporting completeness and
 relevance across all 123 records, three further dimensions central to
-empirical reproducibility---\emph{code/artifact availability}, \emph{baseline
-adequacy}, and \emph{explicit threats-to-validity reporting}---require
+empirical reproducibility: \emph{code/artifact availability}, \emph{baseline
+adequacy}, and \emph{explicit threats-to-validity reporting, require
 full-text inspection that lies beyond the automated screening pipeline. Of
 these, this review reports \emph{code/artifact availability} quantitatively,
 grounded in verified evidence: for each of the 33 representative systems in
@@ -903,9 +903,9 @@ methods (SLoRA, DP-FedLoRA, Gossip Learning), the MT-EF P2P architecture, nor
 the modular-LoRA composition framework (Ostapenko et al.) releases a locatable
 artifact, despite several being recent and otherwise well-documented.
 
-These findings are themselves a result of this review. The unevenness---in
+These findings are themselves a result of this review. The unevenness (in
 particular the absence of locatable artifacts for several systems most central
-to the P2P and adapter-composition directions---substantiates, at the level of
+to the P2P and adapter-composition directions) substantiates, at the level of
 primary evidence, the reproducibility and reporting gaps identified in
 Section~\ref{sec:synthesis_gap}, and it informs the gap analysis in
 Section~\ref{sec:conclusion:contributions}. These dimensions remain outside the

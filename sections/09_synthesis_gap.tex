@@ -38,9 +38,9 @@ the composability argument for bottleneck adapters remains an open design
 question.
 
 \noindent\textbf{SQ2 (composition without centralised coordination).}
-Composition works technically---LoraHub and LoraRetriever
+Composition works technically: LoraHub and LoraRetriever
 demonstrate that adapters trained on disjoint tasks can be combined at
-inference time without retraining---but every reviewed method presupposes a
+inference time without retraining, but every reviewed method presupposes a
 centralised adapter index and access to the original training data for fusion
 weight learning (Section~\ref{sec:adapter_composition}). Neither prerequisite
 exists in a P2P setting: a peer cannot compose what it has not yet found, and
@@ -52,13 +52,13 @@ assumptions).} Paged memory management, SGMV batching, and tiered storage are
 transferable serving primitives, but every reviewed system inherits its
 adapter catalogue from a centralised upstream process that is never designed,
 only assumed (Section~\ref{sec:inference_systems}). This exposes four open
-problems for P2P operation---adapter discovery without a central registry,
+problems for P2P operation: adapter discovery without a central registry,
 trust in adapters from unknown peers, latency-tolerant fetching, and
-participation incentives---for which the serving literature provides no tools.
+participation incentives, for which the serving literature provides no tools.
 
 \noindent\textbf{SQ4 (routing without a known expert pool).} The routing
-mechanisms themselves---Top-k gating, expert choice, and differentiable
-mixing---would function correctly in a P2P setting once supplied with a
+mechanisms themselves: Top-k gating, expert choice, and differentiable
+mixing would function correctly in a P2P setting once supplied with a
 complete adapter catalogue; crowdsourced MoE even operates in a weakly
 coordinated volunteer setting \cite{RyabininCrowdsourced2020}
 (Section~\ref{sec:moe_routing}). The gap is therefore not in the routing logic
@@ -78,8 +78,8 @@ work bridges the two: decentralised infrastructure with task-specific adapter
 exchange and composition.
 
 \noindent\textbf{Overarching research question.} The five answers converge on
-a single conclusion. Each pillar---PEFT, composition, serving, routing, and
-decentralised learning---contributes a necessary but individually insufficient
+a single conclusion. Each pillar: PEFT, composition, serving, routing, and
+decentralised learning contributes a necessary but individually insufficient
 piece of a fully decentralised adapter-based inference system, and their
 intersection has not been addressed as an integrated whole. The reviewed
 literature therefore does \textit{not} yet provide all the building blocks a
@@ -106,7 +106,7 @@ The seven dimensions, as shown in Table~\ref{tab:concept_matrix}, were selected 
     \item  Discovery is included because it enables dynamic identification of new adapters and their serving across the network without prior knowledge of the peer population. 
     \item Multi-task fusion is implied by the P2P setting itself: with a larger number of peers contributing specialised adapters, the ability to fuse across tasks becomes a structural necessity rather than an optional feature.
     \item Privacy is included because adapters frequently encode parameters derived from sensitive or domain-specific data, and isolation guarantees are therefore a relevant architectural concern. 
-    \item The absence of a central coordinator is the defining property of a genuinely peer-to-peer setting --- by definition, a P2P network implies no central orchestrator, and any system that retains one falls outside this category.
+    \item The absence of a central coordinator is the defining property of a genuinely peer-to-peer setting: by definition, a P2P network implies no central orchestrator, and any system that retains one falls outside this category.
 \end{itemize}
 
 Two dimensions were considered and deliberately excluded. Latency was not included as a dimension because it is a continuous evaluation metric rather than a binary architectural commitment; its trade-offs for a P2P setting are acknowledged narratively in the per-pillar sections (Sections~\ref{sec:inference_systems} and~\ref{sec:p2p_federated}) rather than scored in the concept matrix. Incentive mechanisms were also excluded; they are relevant to any future decentralised adapter-sharing design but belong outside the scope of this review. Both exclusions are reflected in the limitations discussed in Section~\ref{sec:conclusion:limitations}.
@@ -117,7 +117,7 @@ The scoring uses a binary \checkmark/$\times$ scheme rather than a graded scale 
 Table~\ref{tab:concept_matrix} scores 17 systems rather than the full 123-record
 corpus. The 17 were selected as follows: the two foundational adapter methods
 that every later system builds on (Houlsby adapters, LoRA), plus, for each of
-the five pillars, the most architecturally developed published exemplars ---
+the five pillars, the most architecturally developed published exemplars,
 those that make an explicit design commitment on at least one of the seven
 dimensions and are either the pillar's canonical reference or its closest
 approach to the decentralised target. Incremental variants that share a
@@ -231,8 +231,8 @@ Three algorithmic gaps follow from the missing discovery dimension in Table~\ref
     support adapter discovery at the capability level rather than the identifier level?
     DHT-based lookup is foregrounded here because of its demonstrated scale and
     bounded $O(\log N)$ lookup cost, but it is one candidate mechanism among
-    several --- gossip-based propagation, federated indexing of registries,
-    replicated registries, and hybrid coordination each offer distinct trade-offs ---
+    several: gossip-based propagation, federated indexing of registries,
+    replicated registries, and hybrid coordination each offer distinct trade-offs,
     and which of these best sustains capability-level discovery under realistic
     P2P churn remains open (Section~\ref{sec:p2p_federated}).
   \item \textbf{Adapter capability embeddings.} Effective discovery requires

@@ -51,9 +51,9 @@ The review established four key findings:
     centralised aggregation.} The federated PEFT literature (the G6 group in
     Table~\ref{tab:groups}, 30 papers in the final corpus) reports major
     per-round communication savings from exchanging adapter-only updates rather
-    than full gradients or weights---for example, FedPETuning reports over
+    than full gradients or weights, for example FedPETuning reports over
     90\% savings at within-5\% accuracy degradation relative to centralised PEFT
-    \cite{ZhangFedPETuning2023}---and that non-IID performance degradation is
+    \cite{ZhangFedPETuning2023} and that non-IID performance degradation is
     bounded (Section~\ref{sec:p2p_federated:fed_peft}).
     However, all of the reviewed federated-PEFT systems rely on a central
     aggregation server, leaving fully decentralised adapter aggregation as an
@@ -74,9 +74,9 @@ characterisation of a compound research gap at the intersection of three active
 fields: parameter-efficient fine-tuning, peer-to-peer and federated learning,
 and adapter-aware inference serving. The concept
 matrix (Table~\ref{tab:concept_matrix}) shows that none of the 17 systems it
-scores --- selected as the most developed published exemplars of each of the
+scores, selected as the most developed published exemplars of each of the
 five pillars (selection rule in
-Section~\ref{sec:synthesis_gap:matrix}) --- simultaneously satisfies all seven
+Section~\ref{sec:synthesis_gap:matrix}), simultaneously satisfies all seven
 design dimensions of a fully decentralised adapter-based inference setting. The research gap map (Table~\ref{tab:gap_map})
 decomposes this compound gap into eight open research questions across four
 quadrants, each demanding a different type of research contribution.
@@ -120,7 +120,7 @@ One scope boundary is worth stating explicitly: systems for decentralised or
 communication-efficient training of a \emph{full} model from scratch (for
 example \textsc{DiLoCo} or \textsc{SWARM} Parallelism) were not sought, because
 this review concerns the exchange and composition of adapters over a frozen,
-shared backbone rather than collaborative training of the backbone itself ---
+shared backbone rather than collaborative training of the backbone itself,
 for which Petals~\cite{Borzunov2023} is the in-scope peer-to-peer exemplar and
 is included. Within the in-scope literature, adjacent recent lines are
 represented: heterogeneous-rank federated LoRA
@@ -138,7 +138,7 @@ disconfirming search was conducted (method, queries, and results in
 Section~\ref{sec:methodology:search} and
 Appendix~\ref{app:db_queries:adversarial}; grey-literature methodology after
 Garousi et al.~\cite{Garousi2019}) specifically to seek evidence against this
-review's own conclusions --- to locate any existing decentralised
+review's own conclusions: to locate any existing decentralised
 adapter-exchange or adapter-marketplace system, regardless of publication type,
 that might already satisfy the combination of requirements in
 Table~\ref{tab:concept_matrix}. No located artefact provided that combination;
