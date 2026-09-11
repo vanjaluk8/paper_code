@@ -50,7 +50,7 @@ The second limitation motivates the fully decentralised protocols discussed in t
 The centralised FL server in FedAvg and FedProx represents a single point of failure and
 a coordination bottleneck. The gossip learning literature removes this dependency by
 having peers communicate directly with randomly selected neighbours: in gossip learning
-(Figure~\ref{fig:gossip}),
+(Figure~\ref{fig:p2p_gossip}),
 each node periodically samples a peer, exchanges model parameters with that peer, and
 averages the received parameters with its own local model \cite{OrmandyGossip2013}.
 
@@ -70,21 +70,6 @@ model averaging converges to a stationary point under mild conditions on
 graph connectivity, with guarantees comparable to centralised FL
 \cite{Lian2017Decentralized}, providing the theoretical foundation for applying
 gossip-style aggregation to adapter weight matrices.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.75\linewidth]{figures/fig_p2p_gossip.pdf}
-  \caption{Gossip learning (own figure): each node periodically samples a
-    random peer, exchanges model parameters, and averages the received weights
-    with its own local model. The process eliminates the central aggregator
-    while maintaining convergence to a stationary point under mild
-    graph-connectivity conditions, with guarantees comparable to centralised FL
-    \cite{HegeduisGossip2019,Lian2017Decentralized}. This reproduces the
-    gossip-propagation diagram from
-    Section~\ref{sec:background:p2p} (Figure~\ref{fig:p2p_gossip}) in the
-    gossip-learning context.}
-  \label{fig:gossip}
-\end{figure}
 
 \subsection{P2P Systems for Deep Learning}
 \label{sec:p2p_federated:p2p_dl}
@@ -230,32 +215,13 @@ beneficial as a pretraining signal even when tasks are non-overlapping.
 
 All of the federated systems reviewed above rely on a central aggregation server for
 adapter collection and redistribution. The P2P literature provides infrastructure
-primitives for performing this coordination without a central node. Maymounkov and Mazi{\`{e}}res~\cite{MaymounkovKademlia2002}
-introduced the Kademlia distributed hash table (DHT) (Figure~\ref{fig:dht_lookup}), which provides $O(\log N)$
-lookup of key-value pairs across a network of $N$ nodes using a XOR-distance metric.
-Kademlia has been deployed at scale in BitTorrent and other P2P systems, and its
-correctness and resistance to churn are well understood.
+primitives for performing this coordination without a central node: the Kademlia DHT
+introduced in Section~\ref{sec:background:p2p} (Figure~\ref{fig:p2p_dht_lookup},
+$O(\log N)$ lookup by XOR-distance~\cite{MaymounkovKademlia2002}) is a candidate for
+adapter-level discovery, applied here rather than re-described.
 
 Chord~\cite{StoicaChord2001} and BitTorrent~\cite{CohenBitTorrent2003} are foundational P2P precedents that predate Kademlia: Chord established $O(\log N)$ consistent-hashing-based lookup, and BitTorrent demonstrated at internet scale that a tit-for-tat incentive scheme can sustain robust peer cooperation without central coordination.
 
 Recent work on decentralised LoRA, such as Dec-LoRA by Ghiasvand et al.~\cite{Ghiasvand2025}, demonstrates that parameter-efficient LLM fine‑tuning can be performed without a central server over decentralised communication topologies, motivating similar designs for adapter-based systems. Note that Dec-LoRA addresses decentralised co-training of a single shared adapter via gossip-averaged updates on private per-client data, a distinct problem from the decentralised exchange of independently pre-trained, task-differentiated adapters that this review's systems gap (Section~\ref{sec:synthesis_gap:gaps}) concerns.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.75\linewidth]{figures/fig_p2p_dht_lookup.pdf}
-  \caption{Kademlia DHT $O(\log N)$ lookup (own figure): a querying node routes through
-    a sequence of intermediate nodes, each closer to the target key in XOR
-    distance, until the value-holding node is reached \cite{MaymounkovKademlia2002}.
-    Applied to adapter
-    discovery, adapter descriptors would be indexed as key-value entries
-    allowing peers to locate task-specific modules without a central registry.
-    The underlying DHT-lookup diagram is introduced in
-    Section~\ref{sec:background:p2p} (Figure~\ref{fig:p2p_dht_lookup}).}
-  \label{fig:dht_lookup}
-\end{figure}
-
-The Kademlia DHT is a candidate infrastructure for adapter-level discovery. In principle, adapter descriptors could be indexed as key-value entries in a DHT, allowing peers to locate adapters without a central registry. Whether task capability descriptors are sufficiently structured for DHT-based retrieval — and how such an index would perform under realistic churn — are open questions that the existing P2P literature has not examined.
-
-\noindent The decentralised-learning findings of this section are
-consolidated, alongside the other four sub-questions, in the centralised
-discussion in Section~\ref{sec:synthesis_gap:answers}.
+In principle, adapter descriptors could be indexed as key-value entries in a DHT, allowing peers to locate task-specific modules without a central registry. Whether task capability descriptors are sufficiently structured for DHT-based retrieval — and how such an index would perform under realistic churn — are open questions that the existing P2P literature has not examined.

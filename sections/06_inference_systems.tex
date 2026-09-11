@@ -3,21 +3,9 @@
 
 \noindent\textbf{SQ3:} \textit{What serving and memory-management mechanisms
 exist for multi-adapter inference, and what centralisation assumptions do they
-carry?} This section surveys the serving systems (Figure~\ref{fig:peft_paradigm}) and makes each assumption
+carry?} This section surveys the serving systems (Figure~\ref{fig:concept_peft_paradigm}) and makes each assumption
 explicit; SQ3 is resolved in the centralised discussion in
 Section~\ref{sec:synthesis_gap:answers}.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.85\linewidth]{figures/fig_concept_peft_paradigm.pdf}
-  \caption{The PEFT serving paradigm, viewed through the adapter-paradigm
-    figure introduced in
-    Section~\ref{sec:background}: a single frozen backbone is shared across
-    concurrent requests, each associated with a lightweight task-specific
-    adapter. Serving systems must manage a population of adapters in GPU
-    memory while minimising per-request adapter swap latency~\cite{Sheng2024}.}
-  \label{fig:peft_paradigm}
-\end{figure}
 
 \subsection{The Multi-Tenant Serving Challenge}
 \label{sec:inference_systems:intro}
@@ -29,7 +17,7 @@ frozen backbone, a problem qualitatively different from single-model serving.
 Naively loading a new adapter for each request is prohibitively expensive: a modern
 GPU holds only a handful of large model weights in high-bandwidth memory (HBM) at once,
 and per-request adapter swaps incur memory transfer latency that dominates over the
-inference computation itself for short requests. The multi-tenant adapter serving
+inference computation itself for short requests~\cite{Sheng2024}. The multi-tenant adapter serving
 literature addresses this challenge through techniques including unified memory
 management, batching of heterogeneous-adapter requests, CPU--GPU compute overlap, and
 tiered storage hierarchies.
@@ -220,7 +208,3 @@ treated as the atom of resource management, and system optimisations operate at 
 granularity of individual adapter loading, computation, and eviction events. This
 design principle transfers directly to a P2P exchange architecture, where the adapter is also
 the atom of network transfer, storage, and composition.
-
-\noindent The serving findings of this section are consolidated, alongside the
-other four sub-questions, in the centralised discussion in
-Section~\ref{sec:synthesis_gap:answers}.
