@@ -186,12 +186,12 @@ EXCLUDE           & 731 & ${+}\,60$ \\
 \emph{Column totals:} Layer~2 \mbox{111 + 130 + 731 = 972}. Layer~3 resolved
 the 130-record triage queue into 51 inclusion, 60 exclusion, and 19 retained
 UNCERTAIN; combined with the Layer~2 tallies, $111{+}51{=}162$ INCLUDE and
-$731{+}60{=}791$ EXCLUDE. The 19 UNCERTAIN records were re-examined manually after screening: only 3
-reached the abstract-level review stage and none was retained in the final
-reading list (Section~A.7 in this appendix), so they contributed no records
-to the merged corpus or final synthesis. They are therefore not part of the
-502-record merged pool, which is drawn solely from the 162 title-screened
-INCLUDE records (Table~\ref{tab:screening}).
+$731{+}60{=}791$ EXCLUDE. The 19 UNCERTAIN records were resolved as excluded
+at this title-screening stage and did not proceed to abstract review or any
+later pipeline stage, so they contributed no records to the merged corpus or
+final synthesis. They are therefore not part of the 502-record merged pool,
+which is drawn solely from the 162 title-screened INCLUDE records
+(Table~\ref{tab:screening}).
 
 The automated classifier operated exclusively at the title level, processing
 title and venue name only; no abstracts or full-text content were submitted
@@ -211,8 +211,8 @@ Semantic Scholar identifier: \textbf{12 records} were already present in the
 pre-validated corpus and were removed as duplicates, yielding the reported
 \textbf{502}-record merged pool (reproducible by re-running
 \texttt{app.merge.py}). The 19 UNCERTAIN title-screening records were not part
-of this merge (it used only the 162 INCLUDE records) and were excluded at
-final curation. A
+of this merge (it used only the 162 INCLUDE records); as noted above, they
+were resolved as excluded at title screening itself, not at a later stage. A
 topical-relevance filter subsequently removed off-topic records (6 excluded)
 and deprioritised low-citation arXiv preprints lacking a Tier~1 topic signal
 (32 moved to a rescue file). The remaining \textbf{464 records} were
