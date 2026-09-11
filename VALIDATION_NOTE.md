@@ -78,5 +78,5 @@ anything you consider a genuine defect.
 ### B.4 Author-confirm before submission (not blocking, flagged for completeness)
 
 - The abstract-review advisory model is named in §A.7 as `claude-sonnet-4-6` (the pipeline's configured default). No per-run log pins the exact build; the author will confirm. The Layer-3 title-triage classifier (`claude-haiku-4-5-20251001`) **is** log-verified.
-- Data Availability: the author will commit the seven per-record artefact files + verification scripts to the `slr_engine` repository and make the manuscript-code repository public before submission (referenced in the DAS).
+- Data Availability: the author will commit the seven per-record artefact files to the `mdpi_paper_slr` repository and the two verification scripts to `mdpi_slr_engine` (code-only), and make the manuscript-code repository public before submission (referenced in the DAS).
 - Protocol registration is handled by a revised, accurate justification (PROSPERO is health-only; OSF/protocols.io accept CS protocols but were not used, with reasons). If the author instead registers retrospectively on OSF, one clause in §3 changes.

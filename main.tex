@@ -137,13 +137,14 @@ published version of the manuscript.}
 
 \dataavailability{No new experimental data were created: the review analyses
 previously published literature. Materials are held in two publicly available
-repositories: \texttt{paper\_code} (this manuscript, the curated corpus
-\texttt{papers\_repo/}, and the PRISMA package;
-\url{https://github.com/vanjaluk8/paper_code}) and \texttt{slr\_engine} (the
-snowballing/retrieval/screening/extraction pipeline and its output files;
-\url{https://github.com/vanjaluk8/slr_engine}).
+repositories: \texttt{mdpi\_paper\_slr} (this manuscript, the curated corpus
+\texttt{papers\_repo/}, the PRISMA package, and the audited per-record pipeline
+artefacts described below;
+\url{https://github.com/vanjaluk8/mdpi_paper_slr}) and \texttt{mdpi\_slr\_engine} (the
+code-only source of the snowballing/retrieval/screening/extraction pipeline;
+\url{https://github.com/vanjaluk8/mdpi_slr_engine}).
 The following per-record artefacts are version-controlled in
-\texttt{slr\_engine} and together allow the corpus construction reported in
+\texttt{mdpi\_paper\_slr} and together allow the corpus construction reported in
 Section~\ref{sec:methodology} and
 Appendix~\ref{sec:appendix:corpus_pipeline} to be reproduced end to end:
 \texttt{\seqsplit{13\_final\_reading\_list\_2026-05-12.csv}} (the 123-record
@@ -163,11 +164,12 @@ data-extraction spreadsheet);
 eligibility-stage exclusion codings for the 101 records dropped between
 extraction and the final list); and
 \texttt{\seqsplit{PRISMA\_summary\_2026-04-21.md}} (the PRISMA funnel summary).
-Two verification scripts in \texttt{slr\_engine}
+Two verification scripts in \texttt{mdpi\_slr\_engine}
 (\path{scripts/verify_prisma_counts.py} and
 \path{scripts/verify_quality_appraisal.py}) recompute every PRISMA-stage count
 and quality-appraisal statistic reported in this manuscript directly from these
-files; their saved run outputs are in
+files; their saved run outputs are also version-controlled in
+\texttt{mdpi\_paper\_slr} under
 \texttt{\seqsplit{snowball\_output/verification\_runs/}}. The per-record
 quality-appraisal scores underlying \S3.4 are additionally provided as
 Supplementary Material S2.

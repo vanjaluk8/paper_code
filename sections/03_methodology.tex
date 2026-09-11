@@ -57,7 +57,7 @@ for direct cross-pillar relevance and demonstrated citation impact in
 top-tier venues (e.g., LoRA and AdapterFusion each exceed 1,000 citations as
 of August 2026; Petals, as a more recent 2023 system paper, has accumulated a
 substantial and rapidly growing citation count). %CORRECTED 2026-08-30 (Blocking Issue #4, verified via
-%slr_engine/.../verify_prisma_counts.py cross-checked against the
+%mdpi_slr_engine/.../verify_prisma_counts.py cross-checked against the
 %authoritative log_retrieval_2026-04-21.json, which records n_seeds=7 and
 %lists exactly which seeds were submitted for backward/forward retrieval).
 %An earlier pass at this fix wrongly inferred "not submitted" from the
@@ -135,7 +135,7 @@ DEFER, and \textbf{72} SKIP. The 12 KEEP records entered the full-text queue
 (8 reaching data extraction), yet none of the 88 \texttt{G\_SNOW\_F} records
 survived to the final list; the supplementary forward branch therefore
 contributed \textbf{0} of the 123 final records. %CORRECTED 2026-08-30 (Blocking Issue #2, verified via
-%slr_engine/.../verify_prisma_counts.py): the abstract-review pipeline records
+%mdpi_slr_engine/.../verify_prisma_counts.py): the abstract-review pipeline records
 %only a coarse KEEP/SKIP disposition and does not retain an individually
 %coded exclusion reason for SKIP records; these 165 exclusions are disclosed
 %here as a named limitation (\S\ref{sec:conclusion:threats}) rather than
@@ -410,7 +410,7 @@ LoRA-serving baseline. \\
 \end{table}
 
 %ADDED 2026-08-30 (Blocking Issue #4, verified via
-%slr_engine/.../verify_prisma_counts.py against log_retrieval_2026-04-21.json
+%mdpi_slr_engine/.../verify_prisma_counts.py against log_retrieval_2026-04-21.json
 %(the authoritative n_seeds=7 record of which seeds were submitted for
 %automated backward/forward retrieval) and 13_final_reading_list_2026-05-12.csv:
 %explicit per-seed disposition table, since Table~\ref{tab:g0_seeds} alone

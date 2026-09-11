@@ -86,7 +86,7 @@ possible — needs the per-discovery-route split of the 123, which is task N38).
 - **What was done:**
 
 ## B6 — Report the G1–G6 (Undermind) identification funnel — `GATE:AUTHOR` / `BLOCKED:NEEDS-DATA` — **DONE (fallback: exported-list funnel; pre-export pool disclosed as unrecoverable)**
-Funnel recovered from the `slr_engine` sibling repo. Per group, **Undermind
+Funnel recovered from the `mdpi_slr_engine` sibling repo. Per group, **Undermind
 export → pre-validated (post cross-group dedup) → in final 123**:
 G1 62→59→17 · G2 42→37→17 · G3 96→95→14 · G4 56→51→16 · G5 46→35→11 ·
 G6 75→66→30. Totals **377 → 343 → 105**; +9 G0 seeds = 352 pre-validated.
@@ -163,7 +163,7 @@ covers only the snowball route.
   `prisma.html` (headless Chrome). `latexmk` compiles clean — exit 0, **75 pp**
   (was 74; +1 from the new funnel prose/table), no undefined refs/citations, no
   new overfull boxes (same pre-existing 10). Every number cross-checked against
-  `slr_engine` data (`data/inputs/G*.csv`, `S1_prevalidated_corpus.csv`,
+  `mdpi_slr_engine` data (`data/inputs/G*.csv`, `S1_prevalidated_corpus.csv`,
   `pipeline_unified.csv`, `log_retrieval_2026-04-21.json`) and against
   `supplementary/PRISMA_NUMBERS_VALIDATION.md`. Files touched:
   `sections/03_methodology.tex`, `sections/11_conclusion.tex`,
@@ -191,7 +191,7 @@ matches the correct treatment in §5.6.
 ## B9 — Resolve the Data Availability contradiction — `GATE:AUTHOR` — **DONE (Option A)**
 Author: no blocker, will commit the files. Changes:
 - DAS (`main.tex:137`): removed "…not separately version-controlled"; now names
-  every per-record artefact as version-controlled in `slr_engine`
+  every per-record artefact as version-controlled in `mdpi_slr_engine`
   (`13_final_reading_list…csv`, `pipeline_unified.csv`,
   `log_retrieval…json`, `log_screening…json`, `S7b_abstract_reviewed_final.csv`,
   `11_data_extraction…csv`, `14_final_curation_reasons.csv`,
@@ -200,10 +200,17 @@ Author: no blocker, will commit the files. Changes:
 - `supplementary/PRISMA_2020_checklist.md` Item 27: updated to match; removed
   stale "`papers_code` is private" / "available on request" text.
 - **Author action items before submission:** (1) commit those 7 files +
-  `verify_*.py` + `snowball_output/verification_runs/` to `slr_engine`;
+  `verify_*.py` + `snowball_output/verification_runs/` to `mdpi_slr_engine`;
   (2) make `mdpi_paper_slr` public; (3) confirm `14_final_curation_reasons.csv` name
   + extension.
 - **What was done:**
+
+**SUPERSEDED (2026-09-11):** the ownership model was revised — `mdpi_slr_engine`
+is now **code-only** (the pipeline source + `verify_*.py` scripts), and *all*
+per-record artefacts and the `snowball_output/verification_runs/` outputs are
+version-controlled in `mdpi_paper_slr`. The Data Availability statement, S1
+Item 27, `README.md`, `supplementary/README.md`, and this note were updated to
+match. The historical B9 wording above records the earlier decision only.
 
 ---
 
@@ -605,7 +612,7 @@ Learning) — no longer collapses `No` + `Unknown`.
 "two of the three themes" / "foundational or tangential (one theme)") adopted in
 the Figure A1 caption.
 - **Residual:** axis/legend text baked into `fig_slr6_tier_breakdown.pdf` etc.
-  comes from plotting scripts in `slr_engine` — update there.
+  comes from plotting scripts in `mdpi_slr_engine` — update there.
 - **What was done:**
 
 ## N36 — Study-type split over 120 distinct papers — `AGENT-OK` — **DONE**
@@ -744,7 +751,7 @@ finding…".
 
 ## N48 — Archive both repos to Zenodo, cite DOIs — `GATE:AUTHOR` — **DEFERRED (author: keep GitHub for now)**
 GitHub URLs are not persistent identifiers; MDPI prefers PIDs. Archive
-`mdpi_paper_slr` and `slr_engine` to Zenodo, cite the DOIs in the DAS.
+`mdpi_paper_slr` and `mdpi_slr_engine` to Zenodo, cite the DOIs in the DAS.
 - **Author (2026-09-10):** leave GitHub for now; revisit at submission. Parked.
   (MDPI reviewers may still request a PID; low effort to add later once the
   Zenodo deposit exists.)
@@ -767,7 +774,7 @@ GitHub URLs are not persistent identifiers; MDPI prefers PIDs. Archive
 # PHASE 4 — Pre-submission verification (batch A run 2026-09-10)
 
 - [x] **grep source for `TODO|FIXME|XXX|TREBA|OVAJ|POGLEDATI|ODLUČITI|MENTOR|REMOVE BEFORE|placeholder`** — clean. Removed 4 `% [PROPOSED C1 - Vanja review before removing]` marker pairs in §6/§7/§8 (kept the prose they wrapped: Mixtral, GShard/GLaM, Chord/BitTorrent, FlexGen/AlpaServe sentences).
-- [ ] `verify_prisma_counts.py` + `verify_quality_appraisal.py` unchanged — **author to run in `slr_engine`** (no pipeline number changed this session; low risk).
+- [ ] `verify_prisma_counts.py` + `verify_quality_appraisal.py` unchanged — **author to run in `mdpi_slr_engine`** (no pipeline number changed this session; low risk).
 - [x] **every float cited, ascending first-mention order** — MAIN: figures 1–15 ✓, tables 1–11 ✓ (fixed: `tab:serving_comparison` was uncited → added §6 `\ref`; `tab:related_surveys`↔`tab:discovery_route` swapped + an early §3.1 `\ref` to `tab:discovery_route` so mentions ascend). APPENDIX tables are numbered by position within the appendix (A1–A8) and first-mentioned from the main text in a different order — standard for appendix floats; **accepted, not reshuffled**.
 - [x] **every reference cited; every citation resolves; contiguous** — 135 bib entries, **135 cited, 0 uncited, 0 cited-but-missing**; `main.bbl` has 135 contiguous bibitems.
 - [ ] every DOI resolves (HTTP 200 via doi.org) — **known/accepted state** per `N28_doi_review_list.md` (52 arXiv-DOI refs, 7 no-DOI, 2 dead `10.5555/`); the 7 M13/M14 additions are all curl-verified.
@@ -783,7 +790,7 @@ GitHub URLs are not persistent identifiers; MDPI prefers PIDs. Archive
 - [x] every claim quantifies only over the population scored (B4 ✓) — new text (§3.1 disconfirming "No located artefact…", Table 5 "None of the seven…") is correctly scoped.
 - [x] **method named in abstract = method executed** — abstract says "a single-wave Wohlin et al.\ snowballing pass"; execution was one forward/backward wave (M11). Consistent.
 
-**Batch A summary (7 mechanical checks + back-matter):** all pass or fixed. Still open: `verify_*.py` re-run (author, in `slr_engine`), DOI resolution (known/accepted per N28 list), **unsourced-number read of §10.1/§10.3/§3.4** (needs human), S1/S2 attachment + cover letter + iThenticate (author packaging).
+**Batch A summary (7 mechanical checks + back-matter):** all pass or fixed. Still open: `verify_*.py` re-run (author, in `mdpi_slr_engine`), DOI resolution (known/accepted per N28 list), **unsourced-number read of §10.1/§10.3/§3.4** (needs human), S1/S2 attachment + cover letter + iThenticate (author packaging).
 
 ---
 
