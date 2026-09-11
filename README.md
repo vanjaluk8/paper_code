@@ -1,6 +1,6 @@
 # mdpi_paper_slr — Decentralised Adapter-Based LLM Inference: An SLR (manuscript + curated corpus)
 
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22703573-blue)](https://doi.org/10.5281/zenodo.22703573)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22708711-blue)](https://doi.org/10.5281/zenodo.22708711)
 
 The **manuscript & curated-corpus half** of a two-repo split for the systematic
 literature review on **decentralised adapter-based LLM inference**:
@@ -19,7 +19,7 @@ literature review on **decentralised adapter-based LLM inference**:
 
 > **Cite as:** Vanja Luk. *Decentralised Adapter-Based LLM Inference: A
 > Systematic Literature Review — manuscript, curated corpus and PRISMA evidence*
-> (v1.0.0-mdpi). Zenodo. DOI: https://doi.org/10.5281/zenodo.22703573
+> (v1.0.2-mdpi). Zenodo. DOI: https://doi.org/10.5281/zenodo.22708711
 
 ## Layout
 
