@@ -41,10 +41,10 @@ Prose response cells are intentionally left blank — the author writes these.
 | Major 11 (second screener) | needs author | `verify/major11_*` blind samples, seed 20260912 | |
 | Major 12 / P1-2 (Table 5/2) | done | see P1-2 above | |
 | Major 13 / P1-3 (UNCERTAIN) | done | see P1-3 above | |
-| Major 14 (§6.4/6.7/8.5/4.4 → tables) | needs author | new synthesis prose required, not attempted | |
-| Major 15 / S-4 ("Combined reference profile") | needs author | `OPEN_QUESTIONS.md` S-4 | |
+| Major 14 (§6.4/6.7/8.5/4.4 → tables) | disputed | author judgement: existing prose already covers this content adequately; tables judged not mandatory | |
+| Major 15 / S-4 ("Combined reference profile") | done | `sections/09_synthesis_gap.tex` — renamed "Requirement profile implied by RQ" | |
 | Major 16 / N-1 (survey sets) | needs author | `OPEN_QUESTIONS.md` N-1 | |
-| Major 17 (inclusion-rule / I-E table) | needs author | `OPEN_QUESTIONS.md` Major 18 (evidence assembled, table not written) | |
+| Major 17 (inclusion-rule / I-E table) | done (table) / needs author (rule-tightening decision) | `sections/12_appendix.tex` Table A2 (Appendix A.3) | |
 | Major 18 (E-3–E-8 verify/correct) | needs author | `OPEN_QUESTIONS.md` E-3, E-4, E-5, E-6, E-8 — all resolved with verdicts | |
 | Major 19 (top-up search) | needs author | `verify/major20_topup_search_queries.md` — drafted, not run | |
 | Major 20 (citation-verification pass) | done (DOI pass) / needs author (full pass) | `OPEN_QUESTIONS.md` Major 21 — 125/128 DOIs resolve, 3 fixed | |
@@ -102,7 +102,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | S-1 | needs author | `OPEN_QUESTIONS.md` S-1; scaffold ready | |
 | S-2 | needs author | `OPEN_QUESTIONS.md` S-2 — Ryabinin DHT mechanism checked (identifier-level only); Dec-LoRA no PDF available | |
 | S-3 | needs author | `OPEN_QUESTIONS.md` S-3 — 12 distinct profiles (not ~8), 4-way tie found (not 3-way) | |
-| S-4 | needs author | `OPEN_QUESTIONS.md` S-4 | |
+| S-4 | done | `sections/09_synthesis_gap.tex` — renamed "Requirement profile implied by RQ" | |
 | S-5 | needs author | not addressed — a figure/table design decision | |
 | N-1 | needs author | `OPEN_QUESTIONS.md` N-1 | |
 | N-2 | needs author | not addressed — new search work | |
