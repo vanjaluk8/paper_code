@@ -90,3 +90,12 @@ materials/
 verify/db_results/**/Q*_scopus.csv
 verify/db_results/**/Q*_wos.csv
 verify/db_results/**/Q*_wos.txt
+
+# ── Local-only review process inputs (not manuscript deliverables) ────────
+# The reviewer prompt and the revision instructions derived from it; kept
+# locally for reference, not tracked. REVIEWER_REPORT.md is the actual
+# review (item IDs D-1/P1-1/E-1/etc. referenced throughout CHANGELOG.md,
+# OPEN_QUESTIONS.md, RESPONSE_TO_REVIEWER.md); REVISION_PROMPT.md is the
+# instructions that turned it into work packages.
+REVIEWER_REPORT.md
+REVISION_PROMPT.md
