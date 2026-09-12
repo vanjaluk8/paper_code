@@ -68,7 +68,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | Minor 33 (E-14, Šajina thesis year) | done (annotated, not silently altered) | `sections/12_appendix.tex` Appendix B — see E-14 above (2025 confirmed correct) | |
 | Minor 34 (C-8, Pillar-4 denominator) | done | see P1-4/WP-8 above | |
 | Minor 35 (C-6, latency cross-ref) | done | see WP-1 above | |
-| Minor 36 (S-5, Figure 15) | needs author | not addressed — a figure/table redesign decision | |
+| Minor 36 (S-5, Figure 15) | done | `sections/09_synthesis_gap.tex` §9.4 — Figure 15 removed (author's choice of the review's two suggested fixes); Table 11 already carried the same classification plus more detail | |
 | Minor 37 (P1-5, N=120 vs 123) | done | see P1-5 above | |
 | Minor 38 (P1-6, Item 16b) | done | see P1-6 above | |
 | Minor 39 (P1-7, total records) | done | see P1-7 above | |
@@ -103,7 +103,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | S-2 | done | see Blocking 4 above; Dec-LoRA's row is scored from the manuscript's own already-verified prose description (no PDF available for a fresh primary-source read, disclosed as such in `OPEN_QUESTIONS.md`) | |
 | S-3 | needs author | `OPEN_QUESTIONS.md` S-3 — 12 distinct profiles (not ~8), 4-way tie found (not 3-way) | |
 | S-4 | done | `sections/09_synthesis_gap.tex` — renamed "Requirement profile implied by RQ" | |
-| S-5 | needs author | not addressed — a figure/table design decision | |
+| S-5 | done | see Minor 36 above | |
 | N-1 | done | `sections/01_introduction.tex`, `sections/03_methodology.tex` Table 4 | |
 | N-2 | needs author | not addressed — new search work | |
 | N-3 | done | `sections/03_methodology.tex` Table 1 -- "Only" -> "Only peer-reviewed," for the Petals row | |
