@@ -1,0 +1,49 @@
+paper_key,title,year,excluded_from_matrix,frozen_backbone,adapter_exchange,p2p_topology,discovery,multi_task_fusion,privacy_dp,no_central_coordinator,k_strict,k_with_partial
+2603.02885,MuxTune: Efficient Multi-Task LLM Fine-Tuning in Multi-Tenant Datacenters via Spatial-Temporal Backbone Multiplexing,2026,False,✓,✓,×,×,(✓),×,×,2,2.5
+2512.20210,Predictive-LoRA: A Proactive and Fragmentation-Aware Serverless Inference System for LLMs,2025,False,✓,✓,×,×,×,×,×,2,2.0
+10.1145/3711875.3729141,EdgeLoRA: An Efficient Multi-Tenant LLM Serving System on Edge Devices,2025,False,✓,✓,×,×,×,×,×,2,2.0
+2511.22880,Serving Heterogeneous LoRA Adapters in Distributed LLM Inference Systems,2025,False,✓,✓,×,×,×,×,×,2,2.0
+10.1109/TPDS.2025.3590014,Cannikin: No Lagger of SLO in Concurrent Multiple LoRA LLM Serving,2025,False,✓,✓,×,×,×,×,×,2,2.0
+10.1109/ICCD65941.2025.00046,AuLoRA: Fine-Grained Loading and Computation Orchestration for Efficient LoRA LLM Serving,2025,False,✓,✓,×,×,×,×,×,2,2.0
+10.1145/3772052.3772230,Symbiosis: Multi-Adapter Inference and Fine-Tuning,2025,False,✓,✓,×,×,×,×,×,2,2.0
+2311.03285,S-LoRA: Serving Thousands of Concurrent LoRA Adapters,2024,False,✓,✓,×,×,×,×,×,2,2.0
+10.1109/ICWS62655.2024.00099,Edge-LLM: A Collaborative Framework for Large Language Model Serving in Edge Computing,2024,False,✓,✓,×,×,×,×,×,2,2.0
+2401.11240,CaraServe: CPU-Assisted and Rank-Aware LoRA Serving for Generative LLM Inference,2024,False,✓,✓,×,×,×,×,×,2,2.0
+2407.00066,Compress then Serve: Serving Thousands of LoRA Adapters with Little Overhead,2024,False,✓,✓,×,×,×,×,×,2,2.0
+10.1145/3704440.3704777,Comparative Analysis and Optimization of LoRA Adapter Co-serving for Large Language Models,2024,False,✓,✓,×,×,×,×,×,2,2.0
+2310.18547,Punica: Multi-Tenant LoRA Serving,2023,False,✓,✓,×,×,×,×,×,2,2.0
+2501.15361,Decentralized Low-Rank Fine-Tuning of Large Language Models,2025,False,✓,✓,(✓),×,×,(✓),×,2,3.0
+2404.05182,DLoRA: Distributed Parameter-Efficient Fine-Tuning Solution for Large Language Model,2024,False,✓,✓,×,×,×,×,×,2,2.0
+2503.11880,FedALT: Federated Fine-Tuning through Adaptive Local Training with Rest-of-the-World LoRA,2025,False,✓,✓,×,×,✓,(✓),×,3,3.5
+10.1109/INFOCOM55648.2025.11044641,Federated Adaptive Fine-Tuning of Large Language Models with Heterogeneous Quantization and LoRA,2025,False,✓,✓,×,×,×,(✓),×,2,2.5
+10.18653/v1/2025.acl-long.67,FedEx-LoRA: Exact Aggregation for Federated and Efficient Fine-Tuning of Large Language Models,2025,False,✓,✓,×,×,×,(✓),×,2,2.5
+10.1109/ICDM65498.2025.00089,DP-FedLoRA: Privacy-Enhanced Federated Fine-Tuning for On-Device Large Language Models,2025,False,✓,✓,×,×,×,✓,×,3,3.0
+2403.12313,Improving LoRA in Privacy-preserving Federated Learning,2024,False,✓,✓,×,×,(✓),✓,×,3,3.5
+2409.05976,FLoRA: Federated Fine-Tuning Large Language Models with Heterogeneous Low-Rank Adaptations,2024,False,✓,✓,×,×,×,(✓),×,2,2.5
+10.1145/3637528.3671897,FedBiOT: LLM Local Fine-tuning in Federated Learning without Full Model,2024,False,✓,✓,×,×,×,(✓),×,2,2.5
+10.52202/079017-0461,Federated Fine-tuning of Large Language Models under Heterogeneous Tasks and Client Resources,2024,False,✓,✓,×,×,(✓),(✓),×,2,3.0
+2407.00952,SplitLoRA: A Split Parameter-Efficient Fine-Tuning Framework for Large Language Models,2024,False,✓,✓,×,×,×,(✓),×,2,2.5
+2410.01463,Selective Aggregation for Low-Rank Adaptation in Federated Learning,2024,False,✓,✓,×,×,×,(✓),×,2,2.5
+2404.18848,FeDeRA: Efficient Fine-tuning of Language Models in Federated Learning Leveraging Weight Decomposition,2024,False,✓,✓,×,×,(✓),(✓),×,2,3.0
+2410.22815,Towards Robust and Efficient Federated Low-Rank Adaptation with Heterogeneous Clients,2024,False,✓,✓,×,×,×,(✓),×,2,2.5
+10.18653/v1/2025.naacl-short.30,Towards Federated Low-Rank Adaptation of Language Models with Rank Heterogeneity,2024,False,✓,✓,×,×,×,(✓),×,2,2.5
+10.1109/GLOBECOM52923.2024.10901572,Federated Low-Rank Adaptation for Large Language Model Fine-Tuning Over Wireless Networks,2024,False,✓,✓,×,×,(✓),(✓),×,2,3.0
+10.1109/TMC.2025.3586644,Adaptive Parameter-Efficient Federated Fine-Tuning on Heterogeneous Devices,2024,False,✓,✓,×,×,×,×,×,2,2.0
+10.1109/FLTA63145.2024.10840125,Aggregating Low Rank Adapters in Federated Fine-Tuning,2024,False,✓,✓,×,×,×,×,×,2,2.0
+10.1109/ICPADS63350.2024.00040,FedMCP: Parameter-Efficient Federated Learning with Model-Contrastive Personalization,2024,False,✓,✓,×,×,×,(✓),×,2,2.5
+2308.06522,SLoRA: Federated Parameter Efficient Fine-Tuning of Language Models,2023,False,✓,✓,×,×,×,(✓),×,2,2.5
+10.1145/3682068,Differentially Private Low-Rank Adaptation of Large Language Model Using Federated Learning,2023,False,✓,✓,(✓),×,×,✓,×,3,3.5
+10.18653/v1/2023.findings-acl.632,FedPETuning: When Federated Learning Meets the Parameter-Efficient Tuning Methods of Pre-trained Language Models,2022,False,✓,✓,×,×,×,(✓),×,2,2.5
+d96aa291c0c56b9522cd7c901f1acd43818f1db3,FedAdapter: Efficient Federated Learning for Modern NLP,2022,False,✓,✓,×,×,×,(✓),×,2,2.5
+10.1109/FLTA67013.2025.11336447,FedLoRASwitch: Efficient Federated Learning via LoRA Expert Hotswapping and Routing,2025,False,✓,✓,×,(✓),✓,(✓),×,3,4.0
+10.18653/v1/2025.naacl-long.201,Sparser Mixture-of-Adapters with Cross-Layer Generalization,2025,False,✓,✓,×,×,✓,×,×,3,3.0
+2404.15159,MixLoRA: Enhancing Large Language Models Fine-Tuning with LoRA based Mixture of Experts,2024,False,✓,✓,×,×,✓,×,×,3,3.0
+2410.18035,MiLoRA: Efficient Mixture of Low-Rank Adaptation for Large Language Models Fine-tuning,2024,False,✓,✓,×,×,✓,×,×,3,3.0
+2405.11157,Towards Modular LLMs by Building and Reusing a Library of LoRAs,2024,False,✓,✓,×,×,✓,×,×,3,3.0
+2307.13269,LoraHub: Efficient Cross-Task Generalization via Dynamic LoRA Composition,2023,False,✓,✓,×,×,✓,×,×,3,3.0
+2402.09997,LoraRetriever: Input-Aware LoRA Retrieval and Composition for Mixed Tasks in the Wild,2024,False,✓,✓,×,(✓),✓,×,×,3,3.5
+10.18653/v1/2023.findings-acl.75,Client-Customized Adaptation for Parameter-Efficient Federated Learning,2024,False,✓,✓,×,×,✓,(✓),×,3,3.5
+2503.12016,A Survey on Federated Fine-tuning of Large Language Models,2025,True,−,−,−,−,−,−,−,0,0.0
+10.1145/3637528.3671573,FederatedScope-LLM: A Comprehensive Package for Fine-tuning Large Language Models in Federated Learning,2023,True,−,−,−,−,−,−,−,0,0.0
+2305.14314,QLoRA: Efficient Finetuning of Quantized LLMs,2023,False,✓,×,−,×,×,×,−,1,1.0
+10.1007/s11704-024-40663-9,A survey on LoRA of large language models,2024,True,−,−,−,−,−,−,−,0,0.0

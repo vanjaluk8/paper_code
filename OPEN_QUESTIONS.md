@@ -525,23 +525,25 @@ changed to "up to 99% SLO attainment," matching the paper's own wording.
 
 ## Scoping and analysis
 
-### S-1: Extend concept matrix to the 48 Tier-1 records
-- **Scaffolding prepared:** `verify/s1_tier1_concept_matrix_scaffold.csv` — 48
-  rows (one per Tier-1 record, confirmed count via
-  `snowball_output/13_final_reading_list_2026-05-12.csv`'s `tier` column),
-  columns: `paper_key`, `title`, `authors`, `year`, `venue`, `doi`,
-  `arxiv_id`, then the seven concept-matrix dimensions
-  (`frozen_backbone`, `adapter_exchange`, `p2p_topology`, `discovery`,
-  `multi_task_fusion`, `privacy_dp`, `no_central_coordinator`), all empty,
-  plus a `notes` column. Ready for you to fill in ✓/(✓)/✗/− per the same
-  scoring convention already used in Table 10.
-- **Not done here:** the actual scoring (requires reading each of the 48
-  papers and making an architectural judgement call per dimension —
-  AUTHOR work).
-- **Minimal edit once scored:** publish the filled sheet as Supplementary
-  Material, and add the k=1…7 distribution as a new sentence/figure in §9.3,
-  per the review's Blocking-item request. That sentence is new synthesis and
-  must be written by you.
+### S-1: Extend concept matrix to the 48 Tier-1 records — **FIXED**
+**Applied:** all 48 Tier-1 records scored via an interactive review tool
+(heuristic pre-fill from `contribution_type`, `distribution_mechanism`,
+abstract, and the author's own full-text extraction notes, author made
+the final call on every cell). 3 excluded as competing surveys/a
+software-framework overview (not architectural contributions); of the
+remaining 45: 1 satisfies 1 of 7 dimensions, 32 satisfy 2, 12 satisfy 3,
+none reaches 4. Reported in `sections/09_synthesis_gap.tex` §9.3;
+full sheet published as `supplementary/S3_tier1_concept_matrix.csv`
+(also `verify/s1_tier1_concept_matrix_scored.csv`).
+
+**One cross-check discrepancy found, not resolved here:** 5 of the 48
+Tier-1 records overlap with the original 17 in Table 10 (S-LoRA, LoraHub,
+LoraRetriever, MixLoRA, MiLoRA). Re-scoring them independently in this
+pass matched Table 10 exactly except for one cell: LoraHub's
+`no_central_coordinator` is `(✓)` in the published Table 10 but scored
+`×` in this pass. Left as-is in both places rather than silently
+reconciled — author's call whether Table 10's row needs a one-cell
+correction.
 
 ### S-2: Table 10 omits decentralised MoE [63] (Ryabinin) and Dec-LoRA [36] (Ghiasvand)
 - **Manuscript location:** `tab:concept_matrix` (`sections/09_synthesis_gap.tex`),
