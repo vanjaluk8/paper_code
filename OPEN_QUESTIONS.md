@@ -213,6 +213,40 @@ source, cited by page/section where the PDF was used.
   qualitative "gossip protocols disseminate information efficiently" framing
   in both locations.
 
+### E-7: Internal contradiction on gossip-learning convergence — CONTRADICTED (claim oversimplified)
+- **Manuscript location:** `sections/08_p2p_federated.tex` line 59 (§8.2) vs
+  `sections/03_methodology.tex` line 762 (Table 7, Gossip Learning row)
+- **Manuscript claims (verbatim):**
+  - §8.2: "Convergence is faster than FL per communication round due to the
+    direct peer-to-peer exchange"
+  - Table 7: "≈ FL quality (20–50% slower)"
+- **Cited work (both):** `HegeduisGossip2019` = Hegedűs, Danner, Jelasity,
+  "Gossip Learning as a Decentralized Alternative to Federated Learning"
+  (DAIS 2019)
+- **Primary-source evidence (page 84, §4.5 Results):** "Most importantly,
+  gossip learning clearly **outperforms** federated learning in the case of
+  **high compression rates** (low sampling probability) over two of the
+  three datasets, and it is competitive on the remaining dataset as well...
+  Indeed, **with no compression, federated learning performs better**.
+  However, with high compression rates, slower aggregation is compensated
+  by a higher communication efficiency." The paper's comparisons throughout
+  (Figures 2–4) are plotted against wall-clock time (hours), not
+  communication rounds.
+- **Verdict: CONTRADICTED as a flat, unconditional claim.** The paper's own
+  finding is compression-rate- and dataset-dependent: gossip learning is
+  *slower* than FL with no compression, and only *outperforms* FL under high
+  compression — the opposite of a simple "faster... due to direct
+  peer-to-peer exchange" statement, and the comparison axis in the paper is
+  wall-clock time, not per-round. I could not locate a verbatim "20–50%
+  slower" figure anywhere in the paper (read in full); Table 7's specific
+  number may come from a different source or may be an approximation not
+  traceable to explicit text in this citation.
+- **Minimal edit:** rewrite §8.2 to state the actual, conditional finding
+  (compression-rate-dependent, wall-clock time, not "per round"); verify
+  Table 7's specific "20–50% slower" figure against wherever it actually
+  originates, or replace it with a qualitative description matching what
+  the cited paper supports.
+
 ### E-8: S-LoRA [Sheng2024] — second mechanism mis-described — CONTRADICTED
 - **Manuscript location:** `sections/06_inference_systems.tex` §6.2
 - **Manuscript claim (verbatim):** "S-LoRA introduced two key mechanisms:
