@@ -1,3 +1,0 @@
-123 final records
-  core: 89 (72.4%)
-  background: 34 (27.6%)

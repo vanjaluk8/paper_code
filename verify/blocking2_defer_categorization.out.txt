@@ -1,6 +1,0 @@
-173 DEFER records categorized (166 with abstract)
-  single-model-peft-variant: 63
-  moe-routing-composition: 32
-  multi-tenant-serving: 30
-  federated-peft: 25
-  p2p-decentralized: 23
