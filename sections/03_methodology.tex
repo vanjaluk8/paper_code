@@ -25,7 +25,7 @@ and multi-task LLM serving and inference. In accordance with the MDPI
 Statement on the Use of Artificial Intelligence, the AI tools used and their
 precise roles are disclosed here. Undermind (undermind.ai; accessed
 2026-04-14) was used as a candidate-retrieval aid to assemble the six
-thematically focused pre-validated groups (Appendix~\ref{app:undermind}); it
+thematically focused pre-validated groups (Supplementary Material S4, \S~B); it
 suggested candidate papers that the author then independently retrieved and
 screened against the stated inclusion criteria. Two Anthropic Claude models
 were used in strictly advisory roles inside the screening pipeline:
@@ -89,7 +89,7 @@ by manual curation of leading venues (ACL, EMNLP, NeurIPS, ICML, MLSys);
 Table~\ref{tab:groups} summarises their scope and contribution. Each group
 was built from the exported relevance-ranked result list of one Undermind
 deep search (queries run 2026-04-14, metadata corrected 2026-04-17;
-reproduced verbatim in Appendix~\ref{app:undermind}): \textbf{377} records
+reproduced verbatim in Supplementary Material S4, \S~B): \textbf{377} records
 across the six lists (G1~62, G2~42, G3~96, G4~56, G5~46, G6~75), reduced to
 \textbf{343} after removing \textbf{34} records that also appeared in a
 higher-priority group as cross-group duplicates, and joined by the nine G0
@@ -211,7 +211,7 @@ pipeline file (Appendix~\ref{sec:appendix:corpus_pipeline}).
 A dedicated search for competing secondary studies was run on \textbf{2026-09-10}
 across Web of Science (Core Collection, topic field \texttt{TS=}) and Scopus
 (\texttt{TITLE-ABS-KEY}, document type \texttt{re}), restricted to 2021--2026;
-the two query strings are reproduced in Appendix~\ref{app:db_queries}. The
+the two query strings are reproduced in Supplementary Material S4, \S~C. The
 searches returned \textbf{50} (WoS) and \textbf{19} (Scopus) records. After
 removing false positives (predominantly the LoRa long-range radio protocol,
 hardware ``adapters'', and application-domain reviews in medicine and IoT)
@@ -245,7 +245,7 @@ queries across arXiv, GitHub, and general web search, with no peer-review or
 venue filter, seeking any system, protocol, or project that treats adapters as
 the unit of exchange over a frozen shared backbone under a coordinator-free
 peer-to-peer topology (queries, sources, screening rule, and results in
-Appendix~\ref{app:db_queries}, \S~C.4). No located artefact provides that
+Supplementary Material S4, \S~C.4). No located artefact provides that
 combination together with decentralised capability discovery and multi-adapter
 composition; the nearest candidates each address a single facet:
 decentralised serving of \emph{whole} models (e.g.\ PlanetServe, Platformless
@@ -263,7 +263,7 @@ In response to peer review, a supplementary search was run on
 original search's cutoff, covering Scopus, Web of Science, and arXiv with
 the same Boolean queries used throughout (year bound moved forward to the
 gap window; queries, screening, and results in
-Appendix~\ref{app:db_queries}, \S~C.5, and Appendix~\ref{app:search_log},
+Supplementary Material S4, \S~C.5 and \S~D,
 \S~D.7). The three sources returned 93 distinct candidates after
 deduplication; a title/abstract screen at the same depth as this review's
 own Layer-2 stage retained 65; author eligibility review against the
@@ -380,7 +380,7 @@ validation that was not in fact performed.
 
 This single-reviewer limitation applies specifically to the screening and
 appraisal of the snowball-retrieved candidate pool. The six thematically
-pre-validated groups (G1--G6, Appendix~\ref{app:undermind}), which
+pre-validated groups (G1--G6, Supplementary Material S4, \S~B), which
 contribute 105 of the 123 final records (85.4\%), were assembled via targeted,
 framing-informed retrieval rather than blind snowball screening; this
 route avoids the screening-reliability risk discussed above, but
@@ -541,7 +541,7 @@ audited, uniformly-applied threshold.
 
 \begin{table}[H]
 \centering
-\caption{Pre-validated corpus groups: identification funnel, scope, and review section coverage. \emph{U.\ export} is the number of records in the exported relevance-ranked result list of each group's Undermind deep search (queries run 2026-04-14; Appendix~\ref{app:undermind}); 34 records that also appeared in a higher-priority group were removed as cross-group duplicates, reducing the 377 G1--G6 exports to 343, which with the 9 G0 seeds gives the 352-record pre-validated corpus. \emph{n}~pre-val.\ is the per-group count after that dedup. Undermind evaluates a larger candidate pool per query than it returns in the exported list; that pre-export pool size was not separately retained (\S\ref{sec:conclusion:threats}). Each final record is attributed to the single pre-validated group recorded by the unified pipeline; the \emph{n}~final column therefore partitions the 123-record total. G0's \emph{n}~final = 18 comprises four directly-seeded records (S-LoRA, AdapterHub, AdapterFusion, Petals) and 14 snowball descendants; two further seeds (Houlsby~2019, Hu/LoRA~2022) are in the final list but attributed outside G0 (Table~\ref{tab:g0_disposition}; see note below the table).}
+\caption{Pre-validated corpus groups: identification funnel, scope, and review section coverage. \emph{U.\ export} is the number of records in the exported relevance-ranked result list of each group's Undermind deep search (queries run 2026-04-14; Supplementary Material S4, \S~B); 34 records that also appeared in a higher-priority group were removed as cross-group duplicates, reducing the 377 G1--G6 exports to 343, which with the 9 G0 seeds gives the 352-record pre-validated corpus. \emph{n}~pre-val.\ is the per-group count after that dedup. Undermind evaluates a larger candidate pool per query than it returns in the exported list; that pre-export pool size was not separately retained (\S\ref{sec:conclusion:threats}). Each final record is attributed to the single pre-validated group recorded by the unified pipeline; the \emph{n}~final column therefore partitions the 123-record total. G0's \emph{n}~final = 18 comprises four directly-seeded records (S-LoRA, AdapterHub, AdapterFusion, Petals) and 14 snowball descendants; two further seeds (Houlsby~2019, Hu/LoRA~2022) are in the final list but attributed outside G0 (Table~\ref{tab:g0_disposition}; see note below the table).}
 \label{tab:groups}
 \begin{tabular}{lp{4.4cm}rrrl}
 \toprule
@@ -585,7 +585,7 @@ coverage. Consolidates every prior review or survey-like study named anywhere
 in this manuscript: both the works cited in Section~\ref{sec:introduction} as
 motivating the gap and those identified by the dedicated related-reviews
 search (2026-09-10; \S\ref{sec:methodology:search}; query strings in
-Appendix~\ref{app:db_queries}).
+Supplementary Material S4, \S~C).
 Columns: \emph{PEFT} = PEFT/adapters; \emph{Comp.} = adapter composition;
 \emph{Serve} = multi-tenant serving; \emph{MoE} = MoE/routing;
 \emph{P2P} = P2P/federated; \emph{Exch.} = decentralised, coordinator-free
@@ -645,7 +645,7 @@ arXiv-sourced and a Scopus-sourced record) attributed by group label to G2
 and G1 respectively rather than to G0 (verification script:
 \texttt{verify/wp6\_seed\_origin\_route\_split.py}); ``citation snowballing''
 is the one-wave forward/backward pass on the G0 seeds. The two remaining
-routes were executed (Appendix~\ref{app:search_log}) but retained no records.}
+routes were executed (Supplementary Material S4, \S~D) but retained no records.}
 \label{tab:discovery_route}
 \begin{tabular}{lrr}
 \toprule

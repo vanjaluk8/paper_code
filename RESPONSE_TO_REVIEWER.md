@@ -73,7 +73,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | Minor 38 (P1-6, Item 16b) | done | see P1-6 above | |
 | Minor 39 (P1-7, total records) | done | see P1-7 above | |
 | Minor 40 (ref [29]/[7] formatting, DOI convention) | done | see WP-4 above | |
-| Minor 41 (Appendices B–D → Supplementary) | needs author | a submission-structure decision, not attempted | |
+| Minor 41 (Appendices B–D → Supplementary) | done | Appendices B/C/D moved to `supplementary/S4_appendices_BCD.md`; only Appendix A remains in the manuscript; ~12 pages cut (83→71); all cross-references repointed to plain-text Supplementary Material S4 pointers | |
 
 ## Citation integrity (E-*)
 
@@ -130,5 +130,5 @@ Prose response cells are intentionally left blank — the author writes these.
 | Undermind framing in §3.1 as method | needs author | a scope/emphasis decision | |
 | Acknowledgments sentence | needs author | requires confirming with the editorial office | |
 | Prior-work overlap (text carryover disclosure) | needs author | requires the author's own knowledge of what was carried over | |
-| iThenticate exposure (Appendices B/C to Supplementary) | needs author | same as Minor 41 | |
+| iThenticate exposure (Appendices B/C to Supplementary) | done | see Minor 41 above — the verbatim Undermind prompts and Boolean query strings are no longer part of the manuscript's own text | |
 | Data Availability — verify DOIs/repos resolve | done (links) / needs author (push+release) | all 4 links verified live: both GitHub repos public (API-confirmed), both Zenodo DOIs findable with correct title/author. Local `main` is 39 commits ahead of `origin/main` (nothing from this revision pushed yet) — author will push and cut a new release at the end of the revision, and confirm whether the Zenodo integration auto-snapshots on push/tag | |
