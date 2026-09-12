@@ -1,0 +1,5 @@
+Total: 93
+Decisions: {'KEEP': 65, 'DROP': 28}
+
+Wrote /Users/vanja/git/mdpi_paper_slr/verify/major19_topup_screened.csv
+Wrote 65 KEEP rows to /Users/vanja/git/mdpi_paper_slr/verify/major19_topup_kept_after_screening.csv

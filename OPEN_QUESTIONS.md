@@ -731,7 +731,7 @@ changed to "up to 99% SLO attainment," matching the paper's own wording.
   requires you to decide the criterion wording and rationale column, which
   is a presentation/scoping choice, not a data-extraction one.
 
-### Major 19: Top-up search to the submission month — SEARCH DONE, screening still open
+### Major 19: Top-up search to the submission month — SEARCH + ABSTRACT SCREEN DONE, eligibility decision still open
 - **All three sources now run.** `verify/major19_scopus_wos_topup_queries.md`
   gave the ready-to-paste Boolean queries (Appendix C's 20, year bound moved
   to the gap window); the author ran all 10 Scopus + all 10 WoS queries live
@@ -764,11 +764,43 @@ changed to "up to 99% SLO attainment," matching the paper's own wording.
   adaptation of foundation models"** (Neural Networks) — close enough to
   the review's own core P2P/decentralised-LoRA subject that it may bear
   directly on the gap claims, the same way Ryabinin's paper did in S-2.
-- **Not done, and explicitly not attempted:** screening any of the 93
-  candidates against the eligibility criteria (Table A2), or judging
-  whether any bears on the eight open gaps in §9.4 — those are scientific
-  judgements reserved for the author, not something to infer from a title
-  or a multi-source hit count.
+- **Abstract-level topical screen now done** (`verify/major19_recover_abstracts.py`
+  recovered all 93/93 abstracts from the raw Scopus/WoS exports and the
+  saved arXiv summaries → `verify/major19_topup_with_abstracts.csv`;
+  `verify/major19_screening_decisions.py` applied the same topical-relevance
+  read used at the manuscript's own Layer-2 abstract stage → outputs
+  `verify/major19_topup_screened.csv` (all 93, with per-item rationale) and
+  `verify/major19_topup_kept_after_screening.csv` (the 65 survivors)). This
+  is a title-filter-plus-abstract-read pass, **not** a Table A2 eligibility
+  or full-text/quality-appraisal decision — treat it as a recommended
+  shortlist for the author to confirm, the same status the manuscript's own
+  abstract-stage dispositions had before full-text review.
+- **Result: 65 KEEP / 28 DROP.** All 28 DROPs share one pattern: the paper's
+  actual application domain sits outside the review's three pillars even
+  though its title matched the PEFT/adapter+scope keyword filter — medical
+  imaging/diagnosis (7: BiomedCLIP chest X-ray, ophthalmic diagnosis,
+  coronary-artery segmentation, SAM3 segmentation, echocardiography
+  translation, TCPA-MedMTL, ultrasound), industrial/IoT (RUL estimation,
+  IIoT intrusion detection, IoV energy-constrained personalization),
+  vision-only (face-forgery detection, video class-incremental learning,
+  domain-incremental learning, ViT pruning), telecom (6G V2X beam
+  prediction), bioinformatics (protein classification), robotics (VLA
+  continual learning), plus one true false-positive on terminology
+  ("Fully decentralized inference for spatial data using low-rank models"
+  — geostatistics' "low-rank" is unrelated to LoRA). None of the 65 KEEPs
+  were dropped on relevance grounds; all engage PEFT/LoRA, federated or
+  decentralised adaptation, or multi-adapter/MoE serving for language
+  models specifically.
+- **Standout among the 65:** "DeCAF: Decentralized consensus-and-factorization
+  for low-rank adaptation of foundation models" (Neural Networks, WoS-only
+  hit) remains the strongest candidate for bearing directly on the review's
+  P2P/decentralised-LoRA gap claims — see above. "RW-LoRA: Communication-
+  Efficient Decentralized LoRA Fine-Tuning via Random Walks" is a second
+  P2P-relevant hit worth the same scrutiny.
+- **Still not done, and explicitly not attempted:** running the 65 survivors
+  against the actual Table A2 eligibility criteria, full-text read, quality
+  appraisal, or a judgement on which (if any) bear on the eight open gaps
+  in §9.4 — those remain scientific judgements reserved for the author.
 
 ### Major 21: Systematic citation-verification pass (DOI resolution)
 - **Network-verified all 128 DOI'd references** (of 135 total; 7 have no DOI

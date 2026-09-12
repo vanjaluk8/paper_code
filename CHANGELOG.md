@@ -228,6 +228,29 @@ the duplicate/less-accurate scaffolding files that subagent also produced
 
 ---
 
+## Major #19 — top-up search: abstract-level screening
+
+No manuscript edits (data/verify work only).
+
+- `verify/major19_recover_abstracts.py`: recovered all 93/93 abstracts for
+  the consolidated top-up candidates from the raw Scopus/WoS exports and
+  the saved arXiv summaries → `verify/major19_topup_with_abstracts.csv`.
+- `verify/major19_screening_decisions.py`: applied a title/abstract-level
+  topical-relevance screen (same depth as the manuscript's own Layer-2
+  abstract stage) to all 93 candidates → `verify/major19_topup_screened.csv`
+  (full set with per-item KEEP/DROP + rationale) and
+  `verify/major19_topup_kept_after_screening.csv` (65 survivors).
+- Result: **65 KEEP / 28 DROP.** All drops share one pattern — application
+  domain outside the review's three pillars despite a keyword-matching
+  title (medical imaging, industrial/IoT, vision-only, telecom,
+  bioinformatics, robotics, one terminology false-positive). See
+  `OPEN_QUESTIONS.md` Major 19 for the full breakdown and standout
+  candidates (DeCAF, RW-LoRA).
+- This is a recommended shortlist, not a Table A2 eligibility or full-text
+  decision — that remains the author's call.
+
+---
+
 ## Phase 3 — AUTHOR report
 
 `OPEN_QUESTIONS.md` — primary-source-verified findings for all `E-1`…`E-15`,
