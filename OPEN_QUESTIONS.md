@@ -731,13 +731,26 @@ changed to "up to 99% SLO attainment," matching the paper's own wording.
   requires you to decide the criterion wording and rationale column, which
   is a presentation/scoping choice, not a data-extraction one.
 
-### Major 20: Top-up search to the submission month
-- **Prepared:** `verify/major20_topup_search_queries.md` — reuses the
-  existing 20 Boolean queries from Appendix C verbatim, changing only the
-  date filter to cover the gap between the last search (2026-05-12) and
-  submission (~September 2026), plus an execution checklist.
-- **Not done here (explicitly, per instruction):** running the queries or
-  screening/judging the results.
+### Major 19: Top-up search to the submission month
+- **Ready to run:** `verify/major19_scopus_wos_topup_queries.md` — all 20
+  Boolean queries from Appendix C, verbatim except the year bound updated to
+  cover the gap (2026-05-13 to submission), plus guidance on closing the
+  month-precision gap Scopus/WoS's raw query syntax can't express (their UI
+  date-range refiners can). Requires Scopus/WoS access this environment
+  doesn't have — could not be run directly.
+- **Partial substitute actually run:** `verify/major19_topup_arxiv_search.py`
+  — 6 thematic queries approximating the same intent, run against arXiv
+  (free) for the same date window. 481 raw candidates, filtered to 27 by
+  requiring PEFT/adapter terminology to co-occur with a P2P/federated/MoE/
+  serving term in the title (same precision as the manuscript's own Layer-2
+  screening). Result in `verify/major19_topup_arxiv_candidates.csv`: a
+  cluster of 9 candidates specifically on federated or decentralised LoRA,
+  all published in the gap window, plus 8 more on MoE-LoRA routing. None are
+  in the existing corpus. This is a real signal, not a replacement for the
+  Scopus/WoS pass -- but its volume suggests that pass is likely to find
+  something rather than come back empty.
+- **Not done:** running the actual Scopus/WoS queries (needs paid access),
+  or screening/judging any candidate found by either search.
 
 ### Major 21: Systematic citation-verification pass (DOI resolution)
 - **Network-verified all 128 DOI'd references** (of 135 total; 7 have no DOI
