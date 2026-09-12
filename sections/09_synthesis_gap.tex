@@ -114,13 +114,19 @@ Two dimensions were considered and deliberately excluded. Latency was not includ
 The scoring uses a binary \checkmark/$\times$ scheme rather than a graded scale because each dimension represents a structural commitment that a system either makes or does not. A graded scale would introduce precision that the available evidence cannot support. The (\checkmark) partial marker is reserved for the small number of cases where a system addresses a dimension in a limited or indirect way, sufficient to acknowledge but not sufficient to claim full satisfaction.
 
 \paragraph{System selection for the matrix.}
-Table~\ref{tab:concept_matrix} scores 17 systems rather than the full 123-record
-corpus. The 17 were selected as follows: the two foundational adapter methods
+Table~\ref{tab:concept_matrix} scores 19 systems rather than the full 123-record
+corpus. The original 17 were selected as follows: the two foundational adapter methods
 that every later system builds on (Houlsby adapters, LoRA), plus, for each of
 the five pillars, the most architecturally developed published exemplars,
 those that make an explicit design commitment on at least one of the seven
 dimensions and are either the pillar's canonical reference or its closest
-approach to the decentralised target. Incremental variants that share a
+approach to the decentralised target. Two further systems were added
+following peer review, both plausible counterexamples to the gap claim
+that the original selection omitted: Ryabinin and Gusev's decentralised
+Mixture-of-Experts~\cite{RyabininCrowdsourced2020} and
+Dec-LoRA~\cite{Ghiasvand2025}; \S\ref{sec:synthesis_gap:gaps} discusses
+why each falls short of closing the gap despite scoring among the highest
+in the matrix. Incremental variants that share a
 predecessor's profile on all seven dimensions are represented by that
 predecessor and not listed separately; records that engage none of the seven
 dimensions (for example, pure benchmark or survey entries) are omitted. The
@@ -134,7 +140,7 @@ Section~\ref{sec:conclusion:limitations}.
 \begin{table}[H]
 \centering
 \footnotesize
-\caption{Concept matrix: 17 selected systems against seven design dimensions of the target
+\caption{Concept matrix: 19 selected systems against seven design dimensions of the target
          decentralised adapter-based system. The 17 are an illustrative
          cross-section spanning the five pillars, not an exhaustive scoring of
          the 123-record corpus (selection rule in
@@ -170,6 +176,8 @@ FLoRA \cite{WangFLoRA2024}                  & \checkmark & \checkmark  & $\times
 MixLoRA \cite{LiMixLoRA2024}                & \checkmark & \checkmark  & $\times$    & $\times$    & \checkmark  & $\times$    & $\times$   \\
 MiLoRA \cite{ZhangMiLoRA2024}               & \checkmark & \checkmark  & $\times$    & $\times$    & \checkmark  & $\times$    & $\times$   \\
 Gossip Learning \cite{HegeduisGossip2019}   & $\times$   & $\times$   & \checkmark  & $\times$    & $\times$    & $\times$    & \checkmark \\
+Decentralised MoE \cite{RyabininCrowdsourced2020} & $\times$ & $\times$ & \checkmark  & \checkmark  & \checkmark  & $\times$    & \checkmark \\
+Dec-LoRA \cite{Ghiasvand2025}                & \checkmark & \checkmark  & \checkmark  & $\times$    & $\times$    & (\checkmark)& \checkmark \\
 \midrule
 \textit{Requirement profile implied by RQ}                 & \checkmark & \checkmark  & \checkmark  & \checkmark  & \checkmark  & $\times^{\dagger}$    & \checkmark \\
 \bottomrule
@@ -180,9 +188,9 @@ empirical work.}
 \end{tabular}
 \end{table}
 
-The final row of Table~\ref{tab:concept_matrix}, the requirement profile implied by RQ, aggregates the dimensions addressed individually by different bodies of work. It does not represent a proposed system or architecture: this row states the conjunction the review was constructed to test, and is a restatement of the research question, not a finding. None of the 17 systems scored addresses all seven dimensions simultaneously. The combination of these requirements represents a coherent but as yet unexplored research direction, and each unaddressed dimension identifies an open question that future work in this area would need to resolve.
+The final row of Table~\ref{tab:concept_matrix}, the requirement profile implied by RQ, aggregates the dimensions addressed individually by different bodies of work. It does not represent a proposed system or architecture: this row states the conjunction the review was constructed to test, and is a restatement of the research question, not a finding. None of the 19 systems scored addresses all seven dimensions simultaneously. The combination of these requirements represents a coherent but as yet unexplored research direction, and each unaddressed dimension identifies an open question that future work in this area would need to resolve.
 
-To test whether this result depends on the 17-system selection, all 48 Tier-1 records (the corpus's highest reading-priority tier, \S\ref{sec:methodology:quality:tier1}) were scored against the same seven dimensions and published in full as Supplementary Material S3. Three records (two competing surveys and one software-framework overview, not architectural contributions in their own right) were excluded from scoring; of the remaining 45, the result is graded rather than binary: 1 system satisfies only 1 of the 7 dimensions, 32 satisfy 2, and 12 satisfy 3, with no Tier-1 system reaching 4. Across a much larger, non-curated pool, the frontier is therefore lower, not higher, than the 17-system illustration suggested: $k=3$ is the ceiling, and barely a quarter of the corpus's highest-priority records reach even that. Two clarifications on scoring. First, the marker $-$ denotes a dimension the system does not engage at all (for example, LoRA and the original adapters are single-model training methods that neither provide nor require coordination, so their ``no central coordinator'' cell is $-$ rather than \checkmark); only systems that make an explicit design commitment are marked \checkmark\ or $(\checkmark)$. Second, ``P2P topology'' and ``absence of a central coordinator'' are related but distinct commitments: the former describes how peers connect and exchange modules, the latter whether a coordinating server is required, and the two are deliberately kept separate because a system could in principle adopt a P2P topology while still depending on a central coordinator for orchestration.
+To test whether this result depends on the 19-system selection, all 48 Tier-1 records (the corpus's highest reading-priority tier, \S\ref{sec:methodology:quality:tier1}) were scored against the same seven dimensions and published in full as Supplementary Material S3. Three records (two competing surveys and one software-framework overview, not architectural contributions in their own right) were excluded from scoring; of the remaining 45, the result is graded rather than binary: 1 system satisfies only 1 of the 7 dimensions, 32 satisfy 2, and 12 satisfy 3, with no Tier-1 system reaching 4. Across a much larger, non-curated pool, the frontier is therefore lower, not higher, than the 19-system illustration suggested: $k=3$ is the ceiling, and barely a quarter of the corpus's highest-priority records reach even that. Two clarifications on scoring. First, the marker $-$ denotes a dimension the system does not engage at all (for example, LoRA and the original adapters are single-model training methods that neither provide nor require coordination, so their ``no central coordinator'' cell is $-$ rather than \checkmark); only systems that make an explicit design commitment are marked \checkmark\ or $(\checkmark)$. Second, ``P2P topology'' and ``absence of a central coordinator'' are related but distinct commitments: the former describes how peers connect and exchange modules, the latter whether a coordinating server is required, and the two are deliberately kept separate because a system could in principle adopt a P2P topology while still depending on a central coordinator for orchestration.
 
 \subsection{Four-Quadrant Gap Classification}
 \label{sec:synthesis_gap:gaps}
@@ -231,6 +239,14 @@ Three algorithmic gaps follow from the missing discovery dimension in Table~\ref
     defines the first open algorithmic question: can DHT-based infrastructure,
     proven at scale in systems such as Kademlia \cite{MaymounkovKademlia2002},
     support adapter discovery at the capability level rather than the identifier level?
+    Ryabinin and Gusev's decentralised Mixture-of-Experts~\cite{RyabininCrowdsourced2020}
+    (Table~\ref{tab:concept_matrix}) is the closest existing system to this question:
+    its DHT resolves already-known expert identifiers to network addresses, while a
+    separately, jointly-trained gating network, operating over a fixed set of experts
+    known at training time, decides which expert is relevant to a given input. This is
+    identifier-level lookup, not capability-level discovery of previously unknown
+    adapters, so the gap above survives this counterexample rather than being closed
+    by it.
     DHT-based lookup is foregrounded here because of its demonstrated scale and
     bounded $O(\log N)$ lookup cost, but it is one candidate mechanism among
     several: gossip-based propagation, federated indexing of registries,

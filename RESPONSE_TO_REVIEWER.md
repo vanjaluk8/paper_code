@@ -26,7 +26,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | Blocking 1 (Undermind reproducibility) | needs author | disclosed as a limitation pre-revision; not re-addressed here | |
 | Blocking 2 (173 DEFER, no assessment) | done | `sections/03_methodology.tex` §3.1 — author inspected and dropped all 173 (each a duplicate or small increment on an already-retained system); grouped Item 16b reason given, backed by `verify/blocking2_defer_categorization.py`'s topical breakdown (63 single-model PEFT variants, 32 MoE-routing, 30 multi-tenant serving, 25 federated PEFT, 23 P2P/decentralised) | |
 | Blocking 3 (extend concept matrix) | done | `sections/09_synthesis_gap.tex` §9.3; all 48 Tier-1 records scored (45 scored, 3 excluded as surveys/framework), published as `supplementary/S3_tier1_concept_matrix.csv`; k=1..7 distribution reported (k=3 ceiling, reached by 12/45) | |
-| Blocking 4 (add Dec-LoRA/MoE rows) | needs author | `OPEN_QUESTIONS.md` S-2 | |
+| Blocking 4 (add Dec-LoRA/MoE rows) | done | `sections/09_synthesis_gap.tex` Table 10 — both added, k=4 each (tied highest in the matrix); §9.4's discovery-gap paragraph now defends the identifier-vs-capability distinction against Ryabinin's mechanism directly, using the primary-source quotes already verified in `OPEN_QUESTIONS.md` S-2 | |
 | Blocking 5 (appraisal instrument) | needs author | `OPEN_QUESTIONS.md` Blocking 5; scaffold at `verify/blocking5_appraisal_scoring_template.csv` | |
 | Blocking 6 (E-1, Zadouri O(log N)) | done | `sections/07_moe_routing.tex`, `sections/09_synthesis_gap.tex` §SQ4 — fabricated paragraph and its dependent bridge claim both fully removed already; tracker status was stale, corrected this pass | |
 | Blocking 7 (E-2, Zeng/Aghajanyan) | done | `sections/04_peft.tex` §4.1 — `OPEN_QUESTIONS.md` E-2, now FIXED | |
@@ -100,7 +100,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | Item | Status | Where to look | Response |
 |---|---|---|---|
 | S-1 | done | see Blocking 3 above | |
-| S-2 | needs author | `OPEN_QUESTIONS.md` S-2 — Ryabinin DHT mechanism checked (identifier-level only); Dec-LoRA no PDF available | |
+| S-2 | done | see Blocking 4 above; Dec-LoRA's row is scored from the manuscript's own already-verified prose description (no PDF available for a fresh primary-source read, disclosed as such in `OPEN_QUESTIONS.md`) | |
 | S-3 | needs author | `OPEN_QUESTIONS.md` S-3 — 12 distinct profiles (not ~8), 4-way tie found (not 3-way) | |
 | S-4 | done | `sections/09_synthesis_gap.tex` — renamed "Requirement profile implied by RQ" | |
 | S-5 | needs author | not addressed — a figure/table design decision | |

@@ -546,7 +546,7 @@ coordinator-free). Author confirmed the correction; Table 10 now reads
 `×` for that cell, and the dimension-provenance scaffold's "4/17" count
 for this dimension (Major 21) was corrected to "3/17" to match.
 
-### S-2: Table 10 omits decentralised MoE [63] (Ryabinin) and Dec-LoRA [36] (Ghiasvand)
+### S-2: Table 10 omits decentralised MoE [63] (Ryabinin) and Dec-LoRA [36] (Ghiasvand) — **FIXED**
 - **Manuscript location:** `tab:concept_matrix` (`sections/09_synthesis_gap.tex`),
   and the "first algorithmic gap" statement (§9.4): "can DHT-based
   infrastructure, proven at scale in systems such as Kademlia, support
@@ -581,17 +581,22 @@ for this dimension (Major 21) was corrected to "3/17" to match.
   manuscript's own phrase "capability level rather than the identifier
   level" appears to already precisely anticipate and correctly scope around
   this distinction, rather than being falsified by it.
-- **Question for the author:** given this reading, do you agree the gap
-  statement's existing "identifier level" framing already accounts for
-  Ryabinin's mechanism, or do you read the evidence differently? Either way,
-  the review's specific ask — score [63] and Dec-LoRA as Table 10 rows — is
-  independent of this question and can proceed once you decide the ✓/✗/−
-  values per dimension (Dec-LoRA's values cannot be verified here for lack
-  of a PDF).
-- **Minimal edit:** add both as scored rows (mechanical once you decide
-  values); revise the §9.4 gap sentence only if you conclude the existing
-  phrasing needs sharpening in light of this evidence (new prose, yours to
-  write).
+- **Applied:** both added as scored rows in Table 10 (now 19 systems, up
+  from 17; every "17" count reference across the manuscript updated to 19).
+  - **Decentralised MoE (Ryabinin)** — × × ✓ ✓ ✓ × ✓ (k=4, tied with
+    Petals/MT-EF for the highest in the matrix). Discovery scored ✓ rather
+    than partial for consistency with how Petals' own identifier-level DHT
+    is already scored ✓ in this table; the identifier-vs-capability
+    distinction is instead defended in prose (§9.4's discovery-gap
+    paragraph), using the verified quotes above, directly following the
+    review's instruction to "say so" if the gap is narrower than claimed
+    or "defend the distinction" if not.
+  - **Dec-LoRA (Ghiasvand)** — ✓ ✓ ✓ × × (✓) ✓ (k=4). Scored from the
+    manuscript's own already-verified description (decentralised
+    co-training of one shared adapter via gossip-averaged updates on
+    private data) since no PDF was available for a fresh primary-source
+    read — disclosed as such, not presented as independently re-verified.
+  - Author confirmed both score sets before they were applied.
 
 ### S-3: Redundant matrix rows collapse the effective sample size
 - **Evidence (verified programmatically by parsing the concept-matrix table
