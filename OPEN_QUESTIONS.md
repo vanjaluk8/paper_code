@@ -731,26 +731,44 @@ changed to "up to 99% SLO attainment," matching the paper's own wording.
   requires you to decide the criterion wording and rationale column, which
   is a presentation/scoping choice, not a data-extraction one.
 
-### Major 19: Top-up search to the submission month
-- **Ready to run:** `verify/major19_scopus_wos_topup_queries.md` — all 20
-  Boolean queries from Appendix C, verbatim except the year bound updated to
-  cover the gap (2026-05-13 to submission), plus guidance on closing the
-  month-precision gap Scopus/WoS's raw query syntax can't express (their UI
-  date-range refiners can). Requires Scopus/WoS access this environment
-  doesn't have — could not be run directly.
-- **Partial substitute actually run:** `verify/major19_topup_arxiv_search.py`
-  — 6 thematic queries approximating the same intent, run against arXiv
-  (free) for the same date window. 481 raw candidates, filtered to 27 by
-  requiring PEFT/adapter terminology to co-occur with a P2P/federated/MoE/
-  serving term in the title (same precision as the manuscript's own Layer-2
-  screening). Result in `verify/major19_topup_arxiv_candidates.csv`: a
-  cluster of 9 candidates specifically on federated or decentralised LoRA,
-  all published in the gap window, plus 8 more on MoE-LoRA routing. None are
-  in the existing corpus. This is a real signal, not a replacement for the
-  Scopus/WoS pass -- but its volume suggests that pass is likely to find
-  something rather than come back empty.
-- **Not done:** running the actual Scopus/WoS queries (needs paid access),
-  or screening/judging any candidate found by either search.
+### Major 19: Top-up search to the submission month — SEARCH DONE, screening still open
+- **All three sources now run.** `verify/major19_scopus_wos_topup_queries.md`
+  gave the ready-to-paste Boolean queries (Appendix C's 20, year bound moved
+  to the gap window); the author ran all 10 Scopus + all 10 WoS queries live
+  via each platform's web Advanced Search (no API access needed or used).
+  A parallel free-tier arXiv search was also run as an independent third
+  source (this environment has no Scopus/WoS API access, so arXiv was the
+  only source directly runnable here).
+- **Scopus** (`verify/major19_scopus_trim_and_merge.py`): 9,516 raw rows
+  (10 queries) → 8,724 unique after dedup (by EID/DOI/title) → 41 pass the
+  title-level PEFT+scope filter → 40 new (1, "Symbiosis: Multi-Adapter
+  Inference and Fine-Tuning," already in the 123-record corpus — correct
+  hit, not new). Raw exports were 114MB; trimmed to 2.9MB (dropped
+  Abstract/References/Funding-Details/etc., kept everything needed for
+  citation and screening).
+- **WoS** (`verify/major19_wos_trim_and_merge.py`): 5,316 raw rows (Q3 split
+  into Q3/Q3b/Q3c by the author due to WoS's 1000-row per-export cap,
+  treated as one query) → 4,983 unique after dedup (by UT, WoS's accession
+  number) → 43 pass the filter → 43 new (0 already in the corpus).
+- **arXiv** (`verify/major19_topup_arxiv_search.py`, 6 thematic queries):
+  481 raw → 27 shortlisted, 0 already in the corpus.
+- **Cross-source consolidation** (`verify/major19_consolidate_all_sources.py`,
+  output `verify/major19_topup_all_sources_consolidated.csv`): **93 distinct
+  new titles** across all three sources. 17 were found independently by
+  *both* Scopus and WoS — a stronger signal than a single-source hit —
+  including FedALT, FedFA, PrivLoRA, pFedLoRA, DyMerge-LoRA, AdaFuse,
+  CLARE, MeLoRA. Zero cross-source agreement with arXiv (expected: it
+  indexes an almost entirely disjoint preprint set vs. Scopus/WoS's
+  peer-reviewed venues). One WoS-only title stands out on relevance grounds:
+  **"DeCAF: Decentralized consensus-and-factorization for low-rank
+  adaptation of foundation models"** (Neural Networks) — close enough to
+  the review's own core P2P/decentralised-LoRA subject that it may bear
+  directly on the gap claims, the same way Ryabinin's paper did in S-2.
+- **Not done, and explicitly not attempted:** screening any of the 93
+  candidates against the eligibility criteria (Table A2), or judging
+  whether any bears on the eight open gaps in §9.4 — those are scientific
+  judgements reserved for the author, not something to infer from a title
+  or a multi-source hit count.
 
 ### Major 21: Systematic citation-verification pass (DOI resolution)
 - **Network-verified all 128 DOI'd references** (of 135 total; 7 have no DOI

@@ -46,7 +46,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | Major 16 / N-1 (survey sets) | done | `sections/01_introduction.tex`, `sections/03_methodology.tex` Table 4 — consolidated, Ye/Wink recharacterised | |
 | Major 17 (inclusion-rule / I-E table) | done (table) / needs author (rule-tightening decision) | `sections/12_appendix.tex` Table A2 (Appendix A.3) | |
 | Major 18 (E-3–E-8 verify/correct) | needs author | `OPEN_QUESTIONS.md` E-3, E-4, E-5, E-6, E-8 — all resolved with verdicts | |
-| Major 19 (top-up search) | done (arXiv partial) / needs author (Scopus/WoS pass) | `verify/major19_scopus_wos_topup_queries.md` (ready to run), `verify/major19_topup_arxiv_candidates.csv` (27 shortlisted, 9 on federated/decentralised LoRA) | |
+| Major 19 (top-up search) | done (search) / needs author (screening) | `verify/major19_topup_all_sources_consolidated.csv` — 93 new candidates across arXiv+Scopus+WoS, 17 confirmed by 2 independent sources; screening against Table A2 not yet done | |
 | Major 20 (citation-verification pass) | done (DOI pass) / needs author (full pass) | `OPEN_QUESTIONS.md` Major 21 — 125/128 DOIs resolve, 3 fixed | |
 | Major 21 (§9.3 dimension provenance) | needs author | not addressed — requires new synthesis prose | |
 
