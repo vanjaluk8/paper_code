@@ -1,0 +1,14 @@
+Computed directly from the 123-record final reading list:
+  ACL + EMNLP combined: 12 + 13 = 25
+  arXiv (all spellings): 11
+  ICLR: 8
+  ICML + MLSys combined: 6 + 3 = 9
+  NeurIPS: 5
+
+These exactly match the bars rendered in figures/fig_slr5_venues.pdf
+(verified by visual inspection) and its embedded pie chart's
+'123 total' label -- confirming the figure plots the 123-record
+final corpus, not the 464-record enriched pool the old caption
+claimed. The old caption's own per-venue numbers (arXiv 9, NeurIPS
+8, ICML/MLSys 7) also did not match the rendered bars under either
+population reading.
