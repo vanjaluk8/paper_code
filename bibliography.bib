@@ -8,10 +8,13 @@
 %  DOI convention: where a paper has an arXiv preprint, cite the arXiv DOI
 %  (10.48550/arXiv.XXXX.XXXXX) even if a peer-reviewed venue is also named
 %  in booktitle/journal -- the arXiv DOI is always resolvable, whereas many
-%  ICML/ICLR/NeurIPS/AISTATS proceedings papers have no individually
+%  ICML/ICLR/NeurIPS/AISTATS/JMLR proceedings papers have no individually
 %  registered DOI at all. Use a publisher/proceedings DOI instead only when
-%  one is confirmed to exist for that specific paper (e.g. Ostapenko2024,
-%  Fedus2022 / Switch Transformers).
+%  one is independently confirmed to resolve via doi.org or Crossref for
+%  that specific paper -- do not assume a plausible-looking 10.5555/...
+%  identifier is real without checking (two such DOIs, for Ostapenko2024
+%  and Fedus2022/Switch Transformers, were found to 404 on doi.org and have
+%  no Crossref record; both were corrected to their arXiv DOIs, 2026-09-12).
 % =============================================================================
 
 % =============================================================================
@@ -389,7 +392,7 @@ journal   = {Front. Comput. Sci.},
   title     = {Towards Modular {LLMs} by Building and Reusing a Library of {LoRA}s},
   booktitle = {International Conference on Machine Learning (ICML)},
   year      = {2024},
-  doi       = {10.5555/3692070.3693646}
+  doi       = {10.48550/arXiv.2405.11157}
 }
 
 
@@ -1032,7 +1035,7 @@ journal   = {J. Mach. Learn. Res.},
   number    = {120},
   pages     = {1--39},
   year      = {2022},
-  doi       = {10.5555/3648699.3648751},
+  doi       = {10.48550/arXiv.2101.03961},
   url       = {https://jmlr.org/papers/v23/21-0998.html}
 }
 
