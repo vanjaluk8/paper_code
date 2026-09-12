@@ -172,6 +172,14 @@ sensitive requests while offloading full-model computation to cloud servers for
 accuracy-critical queries. Zhang et al.~\cite{ZhangEdgeShard2025} extended edge deployment to
 pipeline-parallel sharding: the transformer layers are distributed across a chain of
 edge devices, each holding a subset of layers and their associated adapters.
+Wang et al.~\cite{WangTailorLLM2026} (post-review top-up find,
+\S\ref{sec:methodology:search}) proposed TailorLLM, an end--cloud collaborative
+system distinguished by two mechanisms neither prior system uses: a
+cold/hot-module decomposition of the pre-trained parameters that cuts
+adapter-transmission overhead, and an imitation-learning-based manager that
+decides which LoRA modules a device keeps resident, rather than a fixed or
+LRU policy. Reported reductions are up to 69.8\% cloud-resource consumption
+and 62\% inference latency against their baselines.
 
 \subsection{Distributed and Collaborative Inference}
 \label{sec:inference_systems:distributed}
@@ -203,6 +211,13 @@ eliminates straggler effects in multi-LoRA batched inference by decoupling the p
 and decode phases and routing them to separate GPU resources. Shi et al.~\cite{Shi2025AuLoRA}
 proposed AuLoRA, which extends unified paging to fine-grained layer-level adapter
 loading, enabling sub-adapter granularity in memory management.
+Xu et al.~\cite{XuDyMergeLoRA2026} (post-review top-up find,
+\S\ref{sec:methodology:search}) proposed DyMerge-LoRA, which targets a case
+none of Table~\ref{tab:serving_comparison}'s four systems address: requests
+composed of \emph{multiple} LoRA adapters rather than a one-to-one
+request-adapter mapping. It dynamically fuses the requested adapters
+on-GPU via a dedicated matrix-fusion kernel, reporting up to $4\times$
+throughput over prior multi-tenant methods on composite-adapter workloads.
 
 Across these systems, a consistent architectural pattern emerges: the adapter weight is
 treated as the atom of resource management, and system optimisations operate at the

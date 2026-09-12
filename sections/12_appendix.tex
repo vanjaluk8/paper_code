@@ -938,6 +938,67 @@ AdapterHub~\cite{Pfeiffer2020hub}, HuggingFace adapters; DHT for agents ---
 \end{tabular}
 \end{table}
 
+% -----------------------------------------------------------------------
+\subsection*{C.5 Post-Review Top-Up Search (2026-09-12)}
+\label{app:db_queries:topup}
+
+In response to peer review, a supplementary search checked for literature
+published after the primary search's cutoff (\S\ref{sec:methodology:search}).
+It reused the same twenty Scopus/WoS queries of \S\S~C.1--C.2 verbatim, with
+only the year bound advanced to admit the gap window (Scopus:
+\texttt{PUBYEAR > 2025}; WoS: \texttt{PY >= 2026}), plus six new thematic
+queries run against arXiv for the same window (2026-05-13 to 2026-09-12) ---
+arXiv's query syntax is not compatible with Scopus/WoS's Boolean strings, and
+served as the only source directly reachable from the environment that ran
+this stage.
+
+\paragraph{arXiv queries (all \texttt{abs:} field searches).}
+\begin{enumerate}\setlength{\itemsep}{1pt}
+\item (adapter OR LoRA OR ``low-rank adaptation'') AND
+      (``parameter-efficient'' OR PEFT) AND (NLP OR ``language model'' OR
+      transformer)
+\item (adapter OR LoRA OR ``parameter-efficient fine-tuning'') AND
+      (``multi-task'' OR multitask OR ``multi-adapter'') AND (inference OR
+      serving OR deployment)
+\item (``peer-to-peer'' OR P2P OR decentralized OR decentralised OR
+      federated) AND (learning OR training OR inference) AND (``language
+      model'' OR NLP OR ``deep learning'')
+\item (adapter OR adapters) AND (fusion OR routing OR ``mixture-of-experts''
+      OR MoE OR gating)
+\item (modular OR modularity) AND (inference) AND (adapter OR
+      ``task-specific'' OR ``lightweight modules'')
+\item (``frozen'' AND (backbone OR ``base model'')) AND (adapter OR
+      ``parameter-efficient'')
+\end{enumerate}
+
+\paragraph{Screening and results.} Scopus returned 9,516 raw records
+(8,724 unique after dedup by EID/DOI/title), WoS 5,316 raw (4,983 unique
+after dedup by UT accession number), and arXiv 481 raw. The same
+title-level PEFT+scope filter used at Layer~2 (\S~A.4) reduced these to 40,
+43, and 27 new candidates respectively (one Scopus hit and zero WoS/arXiv
+hits duplicated the existing 123-record corpus). Cross-source
+consolidation gave \textbf{93} distinct candidates, 17 of them found
+independently by both Scopus and WoS. An abstract-level screen at the same
+depth as Layer-2's own topical-relevance read retained \textbf{65}; all 28
+drops shared one pattern --- a title matching the keyword filter but an
+application domain outside the review's three themes (medical imaging,
+industrial/IoT, vision-only, telecom, bioinformatics, robotics). Author
+eligibility review of the 65 against Table~\ref{tab:inclusion_exclusion}'s
+criteria (I4 applied strictly: peer-reviewed venue required, since no
+citation-count check was performed on the arXiv-only survivors) retained
+\textbf{four}: DyMerge-LoRA~\cite{XuDyMergeLoRA2026},
+AdaFuse~\cite{LiAdaFuse2026}, TailorLLM~\cite{WangTailorLLM2026}, and
+DeCAF~\cite{SaadatiDeCAF2026}, cited in
+Sections~\ref{sec:inference_systems}, \ref{sec:moe_routing}, and
+\ref{sec:p2p_federated} respectively (\S\ref{sec:methodology:search}). None
+of the four was put through Wohlin snowballing, quality appraisal, or
+discovery-route classification; they are discussed narratively only and
+excluded from the 123-record corpus and every statistic derived from it.
+Full per-candidate records (all 93, with screening rationale, eligibility
+decision, and the author's Keep/Skip call) are archived in
+\texttt{verify/major19\_eligibility\_decisions.csv} in the repository (Data
+Availability statement).
+
 % =============================================================================
 %  Appendix C — Search Execution Log
 % =============================================================================
@@ -952,6 +1013,11 @@ is to allow full reproduction or audit of the PRISMA flow by the reader or super
 The audited final deliverables referenced below are version-controlled in the
 \texttt{mdpi\_paper\_slr} repository (the curated corpus and per-record pipeline
 artefacts); see the Data Availability statement for further repository access.
+The final three rows (2026-09-12) record a post-review top-up search rather
+than a stage of the original PRISMA flow: they are logged here for audit
+completeness but their four retained citations are not added to the
+123-record corpus, and the PRISMA diagram (Figure~\ref{fig:prisma}) is
+unchanged (\S\ref{sec:methodology:search}).
 
 % -----------------------------------------------------------------------
 \subsection*{D.1 — Search Timeline}
@@ -1021,6 +1087,19 @@ $\approx$2026-04-28 & Abstract-level review, pass 1 (on the 464 corpus; AI-assis
   GitHub, and web, no venue filter (\S~C.4) &
   8 queries & 0 matching artefacts; near-misses catalogued
   (Table~\ref{tab:adversarial_search}) \\
+2026-09-12  & Post-review top-up search: 20 reused Scopus/WoS queries
+  (year bound advanced) $+$ 6 new arXiv queries; cross-source dedup and
+  title-level filter (\S~C.5) &
+  9\,516 (Scopus) $+$ 5\,316 (WoS) $+$ 481 (arXiv) raw &
+  93 distinct new candidates after dedup and filtering \\
+2026-09-12  & Top-up abstract-level screen (same depth as \S~A.4) &
+  93 & 65 KEEP, 28 DROP (off-domain) \\
+2026-09-12  & Top-up author eligibility review against
+  Table~\ref{tab:inclusion_exclusion} (I4 applied strictly) &
+  65 & 4 retained (DyMerge-LoRA~\cite{XuDyMergeLoRA2026},
+  AdaFuse~\cite{LiAdaFuse2026}, TailorLLM~\cite{WangTailorLLM2026},
+  DeCAF~\cite{SaadatiDeCAF2026}); \emph{not} added to the 123-record
+  corpus (\S\ref{sec:methodology:search}) \\
 \bottomrule
 \multicolumn{4}{@{}p{\textwidth}@{}}{\footnotesize\textsuperscript{a}~Undermind
   returns a relevance-ranked candidate list, not an exhaustive hit count; the
@@ -1135,3 +1214,20 @@ Section~\ref{sec:conclusion:threats} for the related 11-record venue-status
 count.) A further \textbf{4 records} have no source annotation,
 reflecting papers added from curated references whose primary retrieval provenance was
 not logged in the pipeline output files.
+
+% -----------------------------------------------------------------------
+\subsection*{D.7 — Post-Review Top-Up Search Detail}
+\label{app:search_log:topup}
+
+Full query strings, screening rule, and per-stage counts for the
+2026-09-12 post-review top-up search are given in
+Appendix~\ref{app:db_queries:topup}, \S~C.5; the corresponding rows of
+Table~\ref{tab:search_log} above summarise the same activity. Unlike
+D.1--D.6, this stage post-dates the 123-record corpus's final curation
+(2026-05-12) and its four retained citations are not part of that corpus:
+they were not put through Wohlin snowballing, DOI-based venue validation, or
+quality appraisal, and no pipeline CSV/JSON file was modified. The
+per-candidate audit trail for all 93 screened records is
+\texttt{verify/major19\_eligibility\_decisions.csv} in the repository
+(Data Availability statement), not the version-controlled pipeline files
+referenced in D.1--D.6.

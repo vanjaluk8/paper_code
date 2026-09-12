@@ -57,7 +57,14 @@ inference framework for MoE models on heterogeneous hardware, addressing the eng
 challenges of all-to-all communication required for expert dispatch across multiple GPUs.
 DeepSpeed-MoE demonstrated that MoE inference latency is dominated by expert dispatch
 communication, not computation, and proposed hierarchical expert placement strategies
-to minimise cross-node communication.
+to minimise cross-node communication. Li et al.~\cite{LiAdaFuse2026} (post-review
+top-up find, \S\ref{sec:methodology:search}) located an analogous bottleneck one
+level down, in single-node MoE-style adapter routing: per-layer dynamic
+LoRA-adapter selection fragments execution into many small sequential CUDA
+kernel launches, more than doubling decoding latency despite negligible added
+compute. Their system, AdaFuse, makes one routing decision per token covering
+all adapter layers, then fuses the selected adapters into the backbone with a
+single kernel launch, recovering most of the lost throughput.
 
 \subsection{Towards Distributed and Crowdsourced MoE}
 \label{sec:moe_routing:distributed}

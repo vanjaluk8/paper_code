@@ -827,14 +827,46 @@ changed to "up to 99% SLO attainment," matching the paper's own wording.
   - Parameter-Efficient Large Model Transfer, Cloud-Edge Collaborative
     Inference (Scopus) — Pillar 3
   - TailorLLM (Scopus) — end-cloud LoRA serving, Pillar 3
-- **Still not done, and explicitly not attempted:** full-text read, quality
-  appraisal, corpus integration (deciding where each of the 10 slots into
-  the manuscript's tables/figures/count of 123), or a judgement on which
-  bear on the eight open gaps in §9.4 beyond the DeCAF observation above —
-  those remain scientific judgements reserved for the author. If any of the
-  10 arXiv-adjacent "review" candidates later gets a citation-count check
-  and clears I4, they are not lost — `verify/major19_eligibility_decisions.csv`
-  keeps the full 65-row record with Claude's original suggestion for each.
+- **Manuscript integration now done, abstract-level only — no full-text read.**
+  Author instinct on reviewing the 10 was correct: most are incremental
+  instances of a pattern the manuscript already documents from its own
+  corpus. Reading all 10 abstracts against the specific subsections that
+  already cover their topic gave a redundant/non-redundant split:
+  - **Redundant (6), logged here, not cited in the manuscript:** FedALT
+    (same category as `ZhaoFedMCP2024`'s model-contrastive personalisation),
+    PrivLoRA (same category as `LiuDP2023`'s DP federated adapters, adds HE
+    on top — not a new mechanism this review discusses), pFedLoRA (same
+    category as the already-cited `Liu2024`/`Koo2025` heterogeneity work),
+    Automated Federated Pipeline/FedPipe (same category as
+    `Wang(Globecom2024)`'s adaptive-quantisation federated LoRA),
+    Multi-Adapter LLMs: Dynamic Mixture of LoRAs (generic abstract, no named
+    mechanism beyond "mixture of LoRAs", already covered at length by the
+    adapter-composition/MoE-LoRA literature in §5/§7), Parameter-Efficient
+    Large Model Transfer/Cloud-Edge (same category as `Cai(EdgeLLM2024)`,
+    weaker evidence — BERT-scale classification, not LLM-scale).
+  - **Non-redundant (4), added to the manuscript as narrative citations**
+    (`sections/03_methodology.tex` §3.1 "Post-review top-up search"; cited
+    in §6/§7/§8; bibliography entries added with network-verified DOIs;
+    documented in Appendix C.5/D.7): DyMerge-LoRA (composite multi-adapter
+    serving — an axis none of Table 9's four systems address, by the
+    manuscript's own account), AdaFuse (a specific fused-kernel fix for
+    MoE-adapter routing latency, more precise than §7's general
+    DeepSpeed-MoE dispatch-latency discussion), TailorLLM (a named
+    imitation-learning adapter-library manager, distinct from the already-
+    cited `Cai2024`/`ZhangEdgeShard2025` mechanisms), and DeCAF (a second,
+    independent decentralised-LoRA convergence-theory result alongside the
+    already-cited `Ghiasvand2025`/Dec-LoRA — corroborates rather than closes
+    the §9.4 P2P gap, since both address co-training one shared adapter,
+    not the task-differentiated-adapter-exchange gap this review identifies).
+  - **Deliberately not done:** none of the four was put through Wohlin
+    snowballing, quality appraisal, or discovery-route classification, and
+    none was merged into the 123-record corpus, the PRISMA flow diagram, or
+    any corpus-derived statistic (Table~4/5, the concept matrix, the
+    Boolean-recall check) — precedent is the manuscript's own existing
+    "related reviews" search (§3.1), whose 7 finds are cited but likewise
+    excluded from the corpus. Full-text reading of the 4 was also not
+    done (abstract-only, per author instruction); if a full-text read later
+    surfaces something the abstract didn't, revisit.
 
 ### Major 21: Systematic citation-verification pass (DOI resolution)
 - **Network-verified all 128 DOI'd references** (of 135 total; 7 have no DOI

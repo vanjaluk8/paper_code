@@ -286,3 +286,47 @@ No manuscript edits (data/verify work only).
 - Full-text read, quality appraisal, and integration of the 10 into the
   manuscript's tables/figures/123-record count remain author work, not
   attempted here.
+
+---
+
+## Major #19 — top-up search: manuscript integration (abstract-level only)
+
+- Author reviewed the 10 kept candidates' abstracts against the specific
+  manuscript subsections already covering their topic (no full-text reads)
+  and found 6 of the 10 redundant with citations already in the corpus
+  (FedALT, PrivLoRA, pFedLoRA, Automated Federated Pipeline, Multi-Adapter
+  LLMs, Parameter-Efficient Large Model Transfer/Cloud-Edge) — logged in
+  `OPEN_QUESTIONS.md`, not cited.
+- The remaining 4 (DyMerge-LoRA, AdaFuse, TailorLLM, DeCAF) say something
+  the corpus doesn't already: added as narrative citations only, following
+  the manuscript's own existing precedent for non-corpus citations (the
+  "related reviews" search, §3.1).
+  - `bibliography.bib`: 4 new entries, all DOIs network-verified against
+    Crossref/doi.org before adding (author names given as initials only,
+    matching what Scopus/WoS/arXiv metadata actually provide — no invented
+    given names).
+  - `sections/03_methodology.tex` §3.1: new "Post-review top-up search"
+    paragraph documenting the search, screening, and eligibility numbers,
+    and stating explicitly that the 4 are excluded from the 123-record
+    corpus, the PRISMA flow diagram, and every corpus-derived statistic.
+  - `sections/06_inference_systems.tex`: DyMerge-LoRA cited in "Advanced
+    Multi-Adapter Orchestration" (composite multi-adapter serving, an axis
+    Table 9's four systems don't address); TailorLLM cited alongside
+    `Cai2024`/`ZhangEdgeShard2025` (distinct on-device adapter-library
+    manager mechanism).
+  - `sections/07_moe_routing.tex`: AdaFuse cited after the DeepSpeed-MoE
+    paragraph (a specific fused-kernel fix for MoE-adapter routing latency).
+  - `sections/08_p2p_federated.tex`: DeCAF cited alongside the already-cited
+    `Ghiasvand2025`/Dec-LoRA — a second decentralised-LoRA convergence-theory
+    result that corroborates, not closes, the §9.4 P2P gap.
+  - `sections/12_appendix.tex`: new Appendix C.5 (query strings, screening,
+    and results) and D.7 (pointer + corpus-exclusion note); `Table~\ref{tab:search_log}`
+    gets 3 new rows (search, abstract screen, eligibility review) for
+    2026-09-12.
+- **PRISMA flow diagram and every corpus-count-dependent table/statistic
+  are unchanged** — this was a deliberate scope decision (author-confirmed),
+  not an oversight: retroactively editing the audited original search's
+  flow would misrepresent its chronology, and the 4 additions did not go
+  through the same snowballing/appraisal process as the 123-record corpus.
+- Build verified: `main.tex` compiles cleanly (80 pages, no undefined
+  references) after all edits.
