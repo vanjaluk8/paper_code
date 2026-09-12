@@ -21,20 +21,9 @@ small, structured subset of parameters while keeping the pre-trained backbone fr
 catalogue over thirty PEFT methods proposed between 2019 and 2024, and Mao et al.~\cite{MaoLoraSurvey2024}
 systematically analyses the convergence and expressive properties of the low-rank
 adaptation family.
-% TODO-AUTHOR [E-2]: the following sentence attributed the lower-dimensional-subspace
-% observation to Zeng et al. (ZengExpressive2024), but that paper is about LoRA's
-% representational/expressive capacity (whether a rank-r adapter can exactly represent
-% a target model), not the empirical intrinsic-dimensionality claim below -- confirmed
-% by reading the paper's own abstract, which states its scope explicitly excludes
-% optimisation. The reviewer's suggested correct source is Aghajanyan et al. 2021
-% ("Intrinsic Dimensionality Explains the Effectiveness of Language Model Fine-Tuning",
-% ACL 2021), which is absent from bibliography.bib and this corpus -- not added here
-% per the rule against introducing citations from the agent's own literature knowledge.
-% If you confirm Aghajanyan et al. 2021 is the intended source, add it to
-% bibliography.bib and restore a \cite{} here.
 The common thread is that task-specific adaptation appears to require updates that lie
 in a substantially lower-dimensional
-subspace than the full weight manifold; PEFT methods exploit this structure to achieve
+subspace than the full weight manifold~\cite{Aghajanyan2021Intrinsic}; PEFT methods exploit this structure to achieve
 near-parity with full fine-tuning at a fraction of the parameter cost.
 
 When this low-dimensionality property is combined with the frozen-backbone constraint,
@@ -132,20 +121,6 @@ RoBERTa/DeBERTa-scale models, and separately matches full fine-tuning on
 generation benchmarks (WikiSQL, MultiNLI, SAMSum) at GPT-3-175B scale
 \cite{Hu2022}, at a parameter overhead of
 approximately 0.01\% of the original model weight count.
-
-% TODO-AUTHOR [E-2]: this paragraph attributed a gradient-manifold/intrinsic-dimensionality
-% result to Zeng et al. (ZengExpressive2024) and called it "established earlier" than LoRA --
-% chronologically impossible on its face, since that paper is from 2024 and cites LoRA
-% (2021/2022) as prior work it builds on. Confirmed by reading the paper directly: its
-% actual subject is LoRA's expressive/representational capacity (a rank threshold for
-% exact representability of a target model), and it explicitly states "This excludes
-% other aspects such as optimization" -- it contains no gradient-manifold claim at all.
-% Zeng et al.~\cite{ZengExpressive2024} is a genuine, later theoretical result about
-% LoRA's expressive power and may still be worth citing accurately elsewhere in this
-% section; it does not support the claim that was here. The reviewer's suggested
-% correct source for the deleted claim is Aghajanyan et al. 2021, absent from
-% bibliography.bib -- not added here per the rule against introducing citations from
-% the agent's own literature knowledge.
 
 Two structural properties of LoRA are worth noting beyond the accuracy numbers. The merged
 representation $W' = W_0 + BA$ means that an adapted model is computationally identical to

@@ -29,7 +29,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | Blocking 4 (add Dec-LoRA/MoE rows) | needs author | `OPEN_QUESTIONS.md` S-2 | |
 | Blocking 5 (appraisal instrument) | needs author | `OPEN_QUESTIONS.md` Blocking 5; scaffold at `verify/blocking5_appraisal_scoring_template.csv` | |
 | Blocking 6 (E-1, Zadouri O(log N)) | needs author | `OPEN_QUESTIONS.md` E-1 — CONTRADICTED | |
-| Blocking 7 (E-2, Zeng/Aghajanyan) | needs author | `OPEN_QUESTIONS.md` E-2 — CONTRADICTED | |
+| Blocking 7 (E-2, Zeng/Aghajanyan) | done | `sections/04_peft.tex` §4.1 — `OPEN_QUESTIONS.md` E-2, now FIXED | |
 | Blocking 8 (Figure A3) | done | `sections/12_appendix.tex` (WP-11) | |
 | Blocking 9 (Supplementary S1/S2) | done | files exist in `supplementary/`; confirm attached at submission | |
 
@@ -80,11 +80,11 @@ Prose response cells are intentionally left blank — the author writes these.
 | Item | Status | Where to look | Response |
 |---|---|---|---|
 | E-1 | done | `sections/07_moe_routing.tex` — fabricated paragraph removed | |
-| E-2 | done (partial — TODO-AUTHOR marker for the replacement citation) | `sections/04_peft.tex` §4.1, §4.3 | |
+| E-2 | done | `sections/04_peft.tex` §4.1 (cites `Aghajanyan2021Intrinsic`, author-confirmed and network-verified) | |
 | E-3 | needs author | `OPEN_QUESTIONS.md` E-3 — CONTRADICTED, swap indicated (evidence: arXiv abstracts only) | |
 | E-4 | done | `sections/07_moe_routing.tex` §7.3, §7.4 — both claims corrected/removed | |
 | E-5 | done | `sections/03_methodology.tex` Table 7, MAD-X row | |
-| E-6 | done (partial — TODO-AUTHOR marker for the replacement citation) | `sections/02_background.tex` §2.3, `sections/09_synthesis_gap.tex` §9.4 | |
+| E-6 | done | `sections/02_background.tex` §2.3, `sections/09_synthesis_gap.tex` §9.4 (both cite `KarpRumor2000`, author-confirmed and network-verified) | |
 | E-7 | done | `sections/08_p2p_federated.tex` §8.2, `sections/03_methodology.tex` Table 7 | |
 | E-8 | done | `sections/06_inference_systems.tex` §6.2 | |
 | E-9 | done | `sections/07_moe_routing.tex` | |
@@ -114,7 +114,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | Item | Status | Where to look | Response |
 |---|---|---|---|
 | C-1 | done | see WP-1 above | |
-| C-2 | done | see WP-3 above | |
+| C-2 | done | see WP-3 above; IA$^3$ citation (`LiuIA3_2022`) added at `sections/05_adapter_composition.tex` | |
 | C-3 | done | see WP-2 above | |
 | C-4 | done | see WP-2 above | |
 | C-5 | done | see WP-2 above | |

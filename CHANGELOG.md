@@ -330,3 +330,42 @@ No manuscript edits (data/verify work only).
   through the same snowballing/appraisal process as the 123-record corpus.
 - Build verified: `main.tex` compiles cleanly (80 pages, no undefined
   references) after all edits.
+
+---
+
+## Phase 4 follow-up — all 5 TODO-AUTHOR markers resolved (C-2, E-2, E-6)
+
+Each marker asked the author to confirm a reviewer-suggested replacement
+citation before it could be added, per the rule against introducing
+citations from the agent's own knowledge of the literature. All 5 resolved
+this session: candidates were network-verified against primary sources
+(arXiv/ACL Anthology/Crossref, not memory), findings presented to the
+author, and the author confirmed/chose before any bibliography or
+manuscript edit was made.
+
+- **C-2 — IA$^3$ uncited** (`sections/05_adapter_composition.tex`): added
+  `LiuIA3_2022` (Liu et al., NeurIPS 2022, arXiv:2205.05638) — verified via
+  the arXiv API as IA$^3$'s originating paper, exactly as the reviewer
+  suggested. Cited at IA$^3$'s first mention.
+- **E-2 — intrinsic-dimensionality misattribution** (`sections/04_peft.tex`
+  §4.1, §4.3): added `Aghajanyan2021Intrinsic` (Aghajanyan, Zettlemoyer,
+  Gupta, ACL-IJCNLP 2021, DOI `10.18653/v1/2021.acl-long.568`) — verified
+  the paper's own abstract states pre-trained models have very low
+  intrinsic dimension, matching §4.1's claim exactly. Cited there. §4.3's
+  occurrence (a paragraph already removed for misattributing this same
+  claim to `ZengExpressive2024`) was left without a replacement claim, per
+  the marker's own guidance that no further action was needed once §4.1
+  carries the citation — avoids writing new scientific prose to re-derive
+  an argument for a paragraph that no longer exists.
+- **E-6 — gossip O(log N) misattribution** (`sections/02_background.tex`
+  §2.3, `sections/09_synthesis_gap.tex` §9.4): two verified candidates were
+  presented (Karp et al., FOCS 2000; Pittel, SIAM J. Appl. Math. 1987);
+  author chose Karp et al. — its own result is phrased in near-identical
+  terms to the manuscript's claim ("...rounds ... with high probability").
+  Added as `KarpRumor2000` (DOI `10.1109/SFCS.2000.892324`, verified
+  against Crossref), cited at both occurrences.
+- `TODO_AUTHOR.md` rewritten to record the resolution of all 5 markers;
+  `RESPONSE_TO_REVIEWER.md` and `OPEN_QUESTIONS.md` updated (E-2, E-6 now
+  **FIXED** rather than **PARTIALLY FIXED**; Blocking 7 now done).
+- Build verified: `main.tex` compiles cleanly (80 pages, no undefined
+  references, no remaining `TODO-AUTHOR` markers in `sections/*.tex`).

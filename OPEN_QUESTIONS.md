@@ -60,14 +60,16 @@ fabricated communication-constraint framing was removed.
   replace the citation if you have a different source in mind for a
   genuine MoE-communication-budget result.
 
-### E-2: Zeng et al. [65] miscited; Aghajanyan 2021 absent from corpus — CONTRADICTED — **PARTIALLY FIXED**
+### E-2: Zeng et al. [65] miscited; Aghajanyan 2021 absent from corpus — CONTRADICTED — **FIXED**
 **Applied:** removed the false attribution to Zeng et al. in both §4.1 and
-§4.3 (`sections/04_peft.tex`), leaving `% TODO-AUTHOR [E-2]` markers where
-the correct citation (Aghajanyan et al. 2021, if you confirm it) needs to be
-added — not added automatically, since that would mean introducing a
-citation from the agent's own literature knowledge rather than verified
-evidence. The unsupported claims themselves were removed/reworded so the
-text is no longer attributing a nonexistent result to Zeng's paper.
+§4.3 (`sections/04_peft.tex`). Author confirmed Aghajanyan et al. 2021 as
+the intended source; network-verified (arXiv 2012.13255 / ACL Anthology
+2021.acl-long.568 — abstract states pre-trained models have very low
+intrinsic dimension, matching the manuscript's claim) and added as
+`Aghajanyan2021Intrinsic` in `bibliography.bib`, cited at §4.1. §4.3's
+occurrence (the "established earlier" paragraph) stays removed with no
+replacement claim, per the TODO-AUTHOR marker's own guidance that the
+surrounding prose already flows without it once §4.1 carries the citation.
 
 - **Manuscript location:** `sections/04_peft.tex` §4.1 and §4.3, cited as
   `ZengExpressive2024`
@@ -220,14 +222,16 @@ beyond the abstract-level dataset check.
   experiments section if you want dataset-level precision beyond what the
   abstract states) in Table 7's Dataset and Task Type columns.
 
-### E-6: Ormándi et al. [23] — O(log N) epidemic-spreading claim — CONTRADICTED — **PARTIALLY FIXED**
+### E-6: Ormándi et al. [23] — O(log N) epidemic-spreading claim — CONTRADICTED — **FIXED**
 **Applied:** removed the incorrect citation at both occurrences (§2.3,
-`sections/02_background.tex`; §9.4, `sections/09_synthesis_gap.tex`),
-leaving `% TODO-AUTHOR [E-6]` markers for the correct classical source
-(Demers/Karp/Pittel-type result) — not added automatically, since I don't
-have a verified specific paper/edition to cite. The qualitative O(log N)
-claim itself is left in place (uncited) since it's a well-established
-classical result, just not from this citation.
+`sections/02_background.tex`; §9.4, `sections/09_synthesis_gap.tex`).
+Author chose Karp et al. 2000 ("Randomized Rumor Spreading," FOCS) over
+the alternative candidate (Pittel 1987) after both were network-verified —
+Karp et al.'s own result is stated in near-identical terms to the
+manuscript's claim ("...rounds ... with high probability"; verified
+result: log₃n + Θ(log log n) rounds w.h.p.). Added as `KarpRumor2000`
+(DOI `10.1109/SFCS.2000.892324`, verified against Crossref) to
+`bibliography.bib`, cited at both occurrences.
 
 - **Manuscript location:** `sections/02_background.tex` line ~138 (§2.3) and
   `sections/09_synthesis_gap.tex` (§9.4), cited as `OrmandyGossip2013`

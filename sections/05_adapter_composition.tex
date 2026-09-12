@@ -44,14 +44,9 @@ that adapter modules are practically shareable artefacts: hundreds of community-
 adapters (growing to thousands by 2022--2023) were made publicly accessible, enabling practitioners to
 reuse community-contributed adapters without any local fine-tuning.
 
-% TODO-AUTHOR [C-2]: IA$^3$ is named but never cited anywhere in the manuscript.
-% Add its originating reference (Liu et al., "Few-Shot Parameter-Efficient
-% Fine-Tuning is Better and Cheaper than In-Context Learning", NeurIPS 2022) to
-% bibliography.bib and \cite it here -- not added automatically per the rule
-% against introducing citations from the agent's own knowledge of the literature.
 The unified Adapters library of Poth et al.~\cite{PothAdapters2023} extended the AdapterHub
-ecosystem to support LoRA, prefix tuning, IA$^3$ (Infused Adapter by Inhibiting and
-Amplifying Inner Activations), and bottleneck adapters under a single
+ecosystem to support LoRA, prefix tuning, IA$^3$~\cite{LiuIA3_2022} (Infused Adapter by
+Inhibiting and Amplifying Inner Activations), and bottleneck adapters under a single
 API, with composition primitives for stacking, averaging, concatenation, and gated
 combinations. These composition types provide the implementation substrate for the
 more complex fusion methods described below.
