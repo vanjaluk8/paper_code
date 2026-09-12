@@ -64,7 +64,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | Minor 29 (CaraServe 1.4/1.7, SLO) | done | `sections/03_methodology.tex` Table 7, `sections/06_inference_systems.tex` Table 9 — see E-15 above (1.7× confirmed correct) | |
 | Minor 30 (E-9, Switch parameter count) | done | `sections/07_moe_routing.tex` — see E-9 above | |
 | Minor 31 (unbalanced parenthesis) | done | see WP-1 above | |
-| Minor 32 ("to the best of the author's knowledge", N-3) | done (first hedge) / needs author (superlative + possible 2nd hedge) | see WP-3 above; `OPEN_QUESTIONS.md` N-3 | |
+| Minor 32 ("to the best of the author's knowledge", N-3) | done (both located instances) / needs author (2nd hedge unlocatable) | see WP-3 above and N-3 below; exhaustive text search found no remaining hedge phrase of any variant -- if you know where the reviewer's second one is, point us at it | |
 | Minor 33 (E-14, Šajina thesis year) | done (annotated, not silently altered) | `sections/12_appendix.tex` Appendix B — see E-14 above (2025 confirmed correct) | |
 | Minor 34 (C-8, Pillar-4 denominator) | done | see P1-4/WP-8 above | |
 | Minor 35 (C-6, latency cross-ref) | done | see WP-1 above | |
@@ -106,7 +106,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | S-5 | needs author | not addressed — a figure/table design decision | |
 | N-1 | done | `sections/01_introduction.tex`, `sections/03_methodology.tex` Table 4 | |
 | N-2 | needs author | not addressed — new search work | |
-| N-3 | needs author | `OPEN_QUESTIONS.md` N-3 | |
+| N-3 | done | `sections/03_methodology.tex` Table 1 -- "Only" -> "Only peer-reviewed," for the Petals row | |
 | N-4 | no action needed | reviewer notes this in the author's favour; no fix required | |
 
 ## Consistency and terminology (C-*)

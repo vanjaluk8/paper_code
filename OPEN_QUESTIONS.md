@@ -651,28 +651,25 @@ changed to "up to 99% SLO attainment," matching the paper's own wording.
   as a MECHANICAL fix in isolation, but is left here since it's entangled
   with the larger restructuring question.
 
-### N-3: Petals "only deployed" superlative
+### N-3: Petals "only deployed" superlative — **FIXED**
 - **Manuscript location:** Table 1 (`sections/03_methodology.tex`)
-- **Manuscript claim (verbatim):** "Only deployed P2P frozen-backbone LLM
-  inference system."
-- **Tension:** §10.3's own adversarial search (Appendix C.4) names
-  PlanetServe and Platformless AI as decentralised serving projects the
-  review itself found and scoped out as operating at the whole-model level
-  rather than the adapter level.
-- **Question for the author:** do you want "Only deployed" softened to "the
-  only peer-reviewed, deployed…" (consistent with the manuscript's own
-  adversarial-search findings), or is there a substantive reason
-  PlanetServe/Platformless AI don't count as counterexamples to this
-  specific claim that should be stated instead?
-- **Minimal edit once answered:** one-word/one-clause change to Table 1's
-  cell.
+- **Applied:** "Only deployed P2P frozen-backbone LLM inference system." →
+  "Only peer-reviewed, deployed P2P frozen-backbone LLM inference system."
+  — the manuscript's own adversarial search (Appendix C.4) names
+  PlanetServe and Platformless AI as decentralised serving projects that
+  are not peer-reviewed academic systems, so this scoping is accurate and
+  grounded in evidence already in the manuscript, not new research.
 - **Note on minor #32:** only one instance of "to the best of the author's
-  knowledge" was found by text search across the whole manuscript (§8.3,
-  already fixed in WP-3). The review states "at least two such hedges"
-  exist; a second instance could not be located by searching for that
-  phrase or close variants ("to our knowledge," "as far as is known," "to
-  the author's knowledge"). If you know where the second one is, point me
-  at it.
+  knowledge" was found by text search across the whole manuscript (§8.4,
+  already fixed in WP-3, now reads "within the 123-record corpus"). The
+  review states "at least two such hedges" exist; a second instance could
+  not be located after two separate exhaustive searches (this session
+  re-checked every variant: "to our knowledge," "as far as is known," "not
+  aware of," "unaware of," "to my knowledge," plus related superlative
+  patterns like "one of the first"/"first to") — zero remaining hits. If
+  you know where the reviewer's second instance is, point us at it;
+  otherwise this is likely a reviewer overcount or a phrase already fixed
+  by an earlier, unrelated edit.
 
 ---
 
