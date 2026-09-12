@@ -126,7 +126,7 @@ Prose response cells are intentionally left blank — the author writes these.
 
 | Item | Status | Where to look | Response |
 |---|---|---|---|
-| GenAI disclosure model/date range | needs author | review asks for the Claude Code drafting model + date range, not currently stated | |
+| GenAI disclosure model/date range | done | `sections/03_methodology.tex` §3.1 — `claude-sonnet-4-6` through `claude-sonnet-5`, 2026-05-12 to 2026-09-12 | |
 | Undermind framing in §3.1 as method | needs author | a scope/emphasis decision | |
 | Acknowledgments sentence | needs author | requires confirming with the editorial office | |
 | Prior-work overlap (text carryover disclosure) | needs author | requires the author's own knowledge of what was carried over | |
