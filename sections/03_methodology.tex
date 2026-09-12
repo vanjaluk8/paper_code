@@ -134,7 +134,12 @@ resolved at this second abstract-review pass as \textbf{12} KEEP, \textbf{4}
 DEFER, and \textbf{72} SKIP. The 12 KEEP records entered the full-text queue
 (8 reaching data extraction), yet none of the 88 \texttt{G\_SNOW\_F} records
 survived to the final list; the supplementary forward branch therefore
-contributed \textbf{0} of the 123 final records. %CORRECTED 2026-08-30 (Blocking Issue #2, verified via
+contributed \textbf{0} of the 123 final records. Summed across identification
+routes --- the 1,150-record snowball retrieval, the 377-record Undermind
+G1--G6 exports, the 9 direct G0 seeds, the 88-record supplementary
+forward-citation snowball, and the 34-record manual cross-validation top-up
+--- \textbf{1,658} gross records were identified before any cross-route
+deduplication. %CORRECTED 2026-08-30 (Blocking Issue #2, verified via
 %mdpi_slr_engine/.../verify_prisma_counts.py): the abstract-review pipeline records
 %only a coarse KEEP/SKIP disposition and does not retain an individually
 %coded exclusion reason for SKIP records; these 165 exclusions are disclosed
@@ -856,15 +861,26 @@ tangential) & tier 3 & tier 2 & tier 1 \\
 \end{tabular}
 \end{table}
 
-Applying the rubric to all 123 records yields a mean reporting-completeness
-score of $6.04$ ($\mathrm{SD}=2.00$, median 6), with the distribution
-summarised in Figure~\ref{fig:quality_bands}: 13 records (10.6\%) fall in the
-high band (9--10), 61 (49.6\%) in the upper-mid band (6--8), 47 (38.2\%) in the
-lower-mid band (3--5), and 2 (1.6\%) in the low band (0--2). Q5 is excluded
+Applying the rubric to the 120 distinct studies underlying the 123 final
+records\footnote{Three works are each scored twice under two record
+identities (arXiv preprint and peer-reviewed/Scopus release): LoRA, Houlsby's
+adapter paper, and CaraServe/Toppings. These duplicate pairs are not scored
+identically (verified in \texttt{verify/wp9\_appraisal\_n\_and\_totals.py}:
+LoRA 8/8, Houlsby 5/6, CaraServe/Toppings 7/6), so the appraisal reported here
+retains one row per study --- its arXiv-keyed record for LoRA and Houlsby, its
+peer-reviewed record for CaraServe/Toppings --- rather than scoring the same
+study twice.} yields a mean reporting-completeness
+score of $6.03$ ($\mathrm{SD}=2.01$, median 6), with the distribution
+summarised in Figure~\ref{fig:quality_bands}: 13 records (10.8\%) fall in the
+high band (9--10), 59 (49.2\%) in the upper-mid band (6--8), 46 (38.3\%) in the
+lower-mid band (3--5), and 2 (1.7\%) in the low band (0--2). Q5 is excluded
 from these totals and reported separately over its populated subpopulation
 ($n=16$), all of which recorded a contribution type and \ccstar~code(s).
-The full record-by-record scores are provided as accompanying material in
-\texttt{figures/quality\_appraisal\_scored.csv} (123 records; each scored
+The full record-by-record scores for all 123 records (including both rows of
+each duplicate pair) are provided as accompanying material in
+\texttt{figures/quality\_appraisal\_scored.csv}; the 120-distinct-study subset
+used for the statistics above is
+\texttt{verify/wp9\_quality\_appraisal\_120\_studies.csv} (each scored
 0--2 on Q1--Q4 and Q6 with a reporting-completeness total of 0--10, and Q5
 reported separately). The low-scoring records are
 pre-PEFT-era distributed-optimisation works (e.g.\ decentralised and gossip
@@ -875,7 +891,8 @@ rests on a low-scoring record alone.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.92\linewidth]{figures/fig_slr_quality_bands.pdf}
-\caption{Reporting-completeness score distribution across the 123 included records
+\caption{Reporting-completeness score distribution across the 120 distinct
+studies underlying the 123 included records
 (0--10 rubric: Q1--Q4 and Q6 summed; Q5 reported separately).}
 \label{fig:quality_bands}
 \end{figure}
