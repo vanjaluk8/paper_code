@@ -43,7 +43,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | Major 13 / P1-3 (UNCERTAIN) | done | see P1-3 above | |
 | Major 14 (§6.4/6.7/8.5/4.4 → tables) | disputed | author judgement: existing prose already covers this content adequately; tables judged not mandatory | |
 | Major 15 / S-4 ("Combined reference profile") | done | `sections/09_synthesis_gap.tex` — renamed "Requirement profile implied by RQ" | |
-| Major 16 / N-1 (survey sets) | needs author | `OPEN_QUESTIONS.md` N-1 | |
+| Major 16 / N-1 (survey sets) | done | `sections/01_introduction.tex`, `sections/03_methodology.tex` Table 4 — consolidated, Ye/Wink recharacterised | |
 | Major 17 (inclusion-rule / I-E table) | done (table) / needs author (rule-tightening decision) | `sections/12_appendix.tex` Table A2 (Appendix A.3) | |
 | Major 18 (E-3–E-8 verify/correct) | needs author | `OPEN_QUESTIONS.md` E-3, E-4, E-5, E-6, E-8 — all resolved with verdicts | |
 | Major 19 (top-up search) | needs author | `verify/major20_topup_search_queries.md` — drafted, not run | |
@@ -104,7 +104,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | S-3 | needs author | `OPEN_QUESTIONS.md` S-3 — 12 distinct profiles (not ~8), 4-way tie found (not 3-way) | |
 | S-4 | done | `sections/09_synthesis_gap.tex` — renamed "Requirement profile implied by RQ" | |
 | S-5 | needs author | not addressed — a figure/table design decision | |
-| N-1 | needs author | `OPEN_QUESTIONS.md` N-1 | |
+| N-1 | done | `sections/01_introduction.tex`, `sections/03_methodology.tex` Table 4 | |
 | N-2 | needs author | not addressed — new search work | |
 | N-3 | needs author | `OPEN_QUESTIONS.md` N-3 | |
 | N-4 | no action needed | reviewer notes this in the author's favour; no fix required | |
