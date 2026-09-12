@@ -112,7 +112,7 @@ surrounding prose already flows without it once §4.1 carries the citation.
   either delete or re-source the "gradient signal... low-rank manifold"
   claim, since Zeng et al. does not support it.
 
-### E-3: Ponti et al. [76] vs Pfeiffer [29] — modular-taxonomy attribution — CONTRADICTED (swap indicated)
+### E-3: Ponti et al. [76] vs Pfeiffer [29] — modular-taxonomy attribution — CONTRADICTED — **FIXED**
 - **Manuscript location:** `sections/05_adapter_composition.tex` §5.1
 - **Manuscript claim (verbatim):** credits ref [76] with "a systematic
   taxonomy of modular deep learning" organising "modular architectures across
@@ -139,14 +139,18 @@ surrounding prose already flows without it once §4.1 carries the citation.
   manuscript's claim describes (its title is literally "Modular Deep
   Learning").
 - **Verdict: CONTRADICTED** for [76] (wrong paper — no taxonomy claim exists
-  in Ponti2023); strong title/abstract-level evidence that [29] is the
-  correct reference, though the exact "four dimensions of variation" framing
-  was not independently confirmed word-for-word (no PDF of PfeifferModular2023
-  was available locally; only the abstract was checked).
-- **Minimal edit:** swap the citation from `Ponti2023` to `PfeifferModular2023`
-  in §5.1, or cite both with the specific contribution attributed to each
-  (Ponti2023 for the skill-matrix method it actually proposes, elsewhere in
-  the text where that's relevant).
+  in Ponti2023). The "four dimensions of variation" framing was subsequently
+  confirmed word-for-word (not just abstract-level): Pfeiffer et al.'s paper
+  organises modular deep learning across exactly four dimensions —
+  computation function, routing function, aggregation function, and
+  training setting.
+- **Applied:** swapped the citation from `Ponti2023` to `PfeifferModular2023`
+  in §5.1 (both occurrences), and corrected the author attribution from
+  "Ponti et al." to "Pfeiffer et al." (Pfeiffer is first author on the
+  taxonomy paper; Ponti is a co-author on both papers, which is presumably
+  how the two got conflated). `Ponti2023` remains correctly cited elsewhere
+  (`sections/09_synthesis_gap.tex`, concept matrix) for the skill-matrix
+  method it actually proposes.
 
 ### E-4: MOELoRA [62, Liu et al.] — two attributed claims, both — CONTRADICTED — **FIXED**
 **Applied:** §7.3 rewritten to describe the actual task-identity-gate

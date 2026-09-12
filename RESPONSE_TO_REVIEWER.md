@@ -81,7 +81,7 @@ Prose response cells are intentionally left blank — the author writes these.
 |---|---|---|---|
 | E-1 | done | `sections/07_moe_routing.tex` — fabricated paragraph removed | |
 | E-2 | done | `sections/04_peft.tex` §4.1 (cites `Aghajanyan2021Intrinsic`, author-confirmed and network-verified) | |
-| E-3 | needs author | `OPEN_QUESTIONS.md` E-3 — CONTRADICTED, swap indicated (evidence: arXiv abstracts only) | |
+| E-3 | done | `sections/05_adapter_composition.tex` §5.1 — swapped `Ponti2023` for `PfeifferModular2023`; the "four dimensions" framing confirmed word-for-word against the paper's own content (computation/routing/aggregation/training-setting), not just its abstract | |
 | E-4 | done | `sections/07_moe_routing.tex` §7.3, §7.4 — both claims corrected/removed | |
 | E-5 | done | `sections/03_methodology.tex` Table 7, MAD-X row | |
 | E-6 | done | `sections/02_background.tex` §2.3, `sections/09_synthesis_gap.tex` §9.4 (both cite `KarpRumor2000`, author-confirmed and network-verified) | |

@@ -19,13 +19,13 @@ is the central concern of the adapter composition literature, which has grown fr
 sequential stacking to learned attention-based fusion, retrieval-augmented composition,
 and the construction of reusable adapter libraries.
 
-Ponti et al.~\cite{Ponti2023} provided a systematic taxonomy of modular deep learning, classifying
+Pfeiffer et al.~\cite{PfeifferModular2023} provided a systematic taxonomy of modular deep learning, classifying
 composition strategies using three operational families: (i)~\textit{routing} methods, which select
 a subset of modules to activate for each input; (ii)~\textit{merging} methods, which
 combine module parameters or outputs into a single representation; and
 (iii)~\textit{learning-to-combine} methods, which train a meta-module to weight module
-contributions. (Ponti et al.\ organise modular architectures across four dimensions of
-variation~\cite{Ponti2023}; the three operational families used here: routing, merging,
+contributions. (Pfeiffer et al.\ organise modular architectures across four dimensions of
+variation~\cite{PfeifferModular2023}; the three operational families used here: routing, merging,
 and fusion are a simplification of that framework.) This taxonomy organises the literature
 reviewed in the present section and maps directly onto the design choices available in a
 peer-to-peer exchange setting: a receiving peer may route to the most relevant adapter
