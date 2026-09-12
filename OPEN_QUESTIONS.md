@@ -731,7 +731,7 @@ changed to "up to 99% SLO attainment," matching the paper's own wording.
   requires you to decide the criterion wording and rationale column, which
   is a presentation/scoping choice, not a data-extraction one.
 
-### Major 19: Top-up search to the submission month — SEARCH + ABSTRACT SCREEN DONE, eligibility decision still open
+### Major 19: Top-up search to the submission month — SEARCH, ABSTRACT SCREEN, AND ELIGIBILITY DECISION DONE
 - **All three sources now run.** `verify/major19_scopus_wos_topup_queries.md`
   gave the ready-to-paste Boolean queries (Appendix C's 20, year bound moved
   to the gap window); the author ran all 10 Scopus + all 10 WoS queries live
@@ -797,10 +797,44 @@ changed to "up to 99% SLO attainment," matching the paper's own wording.
   P2P/decentralised-LoRA gap claims — see above. "RW-LoRA: Communication-
   Efficient Decentralized LoRA Fine-Tuning via Random Walks" is a second
   P2P-relevant hit worth the same scrutiny.
-- **Still not done, and explicitly not attempted:** running the 65 survivors
-  against the actual Table A2 eligibility criteria, full-text read, quality
-  appraisal, or a judgement on which (if any) bear on the eight open gaps
-  in §9.4 — those remain scientific judgements reserved for the author.
+- **Eligibility decision now done.** The author reviewed all 65 survivors
+  interactively (an artifact listing sources, screening rationale, full
+  abstract, DOI/arXiv link, and a per-item suggestion keyed to Appendix
+  A.3's actual I4 criterion — peer-reviewed venue preferred; arXiv retained
+  only with a non-trivial citation count) and made a Keep/Skip call on each.
+  Decisions recorded in `verify/major19_eligibility_raw_decisions.json`;
+  merged with the screening data by `verify/major19_apply_eligibility_decisions.py`
+  → `verify/major19_eligibility_decisions.csv`.
+- **Result: 10 KEEP / 55 SKIP.** The author applied I4 strictly: every one
+  of the 10 kept candidates is from a peer-reviewed venue (Scopus and/or
+  WoS); no arXiv-only candidate was kept, including the two flagged as
+  highest topical priority despite arXiv-only status — "RW-LoRA:
+  Communication-Efficient Decentralized LoRA Fine-Tuning via Random Walks"
+  and "Priority-Aware Learning-Unlearning Correction for Dynamic
+  Decentralized LoRA Fine-Tuning" — since neither had a citation count
+  checked against I4. The 10 kept:
+  - AdaFuse (Scopus;WoS) — multi-adapter inference latency, Pillar 3
+  - DyMerge-LoRA (Scopus;WoS) — multi-tenant composite LoRA serving, Pillar 3
+  - FedALT (Scopus;WoS) — federated LoRA, Pillar 2
+  - PrivLoRA (Scopus;WoS) — federated LoRA privacy, Pillar 2
+  - pFedLoRA (Scopus;WoS) — federated LoRA personalisation, Pillar 2
+  - Automated Federated Pipeline for PEFT of LLMs (WoS)
+  - **DeCAF** (WoS) — decentralised-LoRA convergence theory; the strongest
+    candidate for bearing directly on the review's P2P/decentralised-LoRA
+    gap claim (§9.4) — the sole eligible hit that is actually about
+    decentralisation rather than federation
+  - Multi-Adapter LLMs: Dynamic Mixture of LoRAs (Scopus) — Pillar 1/2/3
+  - Parameter-Efficient Large Model Transfer, Cloud-Edge Collaborative
+    Inference (Scopus) — Pillar 3
+  - TailorLLM (Scopus) — end-cloud LoRA serving, Pillar 3
+- **Still not done, and explicitly not attempted:** full-text read, quality
+  appraisal, corpus integration (deciding where each of the 10 slots into
+  the manuscript's tables/figures/count of 123), or a judgement on which
+  bear on the eight open gaps in §9.4 beyond the DeCAF observation above —
+  those remain scientific judgements reserved for the author. If any of the
+  10 arXiv-adjacent "review" candidates later gets a citation-count check
+  and clears I4, they are not lost — `verify/major19_eligibility_decisions.csv`
+  keeps the full 65-row record with Claude's original suggestion for each.
 
 ### Major 21: Systematic citation-verification pass (DOI resolution)
 - **Network-verified all 128 DOI'd references** (of 135 total; 7 have no DOI

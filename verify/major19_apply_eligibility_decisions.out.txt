@@ -1,0 +1,13 @@
+65 candidates decided: 10 keep, 55 skip
+
+KEEP:
+  - AdaFuse: Accelerating Dynamic Adapter Inference via Token-Level Pre-Gating and Fused Kernel Optimization  [Scopus;WoS]
+  - DyMerge-LoRA: On-GPU Post-Merge Fusion for High-Throughput Multi-Tenant Composite LoRA Serving  [Scopus;WoS]
+  - FedALT: Federated Fine-Tuning through Adaptive Local Training with Rest-of-World LoRA  [Scopus;WoS]
+  - PrivLoRA: Enhancing Privacy in LoRA-Based Fine-Tuning of Large Language Models for Federated Learning  [Scopus;WoS]
+  - pFedLoRA: Model-Heterogeneous Personalized Federated Learning With Homogeneous Low-Rank Adapter Sharing on Mobile Edge Devices  [Scopus;WoS]
+  - Automated Federated Pipeline for Parameter-Efficient Fine-Tuning of Large Language Models  [WoS]
+  - DeCAF: Decentralized consensus-and-factorization for low-rank adaptation of foundation models  [WoS]
+  - Multi-Adapter LLMs: Dynamic Mixture of LoRAs for Scalable Personalization  [Scopus]
+  - Parameter-Efficient Large Model Transfer and Cloud-Edge Collaborative Inference Method for Edge Devices  [Scopus]
+  - TailorLLM: Collaborative End-Cloud Inference of Large and Small Language Models Based on Low-Rank Adaptation  [Scopus]

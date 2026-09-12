@@ -257,3 +257,32 @@ No manuscript edits (data/verify work only).
 `S-1`…`S-4`, `N-1`, `N-3`; scaffolding for Blocking 5, Major 11, Major 18,
 Major 20, Major 21. See that file for full detail; not duplicated here since
 it makes no manuscript edits.
+
+---
+
+## Major #19 — top-up search: author eligibility decision
+
+No manuscript edits (data/verify work only).
+
+- Claude built an interactive review artifact presenting all 65 abstract-
+  screened survivors (source pills, screening rationale, full abstract,
+  DOI/arXiv link) with a per-item Keep/Review/Skip suggestion grounded in
+  Appendix A.3's own I4 criterion (peer-reviewed preferred; arXiv retained
+  only with a non-trivial citation count) — suggestions saved to
+  `verify/major19_eligibility_suggestions.csv`.
+- The author made the actual Keep/Skip call on all 65
+  (`verify/major19_eligibility_raw_decisions.json`); merged with the
+  screening data by `verify/major19_apply_eligibility_decisions.py` →
+  `verify/major19_eligibility_decisions.csv`.
+- Result: **10 KEEP / 55 SKIP.** I4 applied strictly — every kept candidate
+  is peer-reviewed (Scopus and/or WoS); no arXiv-only candidate was kept,
+  including the two highest topical-priority arXiv-only hits (RW-LoRA,
+  Priority-Aware Decentralized LoRA), since neither had a citation-count
+  check performed. The 10: AdaFuse, DyMerge-LoRA, FedALT, PrivLoRA,
+  pFedLoRA, Automated Federated Pipeline for PEFT, **DeCAF** (the strongest
+  candidate for bearing directly on the P2P/decentralised-LoRA gap claim,
+  §9.4), Multi-Adapter LLMs, Parameter-Efficient Large Model Transfer, and
+  TailorLLM. See `OPEN_QUESTIONS.md` Major 19 for the full list and rationale.
+- Full-text read, quality appraisal, and integration of the 10 into the
+  manuscript's tables/figures/123-record count remain author work, not
+  attempted here.

@@ -46,7 +46,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | Major 16 / N-1 (survey sets) | done | `sections/01_introduction.tex`, `sections/03_methodology.tex` Table 4 — consolidated, Ye/Wink recharacterised | |
 | Major 17 (inclusion-rule / I-E table) | done (table) / needs author (rule-tightening decision) | `sections/12_appendix.tex` Table A2 (Appendix A.3) | |
 | Major 18 (E-3–E-8 verify/correct) | needs author | `OPEN_QUESTIONS.md` E-3, E-4, E-5, E-6, E-8 — all resolved with verdicts | |
-| Major 19 (top-up search) | done (search + abstract screen) / needs author (eligibility decision) | `verify/major19_topup_kept_after_screening.csv` — 93 candidates across arXiv+Scopus+WoS abstract-screened to 65 on-topic survivors (28 dropped as off-domain: medical imaging, IoT, vision-only, telecom, bioinformatics, robotics); `OPEN_QUESTIONS.md` Major 19 for full breakdown; Table A2 eligibility/full-text decision on the 65 not yet done | |
+| Major 19 (top-up search) | done (search + screen + eligibility) / needs author (corpus integration) | `verify/major19_eligibility_decisions.csv` — 93 candidates across arXiv+Scopus+WoS, abstract-screened to 65 on-topic survivors, author eligibility decision applied: 10 KEEP / 55 SKIP (I4 applied strictly — peer-reviewed only); `OPEN_QUESTIONS.md` Major 19 for full breakdown incl. DeCAF; full-text read and integration into the manuscript's tables/figures/123-count not yet done | |
 | Major 20 (citation-verification pass) | done (DOI pass) / needs author (full pass) | `OPEN_QUESTIONS.md` Major 21 — 125/128 DOIs resolve, 3 fixed | |
 | Major 21 (§9.3 dimension provenance) | needs author | not addressed — requires new synthesis prose | |
 

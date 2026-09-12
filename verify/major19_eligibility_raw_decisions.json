@@ -1,0 +1,28 @@
+{
+  "_source": "Author eligibility triage of the 65 abstract-screened Major-19 top-up survivors, done interactively via a Claude Code artifact (per-candidate Keep/Skip against Table A2 criteria, informed by Appendix A.3 I4 and topical-fit suggestions). Keys are sha1(title)[:12], matching the `id` field Claude generated when building the review UI from verify/major19_topup_screened.csv.",
+  "_completed_at": "2026-09-12T12:41:43.202619Z",
+  "items": {
+    "0058f210626a": "skip", "00c88dfebac4": "skip", "04422422b3f5": "skip",
+    "0932c71a4c36": "skip", "0dffd98c4ebf": "skip", "0fda5c6ce2b8": "skip",
+    "160d824affbb": "skip", "16dfee5a892d": "skip", "249aafbfb0c4": "skip",
+    "2941bbc5f258": "skip", "2ae281906f39": "skip", "2c35ffa8f3a7": "skip",
+    "2d97bebb7c4f": "skip", "3090d7c9ce17": "skip", "3a83fd41565e": "skip",
+    "3c9461ac05a7": "skip", "416eef8a6536": "skip", "47112c966574": "keep",
+    "5413b6237830": "skip", "548904a43d12": "skip", "55857db35278": "skip",
+    "5619aa52d8c2": "skip", "58ce12a19600": "skip", "5b2f8e03376f": "keep",
+    "5cd03892e0ad": "skip", "5fe7bec7e887": "skip", "684dccd5dc53": "keep",
+    "6d255728dc24": "skip", "6da98a564f79": "skip", "6ed3b8624c77": "skip",
+    "764f469d3891": "skip", "76d21ae26c7c": "skip", "7a8402241fb7": "skip",
+    "7b94e325c543": "keep", "8c8e639587e9": "skip", "904d7d3c3450": "skip",
+    "93b1cb5f10d3": "skip", "9656bf246e2a": "skip", "9d2c30cf811a": "skip",
+    "a026aad958d6": "keep", "a12cf6a9e4f7": "skip", "a473143b9af2": "skip",
+    "aa5c00af21a3": "skip", "ad9f521b4fa0": "keep", "adcdabd5083c": "skip",
+    "ae1a20a11428": "skip", "ae7edc358ab9": "skip", "b54a9fc638cf": "keep",
+    "b764287d94cc": "keep", "bd988d74f003": "keep", "c1ab136b6d5d": "skip",
+    "c4d8322adf4c": "skip", "ceb403b26490": "skip", "cf3955951f19": "skip",
+    "d0d0a9304d4a": "skip", "d5237e74fd82": "skip", "dc81aada5729": "skip",
+    "e41076c44d8e": "skip", "eae6179acb00": "skip", "eb5ad1842806": "skip",
+    "ec63ff3cbf89": "skip", "ecb1ea4d7e48": "skip", "efa2c71e6089": "skip",
+    "f6c8da3ad1b2": "skip", "f8700fbb45ca": "keep"
+  }
+}

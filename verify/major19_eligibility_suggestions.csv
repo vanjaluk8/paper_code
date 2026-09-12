@@ -1,0 +1,66 @@
+title,suggestion,suggestion_reason
+A Multi-Task Prompt Collaborative Optimization Method Based on LoRA Low-Rank Adapters,keep,Peer-reviewed (Scopus); direct fit — multi-task LoRA+prompt PEFT.
+ACE: Adapter Consolidation across Experts for Parameter-Efficient Fine-Tuning of MoE LLMs,review,"arXiv-only — I4 requires checking Semantic Scholar citation count before inclusion; otherwise strong fit (PEFT+MoE, Pillar 1/5)."
+AdaFuse: Accelerating Dynamic Adapter Inference via Token-Level Pre-Gating and Fused Kernel Optimization,keep,Double-sourced; direct fit — multi-adapter inference latency (Pillar 3).
+Adaptive Rank Allocation for Federated Parameter-Efficient Fine-Tuning of Language Models,keep,Double-sourced; direct fit — federated PEFT (Pillar 2).
+Alternating Aggregation Low-Rank Adaptation Approach for Federated Large Models,keep,Peer-reviewed (WoS); direct fit — federated LoRA for large models.
+An enhanced low-rank fine-tuning framework for federated large language models,keep,Peer-reviewed (WoS); direct fit — federated LLM PEFT.
+Automated Federated Pipeline for Parameter-Efficient Fine-Tuning of Large Language Models,keep,Peer-reviewed (WoS); direct fit — federated PEFT pipeline.
+Beyond Full-Model Rollback: AuroSFT for Adapter-State Multi-Task Fine-Tuning,review,"arXiv-only — I4 citation check needed; fit is adjacent (multi-task adapter-state tuning, not federated/P2P/serving specifically)."
+BitLoRA: Quantization-Compatible Adapter Tuning for 1.58-bit LLM in Federated On-Device AI-Agent,keep,Peer-reviewed (WoS); direct fit — federated on-device LoRA quantisation.
+Breaking the Structural Identity: Personalized Federated LoRA Fine-tuning under Rank Heterogeneity,review,arXiv-only — I4 citation check needed; direct fit (federated LoRA rank heterogeneity).
+CD-LoRA: Consistency-Driven Low-Rank Adaptation for Multi-Task Fine-Tuning,review,"arXiv-only — I4 citation check needed; fit is adjacent (multi-task LoRA, not federated/serving)."
+CLEAR: Continuous Latent Adapter Routing for Utility-Preserving LLM Safety Alignment,review,"arXiv-only — I4 citation check needed; fit is adjacent (adapter routing for safety alignment, not federated/serving)."
+CoLoRA: A Collaborative Scheduling Framework for Multi-Tenant LoRA LLM Inference,keep,Peer-reviewed (WoS); direct fit — multi-tenant LoRA serving (Pillar 3).
+D2MoRA: Diversity-Regulated Asymmetric MoE-LoRA Decomposition for Efficient Multi-Task Adaptation,keep,Peer-reviewed (WoS); direct fit — MoE-LoRA multi-task adaptation (Pillar 1/5).
+DP-DyLoRA: Fine-Tuning Transformer-Based Models On-Device under Differentially Private Federated Learning using Dynamic Low-Rank Adaptation,keep,Peer-reviewed (Scopus); direct fit — DP federated LoRA.
+DP-HM2F: Data-driven LoRA with dual-projection representation for heterogeneous multimodal federated fine-tuning,keep,Peer-reviewed (WoS); direct fit — federated LoRA multimodal.
+DeCAF: Decentralized consensus-and-factorization for low-rank adaptation of foundation models,keep,"Peer-reviewed (WoS), WoS-only; strongest topical fit found — decentralised-LoRA convergence theory bears directly on the review's P2P gap claim."
+DyMerge-LoRA: On-GPU Post-Merge Fusion for High-Throughput Multi-Tenant Composite LoRA Serving,keep,Double-sourced; direct fit — multi-tenant composite LoRA serving (Pillar 3).
+EPnG: Adaptive Expert Prune-and-Grow for Parameter-Efficient MoE Fine-tuning,review,"arXiv-only — I4 citation check needed; direct fit (PEFT+MoE, Pillar 1/5)."
+Efficient Multi-Adapter LLM Serving via Cross-Model KV-Cache Reuse with Activated LoRA,keep,"Peer-reviewed (Scopus); direct fit — multi-adapter serving, KV-cache reuse (Pillar 3)."
+Efficient multi-tenant LoRA serving via SGMV-specific operator autotuning,keep,Peer-reviewed (WoS); direct fit — multi-tenant LoRA serving kernel (Pillar 3).
+Enhancing Aggregation Efficiency and Training Stability in Heterogeneous Federated Learning Using the Adaptive LoRA FL Framework,keep,Double-sourced; direct fit — federated LoRA aggregation/stability.
+Explainable multilingual NMT with adapters and mixture-of-experts: a study on low-resource Indic languages,review,"Peer-reviewed (Scopus) but borderline domain — machine-translation application; adapter+MoE composition technique is real but the paper's core contribution is MT quality, not the review's pillars."
+Exploring Backdoor Attacks in Federated Learning Under Parameter-Efficient Fine Tuning,review,"Peer-reviewed (WoS); addresses federated PEFT but the contribution is a security/backdoor analysis, not a mechanism this review's synthesis covers — tangential rather than core."
+FLAGuard: Efficient Verifiable Federated LoRA of Large Language Models,keep,Peer-reviewed (WoS); direct fit — verifiable federated LoRA.
+FORCE: Federated Orthogonality-Aware Low-Rank Adaptation for Communication-Efficient Fine-Tuning,keep,Peer-reviewed (WoS); direct fit — communication-efficient federated LoRA.
+FedALT: Federated Fine-Tuning through Adaptive Local Training with Rest-of-World LoRA,keep,"Double-sourced; direct fit — federated LoRA, also independently found via arXiv (triple-sourced)."
+FedFA: Efficient federated large language models with feature adapters,keep,Double-sourced; direct fit — federated LLM adapters.
+FedGSA: Geometry-Consistent Subspace Aggregation for Differentially Private Federated LoRA,review,arXiv-only — I4 citation check needed; direct fit (DP federated LoRA aggregation).
+FedLoDrop: Federated LoRA With Dropout for Generalized LLM Fine-Tuning,keep,Peer-reviewed (WoS); direct fit — federated LoRA with dropout.
+FedMosaic: Federated Retrieval-Augmented Generation via Parametric Adapters,keep,Peer-reviewed (Scopus); direct fit — federated RAG via adapters (Pillar 2).
+FedP2EFT: Federated Learning to Personalize PEFT for Multilingual LLMs,keep,"Peer-reviewed (WoS); direct fit — federated PEFT personalisation, multilingual."
+FedQuad: Adaptive Layer-Wise LoRA Deployment and Activation Quantization for Federated Fine-Tuning,keep,Peer-reviewed (WoS); direct fit — federated LoRA deployment+quantisation.
+FedWeave: Rethinking the Unit of Specialization in Heterogeneous Federated MoE-LoRA,review,arXiv-only — I4 citation check needed; direct fit (federated MoE-LoRA specialisation).
+Federated LoRA Fine-Tuning for LLMs via Collaborative Alignment,review,"arXiv-only — I4 citation check needed; direct fit (federated LoRA, collaborative alignment)."
+Federated LoRA Fine-Tuning of LLMs With Only Transmitting Matrix A or B,keep,Peer-reviewed (WoS); direct fit — federated LoRA communication efficiency.
+HAFLQ: Heterogeneous Adaptive Federated LoRA Fine-Tuned LLM With Quantization,keep,Peer-reviewed (WoS); direct fit — federated LoRA with quantisation.
+Improving Dialect Robustness in Large Language Models via LoRA and Mixture-of-Experts,review,Peer-reviewed (Scopus) but borderline domain — dialect-robustness NLP application rather than a PEFT/federated/serving mechanism contribution.
+Localized LoRA-MoE: Block-wise Low-Rank Experts With Adaptive Routing,review,"arXiv-only — I4 citation check needed; direct fit (LoRA-MoE architecture, Pillar 1/5)."
+MACE: Modular Adaptive Code Engine with Context-Aware LoRA Expert Routing and Hierarchical Retrieval-Augmented Generation,review,Peer-reviewed (Scopus) but borderline domain — code-generation application; adapter expert routing mechanism is relevant but framed for a specific downstream task.
+MHP-SERVE: Mobile Heterogeneous Parallel Serving for LoRA Inference,keep,Peer-reviewed (WoS); direct fit — mobile LoRA inference serving (Pillar 3).
+MMtuning: An Advanced Multi-adapter Framework for Efficient Multimodal Large Language Models Fine-Tuning,keep,"Peer-reviewed (WoS); direct fit — multi-adapter serving framework (multimodal is the application, mechanism is core Pillar 1/2)."
+MeLoRA: Probability measures-based low-rank adaptation with Gaussian variational inference,keep,Double-sourced; direct fit — core LoRA/PEFT method (Pillar 1).
+MoE$^2$-LoRA: When MoE Models Meet MoE-style Low-Rank Adaptation,review,"arXiv-only — I4 citation check needed; direct fit (MoE-style LoRA, Pillar 1/5)."
+MoEGen: Mixture-of-Experts for Instance-Adaptive LoRA Generation,review,"arXiv-only — I4 citation check needed; direct fit (MoE for instance-adaptive LoRA, Pillar 1/5)."
+Multi-Adapter LLMs: Dynamic Mixture of LoRAs for Scalable Personalization,keep,Peer-reviewed (Scopus); strong direct fit — multi-adapter LLM serving/personalisation spans Pillar 1/2/3.
+On the Construction and Implications of Low-Loss Valleys in LoRA-based Bayesian Inference,review,"arXiv-only — I4 citation check needed; direct fit (LoRA theory, Pillar 1)."
+PEML: Parameter-efficient Multi-Task Learning with Optimized Continuous Prompts,review,"arXiv-only — I4 citation check needed; fit is adjacent (multi-task prompt tuning, not LoRA/adapters specifically)."
+PFAdapter: Hierarchical LoRA Decomposition for Personalized Federated MLLMs,review,"arXiv-only — I4 citation check needed; direct fit (federated multimodal adapters, Pillar 2)."
+Parameter-Efficient Large Model Transfer and Cloud-Edge Collaborative Inference Method for Edge Devices,keep,Peer-reviewed (Scopus); direct fit — adapter-based cloud-edge serving (Pillar 3).
+Per-FedLoRA: Personalized Federated LoRA Fine-Tuning for Multi-Task Large Language Models,keep,Peer-reviewed (Scopus); direct fit — federated LoRA multi-task personalisation.
+PreLort: Prefix-Nested LoRA for Federated Fine-Tuning under Rank Heterogeneity,review,arXiv-only — I4 citation check needed; direct fit (federated LoRA rank heterogeneity).
+Priority-Aware Learning-Unlearning Correction for Dynamic Decentralized LoRA Fine-Tuning,review,"arXiv-only — I4 citation check needed; strong topical fit — decentralised federated LoRA, P2P-adjacent (Pillar 2/4)."
+PrivLoRA: Enhancing Privacy in LoRA-Based Fine-Tuning of Large Language Models for Federated Learning,keep,Double-sourced; direct fit — federated LoRA privacy (Pillar 2).
+Prototype-Guided and Lightweight Adapters for Inherent Interpretation and Generalisation in Federated Learning,keep,"Peer-reviewed (WoS); direct fit — federated adapters, interpretability angle."
+RW-LoRA: Communication-Efficient Decentralized LoRA Fine-Tuning via Random Walks,review,"arXiv-only — I4 citation check needed, but very high topical priority — decentralised LoRA via random-walk gossip is squarely the review's core P2P gap claim."
+Rethinking Factor Sharing in Federated LoRA: A Rank-Aware Adaptive Approach,review,arXiv-only — I4 citation check needed; direct fit (federated LoRA factor-sharing).
+Routing Is Not Enough: Diagnosing Intra-Adapter Subspace Contention in MoE+LoRA Fine-Tuning,review,"arXiv-only — I4 citation check needed; direct fit (MoE+LoRA routing diagnostics, Pillar 1/5)."
+SpecPrefetch: Parameter-Efficient Expert Prefetching for Sparse MoE Foundation Models,review,"arXiv-only — I4 citation check needed; direct fit (MoE expert prefetching for serving, Pillar 3/5)."
+Spend Experts Where You Are Unsure: Confidence-Adaptive Routing for Mixture-of-Experts LoRA,review,"arXiv-only — I4 citation check needed; direct fit (MoE-LoRA routing, Pillar 1/5)."
+Statistical Inference for Rank Allocation in Low-Rank Adaptation,review,"arXiv-only — I4 citation check needed; direct fit (LoRA rank-allocation theory, Pillar 1)."
+TailorLLM: Collaborative End-Cloud Inference of Large and Small Language Models Based on Low-Rank Adaptation,keep,Peer-reviewed (Scopus); direct fit — LoRA-based end-cloud serving (Pillar 3).
+Task-Aware Cloud-End Offloading for Vision-Language Model Serving via Dynamic Modality-Specific Adapter Scheduling,skip,"Peer-reviewed (Scopus) but off-core-domain — vision-language model serving, not an LLM/text adapter system; matched on adapter-scheduling keyword only, same pattern as the 28 already dropped in abstract screening."
+TransFR: Transferable Federated Recommendation with Adapter Tuning on Pre-trained Language Models,skip,"Peer-reviewed (WoS) but off-core-domain — federated recommendation systems; adapter tuning is an implementation detail, not the review's subject, same pattern as the 28 already dropped in abstract screening."
+pFedLoRA: Model-Heterogeneous Personalized Federated Learning With Homogeneous Low-Rank Adapter Sharing on Mobile Edge Devices,keep,Double-sourced; direct fit — federated LoRA personalisation (Pillar 2).
