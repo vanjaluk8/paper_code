@@ -530,8 +530,11 @@ Table~\ref{tab:g0_seeds}.} \\
 \begin{table}[H]
 \centering
 \caption{This review against the closest competing secondary studies, by pillar
-coverage (dedicated related-reviews search, 2026-09-10; \S\ref{sec:methodology:search};
-query strings in Appendix~\ref{app:db_queries}).
+coverage. Consolidates every prior review or survey-like study named anywhere
+in this manuscript: both the works cited in Section~\ref{sec:introduction} as
+motivating the gap and those identified by the dedicated related-reviews
+search (2026-09-10; \S\ref{sec:methodology:search}; query strings in
+Appendix~\ref{app:db_queries}).
 Columns: \emph{PEFT} = PEFT/adapters; \emph{Comp.} = adapter composition;
 \emph{Serve} = multi-tenant serving; \emph{MoE} = MoE/routing;
 \emph{P2P} = P2P/federated; \emph{Exch.} = decentralised, coordinator-free
@@ -546,6 +549,14 @@ covered.}
 \textbf{Secondary study} & \textbf{Focus} & \textbf{PEFT} & \textbf{Comp.} &
 \textbf{Serve} & \textbf{MoE} & \textbf{P2P} & \textbf{Exch.} \\
 \midrule
+Han et al.\ 2024~\cite{Han2024} & PEFT, comprehensive survey &
+\checkmark & & $\circ$ & & & \\
+Wang et al.\ 2024~\cite{WangAIReview2024} & PEFT, survey of methodologies &
+\checkmark & & & & & \\
+Mao et al.\ 2024~\cite{MaoLoraSurvey2024} & LoRA survey &
+\checkmark & \checkmark & $\circ$ & & \checkmark & \\
+{\v S}ajina et al.\ 2024~\cite{SajinaP2PConnection2024}\textsuperscript{a} &
+autonomous P2P connection establishment & & & & & \checkmark & \\
 Pfeiffer et al.\ 2023~\cite{PfeifferModular2023} & modular deep learning &
 \checkmark & \checkmark & & \checkmark & & \\
 Woisetschl{\"a}ger et al.\ 2024~\cite{WoisetschlagerFLsurvey2024} &
@@ -562,6 +573,11 @@ unified LLM survey & \checkmark & & & \checkmark & $\circ$ & \\
 \textbf{This review} & decentralised adapter-based inference &
 \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
 \bottomrule
+\multicolumn{8}{@{}p{\textwidth}@{}}{\footnotesize\textsuperscript{a}~Framed
+as an overview but structured as an empirical comparison of specific
+connection-establishment methods rather than a literature survey; included
+here for pillar-coverage completeness since it is cited in
+Section~\ref{sec:introduction} as part of the prior-work landscape.} \\
 \end{tabular}
 \end{table}
 
