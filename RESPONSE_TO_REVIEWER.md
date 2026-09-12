@@ -28,7 +28,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | Blocking 3 (extend concept matrix) | needs author | `OPEN_QUESTIONS.md` S-1; scaffold at `verify/s1_tier1_concept_matrix_scaffold.csv` | |
 | Blocking 4 (add Dec-LoRA/MoE rows) | needs author | `OPEN_QUESTIONS.md` S-2 | |
 | Blocking 5 (appraisal instrument) | needs author | `OPEN_QUESTIONS.md` Blocking 5; scaffold at `verify/blocking5_appraisal_scoring_template.csv` | |
-| Blocking 6 (E-1, Zadouri O(log N)) | needs author | `OPEN_QUESTIONS.md` E-1 — CONTRADICTED | |
+| Blocking 6 (E-1, Zadouri O(log N)) | done | `sections/07_moe_routing.tex`, `sections/09_synthesis_gap.tex` §SQ4 — fabricated paragraph and its dependent bridge claim both fully removed already; tracker status was stale, corrected this pass | |
 | Blocking 7 (E-2, Zeng/Aghajanyan) | done | `sections/04_peft.tex` §4.1 — `OPEN_QUESTIONS.md` E-2, now FIXED | |
 | Blocking 8 (Figure A3) | done | `sections/12_appendix.tex` (WP-11) | |
 | Blocking 9 (Supplementary S1/S2) | done | files exist in `supplementary/`; confirm attached at submission | |

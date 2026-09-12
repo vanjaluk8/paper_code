@@ -53,12 +53,13 @@ fabricated communication-constraint framing was removed.
   parameter constraints." This is about memory/parameter efficiency, not
   communication cost, message complexity, or network topology.
 - **Verdict: CONTRADICTED.** The paper contains no O(log N) communication
-  result of any kind. §9.1's SQ4 answer, which leans on this citation to
-  bridge MoE routing literature to DHT-based lookup, needs to drop this
-  citation or find a different source for the claim.
-- **Minimal edit:** delete the sentence and its dependent claim in SQ4, or
-  replace the citation if you have a different source in mind for a
-  genuine MoE-communication-budget result.
+  result of any kind.
+- **Status check (this pass):** confirmed §9.1's SQ4 answer no longer
+  mentions Zadouri or any O(log N)-communication-degradation bridge claim
+  — it was already rewritten to rest only on the routing-mechanisms point
+  and the catalogue-construction gap, neither of which needs this
+  citation. `ZadouriPushMoE2024` is not cited anywhere in `sections/*.tex`
+  (an orphaned `bibliography.bib` entry only). Nothing further to do.
 
 ### E-2: Zeng et al. [65] miscited; Aghajanyan 2021 absent from corpus — CONTRADICTED — **FIXED**
 **Applied:** removed the false attribution to Zeng et al. in both §4.1 and
