@@ -356,7 +356,7 @@ cost" instead of "at equivalent parameter count."
   cost" (or "with the same computational resources," matching the paper's own
   wording).
 
-### E-10: AdaMix [58] — homogeneous vs heterogeneous module mixing — CONTRADICTED
+### E-10: AdaMix [58] — homogeneous vs heterogeneous module mixing — CONTRADICTED — **FIXED**
 - **Manuscript location:** `sections/07_moe_routing.tex` §7.4
 - **Manuscript claim (verbatim):** "routes between multiple heterogeneous PEFT
   modules (combining bottleneck adapters and LoRA matrices within the same
@@ -380,10 +380,12 @@ cost" instead of "at equivalent parameter count."
   since there is no single sentence that explicitly denies heterogeneous
   mixing — the case rests on the paper's total silence on
   heterogeneous/mixed-type composition, plus the "or" framing throughout.
-- **Minimal edit:** correct to describe homogeneous mixing (multiple
-  instances of one adapter type, stochastically routed); consider whether
-  this claim was conflated with §5.7's UniPELT, which the reviewer notes is
-  the genuinely heterogeneous-composition system in this corpus.
+- **Applied:** rewrote the claim to describe homogeneous mixing (multiple
+  instances of a single chosen PEFT method, stochastically routed during
+  training, merged to one module at inference for zero added cost —
+  mechanism independently verified via a second search). Checked UniPELT
+  (`sections/05_adapter_composition.tex`) for the same conflation risk the
+  reviewer flagged: its description is already correct and unaffected.
 
 ### E-11: Houlsby LayerNorm claim; duplicate equations — CONTRADICTED, decisively — **FIXED**
 **Applied:** removed `LayerNorm(h)` from the bottleneck-adapter equation

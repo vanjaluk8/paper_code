@@ -88,7 +88,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | E-7 | done | `sections/08_p2p_federated.tex` §8.2, `sections/03_methodology.tex` Table 7 | |
 | E-8 | done | `sections/06_inference_systems.tex` §6.2 | |
 | E-9 | done | `sections/07_moe_routing.tex` | |
-| E-10 | needs author | `OPEN_QUESTIONS.md` E-10 — CONTRADICTED (inferred from framing, not an explicit denial) | |
+| E-10 | done | `sections/07_moe_routing.tex` §7.4 — AdaMix corrected from "heterogeneous PEFT modules" to homogeneous multi-instance mixing (verified mechanism: stochastic routing during training, merged to one module at inference) | |
 | E-11 | done | `sections/02_background.tex`, `sections/04_peft.tex` — equation + prose corrected, duplicate equations merged | |
 | E-12 | needs author | `OPEN_QUESTIONS.md` E-12 — no citation exists to check | |
 | E-13 | done | see WP-3 above | |

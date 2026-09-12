@@ -133,11 +133,12 @@ enables a single model to serve multiple domains without per-domain loading, ach
 accuracy within 1--2\% of per-domain fine-tuning.
 
 Wang et al.~\cite{WangAdaMix2022} proposed AdaMix, a general mixture-of-adaptations framework
-that routes between multiple heterogeneous PEFT modules (combining bottleneck adapters
-and LoRA matrices within the same layer) using a sparse learned gating network. AdaMix
-outperforms any single PEFT method on GLUE and SuperGLUE at matched parameter budgets,
-demonstrating that heterogeneous PEFT composition via routing is superior to any
-homogeneous single method.
+that trains multiple instances of a single chosen PEFT method per layer (e.g.\ a mixture
+of bottleneck adapters, or separately a mixture of LoRA matrices, but not both combined)
+via stochastic routing during training, merging them into one module at inference for
+zero added cost. AdaMix outperforms the corresponding single-instance PEFT method on
+GLUE and SuperGLUE at matched parameter budgets, demonstrating that mixing multiple
+instances of one PEFT type outperforms a single instance of that type.
 
 Muqeeth et al.~\cite{Muqeeth2024} investigated soft merging of task-specific adapter experts, showing
 that interpolating adapter weights according to input-conditioned routing weights
