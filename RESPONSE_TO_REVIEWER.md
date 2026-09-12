@@ -37,7 +37,7 @@ Prose response cells are intentionally left blank — the author writes these.
 
 | Item | Status | Where to look | Response |
 |---|---|---|---|
-| Major 10 (Boolean recall) | done (data) / needs author (prose) | `verify/boolean_recall.md` — 84.6% | |
+| Major 10 (Boolean recall) | done | `sections/11_conclusion.tex` §10.3 (threats to validity) — 104/123 (84.6%) recalled; `verify/boolean_recall.md` | |
 | Major 11 (second screener) | needs author | `verify/major11_*` blind samples, seed 20260912 | |
 | Major 12 / P1-2 (Table 5/2) | done | see P1-2 above | |
 | Major 13 / P1-3 (UNCERTAIN) | done | see P1-3 above | |
