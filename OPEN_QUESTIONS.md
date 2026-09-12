@@ -696,16 +696,26 @@ for this dimension (Major 21) was corrected to "3/17" to match.
 
 ## Methodology
 
-### Blocking 5: Appraisal instrument — baseline adequacy, threats reporting, peer-review status
+### Blocking 5: Appraisal instrument — baseline adequacy, threats reporting, peer-review status — **DECLINED**
 - **Scaffolding prepared:** `verify/blocking5_appraisal_scoring_template.csv`
   — **33 rows** (parsed directly from Table 7's LaTeX body, not
   hand-transcribed — confirmed the 17 concept-matrix systems are a strict
   subset of these 33), columns `system`, `bib_key`, `in_concept_matrix_17`,
   `in_table7_33`, `baseline_adequacy`, `threats_to_validity_reporting`,
   `peer_reviewed_status`, `notes`, all empty except the membership flags.
-- **Not done here:** the actual scoring — requires reading each system's
-  paper and making a judgement call on baseline adequacy and
-  threats-reporting quality (AUTHOR work).
+- **Author decision:** declined for this revision. §3.4's existing
+  justification (classical risk-of-bias instruments such as RoB2/ROBINS-I
+  are designed for clinical trials and don't transfer to a CS methods/
+  systems corpus) is judged PRISMA-compliant and sufficient on its own —
+  PRISMA 2020 Item 12 expects either a risk-of-bias assessment or a
+  reasoned justification for omitting one, not this specific two-dimension
+  instrument, which is a bespoke ask from this (simulated, adversarial)
+  pre-submission review rather than a standardised SLR instrument. Not
+  worth the ~30-paper primary-source read for this revision.
+  `peer_reviewed_status` was computed mechanically before this decision
+  (30/33 peer-reviewed venues; 3 arXiv-only preprints: SLoRA/Babakniya2023,
+  LoraHub, MixLoRA) but is not written up anywhere, since the instrument
+  as a whole isn't being added.
 - **Q5 deletion:** per the review, Q5 (contribution clarity) is scored on
   only 16/123 records (13%) and all 16 hit the maximum — delete only on your
   say-so, per REVISION_PROMPT.md's own instruction. Not deleted here.
