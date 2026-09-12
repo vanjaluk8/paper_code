@@ -1,0 +1,23 @@
+Running Q1_core_adapter_peft...
+Running Q2_multitask_multiadapter_serving...
+Running Q3_p2p_distributed_learning...
+Running Q4_adapter_fusion_routing...
+Running Q5_modular_inference_task_switching...
+Running Q6_frozen_backbone_adapter...
+
+Per-query candidate counts (within the date window):
+  Q1_core_adapter_peft: 100
+  Q2_multitask_multiadapter_serving: 57
+  Q3_p2p_distributed_learning: 100
+  Q4_adapter_fusion_routing: 100
+  Q5_modular_inference_task_switching: 51
+  Q6_frozen_backbone_adapter: 100
+
+Total unique arXiv candidates across all 6 queries: 481
+Already in the 123-record corpus (by title match): 0
+Genuinely new candidates (not in corpus, unscreened): 481
+Title-level PEFT+scope co-occurrence (reviewable shortlist): 27
+
+Wrote 27 shortlisted candidates to /Users/vanja/git/mdpi_paper_slr/verify/major19_topup_arxiv_candidates.csv
+(481 total unscreened candidates before the title filter)
+No eligibility/inclusion judgement applied -- shortlist only, for human screening.
