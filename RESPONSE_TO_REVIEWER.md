@@ -131,4 +131,4 @@ Prose response cells are intentionally left blank — the author writes these.
 | Acknowledgments sentence | needs author | requires confirming with the editorial office | |
 | Prior-work overlap (text carryover disclosure) | needs author | requires the author's own knowledge of what was carried over | |
 | iThenticate exposure (Appendices B/C to Supplementary) | needs author | same as Minor 41 | |
-| Data Availability — verify DOIs/repos resolve | needs author | requires checking live GitHub/Zenodo links, not done in this pass | |
+| Data Availability — verify DOIs/repos resolve | done (links) / needs author (push+release) | all 4 links verified live: both GitHub repos public (API-confirmed), both Zenodo DOIs findable with correct title/author. Local `main` is 39 commits ahead of `origin/main` (nothing from this revision pushed yet) — author will push and cut a new release at the end of the revision, and confirm whether the Zenodo integration auto-snapshots on push/tag | |
