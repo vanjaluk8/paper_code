@@ -16,7 +16,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | P1-3 | done | `sections/12_appendix.tex` §A.4/A.5 (WP-7) | |
 | P1-4 | done | `sections/03_methodology.tex` Table 7 (WP-8) | |
 | P1-5 | done | `sections/03_methodology.tex` §3.4, Figure 6 (WP-9) | |
-| P1-6 | needs author | review's own text; not addressed in Phase 1/2 — no WP covered PRISMA Item 16b re-application | |
+| P1-6 | done | `sections/11_conclusion.tex` §10.3 (removed the incorrect Item 16b citation from the 165-SKIP sentence) and `sections/03_methodology.tex` §3.1 (applied it correctly to the 173 DEFER exclusions) | |
 | P1-7 | done | `sections/03_methodology.tex` §3.1 (WP-9) | |
 
 ## Blocking issues
@@ -24,7 +24,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | Item | Status | Where to look | Response |
 |---|---|---|---|
 | Blocking 1 (Undermind reproducibility) | needs author | disclosed as a limitation pre-revision; not re-addressed here | |
-| Blocking 2 (173 DEFER, no assessment) | done (data) / needs author (judgement) | `verify/wp13_defer_records.csv`; author must decide whether to assess or justify dropping | |
+| Blocking 2 (173 DEFER, no assessment) | done (data + honest disclosure) / needs author (judgement) | `verify/wp13_defer_records.csv`; `sections/03_methodology.tex` §3.1 now discloses this as a genuine Item 16b reporting gap rather than a voluntary limitation (P1-6); author still must decide whether to assess the 173 or justify dropping them | |
 | Blocking 3 (extend concept matrix) | needs author | `OPEN_QUESTIONS.md` S-1; scaffold at `verify/s1_tier1_concept_matrix_scaffold.csv` | |
 | Blocking 4 (add Dec-LoRA/MoE rows) | needs author | `OPEN_QUESTIONS.md` S-2 | |
 | Blocking 5 (appraisal instrument) | needs author | `OPEN_QUESTIONS.md` Blocking 5; scaffold at `verify/blocking5_appraisal_scoring_template.csv` | |
@@ -70,7 +70,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | Minor 35 (C-6, latency cross-ref) | done | see WP-1 above | |
 | Minor 36 (S-5, Figure 15) | needs author | not addressed — a figure/table redesign decision | |
 | Minor 37 (P1-5, N=120 vs 123) | done | see P1-5 above | |
-| Minor 38 (P1-6, Item 16b) | needs author | see P1-6 above | |
+| Minor 38 (P1-6, Item 16b) | done | see P1-6 above | |
 | Minor 39 (P1-7, total records) | done | see P1-7 above | |
 | Minor 40 (ref [29]/[7] formatting, DOI convention) | done | see WP-4 above | |
 | Minor 41 (Appendices B–D → Supplementary) | needs author | a submission-structure decision, not attempted | |
