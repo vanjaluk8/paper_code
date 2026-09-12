@@ -99,3 +99,4 @@ verify/db_results/**/Q*_wos.txt
 # instructions that turned it into work packages.
 REVIEWER_REPORT.md
 REVISION_PROMPT.md
+verify/
