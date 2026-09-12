@@ -59,13 +59,13 @@ Prose response cells are intentionally left blank — the author writes these.
 | Minor 24 (C-1, Appendix C labels) | done | `sections/12_appendix.tex` (WP-1) | |
 | Minor 25 (C-3, C-4) | done | see WP-2 above | |
 | Minor 26 (C-2, abbreviations) | done | see WP-3 above | |
-| Minor 27 (Eq. 4/6, Houlsby LayerNorm) | needs author | `OPEN_QUESTIONS.md` E-11 — CONTRADICTED, decisively; equation merge is mechanical once content is corrected | |
+| Minor 27 (Eq. 4/6, Houlsby LayerNorm) | done | `sections/02_background.tex`, `sections/04_peft.tex` — see E-11 above | |
 | Minor 28 (author-count errors) | done | see WP-3 above | |
-| Minor 29 (CaraServe 1.4/1.7, SLO) | needs author | `OPEN_QUESTIONS.md` E-15 — RESOLVED (1.7× is correct) | |
-| Minor 30 (E-9, Switch parameter count) | needs author | `OPEN_QUESTIONS.md` E-9 — CONTRADICTED | |
+| Minor 29 (CaraServe 1.4/1.7, SLO) | done | `sections/03_methodology.tex` Table 7, `sections/06_inference_systems.tex` Table 9 — see E-15 above (1.7× confirmed correct) | |
+| Minor 30 (E-9, Switch parameter count) | done | `sections/07_moe_routing.tex` — see E-9 above | |
 | Minor 31 (unbalanced parenthesis) | done | see WP-1 above | |
 | Minor 32 ("to the best of the author's knowledge", N-3) | done (first hedge) / needs author (superlative + possible 2nd hedge) | see WP-3 above; `OPEN_QUESTIONS.md` N-3 | |
-| Minor 33 (E-14, Šajina thesis year) | needs author | `OPEN_QUESTIONS.md` E-14 — RESOLVED (2025 is correct) | |
+| Minor 33 (E-14, Šajina thesis year) | done (annotated, not silently altered) | `sections/12_appendix.tex` Appendix B — see E-14 above (2025 confirmed correct) | |
 | Minor 34 (C-8, Pillar-4 denominator) | done | see P1-4/WP-8 above | |
 | Minor 35 (C-6, latency cross-ref) | done | see WP-1 above | |
 | Minor 36 (S-5, Figure 15) | needs author | not addressed — a figure/table redesign decision | |
