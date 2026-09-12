@@ -115,6 +115,42 @@ removed).
 
 \subsection*{A.3 Inclusion and Exclusion Criteria}
 
+Table~\ref{tab:inclusion_exclusion} summarises every criterion actually
+applied during screening, drawn from the criteria stated in
+Section~\ref{sec:methodology:eligibility} and the per-record reason codes
+recorded in the pipeline's audit files
+(\texttt{log\_screening\_2026-04-21.json},
+\texttt{14\_final\_curation\_reasons.csv}). Counts are the number of records
+excluded under each criterion where a reason code exists; two inclusion
+criteria (I1, I2) are applied throughout and have no associated exclusion
+count because they gate entry rather than triggering a coded rejection.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Inclusion and exclusion criteria actually applied, by stage. Counts
+are per-record reason codes as logged in the pipeline audit files; ``---''
+indicates the criterion is not separately coded as a reason (it gates entry
+at that stage without generating an exclusion record). I1/I2 apply
+throughout; I3 exempts the pre-validated G0--G6 corpus.}
+\label{tab:inclusion_exclusion}
+\begin{tabularx}{\textwidth}{@{} l l X r @{}}
+\toprule
+\textbf{ID} & \textbf{Type} & \textbf{Criterion and rationale} & \textbf{\textit{n} excluded} \\
+\midrule
+I1 & Inclusion & Addresses at least one of the three review themes (PEFT/adapters; distributed/P2P/federated ML; multi-task LLM serving) --- the review's scoping boundary, applied at every screening stage. & --- \\
+I2 & Inclusion & English language only. & --- \\
+I3 & Inclusion & Publication year $\geq$2021 for snowballed records, marking the practical onset of the PEFT-at-scale era; the pre-validated G0--G6 corpus is exempt to admit pre-2021 foundational works (e.g.\ Houlsby 2019). Applied at title screening (Layer~2). & 192 \\
+I4 & Inclusion & Peer-reviewed venue preferred; arXiv preprints retained only with a non-trivial external citation count (Semantic Scholar), a minimal proxy for community engagement absent formal peer review. Applied at eligibility. & --- \\
+E1 & Exclusion & Title contains no keyword match to any of the three review themes. Applied at title screening (Layer~2). & 284 \\
+E2 & Exclusion & Title matches only a generic ``LLM'' keyword with no theme-specific term (too broad to indicate topical relevance). Applied at title screening (Layer~2). & 255 \\
+E3 & Exclusion & Manual Scopus/WoS cross-validation top-up record not meeting inclusion criteria on full-text or abstract read. Applied at eligibility. & 34 \\
+E4 & Exclusion & Single-theme (\texttt{background}-corpus) record: engages one of the three themes but not their intersection, retained through full-text reading for context but not the final list. Applied at eligibility/final curation. & 53 \\
+E5 & Exclusion & Intersection-relevant (\texttt{core}-corpus) record failing full-text inclusion appraisal on grounds other than topical relevance. Applied at eligibility/final curation. & 14 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
 Eleven of the 123 included records (\textbf{8.9\%}) are arXiv preprints with
 no peer-reviewed published venue at the search date (this is a narrower,
 venue-status count; a broader retrieval-source count of 18 records with
