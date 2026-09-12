@@ -437,7 +437,7 @@ restating it under a second label.
   into one, since having two slightly different forms in two sections is a
   MECHANICAL duplication issue regardless of which one is correct.
 
-### E-12: Uncited claim doing real work — flagged, no PDF check possible
+### E-12: Uncited claim doing real work — **FIXED**
 - **Manuscript location:** `sections/04_peft.tex` §4.3
 - **Manuscript claim (verbatim):** "subsequent studies demonstrate that
   applying LoRA to all projection matrices including Wk, Wo, and FFN layers
@@ -446,10 +446,16 @@ restating it under a second label.
   inspection); it sits immediately after a claim that LoRA on Wq/Wv alone
   matches full fine-tuning, creating an internal tension the sentence never
   resolves.
-- **Question for the author:** which specific paper(s) support this claim?
-  There is no PDF to check since no citation is given.
-- **Minimal edit:** add the citation, or delete the sentence — no in-between
-  fix is possible without knowing the intended source.
+- **Applied:** identified and verified the source: Dettmers et al. 2023
+  (QLoRA), already in `bibliography.bib` as `Dettmers2023` (cited elsewhere
+  in this same section for 4-bit quantisation). Fetched the primary-source
+  PDF directly and confirmed word-for-word: "Using LoRA on all transformer
+  layers is critical to match 16-bit performance... LoRA on all linear
+  transformer block layers are required to match full finetuning
+  performance." Cited at this sentence; softened the specific "Wk, Wo, and
+  FFN layers" enumeration to "all linear transformer-block layers" to match
+  the primary source's own framing rather than an itemised list it doesn't
+  use verbatim.
 
 ### E-13: Author-count errors — already fixed
 Status unchanged from WP-3: "Wohlin et al."→"Wohlin" (5 instances), "Chen et

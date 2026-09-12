@@ -90,7 +90,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | E-9 | done | `sections/07_moe_routing.tex` | |
 | E-10 | done | `sections/07_moe_routing.tex` §7.4 — AdaMix corrected from "heterogeneous PEFT modules" to homogeneous multi-instance mixing (verified mechanism: stochastic routing during training, merged to one module at inference) | |
 | E-11 | done | `sections/02_background.tex`, `sections/04_peft.tex` — equation + prose corrected, duplicate equations merged | |
-| E-12 | needs author | `OPEN_QUESTIONS.md` E-12 — no citation exists to check | |
+| E-12 | done | `sections/04_peft.tex` §4.3 — cited `Dettmers2023` (already in bibliography.bib for QLoRA); primary-source PDF confirms word-for-word ("LoRA on all linear transformer block layers are required to match full finetuning performance") | |
 | E-13 | done | see WP-3 above | |
 | E-14 | done (annotated, not silently altered — see OPEN_QUESTIONS.md) | `sections/12_appendix.tex` Appendix B | |
 | E-15 | done | `sections/03_methodology.tex` Table 7, `sections/06_inference_systems.tex` Table 9 | |

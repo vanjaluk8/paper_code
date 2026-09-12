@@ -114,9 +114,9 @@ the adapted model is identical to the pre-trained model at the start of training
 At inference time, the low-rank update can be merged into $W_0$ by computing
 $W' \leftarrow W_0 + \frac{\alpha}{r}BA$ (with the scaling factor $\frac{\alpha}{r}$ absorbed into the merged weights), so that adapted and base-model inference share
 exactly the same computation graph with zero added latency. In the original work, LoRA targets
-$W_q$ and $W_v$ by default; subsequent studies demonstrate that applying LoRA to all
-projection matrices including $W_k$, $W_o$, and FFN layers is required to match full
-fine-tuning performance. With $r = 4$, LoRA matches full fine-tuning on GLUE benchmarks using
+$W_q$ and $W_v$ by default; Dettmers et al.~\cite{Dettmers2023} demonstrate that applying
+LoRA to all linear transformer-block layers, not attention projections alone, is required
+to match full fine-tuning performance. With $r = 4$, LoRA matches full fine-tuning on GLUE benchmarks using
 RoBERTa/DeBERTa-scale models, and separately matches full fine-tuning on
 generation benchmarks (WikiSQL, MultiNLI, SAMSum) at GPT-3-175B scale
 \cite{Hu2022}, at a parameter overhead of
