@@ -203,8 +203,10 @@ inclusion as a *recognised but underserved* requirement, not padding.
 
 ## 7. Absence of a central coordinator
 
-**Matrix evidence:** ✓ for Petals, MT-EF/Šajina, Gossip Learning; (✓) for
-LoraHub (4 of 17).
+**Matrix evidence:** ✓ for Petals, MT-EF/Šajina, Gossip Learning (3 of 17).
+[Correction, post-S-1 cross-check: LoraHub's cell for this dimension was
+originally (✓) but has been corrected to × — composing from a hub is
+centralised, not coordinator-free — so it is not counted here.]
 
 **Candidates:**
 - **Petals** — no operator; volunteers alone constitute the serving
@@ -239,11 +241,11 @@ into one dimension for convenience.
 | Discovery | 3/17 (1 full + 2 partial) | Petals (layer-level DHT), LoraRetriever (centralised), AdapterHub (centralised) |
 | Multi-task fusion | 6/17 | AdapterFusion, LoraHub, MixLoRA/MiLoRA |
 | Privacy/DP | 2/17 | DP-FedLoRA, FedPETuning (+ Liu2023, Sun2024 outside the matrix) |
-| No central coordinator | 4/17 | Petals, Gossip Learning, MT-EF/Šajina |
+| No central coordinator | 3/17 | Petals, Gossip Learning, MT-EF/Šajina |
 
 Note the pattern: the three dimensions the review's gap claim actually
 hinges on (P2P topology, discovery, no central coordinator) are also the
-three rarest in the matrix (3–4 of 17 each). That is itself a datum worth
+three rarest in the matrix (3 of 17 each). That is itself a datum worth
 stating explicitly in §9.3 — the dimensions central to the gap claim are
 not the ones every system already satisfies; they're the ones almost none
 do, which is a different and stronger claim than "the dimensions were

@@ -536,14 +536,15 @@ none reaches 4. Reported in `sections/09_synthesis_gap.tex` §9.3;
 full sheet published as `supplementary/S3_tier1_concept_matrix.csv`
 (also `verify/s1_tier1_concept_matrix_scored.csv`).
 
-**One cross-check discrepancy found, not resolved here:** 5 of the 48
+**One cross-check discrepancy found — corrected.** 5 of the 48
 Tier-1 records overlap with the original 17 in Table 10 (S-LoRA, LoraHub,
 LoraRetriever, MixLoRA, MiLoRA). Re-scoring them independently in this
 pass matched Table 10 exactly except for one cell: LoraHub's
-`no_central_coordinator` is `(✓)` in the published Table 10 but scored
-`×` in this pass. Left as-is in both places rather than silently
-reconciled — author's call whether Table 10's row needs a one-cell
-correction.
+`no_central_coordinator` was `(✓)` in the published Table 10 but scored
+`×` in this pass (composing from a hub is centralised, not
+coordinator-free). Author confirmed the correction; Table 10 now reads
+`×` for that cell, and the dimension-provenance scaffold's "4/17" count
+for this dimension (Major 21) was corrected to "3/17" to match.
 
 ### S-2: Table 10 omits decentralised MoE [63] (Ryabinin) and Dec-LoRA [36] (Ghiasvand)
 - **Manuscript location:** `tab:concept_matrix` (`sections/09_synthesis_gap.tex`),
