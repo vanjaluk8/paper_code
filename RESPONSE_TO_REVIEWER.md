@@ -24,7 +24,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | Item | Status | Where to look | Response |
 |---|---|---|---|
 | Blocking 1 (Undermind reproducibility) | needs author | disclosed as a limitation pre-revision; not re-addressed here | |
-| Blocking 2 (173 DEFER, no assessment) | done (data + honest disclosure) / needs author (judgement) | `verify/wp13_defer_records.csv`; `sections/03_methodology.tex` §3.1 now discloses this as a genuine Item 16b reporting gap rather than a voluntary limitation (P1-6); author still must decide whether to assess the 173 or justify dropping them | |
+| Blocking 2 (173 DEFER, no assessment) | done | `sections/03_methodology.tex` §3.1 — author inspected and dropped all 173 (each a duplicate or small increment on an already-retained system); grouped Item 16b reason given, backed by `verify/blocking2_defer_categorization.py`'s topical breakdown (63 single-model PEFT variants, 32 MoE-routing, 30 multi-tenant serving, 25 federated PEFT, 23 P2P/decentralised) | |
 | Blocking 3 (extend concept matrix) | needs author | `OPEN_QUESTIONS.md` S-1; scaffold at `verify/s1_tier1_concept_matrix_scaffold.csv` | |
 | Blocking 4 (add Dec-LoRA/MoE rows) | needs author | `OPEN_QUESTIONS.md` S-2 | |
 | Blocking 5 (appraisal instrument) | needs author | `OPEN_QUESTIONS.md` Blocking 5; scaffold at `verify/blocking5_appraisal_scoring_template.csv` | |
