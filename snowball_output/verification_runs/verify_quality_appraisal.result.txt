@@ -3,5 +3,7 @@ QUALITY-APPRAISAL VERIFICATION — recomputed from pipeline data files
 [2] Tier split of the enriched pool
 [3] Abstract review decision split (S7b = 552)
 [4] Year distribution of the final reading list (13 = 123)
+[5] Reporting-completeness appraisal over 120 distinct studies (P1-5)
+[6] Table 7 Public-column artifact-availability tally (P1-4, C-8)
 
-19 passed, 0 failed
+36 passed, 0 failed
