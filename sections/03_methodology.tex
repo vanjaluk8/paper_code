@@ -318,7 +318,18 @@ arXiv preprints were retained only where they carried a non-trivial external
 citation count (Semantic Scholar, retrieved at search time) as a minimal,
 external proxy for community engagement and peer scrutiny
 (Appendix~\ref{sec:appendix:corpus_pipeline}, \S A.3--A.4). The full criteria
-and their motivations are detailed in the appendix. With respect to study type,
+and their motivations are detailed in the appendix. While this criterion alone
+would admit any record addressing at least one theme, the corpus is not
+undifferentiated: each retained record's relevance position is coded as
+\texttt{core} (addressing at least two of the three themes together) or
+\texttt{background} (single-theme, retained for foundational context) in the
+pipeline's \texttt{corpus} field (Table~\ref{tab:extraction_codebook};
+criteria E4/E5, Appendix~\ref{sec:appendix:corpus_pipeline} \S A.3). Of the
+123 final records, \textbf{89} (72.4\%) are \texttt{core} and \textbf{34}
+(27.6\%) are \texttt{background}. The single-theme admission rule therefore
+sets the corpus's outer boundary; the core/background stratification,
+already coded for every retained record, is what discriminates within it.
+With respect to study type,
 the 120 distinct papers underlying the 123 included records (three works:
 LoRA, Houlsby et al., and the CaraServe/Toppings pair, each appear as two
 records; \S~\ref{sec:methodology:search}) comprise \textbf{111} primary studies
