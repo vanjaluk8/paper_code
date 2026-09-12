@@ -947,3 +947,23 @@ framing, not an explicit denial), E-12 (no citation exists to check), E-13
 and the Methodology-section items remain entirely report-only as originally
 scoped — none of those are simple factual corrections the way the fixed
 E-items were.
+
+### Major 21: §9.3 concept-matrix dimension provenance — scaffold ready
+Review's ask: demonstrate that the seven concept-matrix dimensions were
+derived inductively from the corpus, not reverse-engineered from the
+target architecture, by citing the 2-3 corpus papers whose design
+commitments forced each dimension onto the list.
+
+`verify/major21_dimension_provenance_scaffold.md` builds this per
+dimension from evidence already in the manuscript: which of the 17 matrix
+systems score ✓/(✓) on each dimension, verbatim quotes from the
+manuscript's own descriptions of those systems, and a suggested framing
+argument for each. No new prose was written into the manuscript — this is
+new scientific synthesis (arguing that a pattern in the literature, not
+the target architecture, motivated each dimension), which the hard rules
+reserve for the author. Worth flagging: the scaffold surfaces that the
+three dimensions the gap claim actually hinges on (P2P topology,
+discovery, no central coordinator) are also the three rarest in the
+matrix (3-4 of 17 systems each) — a pattern that argues against the
+"dimensions picked to flatter the target" reading, since if that were the
+motive the rarest properties would be an odd set to keep.
