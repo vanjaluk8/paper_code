@@ -80,3 +80,13 @@ prisma_audit/
 .claude/
 CLAUDE.md
 materials/
+
+# Raw per-query Scopus/WoS top-up exports (Major #19): large (100MB+),
+# vendor-licensed metadata (abstracts, funding details, references).
+# Trimmed/merged/shortlisted derivatives (verify/major19_scopus_topup_*.csv,
+# verify/db_results/*_trimmed.csv) are tracked instead -- everything
+# actually useful (Title/Authors/Year/Source/DOI/Cited-by/EID) is preserved
+# there; the dropped columns are regenerable from the DOI if ever needed.
+verify/db_results/Q*_scopus.csv
+verify/db_results/Q*_wos.csv
+verify/db_results/Q*_wos.txt

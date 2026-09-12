@@ -1,0 +1,22 @@
+Q1_scopus.csv: 370 rows
+Q2_scopus.csv: 39 rows
+Q3_scopus.csv: 6328 rows
+Q4_scopus.csv: 708 rows
+Q5_scopus.csv: 17 rows
+Q6_scopus.csv: 30 rows
+Q7_scopus.csv: 1848 rows
+Q8_scopus.csv: 36 rows
+Q9_scopus.csv: 47 rows
+Q10_scopus.csv: 93 rows
+
+Total raw rows across all 10 files (before dedup): 9516
+Unique records after EID/DOI/Title dedup: 8724
+Year distribution (unique records): {'2026': 8668, '2027': 56}
+
+Wrote 8724 unique merged records to /Users/vanja/git/mdpi_paper_slr/verify/major19_scopus_topup_merged.csv
+Title-level PEFT+scope co-occurrence (reviewable shortlist): 41
+Of these, already in the 123-record corpus: 1
+    Symbiosis: Multi-Adapter Inference and Fine-Tuning
+Genuinely new candidates: 40
+Wrote 40 new, shortlisted candidates to /Users/vanja/git/mdpi_paper_slr/verify/major19_scopus_topup_shortlist.csv
+No eligibility/inclusion judgement applied -- shortlist only, for human screening.
