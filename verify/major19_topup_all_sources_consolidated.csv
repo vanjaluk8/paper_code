@@ -1,0 +1,94 @@
+title,year,sources,venue_or_id
+AdaFuse: Accelerating Dynamic Adapter Inference via Token-Level Pre-Gating and Fused Kernel Optimization,2026,Scopus;WoS,"Proceedings of the AAAI Conference on Artificial Intelligence;FORTIETH AAAI CONFERENCE ON ARTIFICIAL INTELLIGENCE, AAAI-26, VOL 40 NO 37"
+Adaptive Rank Allocation for Federated Parameter-Efficient Fine-Tuning of Language Models,2026,Scopus;WoS,IEEE Transactions on Computers;IEEE TRANSACTIONS ON COMPUTERS
+CLARE: Continual Learning for Vision-Language-Action Models via Autonomous Adapter Routing and Expansion,2026,Scopus;WoS,IEEE Robotics and Automation Letters;IEEE ROBOTICS AND AUTOMATION LETTERS
+Domain-Adaptive Multimodal Large Language Models for Photovoltaic Fault Diagnosis via Dynamic LoRA Routing,2026,Scopus;WoS,Processes;PROCESSES
+DyMerge-LoRA: On-GPU Post-Merge Fusion for High-Throughput Multi-Tenant Composite LoRA Serving,2026,Scopus;WoS,"Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery and Data Mining;PROCEEDINGS OF THE 32ND ACM SIGKDD CONFERENCE ON KNOWLEDGE DISCOVERY AND DATA MINING VOL 1, KDD 2026"
+Enhancing Aggregation Efficiency and Training Stability in Heterogeneous Federated Learning Using the Adaptive LoRA FL Framework,2026,Scopus;WoS,Journal of Advances in Information Technology;JOURNAL OF ADVANCES IN INFORMATION TECHNOLOGY
+FedALT: Federated Fine-Tuning through Adaptive Local Training with Rest-of-World LoRA,2026,Scopus;WoS,"Proceedings of the AAAI Conference on Artificial Intelligence;FORTIETH AAAI CONFERENCE ON ARTIFICIAL INTELLIGENCE, AAAI-26, VOL 40 NO 24"
+FedFA: Efficient federated large language models with feature adapters,2026,Scopus;WoS,Expert Systems with Applications;EXPERT SYSTEMS WITH APPLICATIONS
+FedHydra: Toward Parameter-Efficient and Backdoor-Resistant Federated Unlearning in Human-Centric Metaverse Service,2026,Scopus;WoS,IEEE Transactions on Services Computing;IEEE TRANSACTIONS ON SERVICES COMPUTING
+MeLoRA: Probability measures-based low-rank adaptation with Gaussian variational inference,2026,Scopus;WoS,Knowledge-Based Systems;KNOWLEDGE-BASED SYSTEMS
+MoE-FFD: Mixture of Experts for Generalized and Parameter-Efficient Face Forgery Detection,2026,Scopus;WoS,IEEE Transactions on Dependable and Secure Computing;IEEE TRANSACTIONS ON DEPENDABLE AND SECURE COMPUTING
+Multi-Task Unified Domain Incremental Learning With Domain Difference Adapters,2026,Scopus;WoS,IEEE Transactions on Image Processing;IEEE TRANSACTIONS ON IMAGE PROCESSING
+Multi-Task–Driven Adapter-Based Foundation Model for Locomotion Prediction in Virtual Reality,2026,Scopus;WoS,"ACM Transactions on Multimedia Computing, Communications and Applications;ACM TRANSACTIONS ON MULTIMEDIA COMPUTING COMMUNICATIONS AND APPLICATIONS"
+PM-adapter: MoE based dynamic denoising fine-tuning for thermal infrared object detection,2026,Scopus;WoS,Neurocomputing;NEUROCOMPUTING
+PrivLoRA: Enhancing Privacy in LoRA-Based Fine-Tuning of Large Language Models for Federated Learning,2026,Scopus;WoS,"2026 International Conference on Computing, Networking and Communications, ICNC 2026;2026 INTERNATIONAL CONFERENCE ON COMPUTING, NETWORKING AND COMMUNICATIONS, ICNC"
+Spatiotemporal Context-Aware Prompting With Low-Rank Dynamic Routing for Exemplar-Free Video Class-Incremental Learning,2026,Scopus;WoS,IEEE Transactions on Neural Networks and Learning Systems;IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS
+pFedLoRA: Model-Heterogeneous Personalized Federated Learning With Homogeneous Low-Rank Adapter Sharing on Mobile Edge Devices,2026,Scopus;WoS,IEEE Transactions on Mobile Computing;IEEE TRANSACTIONS ON MOBILE COMPUTING
+A Multi-Task Prompt Collaborative Optimization Method Based on LoRA Low-Rank Adapters,2026,Scopus,"2026 6th International Conference on Machine Learning and Intelligent Systems Engineering, MLISE 2026"
+A framework for efficient scientific diagram captioning using mixture-of-experts and low-rank adaptation,2026,WoS,SCIENTIFIC REPORTS
+ACE: Adapter Consolidation across Experts for Parameter-Efficient Fine-Tuning of MoE LLMs,2026,arXiv,arXiv:2609.06072
+AWMA-MoE: Attention-Guided Watermark Adapter with MoE for Latent Diffusion Models,2026,Scopus,WWW 2026 - Proceedings of the ACM Web Conference 2026
+Alternating Aggregation Low-Rank Adaptation Approach for Federated Large Models,2026,WoS,"ADVANCED DATA MINING AND APPLICATIONS, ADMA 2025, PT I"
+An enhanced low-rank fine-tuning framework for federated large language models,2026,WoS,NEUROCOMPUTING
+Automated Federated Pipeline for Parameter-Efficient Fine-Tuning of Large Language Models,2026,WoS,IEEE TRANSACTIONS ON MOBILE COMPUTING
+Beyond Full-Model Rollback: AuroSFT for Adapter-State Multi-Task Fine-Tuning,2026,arXiv,arXiv:2608.05250
+BitLoRA: Quantization-Compatible Adapter Tuning for 1.58-bit LLM in Federated On-Device AI-Agent,2026,WoS,EXPERT SYSTEMS WITH APPLICATIONS
+Breaking the Structural Identity: Personalized Federated LoRA Fine-tuning under Rank Heterogeneity,2026,arXiv,arXiv:2609.00632
+CD-LoRA: Consistency-Driven Low-Rank Adaptation for Multi-Task Fine-Tuning,2026,arXiv,arXiv:2608.21909
+CLEAR: Continuous Latent Adapter Routing for Utility-Preserving LLM Safety Alignment,2026,arXiv,arXiv:2608.21278
+CoLoRA: A Collaborative Scheduling Framework for Multi-Tenant LoRA LLM Inference,2026,WoS,"2026 31ST ASIA AND SOUTH PACIFIC DESIGN AUTOMATION CONFERENCE, ASP-DAC"
+D2MoRA: Diversity-Regulated Asymmetric MoE-LoRA Decomposition for Efficient Multi-Task Adaptation,2026,WoS,"FORTIETH AAAI CONFERENCE ON ARTIFICIAL INTELLIGENCE, AAAI-26, VOL 40 NO 34"
+DP-DyLoRA: Fine-Tuning Transformer-Based Models On-Device under Differentially Private Federated Learning using Dynamic Low-Rank Adaptation,2026,Scopus,IEEE International Conference on Communications
+DP-HM2F: Data-driven LoRA with dual-projection representation for heterogeneous multimodal federated fine-tuning,2026,WoS,EXPERT SYSTEMS WITH APPLICATIONS
+DeCAF: Decentralized consensus-and-factorization for low-rank adaptation of foundation models,2026,WoS,NEURAL NETWORKS
+Decentralized LoRA augmented transformer with multi-scale feature learning for secured eye diagnosis,2026,Scopus,Knowledge-Based Systems
+Dual-Adaptive SAM3: Hierarchical Routing over Low-Rank Expert Layers for Parameter-Efficient Medical Image Segmentation,2026,arXiv,arXiv:2607.02571
+EPnG: Adaptive Expert Prune-and-Grow for Parameter-Efficient MoE Fine-tuning,2026,arXiv,arXiv:2607.01789
+Echocardiography Report Translation and Inference Based on Parameter-Efficient Fine-Tuning of LLaMA Models,2026,WoS,DIAGNOSTICS
+Efficient Multi-Adapter LLM Serving via Cross-Model KV-Cache Reuse with Activated LoRA,2026,Scopus,Transactions on Machine Learning Research
+Efficient multi-tenant LoRA serving via SGMV-specific operator autotuning,2026,WoS,JOURNAL OF KING SAUD UNIVERSITY COMPUTER AND INFORMATION SCIENCES
+Explainable multilingual NMT with adapters and mixture-of-experts: a study on low-resource Indic languages,2026,Scopus,International Journal of Speech Technology
+Exploring Backdoor Attacks in Federated Learning Under Parameter-Efficient Fine Tuning,2026,WoS,"INFORMATION SECURITY, ISC 2025"
+FLAGuard: Efficient Verifiable Federated LoRA of Large Language Models,2026,WoS,IEEE TRANSACTIONS ON MOBILE COMPUTING
+FORCE: Federated Orthogonality-Aware Low-Rank Adaptation for Communication-Efficient Fine-Tuning,2026,WoS,IEEE NETWORKING LETTERS
+FedDLPD: An efficient personalized federated intrusion detection framework for IIoT via dynamic low-rank parameter decoupling,2027,Scopus,Future Generation Computer Systems
+FedGSA: Geometry-Consistent Subspace Aggregation for Differentially Private Federated LoRA,2026,arXiv,arXiv:2608.03267
+FedLoDrop: Federated LoRA With Dropout for Generalized LLM Fine-Tuning,2026,WoS,IEEE JOURNAL ON SELECTED AREAS IN COMMUNICATIONS
+FedMosaic: Federated Retrieval-Augmented Generation via Parametric Adapters,2026,Scopus,SIGIR 2026 - Proceedings of the 49th International ACM SIGIR Conference on Research and Development in Information Retrieval
+FedP2EFT: Federated Learning to Personalize PEFT for Multilingual LLMs,2026,WoS,"FORTIETH AAAI CONFERENCE ON ARTIFICIAL INTELLIGENCE, AAAI-26, VOL 40 NO 27"
+FedQuad: Adaptive Layer-Wise LoRA Deployment and Activation Quantization for Federated Fine-Tuning,2026,WoS,IEEE TRANSACTIONS ON MOBILE COMPUTING
+FedWeave: Rethinking the Unit of Specialization in Heterogeneous Federated MoE-LoRA,2026,arXiv,arXiv:2607.26618
+Federated Adapter Learning Under Energy Constraints for Generative Personalization in Consumer Electronics Networks for IoV Deployments,2026,Scopus,IEEE Transactions on Consumer Electronics
+Federated LoRA Adaptation of BiomedCLIP Across Four International Chest X-Ray Cohorts,2026,arXiv,arXiv:2609.02101
+Federated LoRA Fine-Tuning for LLMs via Collaborative Alignment,2026,arXiv,arXiv:2605.21217
+Federated LoRA Fine-Tuning of LLMs With Only Transmitting Matrix A or B,2026,WoS,IEEE TRANSACTIONS ON MOBILE COMPUTING
+Fully decentralized inference for spatial data using low-rank models,2026,WoS,JOURNAL OF THE ROYAL STATISTICAL SOCIETY SERIES B-STATISTICAL METHODOLOGY
+Graph Cross-Domain Continual Fine-Tuning via Orthogonal LoRA Routing with Contrastive Expert Specialization,2026,Scopus,WWW 2026 - Proceedings of the ACM Web Conference 2026
+HAFLQ: Heterogeneous Adaptive Federated LoRA Fine-Tuned LLM With Quantization,2026,WoS,IEEE TRANSACTIONS ON WIRELESS COMMUNICATIONS
+Improving Dialect Robustness in Large Language Models via LoRA and Mixture-of-Experts,2026,Scopus,"VarDial 2026 - 13th Workshop on NLP for Similar Languages, Varieties and Dialects, Proceedings of the Workshop"
+Improving Learning of New Diseases Through Knowledge-Enhanced Initialization for Federated Adapter Tuning,2026,Scopus,IEEE Transactions on Medical Imaging
+LLM-MM: End-to-End Robust Multimodal Beam Prediction for 6G V2X Networks via MoE-LoRA Adaptation,2026,WoS,IEEE JOURNAL ON SELECTED AREAS IN COMMUNICATIONS
+LoGIC: Multi-LoRA Guided Importance Consensus for Multi-Task Pruning in Vision Transformers,2026,Scopus,Proceedings of the AAAI Conference on Artificial Intelligence
+Localized LoRA-MoE: Block-wise Low-Rank Experts With Adaptive Routing,2026,arXiv,arXiv:2607.05114
+MACE: Modular Adaptive Code Engine with Context-Aware LoRA Expert Routing and Hierarchical Retrieval-Augmented Generation,2026,Scopus,CEUR Workshop Proceedings
+MHP-SERVE: Mobile Heterogeneous Parallel Serving for LoRA Inference,2026,WoS,"WIRELESS SENSOR NETWORKS, CWSN 2025"
+MI-PEFT: Mixture-of-Experts Integrated Parameter-Efficient Fine-Tuning Protein Language Models Improves Acidophilic Proteins Classification,2026,arXiv,arXiv:2609.08059
+MLLoRA: Leveraging meta-learning and LoRA for efficient multi-task fine-tuning in LLM-driven medical applications,2026,WoS,PATTERN RECOGNITION LETTERS
+MMtuning: An Advanced Multi-adapter Framework for Efficient Multimodal Large Language Models Fine-Tuning,2026,WoS,"KNOWLEDGE SCIENCE, ENGINEERING AND MANAGEMENT, KSEM 2025, PT III"
+MT-MoA: A Unified Parameter-Efficient Multi-Task Adaptation Framework Toward Image Coding for Machines,2026,Scopus,IEEE Transactions on Multimedia
+MoE$^2$-LoRA: When MoE Models Meet MoE-style Low-Rank Adaptation,2026,arXiv,arXiv:2607.21978
+MoE-based Feature Adapter for Prompt-free Binary Coronary Artery Segmentation in X-ray Angiography,2026,arXiv,arXiv:2608.24783
+MoEGen: Mixture-of-Experts for Instance-Adaptive LoRA Generation,2026,arXiv,arXiv:2608.03275
+Multi-Adapter LLMs: Dynamic Mixture of LoRAs for Scalable Personalization,2026,Scopus,"2026 International Conference on Smart Futuristic Technology, ICSFT 2026"
+Multi-adapter based Federated Learning Framework for Remaining Useful Life Estimation Considering Heterogenous Local Edge Systems,2026,Scopus,Industrial Engineering and Management Systems
+On the Construction and Implications of Low-Loss Valleys in LoRA-based Bayesian Inference,2026,arXiv,arXiv:2605.29580
+PEML: Parameter-efficient Multi-Task Learning with Optimized Continuous Prompts,2026,arXiv,arXiv:2605.14055
+PFAdapter: Hierarchical LoRA Decomposition for Personalized Federated MLLMs,2026,arXiv,arXiv:2607.12111
+Parameter-Efficient Large Model Transfer and Cloud-Edge Collaborative Inference Method for Edge Devices,2026,Scopus,"2026 IEEE 6th International Conference on Electronic Technology, Communication and Information, ICETCI 2026"
+Per-FedLoRA: Personalized Federated LoRA Fine-Tuning for Multi-Task Large Language Models,2026,Scopus,"2026 International Wireless Communications and Mobile Computing Conference, IWCMC 2026"
+PreLort: Prefix-Nested LoRA for Federated Fine-Tuning under Rank Heterogeneity,2026,arXiv,arXiv:2606.15963
+Priority-Aware Learning-Unlearning Correction for Dynamic Decentralized LoRA Fine-Tuning,2026,arXiv,arXiv:2606.22878
+Prototype-Guided and Lightweight Adapters for Inherent Interpretation and Generalisation in Federated Learning,2026,WoS,"MEDICAL IMAGE COMPUTING AND COMPUTER ASSISTED INTERVENTION - MICCAI 2025, PT VII"
+RW-LoRA: Communication-Efficient Decentralized LoRA Fine-Tuning via Random Walks,2026,arXiv,arXiv:2609.00078
+Rethinking Factor Sharing in Federated LoRA: A Rank-Aware Adaptive Approach,2026,arXiv,arXiv:2608.09742
+Routing Is Not Enough: Diagnosing Intra-Adapter Subspace Contention in MoE+LoRA Fine-Tuning,2026,arXiv,arXiv:2609.03150
+SpecPrefetch: Parameter-Efficient Expert Prefetching for Sparse MoE Foundation Models,2026,arXiv,arXiv:2607.24787
+Spend Experts Where You Are Unsure: Confidence-Adaptive Routing for Mixture-of-Experts LoRA,2026,arXiv,arXiv:2607.26052
+Statistical Inference for Rank Allocation in Low-Rank Adaptation,2026,arXiv,arXiv:2607.20205
+TCPA-MedMTL: A Task-Conditioned Prototype Adapter for Multi-Task Medical Image Classification,2026,Scopus,"2026 7th International Conference on Computer Vision, Image and Deep Learning, CVIDL 2026"
+TailorLLM: Collaborative End-Cloud Inference of Large and Small Language Models Based on Low-Rank Adaptation,2026,Scopus,EUROSYS 2026 - Proceedings of the 2026 European Conference on Computer Systems
+Task-Aware Cloud-End Offloading for Vision-Language Model Serving via Dynamic Modality-Specific Adapter Scheduling,2026,Scopus,WWW 2026 - Proceedings of the ACM Web Conference 2026
+Towards Universal Ultrasound Analysis: Parameter-Efficient Foundation Model with Task-Aware Routing for Heterogeneous Multi-Task Learning,2026,Scopus,Proceedings - International Symposium on Biomedical Imaging
+TransFR: Transferable Federated Recommendation with Adapter Tuning on Pre-trained Language Models,2026,WoS,"FORTIETH AAAI CONFERENCE ON ARTIFICIAL INTELLIGENCE, AAAI-26, VOL 40 NO 33"

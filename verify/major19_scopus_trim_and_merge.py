@@ -25,7 +25,7 @@ from pathlib import Path
 from collections import defaultdict
 
 ROOT = Path(__file__).resolve().parent.parent
-DB_RESULTS = ROOT / "verify" / "db_results"
+DB_RESULTS = ROOT / "verify" / "db_results" / "scopus"
 
 KEEP_COLUMNS = [
     "Authors", "Title", "Year", "Source title", "Cited by", "DOI",

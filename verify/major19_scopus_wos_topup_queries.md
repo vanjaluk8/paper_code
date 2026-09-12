@@ -134,19 +134,12 @@ AND PUBYEAR > 2025
 
 **Q1 — Core Adapter-Based NLP.**
 ```
-TS=(("adapter" OR "adapters" OR "LoRA" OR "low-rank")
-AND ("parameter-efficient" OR "PEFT" OR "parameter efficient")
-AND ("NLP" OR "natural language processing" OR "transformer"))
-AND PY >= 2026
+TS=(("adapter" OR "adapters" OR "LoRA" OR "low-rank") AND ("parameter-efficient" OR "PEFT" OR "parameter efficient") AND ("NLP" OR "natural language processing" OR "transformer")) AND PY=2026-2026
 ```
 
 **Q2 — Multi-Task Adapter Inference.**
 ```
-TS=((("adapter*" OR "LoRA" OR "PEFT")
-AND ("multi-task" OR "multitask")
-AND ("inference" OR "serving" OR "edge" OR "distributed")))
-AND PY >= 2026
-AND NOT TS=(("medical" OR "healthcare" OR "sentiment"))
+TS=(("adapter*" OR "LoRA" OR "PEFT") AND ("multi-task" OR "multitask") AND ("inference" OR "serving" OR "edge" OR "distributed")) NOT TS=("medical" OR "healthcare" OR "sentiment") AND PY=2026-2026
 ```
 
 **Q3 — Peer-to-Peer Distributed Learning.**
@@ -155,7 +148,7 @@ TS=(("peer-to-peer" OR "P2P" OR "decentralized" OR "federated")
 AND ("learning" OR "training" OR "inference")
 AND ("NLP" OR "natural language" OR "machine learning"
     OR "neural network"))
-AND PY >= 2026
+AND PY=2026-2026
 ```
 
 **Q4 — Adapter Fusion & Routing Mechanisms.**
@@ -163,7 +156,7 @@ AND PY >= 2026
 TS=(("adapter" OR "adapters")
 AND ("fusion" OR "dynamic routing" OR "mixture-of-experts"
     OR "MoE" OR "gating"))
-AND PY >= 2026
+AND PY=2026-2026
 ```
 
 **Q5 — Modular Deep Learning.**
@@ -171,7 +164,7 @@ AND PY >= 2026
 TS=(("modular" OR "modularity")
 AND ("neural" OR "transformer" OR "deep learning")
 AND ("inference" OR "task-specific" OR "lightweight"))
-AND PY >= 2026
+AND PY=2026-2026
 ```
 
 **Q6 — Agent-Based Collaborative ML.**
@@ -180,7 +173,7 @@ TS=(("agent" OR "agents" OR "distributed node*")
 AND ("collaborative" OR "collaboration" OR "decentralized"
     OR "gossip")
 AND ("deep learning" OR "machine learning"))
-AND PY >= 2026
+AND PY=2026-2026
 ```
 
 **Q7 — Memory-Efficient Multi-Task NLP.**
@@ -189,7 +182,7 @@ TS=(("multi-task" OR "multitask")
 AND ("memory-efficient" OR "memory efficient"
     OR "parameter-efficient" OR "computational efficient")
 AND ("NLP" OR "natural language" OR "transformer"))
-AND PY >= 2026
+AND PY=2026-2026
 ```
 
 **Q8 — Transfer Learning with Task Adaptation.**
@@ -197,7 +190,7 @@ AND PY >= 2026
 TS=(("transfer learning" OR "fine-tun*")
 AND ("adapter" OR "parameter-efficient" OR "LoRA")
 AND ("NLP" OR "text" OR "language"))
-AND PY >= 2026
+AND PY=2026-2026
 ```
 
 **Q9 — Sequence Task Learning.**
@@ -205,7 +198,7 @@ AND PY >= 2026
 TS=(("token classification" OR "NER" OR "named entity"
     OR "sequence labeling")
 AND ("adapter" OR "fine-tun*" OR "efficient" OR "modular"))
-AND PY >= 2026
+AND PY=2026-2026
 ```
 
 **Q10 — Distributed Inference.**
@@ -213,7 +206,7 @@ AND PY >= 2026
 TS=(("distributed" OR "decentralized")
 AND ("inference" OR "inference time")
 AND ("efficient" OR "modular" OR "lightweight"))
-AND PY >= 2026
+AND PY=2026-2026
 ```
 
 ---

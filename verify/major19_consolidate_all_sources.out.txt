@@ -1,0 +1,23 @@
+Total distinct titles across all three sources: 93
+By number of sources agreeing: {1: 76, 2: 17}
+
+Found by 2+ independent sources (17):
+  [Scopus+WoS] AdaFuse: Accelerating Dynamic Adapter Inference via Token-Level Pre-Gating and Fused Kernel Optimization
+  [Scopus+WoS] Adaptive Rank Allocation for Federated Parameter-Efficient Fine-Tuning of Language Models
+  [Scopus+WoS] CLARE: Continual Learning for Vision-Language-Action Models via Autonomous Adapter Routing and Expansion
+  [Scopus+WoS] Domain-Adaptive Multimodal Large Language Models for Photovoltaic Fault Diagnosis via Dynamic LoRA Routing
+  [Scopus+WoS] DyMerge-LoRA: On-GPU Post-Merge Fusion for High-Throughput Multi-Tenant Composite LoRA Serving
+  [Scopus+WoS] Enhancing Aggregation Efficiency and Training Stability in Heterogeneous Federated Learning Using the Adaptive LoRA FL Framework
+  [Scopus+WoS] FedALT: Federated Fine-Tuning through Adaptive Local Training with Rest-of-World LoRA
+  [Scopus+WoS] FedFA: Efficient federated large language models with feature adapters
+  [Scopus+WoS] FedHydra: Toward Parameter-Efficient and Backdoor-Resistant Federated Unlearning in Human-Centric Metaverse Service
+  [Scopus+WoS] MeLoRA: Probability measures-based low-rank adaptation with Gaussian variational inference
+  [Scopus+WoS] MoE-FFD: Mixture of Experts for Generalized and Parameter-Efficient Face Forgery Detection
+  [Scopus+WoS] Multi-Task Unified Domain Incremental Learning With Domain Difference Adapters
+  [Scopus+WoS] Multi-Task–Driven Adapter-Based Foundation Model for Locomotion Prediction in Virtual Reality
+  [Scopus+WoS] PM-adapter: MoE based dynamic denoising fine-tuning for thermal infrared object detection
+  [Scopus+WoS] PrivLoRA: Enhancing Privacy in LoRA-Based Fine-Tuning of Large Language Models for Federated Learning
+  [Scopus+WoS] Spatiotemporal Context-Aware Prompting With Low-Rank Dynamic Routing for Exemplar-Free Video Class-Incremental Learning
+  [Scopus+WoS] pFedLoRA: Model-Heterogeneous Personalized Federated Learning With Homogeneous Low-Rank Adapter Sharing on Mobile Edge Devices
+
+Wrote 93 consolidated rows to /Users/vanja/git/mdpi_paper_slr/verify/major19_topup_all_sources_consolidated.csv

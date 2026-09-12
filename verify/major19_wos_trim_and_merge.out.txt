@@ -1,0 +1,23 @@
+Q1_wos.txt (Q1): 168 rows
+Q2_wos.txt (Q2): 25 rows
+Q3_wos.txt (Q3): 1000 rows
+Q3b_wos.txt (Q3): 1000 rows
+Q3c_wos.txt (Q3): 536 rows
+Q4_wos.txt (Q4): 352 rows
+Q5_wos.txt (Q5): 335 rows
+Q6_wos.txt (Q6): 50 rows
+Q7_wos.txt (Q7): 17 rows
+Q8_wos.txt (Q8): 994 rows
+Q9_wos.txt (Q9): 248 rows
+Q10_wos.txt (Q10): 591 rows
+
+Total raw rows across all files (before dedup, query-collapsed): 5316
+Unique records after UT/DOI/Title dedup: 4983
+Year distribution (unique records): {'2026': 4922, '2027': 59, '2025': 2}
+
+Wrote 4983 unique merged records to /Users/vanja/git/mdpi_paper_slr/verify/major19_wos_topup_merged.csv
+Title-level PEFT+scope co-occurrence (reviewable shortlist): 43
+Of these, already in the 123-record corpus: 0
+Genuinely new candidates: 43
+Wrote 43 new, shortlisted candidates to /Users/vanja/git/mdpi_paper_slr/verify/major19_wos_topup_shortlist.csv
+No eligibility/inclusion judgement applied -- shortlist only, for human screening.
