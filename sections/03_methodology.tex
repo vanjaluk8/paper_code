@@ -361,20 +361,23 @@ citation-snowball records, summing to 123 (Table~\ref{tab:discovery_route});
 the two supplementary manual passes (the 88-record Scopus/WoS forward-snowball
 pass and the 34-record cross-validation top-up) retained none.
 
-Of the 123 included records, \textbf{70} (56.9\%) entered through the primary
-full-text-queue path (i.e.\ they are part of the \textbf{387}-record full-text
-queue and its \textbf{190}-record extraction subset in
-Figure~\ref{fig:prisma}), and the remaining \textbf{53} second-pass-included records (43.1\%) were
-screened in a second abstract-review pass (\texttt{abstract-2nd-pass}) before
-data extraction.
-These 53 second-pass records are drawn from the pre-validated/enriched corpus
-(G0--G6), not from the supplementary forward-citation snowball, whose records
-contributed none of the final 123. Both cohorts
-were therefore retrieved through documented citation snowballing (the
-automated G0 Semantic Scholar pass and the Scopus/WoS forward pass) rather
-than from an untraced source; the 53 second-pass records are enumerated by
-their extraction-document \texttt{review\_source} label
-(\texttt{abstract-2nd-pass}) in the accompanying data-availability record. The
+Of the 123 included records, \textbf{70} (56.9\%) carry the extraction-document
+\texttt{review\_source} label \texttt{fulltext}, and the remaining \textbf{53}
+(43.1\%) carry the label \texttt{abstract-2nd-pass}. Both labels describe
+records that passed through the same pipeline stages: all 123, without
+exception, are members of the \textbf{387}-record full-text queue and its
+\textbf{190}-record extraction subset in Figure~\ref{fig:prisma}
+(\texttt{in\_fulltext\_queue\_Q9} = 1 and \texttt{in\_extraction\_E11} = 1 for
+all 123 in the unified pipeline; verified in
+\texttt{verify/wp13\_inclusion\_route\_membership.py}). \texttt{review\_source}
+records which internal screening pass produced the eligibility decision --
+an initial full-text read (\texttt{fulltext}) or a second abstract-level
+pass that preceded it (\texttt{abstract-2nd-pass}) -- not a difference in
+which pipeline stages the record reached. The 53 \texttt{abstract-2nd-pass}
+records are drawn from the pre-validated/enriched corpus (G0--G6); none of
+the 123 final records originates from the supplementary forward-citation
+snowball pass, which contributed 0 records to the final list
+(\S\ref{sec:methodology:search}). The
 123 records (120 distinct papers) are distributed across the three
 reading-priority tiers as \textbf{48} Tier-1, \textbf{42} Tier-2, and
 \textbf{33} Tier-3 records (Figure~\ref{fig:tiers}, Appendix A). This
