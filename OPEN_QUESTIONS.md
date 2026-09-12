@@ -948,22 +948,24 @@ and the Methodology-section items remain entirely report-only as originally
 scoped — none of those are simple factual corrections the way the fixed
 E-items were.
 
-### Major 21: §9.3 concept-matrix dimension provenance — scaffold ready
+### Major 21: §9.3 concept-matrix dimension provenance — **FIXED**
 Review's ask: demonstrate that the seven concept-matrix dimensions were
 derived inductively from the corpus, not reverse-engineered from the
 target architecture, by citing the 2-3 corpus papers whose design
 commitments forced each dimension onto the list.
 
-`verify/major21_dimension_provenance_scaffold.md` builds this per
-dimension from evidence already in the manuscript: which of the 17 matrix
-systems score ✓/(✓) on each dimension, verbatim quotes from the
-manuscript's own descriptions of those systems, and a suggested framing
-argument for each. No new prose was written into the manuscript — this is
-new scientific synthesis (arguing that a pattern in the literature, not
-the target architecture, motivated each dimension), which the hard rules
-reserve for the author. Worth flagging: the scaffold surfaces that the
-three dimensions the gap claim actually hinges on (P2P topology,
-discovery, no central coordinator) are also the three rarest in the
-matrix (3-4 of 17 systems each) — a pattern that argues against the
-"dimensions picked to flatter the target" reading, since if that were the
-motive the rarest properties would be an odd set to keep.
+**Applied:** `sections/09_synthesis_gap.tex` §9.3's dimension-justification
+list now cites 2-3 corpus papers per dimension as evidence (author
+reviewed and approved the drafted prose before it was applied; no new
+bibliography entries were needed, all citations are to papers already
+used elsewhere in the manuscript). Scaffold and full per-dimension
+evidence trail: `verify/major21_dimension_provenance_scaffold.md`.
+
+Note on scope: an earlier draft of this fix also argued that the three
+dimensions the gap claim hinges on (P2P topology, discovery, no central
+coordinator) being the three rarest in the matrix (3-4 of 17 systems each)
+rebuts the "dimensions picked to flatter the target" reading. On reflection
+this doesn't discriminate between the two hypotheses -- a genuinely novel
+target's most distinctive properties would be rare in existing systems
+either way -- so it was left out of the manuscript text as weak evidence,
+even though it remains a mildly interesting aside.

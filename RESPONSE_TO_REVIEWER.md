@@ -48,7 +48,7 @@ Prose response cells are intentionally left blank — the author writes these.
 | Major 18 (E-3–E-8 verify/correct) | done | all five referenced items (E-3, E-4, E-5, E-6, E-8) are now `done` — see the Citation integrity table below | |
 | Major 19 (top-up search) | done | `sections/03_methodology.tex` §3.1 "Post-review top-up search" paragraph; 4 of the 10 author-kept candidates (DyMerge-LoRA, AdaFuse, TailorLLM, DeCAF) judged to add something the corpus doesn't already say and cited narratively in `sections/06_inference_systems.tex`, `07_moe_routing.tex`, `08_p2p_federated.tex`; the other 6 kept-but-redundant candidates logged, not cited (`OPEN_QUESTIONS.md` Major 19). Documented in Appendix C.5 and D.7 (`sections/12_appendix.tex`) and `Table~\ref{tab:search_log}`. Explicitly **not** merged into the 123-record corpus, PRISMA flow, or any corpus-derived statistic/table — see the paragraph for the rationale | |
 | Major 20 (citation-verification pass) | done (DOI pass) / needs author (full pass) | `OPEN_QUESTIONS.md` Major 21 — 125/128 DOIs resolve, 3 fixed | |
-| Major 21 (§9.3 dimension provenance) | scaffold ready / needs author (prose) | `verify/major21_dimension_provenance_scaffold.md` — per dimension, 2-3 candidate systems already in Table 10 with matrix-grounded evidence and suggested framing; author writes the connecting synthesis sentences in §9.3 | |
+| Major 21 (§9.3 dimension provenance) | done | `sections/09_synthesis_gap.tex` §9.3 — each of the 7 dimension-justification bullets now cites 2-3 corpus papers as evidence, from `verify/major21_dimension_provenance_scaffold.md`; no new bibliography entries needed | |
 
 ## Minor issues
 
