@@ -1,10 +1,19 @@
 # Open Questions — Author Report (Phase 3)
 
-Per REVISION_PROMPT.md: this file makes no manuscript edits. Each section states
-the item ID, the exact file/line, the offending text quoted verbatim, what the
-review alleges, what evidence exists in the repo (including primary-source PDFs
-where available), the specific question for the author, and the minimal edit
-that would follow from each possible answer.
+Per REVISION_PROMPT.md, this file was originally report-only. **Update:** once
+primary-source verification produced decisive, verbatim-quoted evidence for a
+subset of the E-items, the author explicitly authorised overriding the
+report-only rule for those items and applying the corrections directly. Each
+such item below is marked **FIXED** (or **PARTIALLY FIXED**, where a
+correct-but-unverifiable replacement citation was left as a `%
+TODO-AUTHOR` marker rather than invented). Items without a FIXED marker
+remain report-only, either because the evidence was judged too soft to act on
+without author sign-off, or because the item is inherently a scoping/framing
+decision rather than a fact to correct. Each section states the item ID, the
+exact file/line, the offending text quoted verbatim, what the review alleges,
+what evidence exists in the repo (including primary-source PDFs where
+available), the specific question for the author, and — for open items — the
+minimal edit that would follow from each possible answer.
 
 **Verification method for the Citation Integrity section below:** every item
 marked with a verdict was checked directly against the cited paper's own PDF
@@ -18,7 +27,12 @@ source, cited by page/section where the PDF was used.
 
 ## Citation integrity
 
-### E-1: Zadouri et al. [102] — O(log N) communication-budget claim — CONTRADICTED
+### E-1: Zadouri et al. [102] — O(log N) communication-budget claim — CONTRADICTED — **FIXED**
+**Applied:** the Zadouri paragraph (`sections/07_moe_routing.tex`) has been
+removed. Its real content (parameter-efficient MoE for instruction tuning)
+did not belong in the "Distributed and Crowdsourced MoE" subsection once the
+fabricated communication-constraint framing was removed.
+
 - **Manuscript location:** `sections/03_methodology.tex` line ~230 (§7.2 area is
   now cross-referenced from methodology; original claim text lives in
   `sections/07_moe_routing.tex`), cited as `ZadouriPushMoE2024`
@@ -46,7 +60,15 @@ source, cited by page/section where the PDF was used.
   replace the citation if you have a different source in mind for a
   genuine MoE-communication-budget result.
 
-### E-2: Zeng et al. [65] miscited; Aghajanyan 2021 absent from corpus — CONTRADICTED
+### E-2: Zeng et al. [65] miscited; Aghajanyan 2021 absent from corpus — CONTRADICTED — **PARTIALLY FIXED**
+**Applied:** removed the false attribution to Zeng et al. in both §4.1 and
+§4.3 (`sections/04_peft.tex`), leaving `% TODO-AUTHOR [E-2]` markers where
+the correct citation (Aghajanyan et al. 2021, if you confirm it) needs to be
+added — not added automatically, since that would mean introducing a
+citation from the agent's own literature knowledge rather than verified
+evidence. The unsupported claims themselves were removed/reworded so the
+text is no longer attributing a nonexistent result to Zeng's paper.
+
 - **Manuscript location:** `sections/04_peft.tex` §4.1 and §4.3, cited as
   `ZengExpressive2024`
 - **Manuscript claim (verbatim, §4.3):** "The theoretical basis for LoRA's
@@ -123,7 +145,14 @@ source, cited by page/section where the PDF was used.
   (Ponti2023 for the skill-matrix method it actually proposes, elsewhere in
   the text where that's relevant).
 
-### E-4: MOELoRA [62, Liu et al.] — two attributed claims, both — CONTRADICTED
+### E-4: MOELoRA [62, Liu et al.] — two attributed claims, both — CONTRADICTED — **FIXED**
+**Applied:** §7.3 rewritten to describe the actual task-identity-gate
+mechanism instead of a fabricated per-attention-head, per-token top-k
+description. §7.4's redundant, incorrect re-description of the same paper as
+a "comprehensive analysis of when MoE routing benefits fine-tuning" was
+removed (the paper is already correctly described once, at its first
+mention).
+
 - **Manuscript location:** `sections/07_moe_routing.tex` §7.3 (line ~98) and
   §7.4 (line ~144), cited as `LiuWhenMOE2024`
 - **Manuscript claims (verbatim):**
@@ -163,7 +192,13 @@ source, cited by page/section where the PDF was used.
   routing-benefits analysis, that citation would need to be identified and
   added (not something I can do from my own knowledge of the literature).
 
-### E-5: MAD-X Table 7 row — dataset claim — CONTRADICTED
+### E-5: MAD-X Table 7 row — dataset claim — CONTRADICTED — **FIXED**
+**Applied:** Table 7's MAD-X row (`sections/03_methodology.tex`) now reads
+"NER, causal commonsense reasoning, QA (typologically diverse langs)" instead
+of "GLUE (6 langs)," matching the paper's own abstract. Metric changed to
+"Accuracy/F1" since the exact per-task metric wasn't independently confirmed
+beyond the abstract-level dataset check.
+
 - **Manuscript location:** `sections/03_methodology.tex` Table 7
   (`tab:datasets`), MAD-X row
 - **Manuscript claim (verbatim):** "GLUE (6 langs), cross-lingual transfer,
@@ -185,7 +220,15 @@ source, cited by page/section where the PDF was used.
   experiments section if you want dataset-level precision beyond what the
   abstract states) in Table 7's Dataset and Task Type columns.
 
-### E-6: Ormándi et al. [23] — O(log N) epidemic-spreading claim — CONTRADICTED
+### E-6: Ormándi et al. [23] — O(log N) epidemic-spreading claim — CONTRADICTED — **PARTIALLY FIXED**
+**Applied:** removed the incorrect citation at both occurrences (§2.3,
+`sections/02_background.tex`; §9.4, `sections/09_synthesis_gap.tex`),
+leaving `% TODO-AUTHOR [E-6]` markers for the correct classical source
+(Demers/Karp/Pittel-type result) — not added automatically, since I don't
+have a verified specific paper/edition to cite. The qualitative O(log N)
+claim itself is left in place (uncited) since it's a well-established
+classical result, just not from this citation.
+
 - **Manuscript location:** `sections/02_background.tex` line ~138 (§2.3) and
   `sections/09_synthesis_gap.tex` (§9.4), cited as `OrmandyGossip2013`
 - **Manuscript claim (verbatim, §2.3):** "information spreads across the
@@ -213,7 +256,14 @@ source, cited by page/section where the PDF was used.
   qualitative "gossip protocols disseminate information efficiently" framing
   in both locations.
 
-### E-7: Internal contradiction on gossip-learning convergence — CONTRADICTED (claim oversimplified)
+### E-7: Internal contradiction on gossip-learning convergence — CONTRADICTED (claim oversimplified) — **FIXED**
+**Applied:** §8.2 (`sections/08_p2p_federated.tex`) rewritten to state the
+actual, compression-rate-dependent finding instead of a flat "faster... per
+communication round" claim. Table 7's "20–50% slower" cell
+(`sections/03_methodology.tex`) — which could not be traced to explicit text
+in the cited paper — replaced with a qualitative description matching what
+was actually verified (compression-rate-dependent).
+
 - **Manuscript location:** `sections/08_p2p_federated.tex` line 59 (§8.2) vs
   `sections/03_methodology.tex` line 762 (Table 7, Gossip Learning row)
 - **Manuscript claims (verbatim):**
@@ -247,7 +297,12 @@ source, cited by page/section where the PDF was used.
   originates, or replace it with a qualitative description matching what
   the cited paper supports.
 
-### E-8: S-LoRA [Sheng2024] — second mechanism mis-described — CONTRADICTED
+### E-8: S-LoRA [Sheng2024] — second mechanism mis-described — CONTRADICTED — **FIXED**
+**Applied:** §6.2 (`sections/06_inference_systems.tex`) rewritten to describe
+the actual second mechanism (tensor parallelism + custom CUDA kernels for
+heterogeneous batching) instead of the fabricated popularity/queue-depth
+prefetch scheduler.
+
 - **Manuscript location:** `sections/06_inference_systems.tex` §6.2
 - **Manuscript claim (verbatim):** "S-LoRA introduced two key mechanisms:
   Unified Paging … and a stateless scheduler that selects which adapters to
@@ -271,7 +326,10 @@ source, cited by page/section where the PDF was used.
   mechanism; check whether this also affects the P2P-analogy argument drawn
   immediately after it in §6.2, and Table 9's S-LoRA row description.
 
-### E-9: Switch Transformers — "equivalent parameter count" — CONTRADICTED
+### E-9: Switch Transformers — "equivalent parameter count" — CONTRADICTED — **FIXED**
+**Applied:** `sections/07_moe_routing.tex` now reads "at equal computational
+cost" instead of "at equivalent parameter count."
+
 - **Manuscript location:** `sections/07_moe_routing.tex`, line ~1031 area
 - **Manuscript claim (verbatim):** "achieved a 7× pre-training speedup over
   dense T5 at equivalent parameter count"
@@ -318,7 +376,15 @@ source, cited by page/section where the PDF was used.
   this claim was conflated with §5.7's UniPELT, which the reviewer notes is
   the genuinely heterogeneous-composition system in this corpus.
 
-### E-11: Houlsby LayerNorm claim; duplicate equations — CONTRADICTED, decisively
+### E-11: Houlsby LayerNorm claim; duplicate equations — CONTRADICTED, decisively — **FIXED**
+**Applied:** removed `LayerNorm(h)` from the bottleneck-adapter equation
+(`sections/02_background.tex`); rewrote the explanatory prose in
+`sections/04_peft.tex` to correctly describe layer normalisation as external
+to the adapter (the transformer's own, per-task-retrained LayerNorm, applied
+after the adapter+skip connection). Also merged the two duplicate equations
+into one (`eq:bottleneck`), with `04_peft.tex` now referencing it instead of
+restating it under a second label.
+
 - **Manuscript location:** `sections/04_peft.tex` lines 50–54 (prose) and
   Equation `eq:bottleneck_intro` (line 44); a second version of the same
   equation, `eq:bottleneck` in `sections/02_background.tex` line 74, includes
@@ -381,7 +447,14 @@ al."→"Chen" (1 instance, the single-authored `ChenFlashServe2025`),
 underlying bib `author` fields corrected). Nothing further needed unless you
 know of additional instances not caught by text search.
 
-### E-14: Šajina thesis year — 2021 vs 2025 — RESOLVED
+### E-14: Šajina thesis year — 2021 vs 2025 — RESOLVED — **FIXED (annotated, not silently altered)**
+**Applied:** the "2021" occurs inside a verbatim-quoted Undermind search
+prompt (Appendix B), which the manuscript elsewhere states is reproduced
+verbatim. Rather than silently changing quoted historical text, added an
+editorial `[sic; ... actual defence year is 2025 ...]` annotation inline,
+preserving the verbatim-reproduction claim's integrity while flagging the
+discrepancy for the reader.
+
 - **Manuscript location:** Table 1 and ref `Sajina2025` say 2025;
   `sections/12_appendix.tex` Appendix B, Group 3 Undermind prompt says
   "Šajina (2021, University of Rijeka doctoral thesis)"
@@ -402,7 +475,12 @@ know of additional instances not caught by text search.
   unedited here per the rule that citation corrections go through the author
   report, but it is fully resolved and safe to apply as-is.
 
-### E-15: CaraServe — 1.4× vs 1.7×, and "≤99% SLO attainment" — RESOLVED
+### E-15: CaraServe — 1.4× vs 1.7×, and "≤99% SLO attainment" — RESOLVED — **FIXED**
+**Applied:** Table 7's "1.4× on average" (`sections/03_methodology.tex`)
+changed to "up to 1.7×", matching §6.3/Table 9 and the published Toppings
+paper. "≤99% SLO attainment" (Table 9, `sections/06_inference_systems.tex`)
+changed to "up to 99% SLO attainment," matching the paper's own wording.
+
 - **Manuscript location:** `sections/06_inference_systems.tex` §6.3 and
   Table 9 say "up to 1.7× lower serving latency"; Table 7
   (`sections/03_methodology.tex`) says "1.4× on average"
@@ -713,3 +791,16 @@ re-derived above). That fix was verified correct and left in place; see
 `CHANGELOG.md` for the disclosure. All of the E-1 through E-15 and S-2
 primary-source verification above was completed directly, by reading the
 cited papers' own PDFs or fetching their abstracts from arXiv's API.
+
+**Fixes applied directly (author-authorised, see above):** E-1, E-4, E-5,
+E-7, E-8, E-9, E-11, E-14, E-15 (fully fixed); E-2, E-6 (partially fixed —
+the false attribution was removed, but the correct replacement citation is
+left as a `% TODO-AUTHOR` marker since inventing one would violate the rule
+against introducing citations from the agent's own literature knowledge).
+**Left as report-only, author judgement required:** E-3 (evidence rests on
+arXiv abstracts only, no full paper read), E-10 (inferred from consistent
+framing, not an explicit denial), E-12 (no citation exists to check), E-13
+(already handled in WP-3, not a fact-check item). S-1 through S-4, N-1, N-3,
+and the Methodology-section items remain entirely report-only as originally
+scoped — none of those are simple factual corrections the way the fixed
+E-items were.

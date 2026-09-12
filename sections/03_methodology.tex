@@ -724,8 +724,9 @@ the benchmarks themselves are public in every row.}
   Accuracy & multiple tasks & Yes \\
   AdapterFusion~\cite{Pfeiffer2021fusion} & 16-task suite (incl.\ MNLI, SciTail,
   MRPC, CB) & NLU classification & Accuracy & 94.8 (SciTail, Fusion w/ MT-A) & Yes \\
-  MAD-X~\cite{PfeifferMADX2020} & GLUE (6 langs) & cross-lingual transfer &
-  Accuracy & zero-shot transfer & Yes \\
+  MAD-X~\cite{PfeifferMADX2020} & NER, causal commonsense reasoning, QA
+  (typologically diverse langs) & cross-lingual transfer &
+  Accuracy/F1 & zero-shot transfer & Yes \\
   LoraHub~\cite{Huang2023} & BIG-Bench Hard & few-shot transfer & Accuracy &
   34.7 avg per task (BBH) & Yes \\
   LoraRetriever~\cite{ZhaoLoraRetriever2024} & domain QA, MT-bench & multi-task
@@ -739,7 +740,7 @@ the benchmarks themselves are public in every row.}
   Punica~\cite{Chen2023Punica} & synthetic serving & throughput & req/s &
   12$\times$ higher throughput & Yes \\
   CaraServe~\cite{Li2024CaraServe} & synthetic & throughput & req/s &
-  1.4$\times$ on average & Yes \\
+  up to 1.7$\times$ & Yes \\
   Petals~\cite{Borzunov2023} & multiple & instruction following & Accuracy &
   multiple & Yes \\
   MT-EF (Multi-Task Encoder Fusion) / {\v{S}}ajina~\cite{Sajina2024} & Reddit, StackOverflow, CoNLL-2003,
@@ -759,7 +760,8 @@ the benchmarks themselves are public in every row.}
   SLoRA~\cite{Babakniya2023} & GLUE, SuperGLUE & NLU classification & Accuracy
   & 2$\times$ faster convergence & Unknown \\
   Gossip Learning~\cite{HegeduisGossip2019} & synthetic & classification &
-  Accuracy & $\approx$ FL quality (20--50\% slower) & Unknown \\
+  Accuracy & $\approx$ FL quality (compression-rate-dependent: slower
+  uncompressed, competitive-to-faster under high compression) & Unknown \\
   \midrule
   \multicolumn{6}{l}{\textbf{Pillar 5: MoE and Adapter Routing}} \\
   Switch Transformers~\cite{Fedus2022} & C4 pre-training & language modelling &

@@ -56,8 +56,9 @@ stores adapter weights in a unified CPU--GPU memory pool and dynamically pages a
 weights between CPU and GPU memory as requests arrive and depart. S-LoRA introduced
 two key mechanisms: \textit{Unified Paging}, which maintains a unified memory pool that co-manages both adapter weights of
 heterogeneous ranks and KV cache tensors with varying sequence lengths, enabling
-fine-grained paged allocation for both simultaneously, and a \textit{stateless scheduler} that selects which adapters to
-prefetch into GPU memory based on request queue depth and adapter popularity. S-LoRA
+fine-grained paged allocation for both simultaneously, and a \textit{tensor parallelism
+strategy paired with custom CUDA kernels} that batch LoRA computation across adapters
+of heterogeneous rank within the same request batch. S-LoRA
 scales to serve over 2,000 distinct LoRA adapters concurrently on a single A100 GPU
 with near-zero switching overhead, achieving 1.5--4$\times$ higher throughput than
 adapter-unaware baselines at the same GPU utilisation, depending on workload
@@ -128,7 +129,7 @@ adapters on one GPU \\
 CaraServe~\cite{Li2024CaraServe} & Rank-aware split: high-rank on GPU, low-rank
 computed on CPU cores & CPU-side prefill early-start, pipelined GPU transfer
 during ongoing decode & CPU compute $+$ DRAM & up to $1.7\times$ lower serving
-latency; $\leq$99\% SLO attainment \\
+latency; up to 99\% SLO attainment \\
 EdgeLoRA~\cite{Shen2025EdgeLoRA} & Compressed (quantised / pruned) adapters
 time-sharing device memory & Dynamic time-sharing of GPU memory across tenants &
 Device DRAM / flash & up to 70\% memory saving, within 2\% accuracy (edge

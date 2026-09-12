@@ -55,12 +55,14 @@ each node periodically samples a peer, exchanges model parameters with that peer
 averages the received parameters with its own local model \cite{OrmandyGossip2013}.
 
 Heged{\H{u}}s et al.~\cite{HegeduisGossip2019} demonstrated that gossip learning matches or outperforms
-FL quality in simulation while eliminating the central aggregator. Convergence is
-faster than FL per communication round due to the direct peer-to-peer exchange,
-and the approach scales to large peer populations without
-requiring any central infrastructure. Adaptive peer selection: preferring neighbours
-with high estimated bandwidth or diverse data distributions improves convergence
-speed in heterogeneous networks.
+FL quality in simulation while eliminating the central aggregator. The comparison is
+conditional on compression, not a flat speed advantage: with no compression, FL
+converges faster in wall-clock time, while under high compression rates gossip
+learning's slower aggregation is offset by its higher communication efficiency,
+letting it match or outperform FL overall. The approach scales to large peer
+populations without requiring any central infrastructure. Adaptive peer selection:
+preferring neighbours with high estimated bandwidth or diverse data distributions
+improves convergence speed in heterogeneous networks.
 
 Fully decentralised FL without a server was formalised by Vanhaesebrouck et al.~\cite{VanhaesebrouckDCL2017},
 who analysed the convergence of gossip-based averaging for convex objectives, and by

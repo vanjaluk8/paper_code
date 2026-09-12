@@ -71,7 +71,7 @@ The three canonical PEFT approaches reviewed in this SLR are:
 \end{enumerate}
 
 \begin{equation}
-\mathrm{Adapter}(h) = W_{\mathrm{up}} \; \sigma( W_{\mathrm{down}} ( \mathrm{LayerNorm}(h) ) ) + h
+\mathrm{Adapter}(h) = W_{\mathrm{up}} \; \sigma( W_{\mathrm{down}} \, h ) + h
 \label{eq:bottleneck}
 \end{equation}
 
@@ -133,8 +133,17 @@ and its correctness and churn-tolerance are well-understood.
 \textbf{Gossip protocols} provide a complementary mechanism for propagating information
 in P2P networks without any routing infrastructure. In a gossip protocol, each peer
 periodically selects a random neighbour and exchanges a subset of its local state;
+% TODO-AUTHOR [E-6]: the O(log N) round-complexity claim below was previously attributed
+% to Ormandi et al. (OrmandyGossip2013), but that paper (an ML ensemble-voting method,
+% "Gossip Learning with Linear Models on Fully Distributed Data") contains no such result --
+% confirmed by a full-text search of the paper for "O(log", "log N", and "rounds with high
+% probability" (zero matches). This is a real, classical epidemic/rumour-spreading bound
+% (e.g. Demers et al. 1987; Karp et al. 2000; Pittel 1987) but the citation for it is not
+% currently in bibliography.bib -- not added here per the rule against introducing citations
+% from the agent's own literature knowledge. Please add the correct source and restore a
+% \cite{} here.
 over time, information spreads across the network in $O(\log N)$ rounds with high
-probability \cite{OrmandyGossip2013}. Gossip protocols are inherently fault-tolerant
+probability. Gossip protocols are inherently fault-tolerant
 (peer churn merely slows convergence rather than breaking correctness) and
 communication-efficient (each round requires only one peer-to-peer message).
 

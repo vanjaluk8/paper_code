@@ -79,21 +79,21 @@ Prose response cells are intentionally left blank — the author writes these.
 
 | Item | Status | Where to look | Response |
 |---|---|---|---|
-| E-1 | needs author | `OPEN_QUESTIONS.md` E-1 — CONTRADICTED | |
-| E-2 | needs author | `OPEN_QUESTIONS.md` E-2 — CONTRADICTED; Aghajanyan 2021 confirmed absent from corpus | |
-| E-3 | needs author | `OPEN_QUESTIONS.md` E-3 — CONTRADICTED, swap indicated | |
-| E-4 | done (naming) / needs author (content) | `sections/07_moe_routing.tex` (WP-3, naming); `OPEN_QUESTIONS.md` E-4 — both claims CONTRADICTED | |
-| E-5 | needs author | `OPEN_QUESTIONS.md` E-5 — CONTRADICTED | |
-| E-6 | needs author | `OPEN_QUESTIONS.md` E-6 — CONTRADICTED | |
-| E-7 | needs author | `OPEN_QUESTIONS.md` E-7 — CONTRADICTED as a flat claim (paper's own finding is compression-rate-dependent) | |
-| E-8 | needs author | `OPEN_QUESTIONS.md` E-8 — CONTRADICTED | |
-| E-9 | needs author | `OPEN_QUESTIONS.md` E-9 — CONTRADICTED | |
-| E-10 | needs author | `OPEN_QUESTIONS.md` E-10 — CONTRADICTED | |
-| E-11 | needs author | `OPEN_QUESTIONS.md` E-11 — CONTRADICTED, decisively | |
+| E-1 | done | `sections/07_moe_routing.tex` — fabricated paragraph removed | |
+| E-2 | done (partial — TODO-AUTHOR marker for the replacement citation) | `sections/04_peft.tex` §4.1, §4.3 | |
+| E-3 | needs author | `OPEN_QUESTIONS.md` E-3 — CONTRADICTED, swap indicated (evidence: arXiv abstracts only) | |
+| E-4 | done | `sections/07_moe_routing.tex` §7.3, §7.4 — both claims corrected/removed | |
+| E-5 | done | `sections/03_methodology.tex` Table 7, MAD-X row | |
+| E-6 | done (partial — TODO-AUTHOR marker for the replacement citation) | `sections/02_background.tex` §2.3, `sections/09_synthesis_gap.tex` §9.4 | |
+| E-7 | done | `sections/08_p2p_federated.tex` §8.2, `sections/03_methodology.tex` Table 7 | |
+| E-8 | done | `sections/06_inference_systems.tex` §6.2 | |
+| E-9 | done | `sections/07_moe_routing.tex` | |
+| E-10 | needs author | `OPEN_QUESTIONS.md` E-10 — CONTRADICTED (inferred from framing, not an explicit denial) | |
+| E-11 | done | `sections/02_background.tex`, `sections/04_peft.tex` — equation + prose corrected, duplicate equations merged | |
 | E-12 | needs author | `OPEN_QUESTIONS.md` E-12 — no citation exists to check | |
 | E-13 | done | see WP-3 above | |
-| E-14 | needs author | `OPEN_QUESTIONS.md` E-14 — RESOLVED (2025 correct) | |
-| E-15 | needs author | `OPEN_QUESTIONS.md` E-15 — RESOLVED (1.7× correct, version difference) | |
+| E-14 | done (annotated, not silently altered — see OPEN_QUESTIONS.md) | `sections/12_appendix.tex` Appendix B | |
+| E-15 | done | `sections/03_methodology.tex` Table 7, `sections/06_inference_systems.tex` Table 9 | |
 
 ## Scoping and analysis (S-*, N-*)
 

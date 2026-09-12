@@ -23,7 +23,7 @@ sub-layer in each transformer block with a sparse MoE layer whose \textit{router
 assigns each token to exactly one expert (Top-1 routing). Top-1 routing eliminates the
 token-drop problem of earlier Top-$k$ schemes by introducing a configurable \textit{expert
 capacity factor} as a fraction of the per-expert buffer, reducing token dropping to near zero. Switch Transformers achieved
-a 7$\times$ pre-training speedup over dense T5 at equivalent parameter count, scaling
+a 7$\times$ pre-training speedup over dense T5 at equal computational cost, scaling
 to trillion-parameter sparse models. A load-balancing auxiliary loss prevents routing
 collapse in which a small subset of experts receives all tokens. However, Switch
 Transformers rely on a fixed set of known experts co-located in a single process; they do
@@ -71,12 +71,6 @@ The authors demonstrated that crowdsourced MoE can serve useful inference despit
 dropout rates of up to 30\% of experts per batch, by over-provisioning the expert
 pool and routing around failed nodes.
 
-Zadouri et al.~\cite{ZadouriPushMoE2024} proposed pushing MoE to its practical limits through
-adaptive expert specialisation under communication constraints, demonstrating that
-MoE routing quality degrades gracefully when all-to-all communication is limited
-to $O(\log N)$ messages per batch --- a communication budget consistent with DHT-based
-lookup.
-
 While the MoE literature reviewed above operates within a single training or inference
 run, the Petals system of Borzunov et al.~\cite{Borzunov2023} demonstrated routing at the
 \textit{node level}: client requests are dispatched to whichever volunteer nodes
@@ -95,10 +89,12 @@ sparse routing framework. This shifts the routing granularity from the layer lev
 of selecting adapters from a library in a multi-task serving system.
 
 These methods differ primarily in routing granularity and gating mechanism.
-At the finest granularity, MOELoRA (Liu et al.) \cite{LiuWhenMOE2024} attaches separate LoRA experts
-per attention head and routes each token to its top-$k$ experts at the head level,
-allowing different subspaces of the key--value projection to specialise for different tasks.
-The remaining methods operate at the layer level but vary in how routing weights are
+MOELoRA (Liu et al.) \cite{LiuWhenMOE2024} attaches multiple LoRA experts within each
+fine-tuned layer and combines their contributions with a task-motivated gate function
+driven by task identity rather than per-token input content, producing one fixed
+parameter combination per task rather than a per-sample or per-token routing decision.
+The remaining methods instead condition routing on the input itself, varying in how
+those routing weights are
 computed: MixLoRA \cite{LiMixLoRA2024} uses continuous mixing weights produced by a
 differentiable gating function with contrastive regularisation to prevent expert collapse,
 while MiLoRA \cite{ZhangMiLoRA2024} uses Top-1 sparse gating with a diversity penalty
@@ -140,11 +136,6 @@ Muqeeth et al.~\cite{Muqeeth2024} investigated soft merging of task-specific ada
 that interpolating adapter weights according to input-conditioned routing weights
 outperforms both hard routing and uniform averaging, with a particularly strong
 advantage on distribution-shifted test sets.
-
-Liu et al.~\cite{LiuWhenMOE2024} provided a comprehensive analysis of when MoE routing benefits
-LLM fine-tuning, identifying task diversity and data heterogeneity as the primary
-drivers of MoE gain over single-adapter baselines, and routing collapse as the primary
-failure mode when task distribution is narrow.
 
 \subsection{Sparse Adapters and Efficient Routing}
 \label{sec:moe_routing:sparse}

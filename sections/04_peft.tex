@@ -20,8 +20,20 @@ small, structured subset of parameters while keeping the pre-trained backbone fr
 \cite{DingNature2023}. Surveys by Han et al.~\cite{Han2024} and Wang et al.~\cite{WangAIReview2024}
 catalogue over thirty PEFT methods proposed between 2019 and 2024, and Mao et al.~\cite{MaoLoraSurvey2024}
 systematically analyses the convergence and expressive properties of the low-rank
-adaptation family. The common thread is the observation, formalised by Zeng et al.~\cite{ZengExpressive2024},
-that task-specific adaptation requires updates that lie in a substantially lower-dimensional
+adaptation family.
+% TODO-AUTHOR [E-2]: the following sentence attributed the lower-dimensional-subspace
+% observation to Zeng et al. (ZengExpressive2024), but that paper is about LoRA's
+% representational/expressive capacity (whether a rank-r adapter can exactly represent
+% a target model), not the empirical intrinsic-dimensionality claim below -- confirmed
+% by reading the paper's own abstract, which states its scope explicitly excludes
+% optimisation. The reviewer's suggested correct source is Aghajanyan et al. 2021
+% ("Intrinsic Dimensionality Explains the Effectiveness of Language Model Fine-Tuning",
+% ACL 2021), which is absent from bibliography.bib and this corpus -- not added here
+% per the rule against introducing citations from the agent's own literature knowledge.
+% If you confirm Aghajanyan et al. 2021 is the intended source, add it to
+% bibliography.bib and restore a \cite{} here.
+The common thread is that task-specific adaptation appears to require updates that lie
+in a substantially lower-dimensional
 subspace than the full weight manifold; PEFT methods exploit this structure to achieve
 near-parity with full fine-tuning at a fraction of the parameter cost.
 
@@ -38,20 +50,16 @@ multi-head self-attention sub-layer and after the feed-forward network (FFN) sub
 Each adapter applies a down-projection from the hidden dimension $d$ to a smaller
 bottleneck dimension $r$, a non-linearity (GeLU), and an up-projection back to $d$,
 with a residual skip connection so that a zero-initialised adapter leaves the model
-behaviour unchanged at the start of training:
+behaviour unchanged at the start of training, as given already in
+Equation~(\ref{eq:bottleneck}).
 
-\begin{equation}
-h \leftarrow h + W_\mathrm{up}\,\sigma(W_\mathrm{down}\,h)
-\label{eq:bottleneck_intro}
-\end{equation}
-
-
-
-Note: Equation~(\ref{eq:bottleneck_intro}) presents a simplified form of the Houlsby bottleneck adapter.
-The original Houlsby et al.~\cite{Houlsby2019} architecture additionally applies layer
-normalisation to the adapter input before the down-projection, which is abstracted away in
-Equation~(\ref{eq:bottleneck_intro}) for clarity. Figure~\ref{fig:houlsby_adapter} shows the full
-architecture, including this normalisation step.
+Equation~(\ref{eq:bottleneck}) shows the adapter module itself: it contains no
+internal normalisation layer. The Houlsby et al.~\cite{Houlsby2019} architecture does
+train layer-normalisation \emph{parameters} per task, but those parameters belong to
+the transformer's existing layer normalisation, applied to the sub-layer's output
+\emph{after} the adapter and its skip-connection are combined — not to a normalisation
+step inside the adapter module before the down-projection. Figure~\ref{fig:houlsby_adapter}
+shows the adapter module's actual internal structure.
 
 \begin{figure}[H]
     \centering
@@ -125,12 +133,19 @@ generation benchmarks (WikiSQL, MultiNLI, SAMSum) at GPT-3-175B scale
 \cite{Hu2022}, at a parameter overhead of
 approximately 0.01\% of the original model weight count.
 
-The theoretical basis for LoRA's effectiveness was established earlier by work on
-intrinsic dimensionality and low-rank gradient structure: Zeng et al.~\cite{ZengExpressive2024}
-showed that the gradient signal during fine-tuning lies near a low-rank manifold, and
-that models pre-trained at scale are already close to the optimum for most downstream
-distributions. This makes the low-rank constraint a descriptively accurate model of the
-true update, not merely a regularisation heuristic.
+% TODO-AUTHOR [E-2]: this paragraph attributed a gradient-manifold/intrinsic-dimensionality
+% result to Zeng et al. (ZengExpressive2024) and called it "established earlier" than LoRA --
+% chronologically impossible on its face, since that paper is from 2024 and cites LoRA
+% (2021/2022) as prior work it builds on. Confirmed by reading the paper directly: its
+% actual subject is LoRA's expressive/representational capacity (a rank threshold for
+% exact representability of a target model), and it explicitly states "This excludes
+% other aspects such as optimization" -- it contains no gradient-manifold claim at all.
+% Zeng et al.~\cite{ZengExpressive2024} is a genuine, later theoretical result about
+% LoRA's expressive power and may still be worth citing accurately elsewhere in this
+% section; it does not support the claim that was here. The reviewer's suggested
+% correct source for the deleted claim is Aghajanyan et al. 2021, absent from
+% bibliography.bib -- not added here per the rule against introducing citations from
+% the agent's own literature knowledge.
 
 Two structural properties of LoRA are worth noting beyond the accuracy numbers. The merged
 representation $W' = W_0 + BA$ means that an adapted model is computationally identical to
